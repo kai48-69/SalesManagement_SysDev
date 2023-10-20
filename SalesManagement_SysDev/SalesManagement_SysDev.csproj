@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F312C41-8A35-41B9-A847-2243F49D40F2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SalesManagement_SysDev</RootNamespace>
+    <AssemblyName>SalesManagement_SysDev</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entity\M_MajorClassification.cs" />
+    <Compile Include="Entity\M_Product.cs" />
+    <Compile Include="05F_在庫管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="05F_在庫管理.Designer.cs">
+      <DependentUpon>05F_在庫管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="07F_売上詳細管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="07F_売上詳細管理.Designer.cs">
+      <DependentUpon>07F_売上詳細管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="10F_発注管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="10F_発注管理.Designer.cs">
+      <DependentUpon>10F_発注管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="11F_入庫管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="11F_入庫管理.Designer.cs">
+      <DependentUpon>11F_入庫管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="13F_入荷詳細登録.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="13F_入荷詳細登録.Designer.cs">
+      <DependentUpon>13F_入荷詳細登録.cs</DependentUpon>
+    </Compile>
+    <Compile Include="12F_出庫管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="12F_出庫管理.Designer.cs">
+      <DependentUpon>12F_出庫管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="12F_出庫詳細登録.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="12F_出庫詳細登録.Designer.cs">
+      <DependentUpon>12F_出庫詳細登録.cs</DependentUpon>
+    </Compile>
+    <Compile Include="14F_出荷管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="14F_出荷管理.Designer.cs">
+      <DependentUpon>14F_出荷管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="13F_入荷管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="13F_入荷管理.Designer.cs">
+      <DependentUpon>13F_入荷管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="14F_出荷詳細管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="14F_出荷詳細管理.Designer.cs">
+      <DependentUpon>14F_出荷詳細管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="07F_売上管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="07F_売上管理.Designer.cs">
+      <DependentUpon>07F_売上管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_小分類管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_小分類管理.Designer.cs">
+      <DependentUpon>F_小分類管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="04F_商品管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="04F_商品管理.Designer.cs">
+      <DependentUpon>04F_商品管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="10F_発注詳細登録.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="10F_発注詳細登録.Designer.cs">
+      <DependentUpon>10F_発注詳細登録.cs</DependentUpon>
+    </Compile>
+    <Compile Include="06F_社員管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="06F_社員管理.Designer.cs">
+      <DependentUpon>06F_社員管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="03F_顧客管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="03F_顧客管理.Designer.cs">
+      <DependentUpon>03F_顧客管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="09F_注文詳細登録.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="09F_注文詳細登録.Designer.cs">
+      <DependentUpon>09F_注文詳細登録.cs</DependentUpon>
+    </Compile>
+    <Compile Include="09F_注文管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="09F_注文管理.Designer.cs">
+      <DependentUpon>09F_注文管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="08F_受注詳細登録.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="08F_受注詳細登録.Designer.cs">
+      <DependentUpon>08F_受注詳細登録.cs</DependentUpon>
+    </Compile>
+    <Compile Include="022F_営業管理メニュー.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="022F_営業管理メニュー.Designer.cs">
+      <DependentUpon>022F_営業管理メニュー.cs</DependentUpon>
+    </Compile>
+    <Compile Include="023F_物流管理メニュー.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="023F_物流管理メニュー.Designer.cs">
+      <DependentUpon>023F_物流管理メニュー.cs</DependentUpon>
+    </Compile>
+    <Compile Include="08F_受注管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="08F_受注管理.Designer.cs">
+      <DependentUpon>08F_受注管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="021F_管理者.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="021F_管理者.Designer.cs">
+      <DependentUpon>021F_管理者.cs</DependentUpon>
+    </Compile>
+    <Compile Include="00F_ログイン画面.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="00F_ログイン画面.Designer.cs">
+      <DependentUpon>00F_ログイン画面.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\M_Client.cs" />
+    <Compile Include="Entity\M_Employee.cs" />
+    <Compile Include="Entity\M_Maker.cs" />
+    <Compile Include="Entity\M_Position.cs" />
+    <Compile Include="Entity\M_SalesOffice.cs" />
+    <Compile Include="Entity\M_SmallClassification.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entity\T_Arrival.cs" />
+    <Compile Include="Entity\T_ArrivalDetail.cs" />
+    <Compile Include="Entity\T_Chumon.cs" />
+    <Compile Include="Entity\T_ChumonDetail.cs" />
+    <Compile Include="Entity\T_Hattyu.cs" />
+    <Compile Include="Entity\T_HattyuDetail.cs" />
+    <Compile Include="Entity\T_LoginHistory.cs" />
+    <Compile Include="Entity\T_OperationHistory.cs" />
+    <Compile Include="Entity\T_Order.cs" />
+    <Compile Include="Entity\T_OrderDetail.cs" />
+    <Compile Include="Entity\T_Sale.cs" />
+    <Compile Include="Entity\T_SaleDetail.cs" />
+    <Compile Include="Entity\T_Shipment.cs" />
+    <Compile Include="Entity\T_ShipmentDetail.cs" />
+    <Compile Include="Entity\T_Stock.cs" />
+    <Compile Include="Entity\T_Syukko.cs" />
+    <Compile Include="Entity\T_SyukkoDetail.cs" />
+    <Compile Include="Entity\T_Warehousing.cs" />
+    <Compile Include="Entity\T_WarehousingDetail.cs" />
+    <Compile Include="SalesManagement_DevContext.cs" />
+    <Compile Include="11F_入庫詳細登録.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="11F_入庫詳細登録.Designer.cs">
+      <DependentUpon>11F_入庫詳細登録.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="05F_在庫管理.resx">
+      <DependentUpon>05F_在庫管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="07F_売上詳細管理.resx">
+      <DependentUpon>07F_売上詳細管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="10F_発注管理.resx">
+      <DependentUpon>10F_発注管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="11F_入庫管理.resx">
+      <DependentUpon>11F_入庫管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="13F_入荷詳細登録.resx">
+      <DependentUpon>13F_入荷詳細登録.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="12F_出庫管理.resx">
+      <DependentUpon>12F_出庫管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="12F_出庫詳細登録.resx">
+      <DependentUpon>12F_出庫詳細登録.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="14F_出荷管理.resx">
+      <DependentUpon>14F_出荷管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="13F_入荷管理.resx">
+      <DependentUpon>13F_入荷管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="14F_出荷詳細管理.resx">
+      <DependentUpon>14F_出荷詳細管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="07F_売上管理.resx">
+      <DependentUpon>07F_売上管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_小分類管理.resx">
+      <DependentUpon>F_小分類管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="04F_商品管理.resx">
+      <DependentUpon>04F_商品管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="10F_発注詳細登録.resx">
+      <DependentUpon>10F_発注詳細登録.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="06F_社員管理.resx">
+      <DependentUpon>06F_社員管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="03F_顧客管理.resx">
+      <DependentUpon>03F_顧客管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="09F_注文詳細登録.resx">
+      <DependentUpon>09F_注文詳細登録.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="09F_注文管理.resx">
+      <DependentUpon>09F_注文管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="08F_受注詳細登録.resx">
+      <DependentUpon>08F_受注詳細登録.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="022F_営業管理メニュー.resx">
+      <DependentUpon>022F_営業管理メニュー.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="023F_物流管理メニュー.resx">
+      <DependentUpon>023F_物流管理メニュー.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="08F_受注管理.resx">
+      <DependentUpon>08F_受注管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="021F_管理者.resx">
+      <DependentUpon>021F_管理者.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="00F_ログイン画面.resx">
+      <DependentUpon>00F_ログイン画面.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="11F_入庫詳細登録.resx">
+      <DependentUpon>11F_入庫詳細登録.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
