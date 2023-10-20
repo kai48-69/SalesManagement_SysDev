@@ -58,7 +58,7 @@
             this.ButtonLogout.TabIndex = 5;
             this.ButtonLogout.Text = "ログアウト";
             this.ButtonLogout.UseVisualStyleBackColor = true;
-            this.ButtonLogout.Click += new System.EventHandler(this.button7_Click);
+            this.ButtonLogout.Click += new System.EventHandler(this.ButtonLogout_Click);
             // 
             // label1
             // 
@@ -79,7 +79,7 @@
             this.ButtonZaiko.TabIndex = 3;
             this.ButtonZaiko.Text = "在庫管理";
             this.ButtonZaiko.UseVisualStyleBackColor = true;
-            this.ButtonZaiko.Click += new System.EventHandler(this.button3_Click);
+            this.ButtonZaiko.Click += new System.EventHandler(this.ButtonZaiko_Click);
             // 
             // ButtonHattyu
             // 
@@ -90,7 +90,7 @@
             this.ButtonHattyu.TabIndex = 4;
             this.ButtonHattyu.Text = "発注管理";
             this.ButtonHattyu.UseVisualStyleBackColor = true;
-            this.ButtonHattyu.Click += new System.EventHandler(this.button4_Click);
+            this.ButtonHattyu.Click += new System.EventHandler(this.ButtonHattyu_Click);
             // 
             // ButtonNyuko
             // 
@@ -101,7 +101,7 @@
             this.ButtonNyuko.TabIndex = 5;
             this.ButtonNyuko.Text = "入庫管理";
             this.ButtonNyuko.UseVisualStyleBackColor = true;
-            this.ButtonNyuko.Click += new System.EventHandler(this.button5_Click);
+            this.ButtonNyuko.Click += new System.EventHandler(this.ButtonNyuko_Click);
             // 
             // ButtonSyukko
             // 
@@ -112,7 +112,7 @@
             this.ButtonSyukko.TabIndex = 6;
             this.ButtonSyukko.Text = "出庫管理";
             this.ButtonSyukko.UseVisualStyleBackColor = true;
-            this.ButtonSyukko.Click += new System.EventHandler(this.button6_Click);
+            this.ButtonSyukko.Click += new System.EventHandler(this.ButtonSyukko_Click);
             // 
             // ButtonSyouhin
             // 

@@ -17,14 +17,14 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void ButtonEigyou_Click(object sender, EventArgs e)
         {
             this.Close();
             F_営業 f_eigyou = new F_営業();
             f_eigyou.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ButtonLogis_Click(object sender, EventArgs e)
         {
             this.Close();
             F_物流 f_buturyuu = new F_物流();
@@ -36,7 +36,7 @@ namespace SalesManagement_SysDev
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ButtonSyain_Click(object sender, EventArgs e)
         {
             this.Close();
             F_社員管理 f_SyainKanri = new F_社員管理();
@@ -45,15 +45,14 @@ namespace SalesManagement_SysDev
 
         private void button7_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("ログアウトします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if (result == DialogResult.OK)
-            {
-                this.Close();
-                F_ログイン画面 f_login = new F_ログイン画面();
-                f_login.Show();
-            }
+
         }
 
-        
+        private void ButtonLogout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

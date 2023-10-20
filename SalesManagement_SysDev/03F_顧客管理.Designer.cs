@@ -141,7 +141,7 @@
             this.button7.TabIndex = 5;
             this.button7.Text = "戻る";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.Click += new System.EventHandler(this.ButtonBack_Click);
             // 
             // label9
             // 

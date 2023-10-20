@@ -17,12 +17,7 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
+        private void ButtonLogout_Click(object sender, EventArgs e)
         {
             DialogResult result= MessageBox.Show("ログアウトします。よろしいですか？","確認",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
             if (result == DialogResult.OK)
@@ -33,42 +28,42 @@ namespace SalesManagement_SysDev
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ButtonJutyuu_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             F_受注管理 f_jutyuu = new F_受注管理();
             f_jutyuu.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ButtonTyumon_Click(object sender, EventArgs e)
         {
             this.Visible=false;
             F_注文管理 f_tyumon = new F_注文管理();
             f_tyumon.Show();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void ButtonKokyaku_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             F_顧客管理 f_kokyaku = new F_顧客管理();
             f_kokyaku.Show();   
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ButtonSyukka_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             F_出荷管理 f_syukka = new F_出荷管理();
             f_syukka.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void ButtonNyuka_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             F_入荷管理 f_nyuka = new F_入荷管理();
             f_nyuka.Show();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void ButtonUriage_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             F_売上管理　f_uriage =new F_売上管理();

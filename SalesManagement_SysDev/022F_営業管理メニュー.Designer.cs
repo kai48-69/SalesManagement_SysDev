@@ -49,7 +49,7 @@
             this.ButtonSyukka.TabIndex = 2;
             this.ButtonSyukka.Text = "出荷管理";
             this.ButtonSyukka.UseVisualStyleBackColor = true;
-            this.ButtonSyukka.Click += new System.EventHandler(this.button3_Click);
+            this.ButtonSyukka.Click += new System.EventHandler(this.ButtonSyukka_Click);
             // 
             // ButtonNyuka
             // 
@@ -91,7 +91,7 @@
             this.ButtonLogout.TabIndex = 2;
             this.ButtonLogout.Text = "ログアウト";
             this.ButtonLogout.UseVisualStyleBackColor = true;
-            this.ButtonLogout.Click += new System.EventHandler(this.button7_Click);
+            this.ButtonLogout.Click += new System.EventHandler(this.ButtonLogout_Click);
             // 
             // ButtonTyumon
             // 
@@ -102,7 +102,7 @@
             this.ButtonTyumon.TabIndex = 4;
             this.ButtonTyumon.Text = "注文管理";
             this.ButtonTyumon.UseVisualStyleBackColor = true;
-            this.ButtonTyumon.Click += new System.EventHandler(this.button2_Click);
+            this.ButtonTyumon.Click += new System.EventHandler(this.ButtonTyumon_Click);
             // 
             // ButtonJutyuu
             // 
@@ -113,7 +113,7 @@
             this.ButtonJutyuu.TabIndex = 5;
             this.ButtonJutyuu.Text = "受注管理";
             this.ButtonJutyuu.UseVisualStyleBackColor = true;
-            this.ButtonJutyuu.Click += new System.EventHandler(this.button1_Click);
+            this.ButtonJutyuu.Click += new System.EventHandler(this.ButtonJutyuu_Click);
             // 
             // ButtonKokyaku
             // 
@@ -124,7 +124,7 @@
             this.ButtonKokyaku.TabIndex = 6;
             this.ButtonKokyaku.Text = "顧客管理";
             this.ButtonKokyaku.UseVisualStyleBackColor = true;
-            this.ButtonKokyaku.Click += new System.EventHandler(this.button5_Click);
+            this.ButtonKokyaku.Click += new System.EventHandler(this.ButtonKokyaku_Click);
             // 
             // ButtonUriage
             // 
@@ -135,7 +135,7 @@
             this.ButtonUriage.TabIndex = 7;
             this.ButtonUriage.Text = "売上管理";
             this.ButtonUriage.UseVisualStyleBackColor = true;
-            this.ButtonUriage.Click += new System.EventHandler(this.button6_Click);
+            this.ButtonUriage.Click += new System.EventHandler(this.ButtonUriage_Click);
             // 
             // F_営業
             // 
