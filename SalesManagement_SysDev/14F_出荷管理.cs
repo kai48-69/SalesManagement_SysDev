@@ -35,5 +35,15 @@ namespace SalesManagement_SysDev
         {
 
         }
+
+        private void ButtonExe_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonKakutei_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
