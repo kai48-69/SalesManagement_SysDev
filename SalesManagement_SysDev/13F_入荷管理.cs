@@ -17,18 +17,38 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
             F_営業 f_eigyou = new F_営業();
             f_eigyou.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ButtonArrivalDetail_Click(object sender, EventArgs e)
         {
             this.Close();
             F_入荷詳細登録 f_syousai = new F_入荷詳細登録();
             f_syousai.Show();
+        }
+
+        private void ButtonKakutei_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonReset_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonJikou_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

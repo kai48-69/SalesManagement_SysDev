@@ -17,7 +17,7 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
             F_入荷管理 f_nyuka = new F_入荷管理();
