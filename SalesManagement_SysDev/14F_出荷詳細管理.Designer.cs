@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.ButtonBack = new System.Windows.Forms.Button();
+            this.label = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TextBoxSuryo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ComboBoxShohinName = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextBoxSyukkaID = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TextBoxSyukkaShosaiID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButtonTouroku = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -48,169 +48,164 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.ButtonBack);
+            this.panel1.Controls.Add(this.label);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(768, 114);
+            this.panel1.Size = new System.Drawing.Size(1024, 142);
             this.panel1.TabIndex = 35;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // button7
+            // ButtonBack
             // 
-            this.button7.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.button7.Location = new System.Drawing.Point(606, 35);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(124, 46);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "戻る";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ButtonBack.Location = new System.Drawing.Point(808, 44);
+            this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonBack.Name = "ButtonBack";
+            this.ButtonBack.Size = new System.Drawing.Size(165, 58);
+            this.ButtonBack.TabIndex = 5;
+            this.ButtonBack.Text = "戻る";
+            this.ButtonBack.UseVisualStyleBackColor = true;
+            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
             // 
-            // label6
+            // label
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label6.Location = new System.Drawing.Point(252, 35);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(257, 40);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "出荷詳細登録";
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("MS UI Gothic", 30F);
+            this.label.Location = new System.Drawing.Point(336, 44);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(322, 50);
+            this.label.TabIndex = 4;
+            this.label.Text = "出荷詳細登録";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(38, 267);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(51, 334);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(692, 281);
+            this.dataGridView1.Size = new System.Drawing.Size(923, 351);
             this.dataGridView1.TabIndex = 34;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // textBox3
+            // TextBoxSuryo
             // 
-            this.textBox3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox3.Location = new System.Drawing.Point(350, 212);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(118, 27);
-            this.textBox3.TabIndex = 33;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.TextBoxSuryo.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextBoxSuryo.Location = new System.Drawing.Point(467, 265);
+            this.TextBoxSuryo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextBoxSuryo.Name = "TextBoxSuryo";
+            this.TextBoxSuryo.Size = new System.Drawing.Size(156, 32);
+            this.TextBoxSuryo.TabIndex = 33;
+            this.TextBoxSuryo.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label4.Location = new System.Drawing.Point(299, 216);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(399, 270);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 20);
+            this.label4.Size = new System.Drawing.Size(62, 25);
             this.label4.TabIndex = 31;
             this.label4.Text = "数量";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // comboBox1
+            // ComboBoxShohinName
             // 
-            this.comboBox1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(350, 156);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(116, 28);
-            this.comboBox1.TabIndex = 30;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label3.Location = new System.Drawing.Point(280, 162);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 20);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "商品名";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox2.Location = new System.Drawing.Point(143, 212);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(118, 27);
-            this.textBox2.TabIndex = 28;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.ComboBoxShohinName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ComboBoxShohinName.FormattingEnabled = true;
+            this.ComboBoxShohinName.Location = new System.Drawing.Point(467, 195);
+            this.ComboBoxShohinName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ComboBoxShohinName.Name = "ComboBoxShohinName";
+            this.ComboBoxShohinName.Size = new System.Drawing.Size(153, 33);
+            this.ComboBoxShohinName.TabIndex = 30;
+            this.ComboBoxShohinName.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label2.Location = new System.Drawing.Point(76, 214);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(373, 202);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 20);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "出荷ID";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Size = new System.Drawing.Size(87, 25);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "商品名";
+            this.label2.Click += new System.EventHandler(this.label3_Click);
             // 
-            // textBox1
+            // TextBoxSyukkaID
             // 
-            this.textBox1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox1.Location = new System.Drawing.Point(143, 158);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(118, 27);
-            this.textBox1.TabIndex = 26;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.TextBoxSyukkaID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextBoxSyukkaID.Location = new System.Drawing.Point(191, 265);
+            this.TextBoxSyukkaID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextBoxSyukkaID.Name = "TextBoxSyukkaID";
+            this.TextBoxSyukkaID.Size = new System.Drawing.Size(156, 32);
+            this.TextBoxSyukkaID.TabIndex = 28;
+            this.TextBoxSyukkaID.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.label3.Location = new System.Drawing.Point(101, 268);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 25);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "出荷ID";
+            this.label3.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // TextBoxSyukkaShosaiID
+            // 
+            this.TextBoxSyukkaShosaiID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextBoxSyukkaShosaiID.Location = new System.Drawing.Point(191, 198);
+            this.TextBoxSyukkaShosaiID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextBoxSyukkaShosaiID.Name = "TextBoxSyukkaShosaiID";
+            this.TextBoxSyukkaShosaiID.Size = new System.Drawing.Size(156, 32);
+            this.TextBoxSyukkaShosaiID.TabIndex = 26;
+            this.TextBoxSyukkaShosaiID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label1.Location = new System.Drawing.Point(38, 162);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(51, 202);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 20);
+            this.label1.Size = new System.Drawing.Size(134, 25);
             this.label1.TabIndex = 25;
             this.label1.Text = "出荷詳細ID";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button1
+            // ButtonTouroku
             // 
-            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.button1.Location = new System.Drawing.Point(560, 149);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 95);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "登録";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ButtonTouroku.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ButtonTouroku.Location = new System.Drawing.Point(747, 186);
+            this.ButtonTouroku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonTouroku.Name = "ButtonTouroku";
+            this.ButtonTouroku.Size = new System.Drawing.Size(204, 119);
+            this.ButtonTouroku.TabIndex = 32;
+            this.ButtonTouroku.Text = "登録";
+            this.ButtonTouroku.UseVisualStyleBackColor = true;
+            this.ButtonTouroku.Click += new System.EventHandler(this.ButtonTouroku_Click);
             // 
             // F_出荷詳細管理
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 574);
+            this.ClientSize = new System.Drawing.Size(1024, 718);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.TextBoxSuryo);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.ComboBoxShohinName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TextBoxSyukkaID);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TextBoxSyukkaShosaiID);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ButtonTouroku);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "F_出荷詳細管理";
             this.Text = "F_出荷詳細管理";
             this.panel1.ResumeLayout(false);
@@ -224,17 +219,17 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button ButtonBack;
+        private System.Windows.Forms.Label label;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TextBoxSuryo;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox ComboBoxShohinName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextBoxSyukkaID;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TextBoxSyukkaShosaiID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonTouroku;
     }
 }
