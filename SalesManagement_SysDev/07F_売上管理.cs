@@ -17,14 +17,14 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
             F_営業 f_eigyou = new F_営業();
             f_eigyou.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ButtonSyousai_Click(object sender, EventArgs e)
         {
             this.Close();
             F_売上詳細管理 f_syousai = new F_売上詳細管理();

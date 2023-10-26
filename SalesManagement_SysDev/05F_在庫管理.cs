@@ -17,7 +17,7 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
             F_物流 f_buturyuu = new F_物流();

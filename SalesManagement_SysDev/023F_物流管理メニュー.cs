@@ -17,7 +17,7 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void ButtonLogout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("ログアウトします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.OK)
@@ -28,35 +28,35 @@ namespace SalesManagement_SysDev
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void ButtonHattyu_Click(object sender, EventArgs e)
         {
             this.Visible=false;
             F_発注管理　f_hattyu =new F_発注管理();
             f_hattyu.Show();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void ButtonNyuko_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             F_入庫管理 f_nyuko = new F_入庫管理();
             f_nyuko.Show();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void ButtonSyukko_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             F_出庫管理 f_syukko = new F_出庫管理();
             f_syukko.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ButtonSyouhin_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             F_商品管理 f_syouhin = new F_商品管理();
             f_syouhin.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ButtonZaiko_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             F_在庫管理 f_zaiko = new F_在庫管理();

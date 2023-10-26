@@ -755,7 +755,7 @@ namespace SalesManagement_SysDev
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ButtonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

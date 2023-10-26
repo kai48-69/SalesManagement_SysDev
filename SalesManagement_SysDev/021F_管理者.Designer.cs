@@ -47,7 +47,7 @@
             this.ButtonLogis.TabIndex = 1;
             this.ButtonLogis.Text = "物流管理画面へ";
             this.ButtonLogis.UseVisualStyleBackColor = true;
-            this.ButtonLogis.Click += new System.EventHandler(this.button2_Click);
+            this.ButtonLogis.Click += new System.EventHandler(this.ButtonLogis_Click);
             // 
             // ButtonSyain
             // 
@@ -58,7 +58,7 @@
             this.ButtonSyain.TabIndex = 2;
             this.ButtonSyain.Text = "社員管理";
             this.ButtonSyain.UseVisualStyleBackColor = true;
-            this.ButtonSyain.Click += new System.EventHandler(this.button3_Click);
+            this.ButtonSyain.Click += new System.EventHandler(this.ButtonSyain_Click);
             // 
             // ButtonEigyou
             // 
@@ -69,7 +69,7 @@
             this.ButtonEigyou.TabIndex = 3;
             this.ButtonEigyou.Text = "営業管理画面へ";
             this.ButtonEigyou.UseVisualStyleBackColor = true;
-            this.ButtonEigyou.Click += new System.EventHandler(this.button4_Click);
+            this.ButtonEigyou.Click += new System.EventHandler(this.ButtonEigyou_Click);
             // 
             // panel1
             // 
@@ -91,7 +91,7 @@
             this.ButtonLogout.TabIndex = 1;
             this.ButtonLogout.Text = "ログアウト";
             this.ButtonLogout.UseVisualStyleBackColor = true;
-            this.ButtonLogout.Click += new System.EventHandler(this.button7_Click);
+            this.ButtonLogout.Click += new System.EventHandler(this.ButtonLogout_Click);
             // 
             // label1
             // 
@@ -113,7 +113,7 @@
             this.ButtonHistory.TabIndex = 6;
             this.ButtonHistory.Text = "履歴";
             this.ButtonHistory.UseVisualStyleBackColor = true;
-            this.ButtonHistory.Click += new System.EventHandler(this.button6_Click);
+            this.ButtonHistory.Click += new System.EventHandler(this.ButtonHistory_Click);
             // 
             // F_管理者
             // 
