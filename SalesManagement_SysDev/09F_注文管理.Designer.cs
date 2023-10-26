@@ -41,7 +41,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TextBoxtKokyaku = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.ComboEigyousyoID = new System.Windows.Forms.ComboBox();
@@ -196,14 +196,14 @@
             this.label5.TabIndex = 36;
             this.label5.Text = "顧客ID";
             // 
-            // textBox3
+            // TextBoxtKokyaku
             // 
-            this.textBox3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox3.Location = new System.Drawing.Point(604, 290);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(216, 32);
-            this.textBox3.TabIndex = 35;
+            this.TextBoxtKokyaku.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextBoxtKokyaku.Location = new System.Drawing.Point(604, 290);
+            this.TextBoxtKokyaku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextBoxtKokyaku.Name = "TextBoxtKokyaku";
+            this.TextBoxtKokyaku.Size = new System.Drawing.Size(216, 32);
+            this.TextBoxtKokyaku.TabIndex = 35;
             // 
             // label3
             // 
@@ -323,7 +323,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.TextBoxtKokyaku);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.ComboEigyousyoID);
@@ -359,7 +359,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TextBoxtKokyaku;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ComboBox ComboEigyousyoID;
