@@ -113,7 +113,7 @@
             this.ButtonHistory.TabIndex = 6;
             this.ButtonHistory.Text = "履歴";
             this.ButtonHistory.UseVisualStyleBackColor = true;
-            this.ButtonHistory.Click += new System.EventHandler(this.button6_Click);
+            this.ButtonHistory.Click += new System.EventHandler(this.ButtonHistory_Click);
             // 
             // F_管理者
             // 

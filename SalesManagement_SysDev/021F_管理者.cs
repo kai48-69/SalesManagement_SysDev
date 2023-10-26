@@ -31,7 +31,7 @@ namespace SalesManagement_SysDev
             f_buturyuu.Show();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void ButtonHistory_Click(object sender,EventArgs e)
         {
 
         }
@@ -43,16 +43,16 @@ namespace SalesManagement_SysDev
             f_SyainKanri.Show();
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ButtonLogout_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("ログアウトします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result == DialogResult.OK)
+            {
+                this.Close();
+                F_ログイン画面 f_login = new F_ログイン画面();
+                f_login.Show();
+            }
 
         }
-
-       
     }
 }

@@ -60,7 +60,7 @@
             this.ButtonNyuka.TabIndex = 3;
             this.ButtonNyuka.Text = "入荷管理";
             this.ButtonNyuka.UseVisualStyleBackColor = true;
-            this.ButtonNyuka.Click += new System.EventHandler(this.button4_Click);
+            this.ButtonNyuka.Click += new System.EventHandler(this.ButtonNyuka_Click);
             // 
             // panel1
             // 

@@ -123,7 +123,7 @@
             this.ButtonSyouhin.TabIndex = 7;
             this.ButtonSyouhin.Text = "商品管理";
             this.ButtonSyouhin.UseVisualStyleBackColor = true;
-            this.ButtonSyouhin.Click += new System.EventHandler(this.button2_Click);
+            this.ButtonSyouhin.Click += new System.EventHandler(this.ButtonSyouhin_Click);
             // 
             // F_物流
             // 
