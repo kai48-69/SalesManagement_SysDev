@@ -360,7 +360,7 @@
             this.HatubaiDate.Location = new System.Drawing.Point(971, 266);
             this.HatubaiDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.HatubaiDate.Name = "HatubaiDate";
-            this.HatubaiDate.Size = new System.Drawing.Size(207, 32);
+            this.HatubaiDate.Size = new System.Drawing.Size(283, 32);
             this.HatubaiDate.TabIndex = 130;
             // 
             // ButtonBunruikanri
