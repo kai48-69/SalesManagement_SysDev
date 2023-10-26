@@ -40,5 +40,15 @@ namespace SalesManagement_SysDev
             F_注文詳細登録 f_syousai = new F_注文詳細登録();
             f_syousai.Show();
         }
+
+        private void ButtonExe_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonReset_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -124,6 +124,7 @@
             this.ButtonExe.TabIndex = 32;
             this.ButtonExe.Text = "実行";
             this.ButtonExe.UseVisualStyleBackColor = true;
+            this.ButtonExe.Click += new System.EventHandler(this.ButtonExe_Click);
             // 
             // panel1
             // 
@@ -303,6 +304,7 @@
             this.ButtonReset.TabIndex = 51;
             this.ButtonReset.Text = "入力リセット";
             this.ButtonReset.UseVisualStyleBackColor = true;
+            this.ButtonReset.Click += new System.EventHandler(this.ButtonReset_Click);
             // 
             // F_注文管理
             // 
