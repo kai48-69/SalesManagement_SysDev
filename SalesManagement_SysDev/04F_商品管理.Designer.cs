@@ -57,7 +57,7 @@
             this.TextboxColor = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.HatubaiDate = new System.Windows.Forms.DateTimePicker();
-            this.小分類管理へ = new System.Windows.Forms.Button();
+            this.ButtonBunruikanri = new System.Windows.Forms.Button();
             this.TextboxStock = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -83,7 +83,7 @@
             this.ButtonBack.TabIndex = 5;
             this.ButtonBack.Text = "戻る";
             this.ButtonBack.UseVisualStyleBackColor = true;
-            this.ButtonBack.Click += new System.EventHandler(this.button7_Click);
+            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
             // 
             // label9
             // 
@@ -363,17 +363,17 @@
             this.HatubaiDate.Size = new System.Drawing.Size(207, 32);
             this.HatubaiDate.TabIndex = 130;
             // 
-            // 小分類管理へ
+            // ButtonBunruikanri
             // 
-            this.小分類管理へ.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.小分類管理へ.Location = new System.Drawing.Point(881, 168);
-            this.小分類管理へ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.小分類管理へ.Name = "小分類管理へ";
-            this.小分類管理へ.Size = new System.Drawing.Size(184, 58);
-            this.小分類管理へ.TabIndex = 131;
-            this.小分類管理へ.Text = "小分類管理へ";
-            this.小分類管理へ.UseVisualStyleBackColor = true;
-            this.小分類管理へ.Click += new System.EventHandler(this.小分類管理へ_Click);
+            this.ButtonBunruikanri.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ButtonBunruikanri.Location = new System.Drawing.Point(881, 168);
+            this.ButtonBunruikanri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonBunruikanri.Name = "ButtonBunruikanri";
+            this.ButtonBunruikanri.Size = new System.Drawing.Size(184, 58);
+            this.ButtonBunruikanri.TabIndex = 131;
+            this.ButtonBunruikanri.Text = "小分類管理へ";
+            this.ButtonBunruikanri.UseVisualStyleBackColor = true;
+            this.ButtonBunruikanri.Click += new System.EventHandler(this.ButtonBunruikanri_Click);
             // 
             // TextboxStock
             // 
@@ -390,7 +390,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1317, 850);
             this.Controls.Add(this.TextboxStock);
-            this.Controls.Add(this.小分類管理へ);
+            this.Controls.Add(this.ButtonBunruikanri);
             this.Controls.Add(this.HatubaiDate);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label4);
@@ -460,7 +460,7 @@
         private System.Windows.Forms.TextBox TextboxColor;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker HatubaiDate;
-        private System.Windows.Forms.Button 小分類管理へ;
+        private System.Windows.Forms.Button ButtonBunruikanri;
         private System.Windows.Forms.TextBox TextboxStock;
     }
 }
