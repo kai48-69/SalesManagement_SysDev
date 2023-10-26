@@ -27,14 +27,14 @@ namespace SalesManagement_SysDev
 
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
             F_物流 f_buturyuu = new F_物流();
             f_buturyuu.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ButtonSyousai_Click(object sender, EventArgs e)
         {
             this.Close();
             F_発注詳細管理 f_syousai = new F_発注詳細管理();
