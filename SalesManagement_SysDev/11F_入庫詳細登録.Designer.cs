@@ -32,14 +32,14 @@
             this.ButtonBack = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ButtonTouroku = new System.Windows.Forms.Button();
+            this.ComboSuuryou = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.TextboxSyouhinName = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TextboxNyuukoID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextboxSyousaiID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -86,24 +86,24 @@
             this.dataGridView1.Size = new System.Drawing.Size(1153, 422);
             this.dataGridView1.TabIndex = 23;
             // 
-            // button1
+            // ButtonTouroku
             // 
-            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.button1.Location = new System.Drawing.Point(933, 224);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(255, 142);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "登録";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ButtonTouroku.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ButtonTouroku.Location = new System.Drawing.Point(933, 224);
+            this.ButtonTouroku.Name = "ButtonTouroku";
+            this.ButtonTouroku.Size = new System.Drawing.Size(255, 142);
+            this.ButtonTouroku.TabIndex = 19;
+            this.ButtonTouroku.Text = "登録";
+            this.ButtonTouroku.UseVisualStyleBackColor = true;
+            this.ButtonTouroku.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox3
+            // ComboSuuryou
             // 
-            this.textBox3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox3.Location = new System.Drawing.Point(600, 315);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(194, 37);
-            this.textBox3.TabIndex = 29;
+            this.ComboSuuryou.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ComboSuuryou.Location = new System.Drawing.Point(600, 315);
+            this.ComboSuuryou.Name = "ComboSuuryou";
+            this.ComboSuuryou.Size = new System.Drawing.Size(194, 37);
+            this.ComboSuuryou.TabIndex = 29;
             // 
             // label4
             // 
@@ -115,14 +115,14 @@
             this.label4.TabIndex = 28;
             this.label4.Text = "数量";
             // 
-            // comboBox1
+            // TextboxSyouhinName
             // 
-            this.comboBox1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(600, 231);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(191, 38);
-            this.comboBox1.TabIndex = 27;
+            this.TextboxSyouhinName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxSyouhinName.FormattingEnabled = true;
+            this.TextboxSyouhinName.Location = new System.Drawing.Point(600, 231);
+            this.TextboxSyouhinName.Name = "TextboxSyouhinName";
+            this.TextboxSyouhinName.Size = new System.Drawing.Size(191, 38);
+            this.TextboxSyouhinName.TabIndex = 27;
             // 
             // label3
             // 
@@ -134,13 +134,13 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "商品名";
             // 
-            // textBox2
+            // TextboxNyuukoID
             // 
-            this.textBox2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox2.Location = new System.Drawing.Point(255, 315);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(194, 37);
-            this.textBox2.TabIndex = 25;
+            this.TextboxNyuukoID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxNyuukoID.Location = new System.Drawing.Point(255, 315);
+            this.TextboxNyuukoID.Name = "TextboxNyuukoID";
+            this.TextboxNyuukoID.Size = new System.Drawing.Size(194, 37);
+            this.TextboxNyuukoID.TabIndex = 25;
             // 
             // label2
             // 
@@ -152,13 +152,13 @@
             this.label2.TabIndex = 24;
             this.label2.Text = "入庫ID";
             // 
-            // textBox1
+            // TextboxSyousaiID
             // 
-            this.textBox1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox1.Location = new System.Drawing.Point(255, 234);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(194, 37);
-            this.textBox1.TabIndex = 23;
+            this.TextboxSyousaiID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxSyousaiID.Location = new System.Drawing.Point(255, 234);
+            this.TextboxSyousaiID.Name = "TextboxSyousaiID";
+            this.TextboxSyousaiID.Size = new System.Drawing.Size(194, 37);
+            this.TextboxSyousaiID.TabIndex = 23;
             // 
             // label1
             // 
@@ -175,17 +175,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 861);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.ComboSuuryou);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.TextboxSyouhinName);
+            this.Controls.Add(this.ButtonTouroku);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TextboxNyuukoID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TextboxSyousaiID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_入庫詳細管理";
             this.Text = "入庫詳細管理";
@@ -203,14 +203,14 @@
         private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button ButtonTouroku;
+        private System.Windows.Forms.TextBox ComboSuuryou;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox TextboxSyouhinName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TextboxNyuukoID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextboxSyousaiID;
         private System.Windows.Forms.Label label1;
     }
 }

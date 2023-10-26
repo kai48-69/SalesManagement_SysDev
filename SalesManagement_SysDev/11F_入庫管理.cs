@@ -30,5 +30,15 @@ namespace SalesManagement_SysDev
             F_入庫詳細管理　f_syousai =new F_入庫詳細管理();
             f_syousai.Show();
         }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
