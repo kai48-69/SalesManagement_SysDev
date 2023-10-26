@@ -17,11 +17,16 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();   
             F_注文管理　f_tyumon =new F_注文管理();
             f_tyumon.Show();
+        }
+
+        private void ButtonTouroku_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
