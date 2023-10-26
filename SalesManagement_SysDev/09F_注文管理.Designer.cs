@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.ButtonSyousai = new System.Windows.Forms.Button();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.RadioHihyouji = new System.Windows.Forms.RadioButton();
+            this.RadioKensaku = new System.Windows.Forms.RadioButton();
             this.ButtonBack = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.ButtonExe = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TextboxHihyouji = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.ComboJyutyuuDate = new System.Windows.Forms.DateTimePicker();
+            this.ButtonKakutei = new System.Windows.Forms.Button();
+            this.JyutyuDate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.TextBoxtKokyaku = new System.Windows.Forms.TextBox();
@@ -47,10 +47,10 @@
             this.ComboEigyousyoID = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.TextBoxtJyutyuuID = new System.Windows.Forms.TextBox();
+            this.TextBoxtJyutyuID = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.TextBoxTyuumonnID = new System.Windows.Forms.TextBox();
+            this.TextBoxTyuumonID = new System.Windows.Forms.TextBox();
             this.ButtonReset = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -68,29 +68,29 @@
             this.ButtonSyousai.UseVisualStyleBackColor = true;
             this.ButtonSyousai.Click += new System.EventHandler(this.ButtonSyousai_Click);
             // 
-            // radioButton4
+            // RadioHihyouji
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.radioButton4.Location = new System.Drawing.Point(211, 190);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(124, 34);
-            this.radioButton4.TabIndex = 48;
-            this.radioButton4.Text = "非表示";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.RadioHihyouji.AutoSize = true;
+            this.RadioHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 18F);
+            this.RadioHihyouji.Location = new System.Drawing.Point(211, 190);
+            this.RadioHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RadioHihyouji.Name = "RadioHihyouji";
+            this.RadioHihyouji.Size = new System.Drawing.Size(124, 34);
+            this.RadioHihyouji.TabIndex = 48;
+            this.RadioHihyouji.Text = "非表示";
+            this.RadioHihyouji.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // RadioKensaku
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.radioButton2.Location = new System.Drawing.Point(93, 190);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(94, 34);
-            this.radioButton2.TabIndex = 46;
-            this.radioButton2.Text = "検索";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.RadioKensaku.AutoSize = true;
+            this.RadioKensaku.Font = new System.Drawing.Font("MS UI Gothic", 18F);
+            this.RadioKensaku.Location = new System.Drawing.Point(93, 190);
+            this.RadioKensaku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RadioKensaku.Name = "RadioKensaku";
+            this.RadioKensaku.Size = new System.Drawing.Size(94, 34);
+            this.RadioKensaku.TabIndex = 46;
+            this.RadioKensaku.Text = "検索";
+            this.RadioKensaku.UseVisualStyleBackColor = true;
             // 
             // ButtonBack
             // 
@@ -157,25 +157,25 @@
             this.label8.TabIndex = 42;
             this.label8.Text = "非表示理由";
             // 
-            // button1
+            // ButtonKakutei
             // 
-            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.button1.Location = new System.Drawing.Point(519, 774);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(336, 64);
-            this.button1.TabIndex = 41;
-            this.button1.Text = "確定";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ButtonKakutei.Font = new System.Drawing.Font("MS UI Gothic", 25F);
+            this.ButtonKakutei.Location = new System.Drawing.Point(519, 774);
+            this.ButtonKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonKakutei.Name = "ButtonKakutei";
+            this.ButtonKakutei.Size = new System.Drawing.Size(336, 64);
+            this.ButtonKakutei.TabIndex = 41;
+            this.ButtonKakutei.Text = "確定";
+            this.ButtonKakutei.UseVisualStyleBackColor = true;
             // 
-            // ComboJyutyuuDate
+            // JyutyuDate
             // 
-            this.ComboJyutyuuDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ComboJyutyuuDate.Location = new System.Drawing.Point(604, 401);
-            this.ComboJyutyuuDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ComboJyutyuuDate.Name = "ComboJyutyuuDate";
-            this.ComboJyutyuuDate.Size = new System.Drawing.Size(216, 32);
-            this.ComboJyutyuuDate.TabIndex = 38;
+            this.JyutyuDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.JyutyuDate.Location = new System.Drawing.Point(604, 401);
+            this.JyutyuDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.JyutyuDate.Name = "JyutyuDate";
+            this.JyutyuDate.Size = new System.Drawing.Size(216, 32);
+            this.JyutyuDate.TabIndex = 38;
             // 
             // label6
             // 
@@ -255,14 +255,14 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "受注ID";
             // 
-            // TextBoxtJyutyuuID
+            // TextBoxtJyutyuID
             // 
-            this.TextBoxtJyutyuuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextBoxtJyutyuuID.Location = new System.Drawing.Point(197, 345);
-            this.TextBoxtJyutyuuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextBoxtJyutyuuID.Name = "TextBoxtJyutyuuID";
-            this.TextBoxtJyutyuuID.Size = new System.Drawing.Size(200, 32);
-            this.TextBoxtJyutyuuID.TabIndex = 25;
+            this.TextBoxtJyutyuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextBoxtJyutyuID.Location = new System.Drawing.Point(197, 345);
+            this.TextBoxtJyutyuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextBoxtJyutyuID.Name = "TextBoxtJyutyuID";
+            this.TextBoxtJyutyuID.Size = new System.Drawing.Size(200, 32);
+            this.TextBoxtJyutyuID.TabIndex = 25;
             // 
             // dataGridView1
             // 
@@ -285,14 +285,14 @@
             this.label4.TabIndex = 50;
             this.label4.Text = "注文ID";
             // 
-            // TextBoxTyuumonnID
+            // TextBoxTyuumonID
             // 
-            this.TextBoxTyuumonnID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextBoxTyuumonnID.Location = new System.Drawing.Point(197, 290);
-            this.TextBoxTyuumonnID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextBoxTyuumonnID.Name = "TextBoxTyuumonnID";
-            this.TextBoxTyuumonnID.Size = new System.Drawing.Size(200, 32);
-            this.TextBoxTyuumonnID.TabIndex = 49;
+            this.TextBoxTyuumonID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextBoxTyuumonID.Location = new System.Drawing.Point(197, 290);
+            this.TextBoxTyuumonID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextBoxTyuumonID.Name = "TextBoxTyuumonID";
+            this.TextBoxTyuumonID.Size = new System.Drawing.Size(200, 32);
+            this.TextBoxTyuumonID.TabIndex = 49;
             // 
             // ButtonReset
             // 
@@ -313,16 +313,16 @@
             this.ClientSize = new System.Drawing.Size(1317, 850);
             this.Controls.Add(this.ButtonReset);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.TextBoxTyuumonnID);
+            this.Controls.Add(this.TextBoxTyuumonID);
             this.Controls.Add(this.ButtonSyousai);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.RadioHihyouji);
+            this.Controls.Add(this.RadioKensaku);
             this.Controls.Add(this.ButtonExe);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TextboxHihyouji);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.ComboJyutyuuDate);
+            this.Controls.Add(this.ButtonKakutei);
+            this.Controls.Add(this.JyutyuDate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TextBoxtKokyaku);
@@ -331,7 +331,7 @@
             this.Controls.Add(this.ComboEigyousyoID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.TextBoxtJyutyuuID);
+            this.Controls.Add(this.TextBoxtJyutyuID);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -349,16 +349,16 @@
         #endregion
 
         private System.Windows.Forms.Button ButtonSyousai;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton RadioHihyouji;
+        private System.Windows.Forms.RadioButton RadioKensaku;
         private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button ButtonExe;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox TextboxHihyouji;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker ComboJyutyuuDate;
+        private System.Windows.Forms.Button ButtonKakutei;
+        private System.Windows.Forms.DateTimePicker JyutyuDate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TextBoxtKokyaku;
@@ -367,10 +367,10 @@
         private System.Windows.Forms.ComboBox ComboEigyousyoID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TextBoxtJyutyuuID;
+        private System.Windows.Forms.TextBox TextBoxtJyutyuID;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TextBoxTyuumonnID;
+        private System.Windows.Forms.TextBox TextBoxTyuumonID;
         private System.Windows.Forms.Button ButtonReset;
     }
 }

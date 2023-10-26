@@ -34,7 +34,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TextboxSuuryou = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.ComboBoxSyouhinn = new System.Windows.Forms.ComboBox();
+            this.ComboSyouhinn = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TextboxJutyuu = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -108,15 +108,15 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "数量";
             // 
-            // ComboBoxSyouhinn
+            // ComboSyouhinn
             // 
-            this.ComboBoxSyouhinn.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ComboBoxSyouhinn.FormattingEnabled = true;
-            this.ComboBoxSyouhinn.Location = new System.Drawing.Point(501, 202);
-            this.ComboBoxSyouhinn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ComboBoxSyouhinn.Name = "ComboBoxSyouhinn";
-            this.ComboBoxSyouhinn.Size = new System.Drawing.Size(153, 33);
-            this.ComboBoxSyouhinn.TabIndex = 17;
+            this.ComboSyouhinn.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ComboSyouhinn.FormattingEnabled = true;
+            this.ComboSyouhinn.Location = new System.Drawing.Point(501, 202);
+            this.ComboSyouhinn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ComboSyouhinn.Name = "ComboSyouhinn";
+            this.ComboSyouhinn.Size = new System.Drawing.Size(153, 33);
+            this.ComboSyouhinn.TabIndex = 17;
             // 
             // label3
             // 
@@ -187,7 +187,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.TextboxSuuryou);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.ComboBoxSyouhinn);
+            this.Controls.Add(this.ComboSyouhinn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TextboxJutyuu);
             this.Controls.Add(this.label2);
@@ -214,7 +214,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox TextboxSuuryou;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox ComboBoxSyouhinn;
+        private System.Windows.Forms.ComboBox ComboSyouhinn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TextboxJutyuu;
         private System.Windows.Forms.Label label2;
