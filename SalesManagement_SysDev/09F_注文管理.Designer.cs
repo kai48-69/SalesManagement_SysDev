@@ -140,10 +140,10 @@
             // TextboxHihyouji
             // 
             this.TextboxHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxHihyouji.Location = new System.Drawing.Point(976, 290);
+            this.TextboxHihyouji.Location = new System.Drawing.Point(953, 294);
             this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxHihyouji.Name = "TextboxHihyouji";
-            this.TextboxHihyouji.Size = new System.Drawing.Size(283, 162);
+            this.TextboxHihyouji.Size = new System.Drawing.Size(305, 162);
             this.TextboxHihyouji.TabIndex = 43;
             this.TextboxHihyouji.Text = "";
             // 
@@ -151,7 +151,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label8.Location = new System.Drawing.Point(829, 294);
+            this.label8.Location = new System.Drawing.Point(813, 294);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(137, 25);
             this.label8.TabIndex = 42;
@@ -171,7 +171,7 @@
             // JyutyuDate
             // 
             this.JyutyuDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.JyutyuDate.Location = new System.Drawing.Point(604, 401);
+            this.JyutyuDate.Location = new System.Drawing.Point(578, 401);
             this.JyutyuDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.JyutyuDate.Name = "JyutyuDate";
             this.JyutyuDate.Size = new System.Drawing.Size(216, 32);
@@ -181,7 +181,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label6.Location = new System.Drawing.Point(456, 405);
+            this.label6.Location = new System.Drawing.Point(430, 405);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(137, 25);
             this.label6.TabIndex = 37;
@@ -191,7 +191,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label5.Location = new System.Drawing.Point(512, 294);
+            this.label5.Location = new System.Drawing.Point(486, 294);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 25);
             this.label5.TabIndex = 36;
@@ -200,7 +200,7 @@
             // TextBoxtKokyaku
             // 
             this.TextBoxtKokyaku.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextBoxtKokyaku.Location = new System.Drawing.Point(604, 290);
+            this.TextBoxtKokyaku.Location = new System.Drawing.Point(578, 290);
             this.TextBoxtKokyaku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxtKokyaku.Name = "TextBoxtKokyaku";
             this.TextBoxtKokyaku.Size = new System.Drawing.Size(216, 32);
@@ -210,7 +210,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label3.Location = new System.Drawing.Point(512, 350);
+            this.label3.Location = new System.Drawing.Point(486, 350);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 25);
             this.label3.TabIndex = 30;
@@ -219,7 +219,7 @@
             // TextboxSyainID
             // 
             this.TextboxSyainID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSyainID.Location = new System.Drawing.Point(604, 343);
+            this.TextboxSyainID.Location = new System.Drawing.Point(578, 343);
             this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainID.Name = "TextboxSyainID";
             this.TextboxSyainID.Size = new System.Drawing.Size(216, 32);
