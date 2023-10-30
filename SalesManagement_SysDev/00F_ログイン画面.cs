@@ -737,22 +737,44 @@ namespace SalesManagement_SysDev
 
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-            this.Visible= false;
-            if (int.Parse(TextboxShainID.Text) == 1)
+            EmployeeDataAccess employeeDataAccess =new EmployeeDataAccess();
+            if(employeeDataAccess.CheckCascadeEmployeesID(int.Parse(TextboxShainID.Text.Trim())))
             {
-                F_管理者 f_Admin = new F_管理者();
-                f_Admin.Show();
+              if(employeeDataAccess.CheckCascadeEmployeesPW(TextboxPW.Text.Trim()))
+                {
+                    this.Visible = false;
+                    F_管理者 f_Admin = new F_管理者();
+                    f_Admin.Show();
+                }
+                else
+                {
+                    MessageBox.Show("IDまたはパスワードが違います");
+                    return;
+                }
             }
-            if (int.Parse(TextboxShainID.Text) == 2)
+            else
             {
-                F_営業 f_eigyou = new F_営業();
-                f_eigyou.Show();
+                MessageBox.Show("IDまたはパスワードが違います");
+                return;
             }
-            if (int.Parse(TextboxShainID.Text) == 3)
-            {
-                F_物流　f_buturyuu=new F_物流();
-                f_buturyuu.Show();
-            }
+            
+
+            //this.Visible= false;
+            //if (int.Parse(TextboxShainID.Text) == 1)
+            //{
+            //    F_管理者 f_Admin = new F_管理者();
+            //    f_Admin.Show();
+            //}
+            //if (int.Parse(TextboxShainID.Text) == 2)
+            //{
+            //    F_営業 f_eigyou = new F_営業();
+            //    f_eigyou.Show();
+            //}
+            //if (int.Parse(TextboxShainID.Text) == 3)
+            //{
+            //    F_物流　f_buturyuu=new F_物流();
+            //    f_buturyuu.Show();
+            //}
         }
 
         private void ButtonExit_Click(object sender, EventArgs e)

@@ -63,6 +63,7 @@
     <Compile Include="01F_PW新規登録.Designer.cs">
       <DependentUpon>01F_PW新規登録.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeDataAccess.cs" />
     <Compile Include="Entity\M_MajorClassification.cs" />
     <Compile Include="Entity\M_Product.cs" />
     <Compile Include="05F_在庫管理.cs">
