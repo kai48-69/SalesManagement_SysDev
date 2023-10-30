@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="01F_PW新規登録.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="01F_PW新規登録.Designer.cs">
+      <DependentUpon>01F_PW新規登録.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entity\M_MajorClassification.cs" />
     <Compile Include="Entity\M_Product.cs" />
     <Compile Include="05F_在庫管理.cs">
@@ -237,6 +243,9 @@
     <Compile Include="11F_入庫詳細登録.Designer.cs">
       <DependentUpon>11F_入庫詳細登録.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="01F_PW新規登録.resx">
+      <DependentUpon>01F_PW新規登録.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="05F_在庫管理.resx">
       <DependentUpon>05F_在庫管理.cs</DependentUpon>
     </EmbeddedResource>

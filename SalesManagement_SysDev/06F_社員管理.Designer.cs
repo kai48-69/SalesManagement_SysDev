@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label10 = new System.Windows.Forms.Label();
-            this.TextboxPW = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.TextboxSyainName = new System.Windows.Forms.TextBox();
@@ -58,30 +56,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label10.Location = new System.Drawing.Point(72, 409);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(109, 25);
-            this.label10.TabIndex = 97;
-            this.label10.Text = "パスワード";
-            // 
-            // TextboxPW
-            // 
-            this.TextboxPW.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxPW.Location = new System.Drawing.Point(189, 405);
-            this.TextboxPW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextboxPW.Name = "TextboxPW";
-            this.TextboxPW.Size = new System.Drawing.Size(200, 32);
-            this.TextboxPW.TabIndex = 96;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label6.Location = new System.Drawing.Point(95, 314);
+            this.label6.Location = new System.Drawing.Point(95, 326);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 25);
             this.label6.TabIndex = 95;
@@ -100,7 +79,7 @@
             // TextboxSyainName
             // 
             this.TextboxSyainName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSyainName.Location = new System.Drawing.Point(189, 310);
+            this.TextboxSyainName.Location = new System.Drawing.Point(189, 322);
             this.TextboxSyainName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainName.Name = "TextboxSyainName";
             this.TextboxSyainName.Size = new System.Drawing.Size(200, 32);
@@ -120,7 +99,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label7.Location = new System.Drawing.Point(68, 364);
+            this.label7.Location = new System.Drawing.Point(70, 375);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 25);
             this.label7.TabIndex = 91;
@@ -150,7 +129,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label1.Location = new System.Drawing.Point(97, 265);
+            this.label1.Location = new System.Drawing.Point(98, 273);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 25);
             this.label1.TabIndex = 84;
@@ -159,7 +138,7 @@
             // TextboxSyainID
             // 
             this.TextboxSyainID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSyainID.Location = new System.Drawing.Point(189, 261);
+            this.TextboxSyainID.Location = new System.Drawing.Point(190, 269);
             this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainID.Name = "TextboxSyainID";
             this.TextboxSyainID.Size = new System.Drawing.Size(200, 32);
@@ -180,7 +159,7 @@
             // TextboxTelNo
             // 
             this.TextboxTelNo.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxTelNo.Location = new System.Drawing.Point(189, 360);
+            this.TextboxTelNo.Location = new System.Drawing.Point(191, 371);
             this.TextboxTelNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxTelNo.Name = "TextboxTelNo";
             this.TextboxTelNo.Size = new System.Drawing.Size(200, 32);
@@ -336,8 +315,6 @@
             this.ClientSize = new System.Drawing.Size(1317, 850);
             this.Controls.Add(this.NyusyaDate);
             this.Controls.Add(this.ComboYakusyokuName);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.TextboxPW);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TextboxSyainName);
@@ -371,9 +348,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox TextboxPW;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TextboxSyainName;

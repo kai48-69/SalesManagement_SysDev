@@ -759,5 +759,40 @@ namespace SalesManagement_SysDev
         {
             Application.Exit();
         }
+
+        private void F_ログイン画面_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Lbl_tag_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void TextboxShainID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextboxPW_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
