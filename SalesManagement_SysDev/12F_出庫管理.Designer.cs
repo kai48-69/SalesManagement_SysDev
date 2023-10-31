@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ButtonDetail = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.ButtonBack = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -57,18 +56,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ButtonDetail
-            // 
-            this.ButtonDetail.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonDetail.Location = new System.Drawing.Point(876, 168);
-            this.ButtonDetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonDetail.Name = "ButtonDetail";
-            this.ButtonDetail.Size = new System.Drawing.Size(165, 58);
-            this.ButtonDetail.TabIndex = 74;
-            this.ButtonDetail.Text = "出庫詳細へ";
-            this.ButtonDetail.UseVisualStyleBackColor = true;
-            this.ButtonDetail.Click += new System.EventHandler(this.ButtonDetail_Click);
             // 
             // button1
             // 
@@ -347,7 +334,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TextboxSyukkoID);
-            this.Controls.Add(this.ButtonDetail);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ButtonReset);
             this.Controls.Add(this.ButtonExe);
@@ -370,8 +356,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button ButtonDetail;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.Label label9;

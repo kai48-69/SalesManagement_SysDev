@@ -35,7 +35,6 @@
             this.RadioTouroku = new System.Windows.Forms.RadioButton();
             this.ButtonBack = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.ButtonSyousai = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TextboxHihyouji = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -139,18 +138,6 @@
             this.label9.Size = new System.Drawing.Size(368, 50);
             this.label9.TabIndex = 4;
             this.label9.Text = "発注管理メニュー";
-            // 
-            // ButtonSyousai
-            // 
-            this.ButtonSyousai.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonSyousai.Location = new System.Drawing.Point(1092, 168);
-            this.ButtonSyousai.Margin = new System.Windows.Forms.Padding(2);
-            this.ButtonSyousai.Name = "ButtonSyousai";
-            this.ButtonSyousai.Size = new System.Drawing.Size(166, 58);
-            this.ButtonSyousai.TabIndex = 32;
-            this.ButtonSyousai.Text = "発注詳細へ";
-            this.ButtonSyousai.UseVisualStyleBackColor = true;
-            this.ButtonSyousai.Click += new System.EventHandler(this.ButtonSyousai_Click);
             // 
             // panel1
             // 
@@ -317,7 +304,6 @@
             this.Controls.Add(this.RadioHihyouji);
             this.Controls.Add(this.RadioKensaku);
             this.Controls.Add(this.RadioTouroku);
-            this.Controls.Add(this.ButtonSyousai);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TextboxHihyouji);
             this.Controls.Add(this.label8);
@@ -354,7 +340,6 @@
         private System.Windows.Forms.RadioButton RadioTouroku;
         private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button ButtonSyousai;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox TextboxHihyouji;
         private System.Windows.Forms.Label label8;
