@@ -40,5 +40,15 @@ namespace SalesManagement_SysDev
             F_発注詳細管理 f_syousai = new F_発注詳細管理();
             f_syousai.Show();
         }
+
+        private void TextboxMekarName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
