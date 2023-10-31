@@ -76,7 +76,7 @@
             // ButtonExe
             // 
             this.ButtonExe.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonExe.Location = new System.Drawing.Point(1093, 151);
+            this.ButtonExe.Location = new System.Drawing.Point(1173, 151);
             this.ButtonExe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonExe.Name = "ButtonExe";
             this.ButtonExe.Size = new System.Drawing.Size(165, 58);
@@ -123,7 +123,7 @@
             // ButtonBack
             // 
             this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonBack.Location = new System.Drawing.Point(1093, 36);
+            this.ButtonBack.Location = new System.Drawing.Point(1173, 36);
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(165, 58);
@@ -136,7 +136,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label9.Location = new System.Drawing.Point(465, 44);
+            this.label9.Location = new System.Drawing.Point(555, 44);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(368, 50);
             this.label9.TabIndex = 4;
