@@ -24,11 +24,5 @@ namespace SalesManagement_SysDev
             f_eigyou.Show();
         }
 
-        private void ButtonSyousai_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            F_売上詳細管理 f_syousai = new F_売上詳細管理();
-            f_syousai.Show();
-        }
     }
 }
