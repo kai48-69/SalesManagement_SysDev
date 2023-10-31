@@ -84,23 +84,11 @@
     <Compile Include="11F_入庫管理.Designer.cs">
       <DependentUpon>11F_入庫管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="13F_入荷詳細登録.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="13F_入荷詳細登録.Designer.cs">
-      <DependentUpon>13F_入荷詳細登録.cs</DependentUpon>
-    </Compile>
     <Compile Include="12F_出庫管理.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="12F_出庫管理.Designer.cs">
       <DependentUpon>12F_出庫管理.cs</DependentUpon>
-    </Compile>
-    <Compile Include="12F_出庫詳細登録.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="12F_出庫詳細登録.Designer.cs">
-      <DependentUpon>12F_出庫詳細登録.cs</DependentUpon>
     </Compile>
     <Compile Include="14F_出荷管理.cs">
       <SubType>Form</SubType>
@@ -113,12 +101,6 @@
     </Compile>
     <Compile Include="13F_入荷管理.Designer.cs">
       <DependentUpon>13F_入荷管理.cs</DependentUpon>
-    </Compile>
-    <Compile Include="14F_出荷詳細管理.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="14F_出荷詳細管理.Designer.cs">
-      <DependentUpon>14F_出荷詳細管理.cs</DependentUpon>
     </Compile>
     <Compile Include="07F_売上管理.cs">
       <SubType>Form</SubType>
@@ -138,12 +120,6 @@
     <Compile Include="04F_商品管理.Designer.cs">
       <DependentUpon>04F_商品管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="10F_発注詳細登録.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="10F_発注詳細登録.Designer.cs">
-      <DependentUpon>10F_発注詳細登録.cs</DependentUpon>
-    </Compile>
     <Compile Include="06F_社員管理.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,23 +132,11 @@
     <Compile Include="03F_顧客管理.Designer.cs">
       <DependentUpon>03F_顧客管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="09F_注文詳細登録.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="09F_注文詳細登録.Designer.cs">
-      <DependentUpon>09F_注文詳細登録.cs</DependentUpon>
-    </Compile>
     <Compile Include="09F_注文管理.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="09F_注文管理.Designer.cs">
       <DependentUpon>09F_注文管理.cs</DependentUpon>
-    </Compile>
-    <Compile Include="08F_受注詳細登録.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="08F_受注詳細登録.Designer.cs">
-      <DependentUpon>08F_受注詳細登録.cs</DependentUpon>
     </Compile>
     <Compile Include="022F_営業管理メニュー.cs">
       <SubType>Form</SubType>
@@ -232,12 +196,6 @@
     <Compile Include="Entity\T_Warehousing.cs" />
     <Compile Include="Entity\T_WarehousingDetail.cs" />
     <Compile Include="SalesManagement_DevContext.cs" />
-    <Compile Include="11F_入庫詳細登録.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="11F_入庫詳細登録.Designer.cs">
-      <DependentUpon>11F_入庫詳細登録.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="01F_PW新規登録.resx">
       <DependentUpon>01F_PW新規登録.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,23 +208,14 @@
     <EmbeddedResource Include="11F_入庫管理.resx">
       <DependentUpon>11F_入庫管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="13F_入荷詳細登録.resx">
-      <DependentUpon>13F_入荷詳細登録.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="12F_出庫管理.resx">
       <DependentUpon>12F_出庫管理.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="12F_出庫詳細登録.resx">
-      <DependentUpon>12F_出庫詳細登録.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="14F_出荷管理.resx">
       <DependentUpon>14F_出荷管理.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="13F_入荷管理.resx">
       <DependentUpon>13F_入荷管理.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="14F_出荷詳細管理.resx">
-      <DependentUpon>14F_出荷詳細管理.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="07F_売上管理.resx">
       <DependentUpon>07F_売上管理.cs</DependentUpon>
@@ -277,23 +226,14 @@
     <EmbeddedResource Include="04F_商品管理.resx">
       <DependentUpon>04F_商品管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="10F_発注詳細登録.resx">
-      <DependentUpon>10F_発注詳細登録.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="06F_社員管理.resx">
       <DependentUpon>06F_社員管理.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="03F_顧客管理.resx">
       <DependentUpon>03F_顧客管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="09F_注文詳細登録.resx">
-      <DependentUpon>09F_注文詳細登録.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="09F_注文管理.resx">
       <DependentUpon>09F_注文管理.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="08F_受注詳細登録.resx">
-      <DependentUpon>08F_受注詳細登録.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="022F_営業管理メニュー.resx">
       <DependentUpon>022F_営業管理メニュー.cs</DependentUpon>
@@ -320,9 +260,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="11F_入庫詳細登録.resx">
-      <DependentUpon>11F_入庫詳細登録.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
