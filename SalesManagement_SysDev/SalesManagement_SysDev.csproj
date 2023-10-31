@@ -72,12 +72,6 @@
     <Compile Include="05F_在庫管理.Designer.cs">
       <DependentUpon>05F_在庫管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="07F_売上詳細管理.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="07F_売上詳細管理.Designer.cs">
-      <DependentUpon>07F_売上詳細管理.cs</DependentUpon>
-    </Compile>
     <Compile Include="10F_発注管理.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,9 +243,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="05F_在庫管理.resx">
       <DependentUpon>05F_在庫管理.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="07F_売上詳細管理.resx">
-      <DependentUpon>07F_売上詳細管理.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="10F_発注管理.resx">
       <DependentUpon>10F_発注管理.cs</DependentUpon>
