@@ -50,5 +50,10 @@ namespace SalesManagement_SysDev
         {
 
         }
+
+        private void F_入荷管理_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
