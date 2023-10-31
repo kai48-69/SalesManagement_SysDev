@@ -742,6 +742,11 @@ namespace SalesManagement_SysDev
             {
               if(employeeDataAccess.CheckCascadeEmployeesPW(TextboxPW.Text.Trim()))
                 {
+                    if (TextboxPW.Text.Trim() == "oic")
+                    {
+                        this.Visible = false;
+
+                    }
                     this.Visible = false;
                     F_管理者 f_Admin = new F_管理者();
                     f_Admin.Show();

@@ -59,7 +59,7 @@
             // 
             this.ButtonReset.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ButtonReset.Location = new System.Drawing.Point(450, 173);
-            this.ButtonReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonReset.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonReset.Name = "ButtonReset";
             this.ButtonReset.Size = new System.Drawing.Size(166, 43);
             this.ButtonReset.TabIndex = 50;
@@ -70,8 +70,8 @@
             // ButtonExe
             // 
             this.ButtonExe.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonExe.Location = new System.Drawing.Point(1094, 168);
-            this.ButtonExe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonExe.Location = new System.Drawing.Point(899, 168);
+            this.ButtonExe.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonExe.Name = "ButtonExe";
             this.ButtonExe.Size = new System.Drawing.Size(166, 58);
             this.ButtonExe.TabIndex = 31;
@@ -83,7 +83,7 @@
             this.RadioHihyouji.AutoSize = true;
             this.RadioHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 18F);
             this.RadioHihyouji.Location = new System.Drawing.Point(298, 178);
-            this.RadioHihyouji.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RadioHihyouji.Margin = new System.Windows.Forms.Padding(2);
             this.RadioHihyouji.Name = "RadioHihyouji";
             this.RadioHihyouji.Size = new System.Drawing.Size(124, 34);
             this.RadioHihyouji.TabIndex = 49;
@@ -96,7 +96,7 @@
             this.RadioKensaku.AutoSize = true;
             this.RadioKensaku.Font = new System.Drawing.Font("MS UI Gothic", 18F);
             this.RadioKensaku.Location = new System.Drawing.Point(174, 178);
-            this.RadioKensaku.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RadioKensaku.Margin = new System.Windows.Forms.Padding(2);
             this.RadioKensaku.Name = "RadioKensaku";
             this.RadioKensaku.Size = new System.Drawing.Size(94, 34);
             this.RadioKensaku.TabIndex = 47;
@@ -109,7 +109,7 @@
             this.RadioTouroku.Checked = true;
             this.RadioTouroku.Font = new System.Drawing.Font("MS UI Gothic", 18F);
             this.RadioTouroku.Location = new System.Drawing.Point(60, 178);
-            this.RadioTouroku.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RadioTouroku.Margin = new System.Windows.Forms.Padding(2);
             this.RadioTouroku.Name = "RadioTouroku";
             this.RadioTouroku.Size = new System.Drawing.Size(94, 34);
             this.RadioTouroku.TabIndex = 46;
@@ -121,7 +121,7 @@
             // 
             this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ButtonBack.Location = new System.Drawing.Point(1094, 37);
-            this.ButtonBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonBack.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(166, 58);
             this.ButtonBack.TabIndex = 5;
@@ -143,8 +143,8 @@
             // ButtonSyousai
             // 
             this.ButtonSyousai.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonSyousai.Location = new System.Drawing.Point(886, 168);
-            this.ButtonSyousai.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonSyousai.Location = new System.Drawing.Point(1092, 168);
+            this.ButtonSyousai.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonSyousai.Name = "ButtonSyousai";
             this.ButtonSyousai.Size = new System.Drawing.Size(166, 58);
             this.ButtonSyousai.TabIndex = 32;
@@ -158,7 +158,7 @@
             this.panel1.Controls.Add(this.ButtonBack);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1318, 142);
             this.panel1.TabIndex = 45;
@@ -167,7 +167,7 @@
             // 
             this.TextboxHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxHihyouji.Location = new System.Drawing.Point(960, 268);
-            this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(2);
             this.TextboxHihyouji.Name = "TextboxHihyouji";
             this.TextboxHihyouji.Size = new System.Drawing.Size(298, 162);
             this.TextboxHihyouji.TabIndex = 44;
@@ -188,7 +188,7 @@
             // 
             this.ButtonKakutei.Font = new System.Drawing.Font("MS UI Gothic", 25F);
             this.ButtonKakutei.Location = new System.Drawing.Point(518, 762);
-            this.ButtonKakutei.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonKakutei.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonKakutei.Name = "ButtonKakutei";
             this.ButtonKakutei.Size = new System.Drawing.Size(336, 63);
             this.ButtonKakutei.TabIndex = 42;
@@ -210,7 +210,7 @@
             // 
             this.TextboxSyainName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxSyainName.Location = new System.Drawing.Point(604, 338);
-            this.TextboxSyainName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextboxSyainName.Margin = new System.Windows.Forms.Padding(2);
             this.TextboxSyainName.Name = "TextboxSyainName";
             this.TextboxSyainName.Size = new System.Drawing.Size(200, 32);
             this.TextboxSyainName.TabIndex = 40;
@@ -219,7 +219,7 @@
             // 
             this.TextboxHattyuDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxHattyuDate.Location = new System.Drawing.Point(190, 385);
-            this.TextboxHattyuDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextboxHattyuDate.Margin = new System.Windows.Forms.Padding(2);
             this.TextboxHattyuDate.Name = "TextboxHattyuDate";
             this.TextboxHattyuDate.Size = new System.Drawing.Size(218, 32);
             this.TextboxHattyuDate.TabIndex = 39;
@@ -250,7 +250,7 @@
             // 
             this.TextboxSyainID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxSyainID.Location = new System.Drawing.Point(604, 272);
-            this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(2);
             this.TextboxSyainID.Name = "TextboxSyainID";
             this.TextboxSyainID.Size = new System.Drawing.Size(200, 32);
             this.TextboxSyainID.TabIndex = 30;
@@ -260,7 +260,7 @@
             this.TextboxMekarName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxMekarName.FormattingEnabled = true;
             this.TextboxMekarName.Location = new System.Drawing.Point(190, 333);
-            this.TextboxMekarName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextboxMekarName.Margin = new System.Windows.Forms.Padding(2);
             this.TextboxMekarName.Name = "TextboxMekarName";
             this.TextboxMekarName.Size = new System.Drawing.Size(218, 33);
             this.TextboxMekarName.TabIndex = 29;
@@ -291,7 +291,7 @@
             // 
             this.TextBoxHattyuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextBoxHattyuID.Location = new System.Drawing.Point(190, 280);
-            this.TextBoxHattyuID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextBoxHattyuID.Margin = new System.Windows.Forms.Padding(2);
             this.TextBoxHattyuID.Name = "TextBoxHattyuID";
             this.TextBoxHattyuID.Size = new System.Drawing.Size(218, 32);
             this.TextBoxHattyuID.TabIndex = 26;
@@ -300,7 +300,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(50, 452);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -334,7 +334,7 @@
             this.Controls.Add(this.TextBoxHattyuID);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "F_発注管理";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
