@@ -49,7 +49,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ComboSyainName = new System.Windows.Forms.ComboBox();
             this.ConboKokyakuName = new System.Windows.Forms.ComboBox();
-            this.ButtonSyousai = new System.Windows.Forms.Button();
             this.UriageDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -275,18 +274,6 @@
             this.ConboKokyakuName.Size = new System.Drawing.Size(200, 33);
             this.ConboKokyakuName.TabIndex = 96;
             // 
-            // ButtonSyousai
-            // 
-            this.ButtonSyousai.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonSyousai.Location = new System.Drawing.Point(951, 158);
-            this.ButtonSyousai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonSyousai.Name = "ButtonSyousai";
-            this.ButtonSyousai.Size = new System.Drawing.Size(165, 58);
-            this.ButtonSyousai.TabIndex = 97;
-            this.ButtonSyousai.Text = "売上詳細へ";
-            this.ButtonSyousai.UseVisualStyleBackColor = true;
-            this.ButtonSyousai.Click += new System.EventHandler(this.ButtonSyousai_Click);
-            // 
             // UriageDate
             // 
             this.UriageDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
@@ -323,7 +310,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.UriageDate);
-            this.Controls.Add(this.ButtonSyousai);
             this.Controls.Add(this.ConboKokyakuName);
             this.Controls.Add(this.ComboSyainName);
             this.Controls.Add(this.label6);
@@ -378,7 +364,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox ComboSyainName;
         private System.Windows.Forms.ComboBox ConboKokyakuName;
-        private System.Windows.Forms.Button ButtonSyousai;
         private System.Windows.Forms.DateTimePicker UriageDate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;

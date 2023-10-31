@@ -53,7 +53,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.TextboxJutyuuID = new System.Windows.Forms.TextBox();
             this.ButtonKakutei = new System.Windows.Forms.Button();
-            this.ButtonDetail = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -317,24 +316,11 @@
             this.ButtonKakutei.UseVisualStyleBackColor = true;
             this.ButtonKakutei.Click += new System.EventHandler(this.ButtonKakutei_Click);
             // 
-            // ButtonDetail
-            // 
-            this.ButtonDetail.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonDetail.Location = new System.Drawing.Point(885, 168);
-            this.ButtonDetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonDetail.Name = "ButtonDetail";
-            this.ButtonDetail.Size = new System.Drawing.Size(165, 58);
-            this.ButtonDetail.TabIndex = 74;
-            this.ButtonDetail.Text = "出荷詳細へ";
-            this.ButtonDetail.UseVisualStyleBackColor = true;
-            this.ButtonDetail.Click += new System.EventHandler(this.ButtonDetail_Click);
-            // 
             // F_出荷管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1317, 850);
-            this.Controls.Add(this.ButtonDetail);
             this.Controls.Add(this.ButtonKakutei);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TextboxJutyuuID);
@@ -397,6 +383,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TextboxJutyuuID;
         private System.Windows.Forms.Button ButtonKakutei;
-        private System.Windows.Forms.Button ButtonDetail;
     }
 }
