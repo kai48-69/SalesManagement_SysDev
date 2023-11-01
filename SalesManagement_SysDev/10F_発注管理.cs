@@ -34,12 +34,7 @@ namespace SalesManagement_SysDev
             f_buturyuu.Show();
         }
 
-        private void ButtonSyousai_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            F_発注詳細管理 f_syousai = new F_発注詳細管理();
-            f_syousai.Show();
-        }
+      
 
         private void TextboxMekarName_SelectedIndexChanged(object sender, EventArgs e)
         {

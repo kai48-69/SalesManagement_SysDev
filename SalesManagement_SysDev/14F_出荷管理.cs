@@ -24,13 +24,6 @@ namespace SalesManagement_SysDev
             f_eigyou.Show();
         }
 
-        private void ButtonDetail_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            F_出荷詳細管理 f_syousai = new F_出荷詳細管理();
-            f_syousai.Show();
-        }
-
         private void ButtonReset_Click(object sender, EventArgs e)
         {
 

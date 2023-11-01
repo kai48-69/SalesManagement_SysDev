@@ -34,11 +34,6 @@ namespace SalesManagement_SysDev
             f_eigyou.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            F_受注詳細登録 f_syousai = new F_受注詳細登録();
-            f_syousai.Show();
-        }
+
     }
 }

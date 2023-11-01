@@ -24,13 +24,6 @@ namespace SalesManagement_SysDev
             f_eigyou.Show();
         }
 
-        private void ButtonArrivalDetail_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            F_入荷詳細登録 f_syousai = new F_入荷詳細登録();
-            f_syousai.Show();
-        }
-
         private void ButtonKakutei_Click(object sender, EventArgs e)
         {
 
