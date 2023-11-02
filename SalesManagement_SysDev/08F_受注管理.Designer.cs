@@ -62,6 +62,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.TextboxHihyouji = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -74,7 +75,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1308, 349);
+            this.dataGridView1.Size = new System.Drawing.Size(1308, 266);
             this.dataGridView1.TabIndex = 0;
             // 
             // TextboxJutyuID
@@ -413,11 +414,23 @@
             this.TextboxHihyouji.TabIndex = 18;
             this.TextboxHihyouji.Text = "";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.button1.Location = new System.Drawing.Point(509, 798);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(324, 61);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "確定";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // F_受注管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 884);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label12);
@@ -499,5 +512,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.RichTextBox TextboxHihyouji;
+        private System.Windows.Forms.Button button1;
     }
 }
