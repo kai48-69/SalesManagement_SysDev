@@ -30,5 +30,6 @@ namespace SalesManagement_SysDev
             F_小分類管理 f_bunrui = new F_小分類管理();
             f_bunrui.Show();
         }
+
     }
 }

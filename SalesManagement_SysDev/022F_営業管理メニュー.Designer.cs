@@ -31,25 +31,25 @@
             this.ButtonSyukka = new System.Windows.Forms.Button();
             this.ButtonNyuka = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ButtonLogout = new System.Windows.Forms.Button();
-            this.ButtonTyumon = new System.Windows.Forms.Button();
-            this.ButtonJutyuu = new System.Windows.Forms.Button();
-            this.ButtonKokyaku = new System.Windows.Forms.Button();
-            this.ButtonUriage = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ButtonLogout = new System.Windows.Forms.Button();
+            this.ButtonTyumon = new System.Windows.Forms.Button();
+            this.ButtonJutyuu = new System.Windows.Forms.Button();
+            this.ButtonKokyaku = new System.Windows.Forms.Button();
+            this.ButtonUriage = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ButtonSyukka
             // 
             this.ButtonSyukka.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonSyukka.Location = new System.Drawing.Point(90, 354);
+            this.ButtonSyukka.Location = new System.Drawing.Point(120, 354);
             this.ButtonSyukka.Name = "ButtonSyukka";
             this.ButtonSyukka.Size = new System.Drawing.Size(242, 111);
             this.ButtonSyukka.TabIndex = 2;
@@ -60,7 +60,7 @@
             // ButtonNyuka
             // 
             this.ButtonNyuka.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonNyuka.Location = new System.Drawing.Point(365, 354);
+            this.ButtonNyuka.Location = new System.Drawing.Point(395, 354);
             this.ButtonNyuka.Name = "ButtonNyuka";
             this.ButtonNyuka.Size = new System.Drawing.Size(238, 111);
             this.ButtonNyuka.TabIndex = 3;
@@ -83,71 +83,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1026, 142);
             this.panel1.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label1.Location = new System.Drawing.Point(360, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(368, 50);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "営業管理メニュー";
-            // 
-            // ButtonLogout
-            // 
-            this.ButtonLogout.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonLogout.Location = new System.Drawing.Point(794, 45);
-            this.ButtonLogout.Name = "ButtonLogout";
-            this.ButtonLogout.Size = new System.Drawing.Size(165, 58);
-            this.ButtonLogout.TabIndex = 2;
-            this.ButtonLogout.Text = "ログアウト";
-            this.ButtonLogout.UseVisualStyleBackColor = true;
-            this.ButtonLogout.Click += new System.EventHandler(this.ButtonLogout_Click);
-            // 
-            // ButtonTyumon
-            // 
-            this.ButtonTyumon.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonTyumon.Location = new System.Drawing.Point(365, 191);
-            this.ButtonTyumon.Name = "ButtonTyumon";
-            this.ButtonTyumon.Size = new System.Drawing.Size(238, 111);
-            this.ButtonTyumon.TabIndex = 4;
-            this.ButtonTyumon.Text = "注文管理";
-            this.ButtonTyumon.UseVisualStyleBackColor = true;
-            this.ButtonTyumon.Click += new System.EventHandler(this.ButtonTyumon_Click);
-            // 
-            // ButtonJutyuu
-            // 
-            this.ButtonJutyuu.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonJutyuu.Location = new System.Drawing.Point(90, 194);
-            this.ButtonJutyuu.Name = "ButtonJutyuu";
-            this.ButtonJutyuu.Size = new System.Drawing.Size(242, 111);
-            this.ButtonJutyuu.TabIndex = 5;
-            this.ButtonJutyuu.Text = "受注管理";
-            this.ButtonJutyuu.UseVisualStyleBackColor = true;
-            this.ButtonJutyuu.Click += new System.EventHandler(this.ButtonJutyuu_Click);
-            // 
-            // ButtonKokyaku
-            // 
-            this.ButtonKokyaku.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonKokyaku.Location = new System.Drawing.Point(641, 191);
-            this.ButtonKokyaku.Name = "ButtonKokyaku";
-            this.ButtonKokyaku.Size = new System.Drawing.Size(238, 111);
-            this.ButtonKokyaku.TabIndex = 6;
-            this.ButtonKokyaku.Text = "顧客管理";
-            this.ButtonKokyaku.UseVisualStyleBackColor = true;
-            this.ButtonKokyaku.Click += new System.EventHandler(this.ButtonKokyaku_Click);
-            // 
-            // ButtonUriage
-            // 
-            this.ButtonUriage.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonUriage.Location = new System.Drawing.Point(641, 354);
-            this.ButtonUriage.Name = "ButtonUriage";
-            this.ButtonUriage.Size = new System.Drawing.Size(238, 111);
-            this.ButtonUriage.TabIndex = 7;
-            this.ButtonUriage.Text = "売上管理";
-            this.ButtonUriage.UseVisualStyleBackColor = true;
-            this.ButtonUriage.Click += new System.EventHandler(this.ButtonUriage_Click);
             // 
             // label19
             // 
@@ -209,11 +144,76 @@
             this.label17.TabIndex = 88;
             this.label17.Text = "ログイン日時";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 30F);
+            this.label1.Location = new System.Drawing.Point(360, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(368, 50);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "営業管理メニュー";
+            // 
+            // ButtonLogout
+            // 
+            this.ButtonLogout.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ButtonLogout.Location = new System.Drawing.Point(794, 45);
+            this.ButtonLogout.Name = "ButtonLogout";
+            this.ButtonLogout.Size = new System.Drawing.Size(165, 58);
+            this.ButtonLogout.TabIndex = 2;
+            this.ButtonLogout.Text = "ログアウト";
+            this.ButtonLogout.UseVisualStyleBackColor = true;
+            this.ButtonLogout.Click += new System.EventHandler(this.ButtonLogout_Click);
+            // 
+            // ButtonTyumon
+            // 
+            this.ButtonTyumon.Font = new System.Drawing.Font("MS UI Gothic", 23F);
+            this.ButtonTyumon.Location = new System.Drawing.Point(395, 191);
+            this.ButtonTyumon.Name = "ButtonTyumon";
+            this.ButtonTyumon.Size = new System.Drawing.Size(238, 111);
+            this.ButtonTyumon.TabIndex = 4;
+            this.ButtonTyumon.Text = "注文管理";
+            this.ButtonTyumon.UseVisualStyleBackColor = true;
+            this.ButtonTyumon.Click += new System.EventHandler(this.ButtonTyumon_Click);
+            // 
+            // ButtonJutyuu
+            // 
+            this.ButtonJutyuu.Font = new System.Drawing.Font("MS UI Gothic", 23F);
+            this.ButtonJutyuu.Location = new System.Drawing.Point(120, 194);
+            this.ButtonJutyuu.Name = "ButtonJutyuu";
+            this.ButtonJutyuu.Size = new System.Drawing.Size(242, 111);
+            this.ButtonJutyuu.TabIndex = 5;
+            this.ButtonJutyuu.Text = "受注管理";
+            this.ButtonJutyuu.UseVisualStyleBackColor = true;
+            this.ButtonJutyuu.Click += new System.EventHandler(this.ButtonJutyuu_Click);
+            // 
+            // ButtonKokyaku
+            // 
+            this.ButtonKokyaku.Font = new System.Drawing.Font("MS UI Gothic", 23F);
+            this.ButtonKokyaku.Location = new System.Drawing.Point(671, 191);
+            this.ButtonKokyaku.Name = "ButtonKokyaku";
+            this.ButtonKokyaku.Size = new System.Drawing.Size(238, 111);
+            this.ButtonKokyaku.TabIndex = 6;
+            this.ButtonKokyaku.Text = "顧客管理";
+            this.ButtonKokyaku.UseVisualStyleBackColor = true;
+            this.ButtonKokyaku.Click += new System.EventHandler(this.ButtonKokyaku_Click);
+            // 
+            // ButtonUriage
+            // 
+            this.ButtonUriage.Font = new System.Drawing.Font("MS UI Gothic", 23F);
+            this.ButtonUriage.Location = new System.Drawing.Point(671, 354);
+            this.ButtonUriage.Name = "ButtonUriage";
+            this.ButtonUriage.Size = new System.Drawing.Size(238, 111);
+            this.ButtonUriage.TabIndex = 7;
+            this.ButtonUriage.Text = "売上管理";
+            this.ButtonUriage.UseVisualStyleBackColor = true;
+            this.ButtonUriage.Click += new System.EventHandler(this.ButtonUriage_Click);
+            // 
             // F_営業
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(993, 513);
+            this.ClientSize = new System.Drawing.Size(1026, 513);
             this.Controls.Add(this.ButtonUriage);
             this.Controls.Add(this.ButtonKokyaku);
             this.Controls.Add(this.ButtonJutyuu);

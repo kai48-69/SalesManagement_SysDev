@@ -32,15 +32,15 @@
             this.ButtonSyain = new System.Windows.Forms.Button();
             this.ButtonEigyou = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ButtonLogout = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ButtonHistory = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
+            this.ButtonLogout = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.ButtonHistory = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,6 +94,16 @@
             this.panel1.Size = new System.Drawing.Size(992, 142);
             this.panel1.TabIndex = 4;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.label19.Location = new System.Drawing.Point(160, 103);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(175, 19);
+            this.label19.TabIndex = 92;
+            this.label19.Text = "2023/10/30 11:15";
+            // 
             // ButtonLogout
             // 
             this.ButtonLogout.Font = new System.Drawing.Font("MS UI Gothic", 15F);
@@ -105,38 +115,6 @@
             this.ButtonLogout.UseVisualStyleBackColor = true;
             this.ButtonLogout.Click += new System.EventHandler(this.ButtonLogout_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label1.Location = new System.Drawing.Point(356, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(355, 50);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "本社　管理画面";
-            this.label1.UseMnemonic = false;
-            // 
-            // ButtonHistory
-            // 
-            this.ButtonHistory.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonHistory.Location = new System.Drawing.Point(520, 348);
-            this.ButtonHistory.Name = "ButtonHistory";
-            this.ButtonHistory.Size = new System.Drawing.Size(336, 117);
-            this.ButtonHistory.TabIndex = 6;
-            this.ButtonHistory.Text = "履歴";
-            this.ButtonHistory.UseVisualStyleBackColor = true;
-            this.ButtonHistory.Click += new System.EventHandler(this.ButtonHistory_Click);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label19.Location = new System.Drawing.Point(160, 103);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(175, 19);
-            this.label19.TabIndex = 92;
-            this.label19.Text = "2023/10/30 11:15";
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -146,6 +124,17 @@
             this.label18.Size = new System.Drawing.Size(129, 19);
             this.label18.TabIndex = 91;
             this.label18.Text = "◯◯◯営業所";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 30F);
+            this.label1.Location = new System.Drawing.Point(368, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(355, 50);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "本社　管理画面";
+            this.label1.UseMnemonic = false;
             // 
             // label16
             // 
@@ -167,6 +156,16 @@
             this.label14.TabIndex = 87;
             this.label14.Text = "ログイン社員名";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.label17.Location = new System.Drawing.Point(49, 103);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(110, 19);
+            this.label17.TabIndex = 88;
+            this.label17.Text = "ログイン日時";
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -177,15 +176,16 @@
             this.label15.TabIndex = 89;
             this.label15.Text = "営業所";
             // 
-            // label17
+            // ButtonHistory
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(49, 103);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(110, 19);
-            this.label17.TabIndex = 88;
-            this.label17.Text = "ログイン日時";
+            this.ButtonHistory.Font = new System.Drawing.Font("MS UI Gothic", 23F);
+            this.ButtonHistory.Location = new System.Drawing.Point(520, 348);
+            this.ButtonHistory.Name = "ButtonHistory";
+            this.ButtonHistory.Size = new System.Drawing.Size(336, 117);
+            this.ButtonHistory.TabIndex = 6;
+            this.ButtonHistory.Text = "履歴";
+            this.ButtonHistory.UseVisualStyleBackColor = true;
+            this.ButtonHistory.Click += new System.EventHandler(this.ButtonHistory_Click);
             // 
             // F_管理者
             // 

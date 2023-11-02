@@ -44,7 +44,7 @@
             // btn_CleateDabase
             // 
             this.btn_CleateDabase.Location = new System.Drawing.Point(881, 399);
-            this.btn_CleateDabase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_CleateDabase.Margin = new System.Windows.Forms.Padding(4);
             this.btn_CleateDabase.Name = "btn_CleateDabase";
             this.btn_CleateDabase.Size = new System.Drawing.Size(141, 61);
             this.btn_CleateDabase.TabIndex = 0;
@@ -67,7 +67,7 @@
             // btn_InsertSampleData
             // 
             this.btn_InsertSampleData.Location = new System.Drawing.Point(881, 486);
-            this.btn_InsertSampleData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_InsertSampleData.Margin = new System.Windows.Forms.Padding(4);
             this.btn_InsertSampleData.Name = "btn_InsertSampleData";
             this.btn_InsertSampleData.Size = new System.Drawing.Size(141, 61);
             this.btn_InsertSampleData.TabIndex = 0;
@@ -118,7 +118,7 @@
             // 
             this.ButtonLogin.Font = new System.Drawing.Font("MS UI Gothic", 30F);
             this.ButtonLogin.Location = new System.Drawing.Point(139, 318);
-            this.ButtonLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(437, 61);
             this.ButtonLogin.TabIndex = 3;
@@ -136,13 +136,12 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(684, 90);
             this.panel1.TabIndex = 7;
-
             // 
             // ButtonExit
             // 
             this.ButtonExit.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ButtonExit.Location = new System.Drawing.Point(569, 22);
-            this.ButtonExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonExit.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonExit.Name = "ButtonExit";
             this.ButtonExit.Size = new System.Drawing.Size(101, 46);
             this.ButtonExit.TabIndex = 4;
@@ -164,9 +163,8 @@
             this.Controls.Add(this.btn_InsertSampleData);
             this.Controls.Add(this.btn_CleateDabase);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "F_ログイン画面";
-            this.Text = "販売管理システムログイン画面";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
