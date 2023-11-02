@@ -16,5 +16,10 @@ namespace SalesManagement_SysDev
         {
             InitializeComponent();
         }
+
+        private void TextboxShainID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

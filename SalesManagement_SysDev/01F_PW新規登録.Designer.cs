@@ -65,7 +65,7 @@
             // 
             this.ButtonLogin.Font = new System.Drawing.Font("MS UI Gothic", 30F);
             this.ButtonLogin.Location = new System.Drawing.Point(137, 381);
-            this.ButtonLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(437, 61);
             this.ButtonLogin.TabIndex = 10;
@@ -109,6 +109,7 @@
             this.TextboxShainID.Name = "TextboxShainID";
             this.TextboxShainID.Size = new System.Drawing.Size(321, 49);
             this.TextboxShainID.TabIndex = 8;
+            this.TextboxShainID.TextChanged += new System.EventHandler(this.TextboxShainID_TextChanged);
             // 
             // textBox1
             // 
@@ -143,7 +144,7 @@
             this.Controls.Add(this.TextboxPW);
             this.Controls.Add(this.TextboxShainID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "_01F_PW新規登録";
             this.Text = "_01F_PW新規登録";
             this.panel1.ResumeLayout(false);

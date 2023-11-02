@@ -62,10 +62,10 @@
             // ButtonReset
             // 
             this.ButtonReset.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonReset.Location = new System.Drawing.Point(312, 134);
-            this.ButtonReset.Margin = new System.Windows.Forms.Padding(2);
+            this.ButtonReset.Location = new System.Drawing.Point(416, 161);
+            this.ButtonReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonReset.Name = "ButtonReset";
-            this.ButtonReset.Size = new System.Drawing.Size(124, 34);
+            this.ButtonReset.Size = new System.Drawing.Size(165, 58);
             this.ButtonReset.TabIndex = 50;
             this.ButtonReset.Text = "入力リセット";
             this.ButtonReset.UseVisualStyleBackColor = true;
@@ -74,10 +74,10 @@
             // ButtonJikou
             // 
             this.ButtonJikou.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonJikou.Location = new System.Drawing.Point(820, 134);
-            this.ButtonJikou.Margin = new System.Windows.Forms.Padding(2);
+            this.ButtonJikou.Location = new System.Drawing.Point(1186, 161);
+            this.ButtonJikou.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonJikou.Name = "ButtonJikou";
-            this.ButtonJikou.Size = new System.Drawing.Size(124, 46);
+            this.ButtonJikou.Size = new System.Drawing.Size(165, 58);
             this.ButtonJikou.TabIndex = 31;
             this.ButtonJikou.Text = "実行";
             this.ButtonJikou.UseVisualStyleBackColor = true;
@@ -87,10 +87,10 @@
             // 
             this.RadioHihyouji.AutoSize = true;
             this.RadioHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.RadioHihyouji.Location = new System.Drawing.Point(207, 137);
-            this.RadioHihyouji.Margin = new System.Windows.Forms.Padding(2);
+            this.RadioHihyouji.Location = new System.Drawing.Point(276, 171);
+            this.RadioHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioHihyouji.Name = "RadioHihyouji";
-            this.RadioHihyouji.Size = new System.Drawing.Size(100, 28);
+            this.RadioHihyouji.Size = new System.Drawing.Size(124, 34);
             this.RadioHihyouji.TabIndex = 49;
             this.RadioHihyouji.Text = "非表示";
             this.RadioHihyouji.UseVisualStyleBackColor = true;
@@ -99,10 +99,10 @@
             // 
             this.RadioKensaku.AutoSize = true;
             this.RadioKensaku.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.RadioKensaku.Location = new System.Drawing.Point(124, 137);
-            this.RadioKensaku.Margin = new System.Windows.Forms.Padding(2);
+            this.RadioKensaku.Location = new System.Drawing.Point(165, 171);
+            this.RadioKensaku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioKensaku.Name = "RadioKensaku";
-            this.RadioKensaku.Size = new System.Drawing.Size(76, 28);
+            this.RadioKensaku.Size = new System.Drawing.Size(94, 34);
             this.RadioKensaku.TabIndex = 47;
             this.RadioKensaku.Text = "検索";
             this.RadioKensaku.UseVisualStyleBackColor = true;
@@ -111,10 +111,10 @@
             // ButtonBack
             // 
             this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonBack.Location = new System.Drawing.Point(820, 40);
-            this.ButtonBack.Margin = new System.Windows.Forms.Padding(2);
+            this.ButtonBack.Location = new System.Drawing.Point(1186, 42);
+            this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonBack.Name = "ButtonBack";
-            this.ButtonBack.Size = new System.Drawing.Size(124, 46);
+            this.ButtonBack.Size = new System.Drawing.Size(165, 58);
             this.ButtonBack.TabIndex = 5;
             this.ButtonBack.Text = "戻る";
             this.ButtonBack.UseVisualStyleBackColor = true;
@@ -124,10 +124,9 @@
             // 
             this.LabelTitle.AutoSize = true;
             this.LabelTitle.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.LabelTitle.Location = new System.Drawing.Point(373, 40);
-            this.LabelTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LabelTitle.Location = new System.Drawing.Point(524, 44);
             this.LabelTitle.Name = "LabelTitle";
-            this.LabelTitle.Size = new System.Drawing.Size(294, 40);
+            this.LabelTitle.Size = new System.Drawing.Size(368, 50);
             this.LabelTitle.TabIndex = 4;
             this.LabelTitle.Text = "入荷管理メニュー";
             // 
@@ -137,18 +136,18 @@
             this.panel1.Controls.Add(this.ButtonBack);
             this.panel1.Controls.Add(this.LabelTitle);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(988, 114);
+            this.panel1.Size = new System.Drawing.Size(1403, 142);
             this.panel1.TabIndex = 45;
             // 
             // TextBoxHidden
             // 
             this.TextBoxHidden.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextBoxHidden.Location = new System.Drawing.Point(724, 214);
-            this.TextBoxHidden.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxHidden.Location = new System.Drawing.Point(986, 268);
+            this.TextBoxHidden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxHidden.Name = "TextBoxHidden";
-            this.TextBoxHidden.Size = new System.Drawing.Size(220, 130);
+            this.TextBoxHidden.Size = new System.Drawing.Size(365, 162);
             this.TextBoxHidden.TabIndex = 44;
             this.TextBoxHidden.Text = "";
             // 
@@ -156,10 +155,9 @@
             // 
             this.LabelHidden.AutoSize = true;
             this.LabelHidden.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.LabelHidden.Location = new System.Drawing.Point(614, 218);
-            this.LabelHidden.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LabelHidden.Location = new System.Drawing.Point(843, 268);
             this.LabelHidden.Name = "LabelHidden";
-            this.LabelHidden.Size = new System.Drawing.Size(109, 20);
+            this.LabelHidden.Size = new System.Drawing.Size(137, 25);
             this.LabelHidden.TabIndex = 43;
             this.LabelHidden.Text = "非表示理由";
             // 
@@ -167,39 +165,37 @@
             // 
             this.LabelTanntouName.AutoSize = true;
             this.LabelTanntouName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.LabelTanntouName.Location = new System.Drawing.Point(340, 329);
-            this.LabelTanntouName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LabelTanntouName.Location = new System.Drawing.Point(469, 410);
             this.LabelTanntouName.Name = "LabelTanntouName";
-            this.LabelTanntouName.Size = new System.Drawing.Size(69, 20);
+            this.LabelTanntouName.Size = new System.Drawing.Size(87, 25);
             this.LabelTanntouName.TabIndex = 41;
             this.LabelTanntouName.Text = "社員名";
             // 
             // TextBoxTanntouName
             // 
             this.TextBoxTanntouName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextBoxTanntouName.Location = new System.Drawing.Point(415, 327);
-            this.TextBoxTanntouName.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxTanntouName.Location = new System.Drawing.Point(569, 408);
+            this.TextBoxTanntouName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxTanntouName.Name = "TextBoxTanntouName";
-            this.TextBoxTanntouName.Size = new System.Drawing.Size(151, 27);
+            this.TextBoxTanntouName.Size = new System.Drawing.Size(237, 32);
             this.TextBoxTanntouName.TabIndex = 40;
             // 
             // NyukaDate
             // 
             this.NyukaDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.NyukaDate.Location = new System.Drawing.Point(134, 291);
-            this.NyukaDate.Margin = new System.Windows.Forms.Padding(2);
+            this.NyukaDate.Location = new System.Drawing.Point(179, 364);
+            this.NyukaDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NyukaDate.Name = "NyukaDate";
-            this.NyukaDate.Size = new System.Drawing.Size(186, 27);
+            this.NyukaDate.Size = new System.Drawing.Size(237, 32);
             this.NyukaDate.TabIndex = 39;
             // 
             // LabelArrivaDate
             // 
             this.LabelArrivaDate.AutoSize = true;
             this.LabelArrivaDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.LabelArrivaDate.Location = new System.Drawing.Point(28, 296);
-            this.LabelArrivaDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LabelArrivaDate.Location = new System.Drawing.Point(37, 370);
             this.LabelArrivaDate.Name = "LabelArrivaDate";
-            this.LabelArrivaDate.Size = new System.Drawing.Size(109, 20);
+            this.LabelArrivaDate.Size = new System.Drawing.Size(137, 25);
             this.LabelArrivaDate.TabIndex = 38;
             this.LabelArrivaDate.Text = "入荷年月日";
             // 
@@ -207,20 +203,19 @@
             // 
             this.ComboBoxKokyakumei.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ComboBoxKokyakumei.FormattingEnabled = true;
-            this.ComboBoxKokyakumei.Location = new System.Drawing.Point(415, 253);
-            this.ComboBoxKokyakumei.Margin = new System.Windows.Forms.Padding(2);
+            this.ComboBoxKokyakumei.Location = new System.Drawing.Point(569, 315);
+            this.ComboBoxKokyakumei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboBoxKokyakumei.Name = "ComboBoxKokyakumei";
-            this.ComboBoxKokyakumei.Size = new System.Drawing.Size(151, 28);
+            this.ComboBoxKokyakumei.Size = new System.Drawing.Size(237, 33);
             this.ComboBoxKokyakumei.TabIndex = 35;
             // 
             // LabelKokyakumei
             // 
             this.LabelKokyakumei.AutoSize = true;
             this.LabelKokyakumei.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.LabelKokyakumei.Location = new System.Drawing.Point(344, 257);
-            this.LabelKokyakumei.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LabelKokyakumei.Location = new System.Drawing.Point(469, 320);
             this.LabelKokyakumei.Name = "LabelKokyakumei";
-            this.LabelKokyakumei.Size = new System.Drawing.Size(69, 20);
+            this.LabelKokyakumei.Size = new System.Drawing.Size(87, 25);
             this.LabelKokyakumei.TabIndex = 34;
             this.LabelKokyakumei.Text = "顧客名";
             // 
@@ -228,40 +223,38 @@
             // 
             this.LabelSyainnID.AutoSize = true;
             this.LabelSyainnID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.LabelSyainnID.Location = new System.Drawing.Point(345, 293);
-            this.LabelSyainnID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LabelSyainnID.Location = new System.Drawing.Point(469, 363);
             this.LabelSyainnID.Name = "LabelSyainnID";
-            this.LabelSyainnID.Size = new System.Drawing.Size(67, 20);
+            this.LabelSyainnID.Size = new System.Drawing.Size(84, 25);
             this.LabelSyainnID.TabIndex = 33;
             this.LabelSyainnID.Text = "社員ID";
             // 
             // TextBoxSyainnID
             // 
             this.TextBoxSyainnID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextBoxSyainnID.Location = new System.Drawing.Point(415, 289);
-            this.TextBoxSyainnID.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxSyainnID.Location = new System.Drawing.Point(569, 360);
+            this.TextBoxSyainnID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxSyainnID.Name = "TextBoxSyainnID";
-            this.TextBoxSyainnID.Size = new System.Drawing.Size(151, 27);
+            this.TextBoxSyainnID.Size = new System.Drawing.Size(237, 32);
             this.TextBoxSyainnID.TabIndex = 30;
             // 
             // ComboBoxEigyousyomei
             // 
             this.ComboBoxEigyousyomei.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ComboBoxEigyousyomei.FormattingEnabled = true;
-            this.ComboBoxEigyousyomei.Location = new System.Drawing.Point(136, 329);
-            this.ComboBoxEigyousyomei.Margin = new System.Windows.Forms.Padding(2);
+            this.ComboBoxEigyousyomei.Location = new System.Drawing.Point(181, 411);
+            this.ComboBoxEigyousyomei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboBoxEigyousyomei.Name = "ComboBoxEigyousyomei";
-            this.ComboBoxEigyousyomei.Size = new System.Drawing.Size(184, 28);
+            this.ComboBoxEigyousyomei.Size = new System.Drawing.Size(235, 33);
             this.ComboBoxEigyousyomei.TabIndex = 29;
             // 
             // LabelEigyoushomei
             // 
             this.LabelEigyoushomei.AutoSize = true;
             this.LabelEigyoushomei.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.LabelEigyoushomei.Location = new System.Drawing.Point(45, 333);
-            this.LabelEigyoushomei.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LabelEigyoushomei.Location = new System.Drawing.Point(60, 416);
             this.LabelEigyoushomei.Name = "LabelEigyoushomei";
-            this.LabelEigyoushomei.Size = new System.Drawing.Size(89, 20);
+            this.LabelEigyoushomei.Size = new System.Drawing.Size(112, 25);
             this.LabelEigyoushomei.TabIndex = 28;
             this.LabelEigyoushomei.Text = "営業所名";
             // 
@@ -269,41 +262,40 @@
             // 
             this.LabelNyuukaID.AutoSize = true;
             this.LabelNyuukaID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.LabelNyuukaID.Location = new System.Drawing.Point(68, 218);
-            this.LabelNyuukaID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LabelNyuukaID.Location = new System.Drawing.Point(91, 272);
             this.LabelNyuukaID.Name = "LabelNyuukaID";
-            this.LabelNyuukaID.Size = new System.Drawing.Size(67, 20);
+            this.LabelNyuukaID.Size = new System.Drawing.Size(84, 25);
             this.LabelNyuukaID.TabIndex = 27;
             this.LabelNyuukaID.Text = "入荷ID";
             // 
             // TextBoxNyuukaID
             // 
             this.TextBoxNyuukaID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextBoxNyuukaID.Location = new System.Drawing.Point(136, 214);
-            this.TextBoxNyuukaID.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxNyuukaID.Location = new System.Drawing.Point(181, 265);
+            this.TextBoxNyuukaID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxNyuukaID.Name = "TextBoxNyuukaID";
-            this.TextBoxNyuukaID.Size = new System.Drawing.Size(184, 27);
+            this.TextBoxNyuukaID.Size = new System.Drawing.Size(235, 32);
             this.TextBoxNyuukaID.TabIndex = 26;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 370);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Location = new System.Drawing.Point(51, 474);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(912, 276);
+            this.dataGridView1.Size = new System.Drawing.Size(1308, 349);
             this.dataGridView1.TabIndex = 25;
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.radioButton1.Location = new System.Drawing.Point(49, 137);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButton1.Location = new System.Drawing.Point(65, 171);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(76, 28);
+            this.radioButton1.Size = new System.Drawing.Size(94, 34);
             this.radioButton1.TabIndex = 51;
             this.radioButton1.Text = "確定";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -312,48 +304,46 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label1.Location = new System.Drawing.Point(28, 255);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(37, 319);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 20);
+            this.label1.Size = new System.Drawing.Size(134, 25);
             this.label1.TabIndex = 53;
             this.label1.Text = "入荷詳細ID";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox1.Location = new System.Drawing.Point(136, 253);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Location = new System.Drawing.Point(181, 316);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(184, 27);
+            this.textBox1.Size = new System.Drawing.Size(235, 32);
             this.textBox1.TabIndex = 52;
             // 
             // comboBox1
             // 
             this.comboBox1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(415, 215);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Location = new System.Drawing.Point(569, 268);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 28);
+            this.comboBox1.Size = new System.Drawing.Size(237, 33);
             this.comboBox1.TabIndex = 55;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label2.Location = new System.Drawing.Point(344, 219);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(469, 273);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 20);
+            this.label2.Size = new System.Drawing.Size(84, 25);
             this.label2.TabIndex = 54;
             this.label2.Text = "顧客ID";
             // 
             // F_入荷管理
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 680);
+            this.ClientSize = new System.Drawing.Size(1403, 884);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -380,7 +370,7 @@
             this.Controls.Add(this.TextBoxNyuukaID);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "F_入荷管理";
             this.Text = "F_入荷";
             this.Load += new System.EventHandler(this.F_入荷管理_Load);

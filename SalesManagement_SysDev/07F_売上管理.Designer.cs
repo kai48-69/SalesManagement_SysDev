@@ -51,12 +51,10 @@
             this.UriageDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -76,7 +74,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label5.Location = new System.Drawing.Point(80, 421);
+            this.label5.Location = new System.Drawing.Point(80, 402);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 25);
             this.label5.TabIndex = 92;
@@ -85,7 +83,7 @@
             // TextboxJutyuID
             // 
             this.TextboxJutyuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxJutyuID.Location = new System.Drawing.Point(176, 419);
+            this.TextboxJutyuID.Location = new System.Drawing.Point(176, 400);
             this.TextboxJutyuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxJutyuID.Name = "TextboxJutyuID";
             this.TextboxJutyuID.Size = new System.Drawing.Size(219, 32);
@@ -125,7 +123,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label1.Location = new System.Drawing.Point(80, 272);
+            this.label1.Location = new System.Drawing.Point(80, 295);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 25);
             this.label1.TabIndex = 82;
@@ -134,7 +132,7 @@
             // TextboxUriageID
             // 
             this.TextboxUriageID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxUriageID.Location = new System.Drawing.Point(176, 269);
+            this.TextboxUriageID.Location = new System.Drawing.Point(176, 292);
             this.TextboxUriageID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxUriageID.Name = "TextboxUriageID";
             this.TextboxUriageID.Size = new System.Drawing.Size(219, 32);
@@ -144,7 +142,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label9.Location = new System.Drawing.Point(499, 44);
+            this.label9.Location = new System.Drawing.Point(524, 44);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(368, 50);
             this.label9.TabIndex = 4;
@@ -154,7 +152,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label3.Location = new System.Drawing.Point(51, 370);
+            this.label3.Location = new System.Drawing.Point(51, 351);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 25);
             this.label3.TabIndex = 86;
@@ -232,7 +230,7 @@
             // TextboxHihyouji
             // 
             this.TextboxHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxHihyouji.Location = new System.Drawing.Point(1000, 371);
+            this.TextboxHihyouji.Location = new System.Drawing.Point(1035, 371);
             this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxHihyouji.Name = "TextboxHihyouji";
             this.TextboxHihyouji.Size = new System.Drawing.Size(331, 80);
@@ -243,7 +241,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label8.Location = new System.Drawing.Point(844, 374);
+            this.label8.Location = new System.Drawing.Point(879, 374);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(137, 25);
             this.label8.TabIndex = 73;
@@ -257,7 +255,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1284, 348);
+            this.dataGridView1.Size = new System.Drawing.Size(1308, 349);
             this.dataGridView1.TabIndex = 71;
             // 
             // ConboKokyakuName
@@ -273,7 +271,7 @@
             // UriageDate
             // 
             this.UriageDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.UriageDate.Location = new System.Drawing.Point(176, 368);
+            this.UriageDate.Location = new System.Drawing.Point(176, 349);
             this.UriageDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UriageDate.Name = "UriageDate";
             this.UriageDate.Size = new System.Drawing.Size(219, 32);
@@ -298,21 +296,11 @@
             this.textBox1.Size = new System.Drawing.Size(238, 32);
             this.textBox1.TabIndex = 99;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label10.Location = new System.Drawing.Point(29, 318);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(134, 25);
-            this.label10.TabIndex = 102;
-            this.label10.Text = "売上詳細ID";
-            // 
             // comboBox1
             // 
             this.comboBox1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1000, 320);
+            this.comboBox1.Location = new System.Drawing.Point(1035, 320);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(332, 33);
@@ -322,7 +310,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label11.Location = new System.Drawing.Point(897, 325);
+            this.label11.Location = new System.Drawing.Point(932, 325);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(87, 25);
             this.label11.TabIndex = 105;
@@ -332,7 +320,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label12.Location = new System.Drawing.Point(900, 272);
+            this.label12.Location = new System.Drawing.Point(935, 272);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(84, 25);
             this.label12.TabIndex = 103;
@@ -341,20 +329,11 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox2.Location = new System.Drawing.Point(1000, 269);
+            this.textBox2.Location = new System.Drawing.Point(1035, 269);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(328, 32);
+            this.textBox2.Size = new System.Drawing.Size(332, 32);
             this.textBox2.TabIndex = 108;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox3.Location = new System.Drawing.Point(176, 314);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(219, 32);
-            this.textBox3.TabIndex = 109;
             // 
             // textBox4
             // 
@@ -371,12 +350,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 884);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.UriageDate);
@@ -435,12 +412,10 @@
         private System.Windows.Forms.DateTimePicker UriageDate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
     }
 }

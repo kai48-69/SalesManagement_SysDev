@@ -76,7 +76,7 @@
             // ButtonExe
             // 
             this.ButtonExe.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonExe.Location = new System.Drawing.Point(1173, 151);
+            this.ButtonExe.Location = new System.Drawing.Point(1194, 151);
             this.ButtonExe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonExe.Name = "ButtonExe";
             this.ButtonExe.Size = new System.Drawing.Size(165, 58);
@@ -123,7 +123,7 @@
             // ButtonBack
             // 
             this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonBack.Location = new System.Drawing.Point(1173, 36);
+            this.ButtonBack.Location = new System.Drawing.Point(1194, 36);
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(165, 58);
@@ -136,7 +136,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label9.Location = new System.Drawing.Point(555, 44);
+            this.label9.Location = new System.Drawing.Point(524, 44);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(368, 50);
             this.label9.TabIndex = 4;
@@ -148,7 +148,7 @@
             this.TextboxHihyouji.Location = new System.Drawing.Point(1093, 353);
             this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxHihyouji.Name = "TextboxHihyouji";
-            this.TextboxHihyouji.Size = new System.Drawing.Size(245, 92);
+            this.TextboxHihyouji.Size = new System.Drawing.Size(266, 92);
             this.TextboxHihyouji.TabIndex = 66;
             this.TextboxHihyouji.Text = "";
             // 
@@ -224,7 +224,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label3.Location = new System.Drawing.Point(574, 350);
+            this.label3.Location = new System.Drawing.Point(570, 353);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 25);
             this.label3.TabIndex = 58;
@@ -246,7 +246,7 @@
             this.ComboEigyousyoName.Location = new System.Drawing.Point(1093, 241);
             this.ComboEigyousyoName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboEigyousyoName.Name = "ComboEigyousyoName";
-            this.ComboEigyousyoName.Size = new System.Drawing.Size(245, 33);
+            this.ComboEigyousyoName.Size = new System.Drawing.Size(266, 33);
             this.ComboEigyousyoName.TabIndex = 55;
             // 
             // label2
@@ -281,12 +281,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(51, 462);
+            this.dataGridView1.Location = new System.Drawing.Point(51, 474);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1287, 345);
+            this.dataGridView1.Size = new System.Drawing.Size(1308, 349);
             this.dataGridView1.TabIndex = 51;
             // 
             // label5
@@ -305,7 +305,7 @@
             this.TextboxJutyuuID.Location = new System.Drawing.Point(1093, 300);
             this.TextboxJutyuuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxJutyuuID.Name = "TextboxJutyuuID";
-            this.TextboxJutyuuID.Size = new System.Drawing.Size(245, 32);
+            this.TextboxJutyuuID.Size = new System.Drawing.Size(266, 32);
             this.TextboxJutyuuID.TabIndex = 71;
             // 
             // label10

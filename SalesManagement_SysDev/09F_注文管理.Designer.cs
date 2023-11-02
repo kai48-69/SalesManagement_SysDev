@@ -97,7 +97,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label9.Location = new System.Drawing.Point(559, 44);
+            this.label9.Location = new System.Drawing.Point(524, 44);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(368, 50);
             this.label9.TabIndex = 4;
@@ -129,7 +129,7 @@
             // TextboxHihyouji
             // 
             this.TextboxHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxHihyouji.Location = new System.Drawing.Point(979, 288);
+            this.TextboxHihyouji.Location = new System.Drawing.Point(979, 301);
             this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxHihyouji.Name = "TextboxHihyouji";
             this.TextboxHihyouji.Size = new System.Drawing.Size(379, 146);
@@ -140,7 +140,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label8.Location = new System.Drawing.Point(815, 286);
+            this.label8.Location = new System.Drawing.Point(836, 298);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(137, 25);
             this.label8.TabIndex = 42;
@@ -149,7 +149,7 @@
             // JyutyuDate
             // 
             this.JyutyuDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.JyutyuDate.Location = new System.Drawing.Point(211, 401);
+            this.JyutyuDate.Location = new System.Drawing.Point(211, 414);
             this.JyutyuDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.JyutyuDate.Name = "JyutyuDate";
             this.JyutyuDate.Size = new System.Drawing.Size(217, 32);
@@ -159,7 +159,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label6.Location = new System.Drawing.Point(61, 402);
+            this.label6.Location = new System.Drawing.Point(61, 415);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(137, 25);
             this.label6.TabIndex = 37;
@@ -169,7 +169,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label5.Location = new System.Drawing.Point(485, 338);
+            this.label5.Location = new System.Drawing.Point(500, 351);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 25);
             this.label5.TabIndex = 36;
@@ -178,7 +178,7 @@
             // TextBoxtKokyaku
             // 
             this.TextBoxtKokyaku.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextBoxtKokyaku.Location = new System.Drawing.Point(579, 332);
+            this.TextBoxtKokyaku.Location = new System.Drawing.Point(594, 345);
             this.TextBoxtKokyaku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxtKokyaku.Name = "TextBoxtKokyaku";
             this.TextBoxtKokyaku.Size = new System.Drawing.Size(200, 32);
@@ -188,7 +188,7 @@
             // 
             this.ComboEigyousyoID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ComboEigyousyoID.FormattingEnabled = true;
-            this.ComboEigyousyoID.Location = new System.Drawing.Point(579, 282);
+            this.ComboEigyousyoID.Location = new System.Drawing.Point(594, 295);
             this.ComboEigyousyoID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboEigyousyoID.Name = "ComboEigyousyoID";
             this.ComboEigyousyoID.Size = new System.Drawing.Size(200, 33);
@@ -198,7 +198,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label2.Location = new System.Drawing.Point(461, 288);
+            this.label2.Location = new System.Drawing.Point(476, 301);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 25);
             this.label2.TabIndex = 27;
@@ -208,7 +208,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label1.Location = new System.Drawing.Point(120, 358);
+            this.label1.Location = new System.Drawing.Point(120, 371);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 25);
             this.label1.TabIndex = 26;
@@ -217,7 +217,7 @@
             // TextBoxtJyutyuID
             // 
             this.TextBoxtJyutyuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextBoxtJyutyuID.Location = new System.Drawing.Point(212, 352);
+            this.TextBoxtJyutyuID.Location = new System.Drawing.Point(212, 365);
             this.TextBoxtJyutyuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxtJyutyuID.Name = "TextBoxtJyutyuID";
             this.TextBoxtJyutyuID.Size = new System.Drawing.Size(216, 32);
@@ -226,7 +226,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(51, 475);
+            this.dataGridView1.Location = new System.Drawing.Point(56, 498);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -238,7 +238,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label4.Location = new System.Drawing.Point(119, 265);
+            this.label4.Location = new System.Drawing.Point(119, 278);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 25);
             this.label4.TabIndex = 50;
@@ -247,7 +247,7 @@
             // TextBoxTyuumonID
             // 
             this.TextBoxTyuumonID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextBoxTyuumonID.Location = new System.Drawing.Point(211, 261);
+            this.TextBoxTyuumonID.Location = new System.Drawing.Point(211, 274);
             this.TextBoxTyuumonID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxTyuumonID.Name = "TextBoxTyuumonID";
             this.TextBoxTyuumonID.Size = new System.Drawing.Size(217, 32);
@@ -269,7 +269,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label3.Location = new System.Drawing.Point(485, 389);
+            this.label3.Location = new System.Drawing.Point(500, 402);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 25);
             this.label3.TabIndex = 53;
@@ -278,7 +278,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox1.Location = new System.Drawing.Point(579, 384);
+            this.textBox1.Location = new System.Drawing.Point(594, 397);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 32);
@@ -288,7 +288,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label7.Location = new System.Drawing.Point(63, 310);
+            this.label7.Location = new System.Drawing.Point(63, 323);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(134, 25);
             this.label7.TabIndex = 56;
@@ -297,7 +297,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox2.Location = new System.Drawing.Point(211, 308);
+            this.textBox2.Location = new System.Drawing.Point(211, 321);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(217, 32);

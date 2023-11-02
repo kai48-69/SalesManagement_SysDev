@@ -62,7 +62,7 @@
             // ButtonBack
             // 
             this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonBack.Location = new System.Drawing.Point(1162, 50);
+            this.ButtonBack.Location = new System.Drawing.Point(1186, 50);
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(165, 58);
@@ -75,7 +75,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label9.Location = new System.Drawing.Point(535, 58);
+            this.label9.Location = new System.Drawing.Point(524, 44);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(368, 50);
             this.label9.TabIndex = 4;
@@ -95,7 +95,7 @@
             // ButtonExe
             // 
             this.ButtonExe.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonExe.Location = new System.Drawing.Point(1162, 163);
+            this.ButtonExe.Location = new System.Drawing.Point(1186, 163);
             this.ButtonExe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonExe.Name = "ButtonExe";
             this.ButtonExe.Size = new System.Drawing.Size(165, 58);
@@ -144,7 +144,7 @@
             this.TextboxHihyouji.Location = new System.Drawing.Point(1072, 330);
             this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxHihyouji.Name = "TextboxHihyouji";
-            this.TextboxHihyouji.Size = new System.Drawing.Size(255, 139);
+            this.TextboxHihyouji.Size = new System.Drawing.Size(279, 139);
             this.TextboxHihyouji.TabIndex = 68;
             this.TextboxHihyouji.Text = "";
             this.TextboxHihyouji.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -244,7 +244,7 @@
             this.comboBox1.Location = new System.Drawing.Point(1072, 262);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(255, 33);
+            this.comboBox1.Size = new System.Drawing.Size(279, 33);
             this.comboBox1.TabIndex = 57;
             // 
             // TextboxEigyousyoName
@@ -284,7 +284,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1284, 348);
+            this.dataGridView1.Size = new System.Drawing.Size(1308, 349);
             this.dataGridView1.TabIndex = 53;
             // 
             // radioButton1
