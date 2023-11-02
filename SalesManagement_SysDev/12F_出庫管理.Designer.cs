@@ -57,6 +57,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -134,8 +140,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.ButtonBack);
+            this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.label15);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
@@ -357,6 +369,66 @@
             this.button1.Text = "確定";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label19.Location = new System.Drawing.Point(180, 107);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(51, 20);
+            this.label19.TabIndex = 144;
+            this.label19.Text = "◯◯";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label18.Location = new System.Drawing.Point(180, 76);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(51, 20);
+            this.label18.TabIndex = 143;
+            this.label18.Text = "◯◯";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label16.Location = new System.Drawing.Point(180, 44);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(51, 20);
+            this.label16.TabIndex = 142;
+            this.label16.Text = "◯◯";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label14.Location = new System.Drawing.Point(47, 44);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(134, 20);
+            this.label14.TabIndex = 139;
+            this.label14.Text = "ログイン社員名";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label15.Location = new System.Drawing.Point(106, 76);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(72, 20);
+            this.label15.TabIndex = 141;
+            this.label15.Text = "営業所";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label17.Location = new System.Drawing.Point(69, 107);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(113, 20);
+            this.label17.TabIndex = 140;
+            this.label17.Text = "ログイン日時";
+            // 
             // F_出庫管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -432,5 +504,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label15;
     }
 }
