@@ -316,17 +316,6 @@
             this.radioButton1.Text = "確定";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.button1.Location = new System.Drawing.Point(523, 798);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(324, 61);
-            this.button1.TabIndex = 58;
-            this.button1.Text = "確定";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // F_注文管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
