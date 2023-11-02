@@ -50,7 +50,6 @@
             this.LabelNyuukaID = new System.Windows.Forms.Label();
             this.TextBoxNyuukaID = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -63,7 +62,7 @@
             // ButtonReset
             // 
             this.ButtonReset.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonReset.Location = new System.Drawing.Point(416, 161);
+            this.ButtonReset.Location = new System.Drawing.Point(311, 161);
             this.ButtonReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonReset.Name = "ButtonReset";
             this.ButtonReset.Size = new System.Drawing.Size(165, 58);
@@ -88,7 +87,7 @@
             // 
             this.RadioHihyouji.AutoSize = true;
             this.RadioHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.RadioHihyouji.Location = new System.Drawing.Point(276, 171);
+            this.RadioHihyouji.Location = new System.Drawing.Point(171, 171);
             this.RadioHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioHihyouji.Name = "RadioHihyouji";
             this.RadioHihyouji.Size = new System.Drawing.Size(124, 34);
@@ -100,7 +99,7 @@
             // 
             this.RadioKensaku.AutoSize = true;
             this.RadioKensaku.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.RadioKensaku.Location = new System.Drawing.Point(165, 171);
+            this.RadioKensaku.Location = new System.Drawing.Point(60, 171);
             this.RadioKensaku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioKensaku.Name = "RadioKensaku";
             this.RadioKensaku.Size = new System.Drawing.Size(94, 34);
@@ -289,18 +288,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1308, 266);
             this.dataGridView1.TabIndex = 25;
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.radioButton1.Location = new System.Drawing.Point(65, 171);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(94, 34);
-            this.radioButton1.TabIndex = 51;
-            this.radioButton1.Text = "確定";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -361,7 +348,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.ButtonReset);
             this.Controls.Add(this.ButtonJikou);
             this.Controls.Add(this.RadioHihyouji);
@@ -419,7 +405,6 @@
         private System.Windows.Forms.Label LabelNyuukaID;
         private System.Windows.Forms.TextBox TextBoxNyuukaID;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox1;

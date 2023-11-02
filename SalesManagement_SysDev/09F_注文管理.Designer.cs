@@ -52,8 +52,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +61,7 @@
             // 
             this.RadioHihyouji.AutoSize = true;
             this.RadioHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.RadioHihyouji.Location = new System.Drawing.Point(313, 182);
+            this.RadioHihyouji.Location = new System.Drawing.Point(171, 182);
             this.RadioHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioHihyouji.Name = "RadioHihyouji";
             this.RadioHihyouji.Size = new System.Drawing.Size(124, 34);
@@ -74,7 +73,7 @@
             // 
             this.RadioKensaku.AutoSize = true;
             this.RadioKensaku.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.RadioKensaku.Location = new System.Drawing.Point(189, 182);
+            this.RadioKensaku.Location = new System.Drawing.Point(47, 182);
             this.RadioKensaku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioKensaku.Name = "RadioKensaku";
             this.RadioKensaku.Size = new System.Drawing.Size(94, 34);
@@ -257,7 +256,7 @@
             // ButtonReset
             // 
             this.ButtonReset.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonReset.Location = new System.Drawing.Point(491, 174);
+            this.ButtonReset.Location = new System.Drawing.Point(349, 174);
             this.ButtonReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonReset.Name = "ButtonReset";
             this.ButtonReset.Size = new System.Drawing.Size(165, 58);
@@ -304,25 +303,23 @@
             this.textBox2.Size = new System.Drawing.Size(217, 32);
             this.textBox2.TabIndex = 55;
             // 
-            // radioButton1
+            // button2
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.radioButton1.Location = new System.Drawing.Point(67, 182);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(94, 34);
-            this.radioButton1.TabIndex = 57;
-            this.radioButton1.Text = "確定";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.button2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.button2.Location = new System.Drawing.Point(523, 798);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(324, 61);
+            this.button2.TabIndex = 68;
+            this.button2.Text = "確定";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // F_注文管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 884);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -383,7 +380,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

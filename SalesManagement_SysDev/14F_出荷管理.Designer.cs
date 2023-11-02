@@ -56,7 +56,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -65,7 +64,7 @@
             // ButtonReset
             // 
             this.ButtonReset.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonReset.Location = new System.Drawing.Point(459, 158);
+            this.ButtonReset.Location = new System.Drawing.Point(300, 158);
             this.ButtonReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonReset.Name = "ButtonReset";
             this.ButtonReset.Size = new System.Drawing.Size(165, 44);
@@ -90,7 +89,7 @@
             // 
             this.RadioHihyouji.AutoSize = true;
             this.RadioHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.RadioHihyouji.Location = new System.Drawing.Point(303, 168);
+            this.RadioHihyouji.Location = new System.Drawing.Point(144, 168);
             this.RadioHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioHihyouji.Name = "RadioHihyouji";
             this.RadioHihyouji.Size = new System.Drawing.Size(124, 34);
@@ -102,7 +101,7 @@
             // 
             this.RadioKensaku.AutoSize = true;
             this.RadioKensaku.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.RadioKensaku.Location = new System.Drawing.Point(203, 168);
+            this.RadioKensaku.Location = new System.Drawing.Point(44, 168);
             this.RadioKensaku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioKensaku.Name = "RadioKensaku";
             this.RadioKensaku.Size = new System.Drawing.Size(94, 34);
@@ -185,7 +184,7 @@
             // SyukkaDate
             // 
             this.SyukkaDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.SyukkaDate.Location = new System.Drawing.Point(286, 377);
+            this.SyukkaDate.Location = new System.Drawing.Point(255, 377);
             this.SyukkaDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SyukkaDate.Name = "SyukkaDate";
             this.SyukkaDate.Size = new System.Drawing.Size(245, 32);
@@ -195,7 +194,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label6.Location = new System.Drawing.Point(83, 381);
+            this.label6.Location = new System.Drawing.Point(52, 381);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(187, 25);
             this.label6.TabIndex = 61;
@@ -264,7 +263,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label1.Location = new System.Drawing.Point(194, 252);
+            this.label1.Location = new System.Drawing.Point(163, 252);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 25);
             this.label1.TabIndex = 53;
@@ -273,7 +272,7 @@
             // TextboxSyukkaID
             // 
             this.TextboxSyukkaID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSyukkaID.Location = new System.Drawing.Point(286, 248);
+            this.TextboxSyukkaID.Location = new System.Drawing.Point(255, 248);
             this.TextboxSyukkaID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyukkaID.Name = "TextboxSyukkaID";
             this.TextboxSyukkaID.Size = new System.Drawing.Size(245, 32);
@@ -332,7 +331,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label11.Location = new System.Drawing.Point(144, 316);
+            this.label11.Location = new System.Drawing.Point(113, 316);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(134, 25);
             this.label11.TabIndex = 77;
@@ -341,23 +340,11 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox2.Location = new System.Drawing.Point(286, 309);
+            this.textBox2.Location = new System.Drawing.Point(255, 309);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(245, 32);
             this.textBox2.TabIndex = 76;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.radioButton1.Location = new System.Drawing.Point(103, 168);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(94, 34);
-            this.radioButton1.TabIndex = 78;
-            this.radioButton1.Text = "確定";
-            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -376,7 +363,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 884);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label10);
@@ -446,7 +432,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button button1;
     }
 }

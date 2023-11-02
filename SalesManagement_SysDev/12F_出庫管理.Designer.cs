@@ -52,7 +52,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -87,7 +86,7 @@
             // ButtonReset
             // 
             this.ButtonReset.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonReset.Location = new System.Drawing.Point(443, 175);
+            this.ButtonReset.Location = new System.Drawing.Point(339, 175);
             this.ButtonReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonReset.Name = "ButtonReset";
             this.ButtonReset.Size = new System.Drawing.Size(165, 44);
@@ -112,7 +111,7 @@
             // 
             this.radioButton4.AutoSize = true;
             this.radioButton4.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.radioButton4.Location = new System.Drawing.Point(277, 178);
+            this.radioButton4.Location = new System.Drawing.Point(173, 178);
             this.radioButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(124, 34);
@@ -124,7 +123,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.radioButton2.Location = new System.Drawing.Point(157, 176);
+            this.radioButton2.Location = new System.Drawing.Point(53, 176);
             this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(94, 34);
@@ -309,18 +308,6 @@
             this.textBox2.Size = new System.Drawing.Size(283, 32);
             this.textBox2.TabIndex = 91;
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.radioButton1.Location = new System.Drawing.Point(51, 176);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(94, 34);
-            this.radioButton1.TabIndex = 92;
-            this.radioButton1.Text = "確定";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -379,7 +366,6 @@
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox1);
@@ -441,7 +427,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label7;
