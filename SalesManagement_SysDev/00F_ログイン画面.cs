@@ -738,7 +738,19 @@ namespace SalesManagement_SysDev
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
             EmployeeDataAccess employeeDataAccess =new EmployeeDataAccess();
-            if(employeeDataAccess.CheckCascadeEmployeesID(int.Parse(TextboxShainID.Text.Trim())))
+            if(!int.TryParse(TextboxShainID.Text.Trim(), out int SyainID))
+            {
+                MessageBox.Show("空欄または使用できない文字が入力されました。");
+                TextboxShainID.Focus();
+                return;
+            }
+            if (String.IsNullOrEmpty(TextboxPW.Text.Trim()))
+            {
+                MessageBox.Show("パスワードを入力してください");
+                TextboxPW.Focus();
+                return;
+            }
+            if(employeeDataAccess.CheckCascadeEmployeesID(SyainID))
             {
               if(employeeDataAccess.CheckCascadeEmployeesPW(TextboxPW.Text.Trim()))
                 {
