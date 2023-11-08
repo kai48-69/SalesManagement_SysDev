@@ -1,6 +1,6 @@
 ﻿namespace SalesManagement_SysDev
 {
-    partial class _01F_PW新規登録
+    partial class F_PW新規登録
     {
         /// <summary>
         /// Required designer variable.

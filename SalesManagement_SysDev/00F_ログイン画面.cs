@@ -20,7 +20,7 @@ namespace SalesManagement_SysDev
         {
             InitializeComponent();
         }
-
+    
         private void btn_CleateDabase_Click(object sender, EventArgs e)
         {
             //データベースの生成を行います．
@@ -735,51 +735,20 @@ namespace SalesManagement_SysDev
             MessageBox.Show("サンプルデータ登録完了");
         }
 
+        EmployeeDataAccess employeeDataAccess = new EmployeeDataAccess();
+
+        //ここからログイン処理---------------------------------------------------------------------------------------------------------
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-            EmployeeDataAccess employeeDataAccess =new EmployeeDataAccess();
-            if(!int.TryParse(TextboxShainID.Text.Trim(), out int SyainID))
-            {
-                MessageBox.Show("空欄または使用できない文字が入力されました。");
-                TextboxShainID.Focus();
-                return;
-            }
-            if (String.IsNullOrEmpty(TextboxPW.Text.Trim()))
-            {
-                MessageBox.Show("パスワードを入力してください");
-                TextboxPW.Focus();
-                return;
-            }
-            if(employeeDataAccess.CheckCascadeEmployeesID(SyainID))
-            {
-              if(employeeDataAccess.CheckCascadeEmployeesPW(TextboxPW.Text.Trim()))
-                {
-                    if (TextboxPW.Text.Trim() == "oic")
-                    {
-                        this.Visible = false;
-                        _01F_PW新規登録 f_pwsinki=new _01F_PW新規登録();
-                        f_pwsinki.Show();
-                        return;
-
-                    }
-                    this.Visible = false;
-                    F_管理者 f_Admin = new F_管理者();
-                    f_Admin.Show();
-                }
-                else
-                {
-                    MessageBox.Show("IDまたはパスワードが違います");
-                    TextboxShainID.Focus();
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("IDまたはパスワードが違います");
-                TextboxShainID.Focus();
-                return;
-            }
-            
+            //入力チェック
+            int SyainID = GetVaildDataAtLogin();
+            //ログイン機能
+            CheckIDPW(SyainID);
+            //ログイン判定
+            int PolID = ;
+            //画面表示
+            FormShow(PolID);
+           
 
             //this.Visible= false;
             //if (int.Parse(TextboxShainID.Text) == 1)
@@ -798,12 +767,81 @@ namespace SalesManagement_SysDev
             //    f_buturyuu.Show();
             //}
         }
+        //入力チェック
+        private int GetVaildDataAtLogin()
+        {
+            if (!int.TryParse(TextboxShainID.Text.Trim(), out int SyainID))
+            {
+                MessageBox.Show("空欄または使用できない文字が入力されました。");
+                TextboxShainID.Focus();
+                return -1;
+            }
+            if (String.IsNullOrEmpty(TextboxPW.Text.Trim()))
+            {
+                MessageBox.Show("パスワードを入力してください");
+                TextboxPW.Focus();
+                return -1;
+            }
+            else
+            {
+                return SyainID;
+            }
+        }
+
+        //ログイン機能
+        private bool CheckIDPW(int SyainID)
+        {
+            if (!employeeDataAccess.CheckCascadeEmployeesID(SyainID))
+            {
+                if (!employeeDataAccess.CheckCascadeEmployeesPW(TextboxPW.Text.Trim())) 
+                {
+                    MessageBox.Show("IDまたはパスワードが違います");
+                    TextboxShainID.Focus();
+                    return false;
+                }
+                MessageBox.Show("IDまたはパスワードが違います");
+                TextboxShainID.Focus();
+                return false;
+            }
+            return true;
+        }
+
+        //画面表示
+        private void FormShow(int PolID)
+        {
+            if (PolID == 1)
+            {
+                this.Visible = false;
+                F_管理者 f_Admin = new F_管理者();
+                f_Admin.Show();
+            }
+            if (PolID == 2)
+            {
+                this.Visible = false;
+                F_営業 f_Eigyou = new F_営業();
+                f_Eigyou.Show();
+            }
+            if (PolID == 3)
+            {
+                this.Visible= false;
+                F_物流 f_buturyu=new F_物流();
+                f_buturyu.Show();
+            }
+            if (PolID == 4)
+            {
+                this.Visible = false;
+               F_PW新規登録 f_PWTouroku=new F_PW新規登録();
+                f_PWTouroku.Show();
+            }
+        }
 
         private void ButtonExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("アプリケーションを終了します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                Application.Exit();
+            }
         }
-
-
     }
 }
