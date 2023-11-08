@@ -769,12 +769,14 @@ namespace SalesManagement_SysDev
                 else
                 {
                     MessageBox.Show("IDまたはパスワードが違います");
+                    TextboxShainID.Focus();
                     return;
                 }
             }
             else
             {
                 MessageBox.Show("IDまたはパスワードが違います");
+                TextboxShainID.Focus();
                 return;
             }
             

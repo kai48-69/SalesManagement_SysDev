@@ -15,6 +15,8 @@ namespace SalesManagement_SysDev
         private InputCheck ichk = new InputCheck();
         ProductDataAccess ProductDataAccess = new ProductDataAccess();
         ProductDbConnection DB = new ProductDbConnection();
+        private static List<M_Maker> MNameDsp;
+        private static List<M_SmallClassification> ScDsp;
 
         public F_商品管理()
         {
@@ -30,6 +32,40 @@ namespace SalesManagement_SysDev
             //データグリッドビューへの設定
             SetDataGridView(tb);
             return true;
+        }
+
+        private void F_商品管理_Load(object sender, EventArgs e)
+        {
+            SetFormComboBox();
+
+            if (!GetDataGridView())
+            {
+                MessageBox.Show("商品情報を取得することができません。", "商品確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void SetFormComboBox()
+        {
+            MNameDsp = DB.GetMakerNameDspData();
+            ComboMakerName.Items.AddRange(MNameDsp.ToArray());
+            ComboMakerName.DisplayMember = "MaName";
+            ComboMakerName.ValueMember = "MaID";
+            ComboMakerName.DataSource = MNameDsp;
+
+            ScDsp = DB.GetScDspData();
+            ComboSyobunrui.Items.AddRange(ScDsp.ToArray());
+            ComboSyobunrui.DisplayMember = "ScName";
+            ComboSyobunrui.ValueMember = "ScID";
+            ComboSyobunrui.DataSource = ScDsp;
+
+            //初期値を０に
+            ComboMakerName.SelectedIndex = 0;
+            ComboSyobunrui.SelectedIndex = 0;
+
+            //読み込み専用に
+           ComboMakerName.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboSyobunrui.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void SetDataGridView(List<DispProductListDTO> tb)
@@ -108,7 +144,7 @@ namespace SalesManagement_SysDev
         {
             if (RadioTouroku.Checked == true)
             {
-                if (!CheckVaildDataAtTouroku())
+                if (!CheckInputData())
                 {
                     return;
                 }
@@ -116,8 +152,18 @@ namespace SalesManagement_SysDev
 
                 RegistrationProduct(regPro);
             }
+            if (RadioKensaku.Checked == true)
+            {
+                {
+                    if (!CheckInputData())
+                    {
+                        return;
+                    }
+                    GenerateDataAtSelect();
+                }
+            }
         }
-        private bool CheckVaildDataAtTouroku()
+        private bool CheckInputData()
         {
             if (!String.IsNullOrEmpty(TextboxSyouhinID.Text))
             {
@@ -240,11 +286,15 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
+        private void GenerateDataAtSelect()
+        {
+
+        }
+
         private void ClearInput()
         {
             TextboxSyouhinID.Text = "";
             TextboxSyohinName.Text = "";
-            ComboMakerName.SelectedIndex = -1;
             TextboxKakaku.Text = "";
             TextboxStock.Text = "";
             ComboSyobunrui.Text = "";
@@ -260,13 +310,6 @@ namespace SalesManagement_SysDev
             ClearInput();
         }
 
-        private void F_商品管理_Load(object sender, EventArgs e)
-        {
-            if (!GetDataGridView())
-            {
-                MessageBox.Show("商品情報を取得することができません。", "商品確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-        }
+       
     }
 }

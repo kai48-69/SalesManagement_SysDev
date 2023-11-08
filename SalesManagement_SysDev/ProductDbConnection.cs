@@ -45,5 +45,37 @@ namespace SalesManagement_SysDev
             }
             return null;
         }
+
+        public List<M_Maker> GetMakerNameDspData()
+        {
+            List<M_Maker> Mname = new List<M_Maker>();
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                Mname = context.M_Makers.Where(x => x.MaName != null).ToList();
+                context.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return Mname;
+        }
+
+        public List<M_SmallClassification> GetScDspData()
+        {
+            List<M_SmallClassification> ScName = new List<M_SmallClassification>();
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                ScName = context.M_SmallClassifications.Where(x => x.ScName != null).ToList();
+                context.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return ScName;
+        }
     }
 }
