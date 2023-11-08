@@ -81,46 +81,46 @@ namespace SalesManagement_SysDev
             //行単位選択     
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //ヘッダー文字位置、セル文字位置、列幅の設定
-            ////商品コード
+            ////商品ID
             dataGridView1.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridView1.Columns[0].Width = 100;
-            ////商品名
+            dataGridView1.Columns[0].Width = 40;
+            ////メーカー名
             dataGridView1.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridView1.Columns[1].Width = 150;
-            //商品名カナ
+            dataGridView1.Columns[1].Width = 50;
+            //商品名
             dataGridView1.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridView1.Columns[2].Width = 120;
-            //商品区分
+            dataGridView1.Columns[2].Width = 80;
+            //価格
             dataGridView1.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridView1.Columns[3].Width = 100;
-            ////メーカー名
+            dataGridView1.Columns[3].Width = 80;
+            ////安全在庫数
             dataGridView1.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridView1.Columns[4].Width = 100;
-            ////安全在庫数
+            dataGridView1.Columns[4].Width = 40;
+            ////小分類
             dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[5].Width = 50;
-            ////数量単位名称
+            dataGridView1.Columns[5].Width = 80;
+            ////型番
             dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].Width = 50;
-            ////仕入れ価格
+            dataGridView1.Columns[6].Width = 30;
+            ////色
             dataGridView1.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[7].Width = 80;
-            ////標準価格
+            dataGridView1.Columns[7].Width = 70;
+            ////発売日
             dataGridView1.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[8].Width = 80;
-            ////販売価格    
+            ////非表示理由 
             dataGridView1.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[9].Width = 80;
+            dataGridView1.Columns[9].Width = 400;
 
 
             dataGridView1.Refresh();
@@ -142,9 +142,10 @@ namespace SalesManagement_SysDev
 
         private void ButtonExe_Click(object sender, EventArgs e)
         {
+            //登録処理
             if (RadioTouroku.Checked == true)
             {
-                if (!CheckInputData())
+                if (!GetVaildDataAtRegistration())
                 {
                     return;
                 }
@@ -152,10 +153,11 @@ namespace SalesManagement_SysDev
 
                 RegistrationProduct(regPro);
             }
+            //検索処理
             if (RadioKensaku.Checked == true)
             {
                 {
-                    if (!CheckInputData())
+                    if (!GetVaildDataAtSelect())
                     {
                         return;
                     }
@@ -163,7 +165,9 @@ namespace SalesManagement_SysDev
                 }
             }
         }
-        private bool CheckInputData()
+
+        //登録処理----------------------------------------------------------------------------------------------------------------------------------------------------------------
+        private bool GetVaildDataAtRegistration() //入力データチェック
         {
             if (!String.IsNullOrEmpty(TextboxSyouhinID.Text))
             {
@@ -243,7 +247,7 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-        private M_Product GenerateDataAtRegistration()
+        private M_Product GenerateDataAtRegistration()　//登録データ生成
         {
             string ManuID = ComboMakerName.SelectedIndex.ToString();
             string PD = ComboSyobunrui.SelectedValue.ToString();
@@ -263,7 +267,7 @@ namespace SalesManagement_SysDev
             };
         }
 
-        private void RegistrationProduct(M_Product regPro)
+        private void RegistrationProduct(M_Product regPro)　//データ登録処理
         {
             DialogResult result = MessageBox.Show("商品データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
@@ -280,10 +284,53 @@ namespace SalesManagement_SysDev
                 MessageBox.Show("データの登録に失敗しました");
                 TextboxSyouhinID.Focus();
             }
-
             ClearInput();
-
             GetDataGridView();
+        }
+        //登録処理ここまで-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        //検索処理----------------------------------------------------------------------------------------------------------------------------------------------------------------
+        private bool GetVaildDataAtSelect()
+        {
+            if (!String.IsNullOrEmpty(TextboxSyouhinID.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxSyouhinID.Text.Trim()))
+                {
+                    MessageBox.Show("商品コードはすべて半角数字で入力してください。");
+                    TextboxSyouhinID.Focus();
+                    return false;
+                }
+            }
+
+            if (!String.IsNullOrEmpty(TextboxStock.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxStock.Text.Trim()))
+                {
+                    MessageBox.Show("安全在庫数は半角数字で入力してください");
+                    TextboxStock.Focus();
+                    return false;
+                }
+            }
+
+            if (!String.IsNullOrEmpty(TextboxKakaku.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxKakaku.Text.Trim()))
+                {
+                    MessageBox.Show("価格は半角数字で入力してください");
+                    TextboxKakaku.Focus();
+                    return false;
+                }
+            }
+            if (!String.IsNullOrEmpty(TextboxKataban.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxKataban.Text.Trim()))
+                {
+                    MessageBox.Show("型番は半角数字で入力してください");
+                    TextboxKakaku.Focus();
+                    return false;
+                }
+            }
+            return true;
         }
 
         private void GenerateDataAtSelect()
@@ -291,6 +338,7 @@ namespace SalesManagement_SysDev
 
         }
 
+        //入力クリア
         private void ClearInput()
         {
             TextboxSyouhinID.Text = "";
