@@ -77,5 +77,53 @@ namespace SalesManagement_SysDev
             }
             return ScName;
         }
+
+        public List<DispProductListDTO> GetProductData(M_Product selectCondition)
+        {
+            var context = new SalesManagement_DevContext();
+            try
+            {
+                var tb = from Product in context.M_Products
+                         join Manufacturer in context.M_Makers
+                         on Product.MaID equals Manufacturer.MaID
+                         join SmallClassifications in context.M_SmallClassifications
+                         on Product.ScID equals SmallClassifications.ScID
+                         where Product.PrName.Contains(selectCondition.PrName) &&
+                         Product.PrColor.Contains(selectCondition.PrColor) &&
+                         Product.PrModelNumber.Contains(selectCondition.PrModelNumber) &&
+                         Product.PrReleaseDate.CompareTo(value:selectCondition.PrReleaseDate)
+                          ((selectCondition.PrID == -1) ? true :
+                          Product.PrID == selectCondition.PrID) &&
+                         ((selectCondition.MaID == -1) ? true :
+                         Product.MaID == selectCondition.MaID) &&
+                         ((selectCondition.ScID == -1) ? true :
+                         Product.ScID == selectCondition.ScID) &&
+                         ((selectCondition.Price == -1) ? true :
+                         Product.Price == selectCondition.Price) &&
+                         ((selectCondition.PrSafetyStock == -1) ? true :
+                         Product.PrSafetyStock == selectCondition.PrSafetyStock) 
+
+                         select new DispProductListDTO
+                         {
+                             PrID = Product.ProductCD,
+                             PrName = Product.ProductName,
+                             ScText = SmallClassifications.ScName,
+                             MaName = Manufacturer.ManufacturerName,
+                             PrSafetyStock = Product.SafetyStockCnt,
+                             PrColor = Product.Color,
+                             Price = Product.Price,
+                             PrModelNumber = Product.PrModelNumber,
+                             PrReleaseDate= Product.PrReleaseDate,
+                         };
+
+                return tb.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return null;
+        }
+
     }
 }

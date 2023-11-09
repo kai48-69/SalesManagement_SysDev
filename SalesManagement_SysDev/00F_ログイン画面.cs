@@ -740,33 +740,38 @@ namespace SalesManagement_SysDev
         //ここからログイン処理---------------------------------------------------------------------------------------------------------
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-            //入力チェック
-            int SyainID = GetVaildDataAtLogin();
-            //ログイン機能
-            CheckIDPW(SyainID);
-            //ログイン判定
-            int PolID = ;
-            //画面表示
-            FormShow(PolID);
-           
+            // //入力チェック
+            // int SyainID = GetVaildDataAtLogin();
 
-            //this.Visible= false;
-            //if (int.Parse(TextboxShainID.Text) == 1)
-            //{
-            //    F_管理者 f_Admin = new F_管理者();
-            //    f_Admin.Show();
-            //}
-            //if (int.Parse(TextboxShainID.Text) == 2)
-            //{
-            //    F_営業 f_eigyou = new F_営業();
-            //    f_eigyou.Show();
-            //}
-            //if (int.Parse(TextboxShainID.Text) == 3)
-            //{
-            //    F_物流　f_buturyuu=new F_物流();
-            //    f_buturyuu.Show();
-            //}
+            // //ログイン機能
+            // if (!CheckIDPW(SyainID))
+            //{return;}
+
+            // //ログイン判定
+            // int PolID = DetermineForm(SyainID);
+
+            // //画面表示
+            // FormShow(PolID);
+
+
+            this.Visible = false;
+            if (int.Parse(TextboxShainID.Text) == 1)
+            {
+                F_管理者 f_Admin = new F_管理者();
+                f_Admin.Show();
+            }
+            if (int.Parse(TextboxShainID.Text) == 2)
+            {
+                F_営業 f_eigyou = new F_営業();
+                f_eigyou.Show();
+            }
+            if (int.Parse(TextboxShainID.Text) == 3)
+            {
+                F_物流 f_buturyuu = new F_物流();
+                f_buturyuu.Show();
+            }
         }
+
         //入力チェック
         private int GetVaildDataAtLogin()
         {
@@ -791,19 +796,41 @@ namespace SalesManagement_SysDev
         //ログイン機能
         private bool CheckIDPW(int SyainID)
         {
-            if (!employeeDataAccess.CheckCascadeEmployeesID(SyainID))
+            if (employeeDataAccess.CheckCascadeEmployeesID(SyainID))
             {
-                if (!employeeDataAccess.CheckCascadeEmployeesPW(TextboxPW.Text.Trim())) 
+                if (!employeeDataAccess.CheckCascadeEmployeesPW(TextboxPW.Text.Trim(),SyainID)) 
                 {
                     MessageBox.Show("IDまたはパスワードが違います");
                     TextboxShainID.Focus();
                     return false;
                 }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
                 MessageBox.Show("IDまたはパスワードが違います");
                 TextboxShainID.Focus();
                 return false;
             }
-            return true;
+        }
+
+        //ログイン判定
+        private int DetermineForm(int SyainID)
+        {
+            int PolID;
+
+            if (TextboxPW.Text == "oic")
+            {
+               PolID = 4; 
+            }
+            else
+            {
+                employeeDataAccess.GetPolID(SyainID, out  PolID);
+            }
+            return PolID;
         }
 
         //画面表示
@@ -814,24 +841,28 @@ namespace SalesManagement_SysDev
                 this.Visible = false;
                 F_管理者 f_Admin = new F_管理者();
                 f_Admin.Show();
+                return;
             }
             if (PolID == 2)
             {
                 this.Visible = false;
                 F_営業 f_Eigyou = new F_営業();
                 f_Eigyou.Show();
+                return;
             }
             if (PolID == 3)
             {
                 this.Visible= false;
                 F_物流 f_buturyu=new F_物流();
                 f_buturyu.Show();
+                return;
             }
-            if (PolID == 4)
+            else
             {
                 this.Visible = false;
-               F_PW新規登録 f_PWTouroku=new F_PW新規登録();
-                f_PWTouroku.Show();
+                F_PW新規登録 f_SinkiTouroku=new F_PW新規登録();
+                f_SinkiTouroku.Show();
+                return;
             }
         }
 

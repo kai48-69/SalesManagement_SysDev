@@ -18,6 +18,7 @@ namespace SalesManagement_SysDev
         private static List<M_Maker> MNameDsp;
         private static List<M_SmallClassification> ScDsp;
 
+
         public F_商品管理()
         {
             InitializeComponent();
@@ -290,7 +291,7 @@ namespace SalesManagement_SysDev
         //登録処理ここまで-------------------------------------------------------------------------------------------------------------------------------------------------------
 
         //検索処理----------------------------------------------------------------------------------------------------------------------------------------------------------------
-        private bool GetVaildDataAtSelect()
+        private bool GetVaildDataAtSelect()　//入力データチェック
         {
             if (!String.IsNullOrEmpty(TextboxSyouhinID.Text.Trim()))
             {
@@ -333,10 +334,72 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-        private void GenerateDataAtSelect()
+        private bool GenerateDataAtSelect()　//検索データ生成
         {
+            int MaID;
+            if (ComboMakerName.SelectedIndex == -1)
+            {
+                MaID = -1;
+            }
+            else
+            {
+                MaID = int.Parse(ComboMakerName.SelectedValue.ToString());
+            }
+            int ScID;
+            if (ComboSyobunrui.SelectedIndex == -1)
+            {
+                ScID = -1;
+            }
+            else
+            {
+                ScID = int.Parse(ComboSyobunrui.SelectedValue.ToString());
+            }
+            //整数型(int)に変換する準備
+            //商品ID
+            var PrID = TextboxSyouhinID.Text.Trim();
+            //価格
+            var Price = TextboxKakaku.Text.Trim();
+            //安全在庫数
+            var SStock = TextboxStock.Text.Trim();
+            //型番
+            var ModelNo = TextboxKataban.Text.Trim();
 
-        }
+            //変換処理
+            int SyohinID,  Kakaku, Stock ;
+            if (!int.TryParse(PrID, out SyohinID))
+            {
+                SyohinID = -1;
+            }
+
+            if (!int.TryParse(Price, out Kakaku))
+            {
+                Kakaku = -1;
+            }
+            if (!int.TryParse(SStock, out Stock))
+            {
+                Stock = -1;
+            }
+
+            M_Product selectCondition = new M_Product()
+            {
+                MaID = MaID,
+                ScID = ScID,
+                PrID = SyohinID,
+                PrName = TextboxSyohinName.Text.Trim(),
+                Price=Kakaku,
+                PrSafetyStock=Stock,
+                PrModelNumber=TextboxKataban.Text.Trim(),
+                PrColor=TextboxColor.Text.Trim(),
+                PrReleaseDate=HatubaiDate.Value,
+            };
+
+            List<DispProductListDTO> tb = DB.GetProductData(selectCondition);
+            if (tb == null)
+                return false;
+            //データグリッドビューへの設定
+            SetDataGridView(tb);
+            return true;
+    }
 
         //入力クリア
         private void ClearInput()

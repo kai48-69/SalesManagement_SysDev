@@ -17,9 +17,11 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
-        private void TextboxShainID_TextChanged(object sender, EventArgs e)
+        private void ButtonBack_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            F_ログイン画面 f_login = new F_ログイン画面();
+            f_login.Show();
         }
     }
 }

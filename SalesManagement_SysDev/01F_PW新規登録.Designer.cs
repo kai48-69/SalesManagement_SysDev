@@ -37,12 +37,14 @@
             this.TextboxShainID = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.ButtonBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.ButtonBack);
             this.panel1.Controls.Add(this.Lbl_tag);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -109,7 +111,6 @@
             this.TextboxShainID.Name = "TextboxShainID";
             this.TextboxShainID.Size = new System.Drawing.Size(321, 49);
             this.TextboxShainID.TabIndex = 8;
-            this.TextboxShainID.TextChanged += new System.EventHandler(this.TextboxShainID_TextChanged);
             // 
             // textBox1
             // 
@@ -130,7 +131,19 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "パスワード確認";
             // 
-            // _01F_PW新規登録
+            // ButtonBack
+            // 
+            this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ButtonBack.Location = new System.Drawing.Point(494, 22);
+            this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonBack.Name = "ButtonBack";
+            this.ButtonBack.Size = new System.Drawing.Size(151, 50);
+            this.ButtonBack.TabIndex = 16;
+            this.ButtonBack.Text = "戻る";
+            this.ButtonBack.UseVisualStyleBackColor = true;
+            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
+            // 
+            // F_PW新規登録
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -145,7 +158,7 @@
             this.Controls.Add(this.TextboxShainID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "_01F_PW新規登録";
+            this.Name = "F_PW新規登録";
             this.Text = "_01F_PW新規登録";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -165,5 +178,6 @@
         private System.Windows.Forms.TextBox TextboxShainID;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button ButtonBack;
     }
 }

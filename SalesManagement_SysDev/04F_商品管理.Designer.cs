@@ -283,7 +283,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label19.Location = new System.Drawing.Point(185, 99);
+            this.label19.Location = new System.Drawing.Point(191, 99);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(51, 20);
             this.label19.TabIndex = 138;
@@ -293,7 +293,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label18.Location = new System.Drawing.Point(185, 68);
+            this.label18.Location = new System.Drawing.Point(192, 68);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(51, 20);
             this.label18.TabIndex = 137;
@@ -303,7 +303,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label16.Location = new System.Drawing.Point(185, 36);
+            this.label16.Location = new System.Drawing.Point(192, 36);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(51, 20);
             this.label16.TabIndex = 136;
