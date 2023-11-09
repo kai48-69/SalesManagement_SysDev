@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -65,7 +67,7 @@ namespace SalesManagement_SysDev
             ComboSyobunrui.SelectedIndex = 0;
 
             //読み込み専用に
-           ComboMakerName.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboMakerName.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboSyobunrui.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
@@ -143,7 +145,7 @@ namespace SalesManagement_SysDev
 
         private void ButtonExe_Click(object sender, EventArgs e)
         {
-            //登録処理
+            //登録処理----------------------------------------------------------------------
             if (RadioTouroku.Checked == true)
             {
                 if (!GetVaildDataAtRegistration())
@@ -154,7 +156,9 @@ namespace SalesManagement_SysDev
 
                 RegistrationProduct(regPro);
             }
-            //検索処理
+            //登録処理ここまで-------------------------------------------------------------
+
+            //検索処理----------------------------------------------------------------------
             if (RadioKensaku.Checked == true)
             {
                 {
@@ -165,40 +169,40 @@ namespace SalesManagement_SysDev
                     GenerateDataAtSelect();
                 }
             }
+            //検索処理ここまで-------------------------------------------------------------
+
+            //更新処理----------------------------------------------------------------------
+            if (RadioKousin.Checked == true)
+            {
+                if (RadioKousin.Checked == true)
+                {
+                    if (!GetVaildDataAtUpdate())
+                    {
+                        return;
+                    }
+
+                    var updProduct = GenereteDataAtUpdate();
+
+                    UpdateProduct(updProduct);
+                }
+                //更新処理ここまで-----------------------------------------------------------
+            }
+            //非表示処理------------------------------------------------------------------
+            if (RadioHihyouji.Checked == true)
+            {
+                if (!GetVaildDataAtDelete())
+                {
+                    return;
+                }
+                DeleteProduct();
+            }
+            //非表示処理ここまで---------------------------------------------------------
         }
 
-        //登録処理----------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //登録処理------------------------------------------------------------------------
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
-            if (!String.IsNullOrEmpty(TextboxSyouhinID.Text))
-            {
-                if (!ichk.IntegerCheck(TextboxSyouhinID.Text.Trim()))
-                {
-                    MessageBox.Show("商品コードはすべて半角数字で入力してください。");
-                    TextboxSyouhinID.Focus();
-                    return false;
-                }
-                if (TextboxSyouhinID.TextLength < 13)
-                {
-                    MessageBox.Show("商品コードは13桁です。");
-                    TextboxSyouhinID.Focus();
-                    return false;
-                }
-                if (ichk.CheckProductCDExistence(TextboxSyouhinID.Text.Trim()))
-                {
-                    MessageBox.Show("入力された商品コードは既に存在します。");
-                    TextboxSyouhinID.Focus();
-                    return false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("商品コードが入力されていません");
-                TextboxSyouhinID.Focus();
-                return false;
-            }
-
-            if (!String.IsNullOrEmpty(TextboxSyohinName.Text.Trim()))
+            if (String.IsNullOrEmpty(TextboxSyohinName.Text.Trim()))
             {
                 MessageBox.Show("商品名が入力されていません");
                 TextboxSyohinName.Focus();
@@ -226,29 +230,33 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxKakaku.Text.Trim()))
                 {
-                    MessageBox.Show("仕入価格は半角数字で入力してください");
+                    MessageBox.Show("価格は半角数字で入力してください");
                     TextboxKakaku.Focus();
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("仕入価格が入力されていません");
+                MessageBox.Show("価格が入力されていません");
                 TextboxKakaku.Focus();
                 return false;
             }
 
-            if (!String.IsNullOrEmpty(TextboxColor.Text.Trim()))
+            if (String.IsNullOrEmpty(TextboxColor.Text.Trim()))
             {
                 MessageBox.Show("色が入力されていません");
                 TextboxColor.Focus();
                 return false;
             }
+            if (String.IsNullOrEmpty(TextboxKataban.Text.Trim()))
+            {
+                MessageBox.Show("型番が入力されていません");
+            }
 
             return true;
         }
 
-        private M_Product GenerateDataAtRegistration()　//登録データ生成
+        private M_Product GenerateDataAtRegistration() //登録データ生成
         {
             string ManuID = ComboMakerName.SelectedIndex.ToString();
             string PD = ComboSyobunrui.SelectedValue.ToString();
@@ -268,7 +276,7 @@ namespace SalesManagement_SysDev
             };
         }
 
-        private void RegistrationProduct(M_Product regPro)　//データ登録処理
+        private void RegistrationProduct(M_Product regPro) //データ登録処理
         {
             DialogResult result = MessageBox.Show("商品データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
@@ -288,10 +296,10 @@ namespace SalesManagement_SysDev
             ClearInput();
             GetDataGridView();
         }
-        //登録処理ここまで-------------------------------------------------------------------------------------------------------------------------------------------------------
+        //登録処理ここまで---------------------------------------------------------------
 
-        //検索処理----------------------------------------------------------------------------------------------------------------------------------------------------------------
-        private bool GetVaildDataAtSelect()　//入力データチェック
+        //検索処理------------------------------------------------------------------------
+        private bool GetVaildDataAtSelect() //入力データチェック
         {
             if (!String.IsNullOrEmpty(TextboxSyouhinID.Text.Trim()))
             {
@@ -334,7 +342,7 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-        private bool GenerateDataAtSelect()　//検索データ生成
+        private bool GenerateDataAtSelect() //検索データ生成
         {
             int MaID;
             if (ComboMakerName.SelectedIndex == -1)
@@ -365,7 +373,7 @@ namespace SalesManagement_SysDev
             var ModelNo = TextboxKataban.Text.Trim();
 
             //変換処理
-            int SyohinID,  Kakaku, Stock ;
+            int SyohinID, Kakaku, Stock;
             if (!int.TryParse(PrID, out SyohinID))
             {
                 SyohinID = -1;
@@ -386,11 +394,11 @@ namespace SalesManagement_SysDev
                 ScID = ScID,
                 PrID = SyohinID,
                 PrName = TextboxSyohinName.Text.Trim(),
-                Price=Kakaku,
-                PrSafetyStock=Stock,
-                PrModelNumber=TextboxKataban.Text.Trim(),
-                PrColor=TextboxColor.Text.Trim(),
-                PrReleaseDate=HatubaiDate.Value,
+                Price = Kakaku,
+                PrSafetyStock = Stock,
+                PrModelNumber = TextboxKataban.Text.Trim(),
+                PrColor = TextboxColor.Text.Trim(),
+                PrReleaseDate = HatubaiDate.Value,
             };
 
             List<DispProductListDTO> tb = DB.GetProductData(selectCondition);
@@ -399,9 +407,116 @@ namespace SalesManagement_SysDev
             //データグリッドビューへの設定
             SetDataGridView(tb);
             return true;
-    }
+        }
+        //検索処理ここまで--------------------------------------------------------------
 
-        //入力クリア
+        //更新処理-----------------------------------------------------------------------
+        private bool GetVaildDataAtUpdate()
+        {
+            if (String.IsNullOrEmpty(TextboxSyohinName.Text.Trim()))
+            {
+                MessageBox.Show("商品名が入力されていません");
+                TextboxSyohinName.Focus();
+                return false;
+            }
+
+            if (!String.IsNullOrEmpty(TextboxStock.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxStock.Text.Trim()))
+                {
+                    MessageBox.Show("安全在庫数は半角数字で入力してください");
+                    TextboxStock.Focus();
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("安全在庫数が入力されていません");
+                TextboxStock.Focus();
+                return false;
+            }
+
+            if (!String.IsNullOrEmpty(TextboxKakaku.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxKakaku.Text.Trim()))
+                {
+                    MessageBox.Show("価格は半角数字で入力してください");
+                    TextboxKakaku.Focus();
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("価格が入力されていません");
+                TextboxKakaku.Focus();
+                return false;
+            }
+
+            if (!String.IsNullOrEmpty(TextboxColor.Text.Trim()))
+            {
+                MessageBox.Show("色が入力されていません");
+                TextboxColor.Focus();
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(TextboxKataban.Text.Trim()))
+            {
+                MessageBox.Show("型番が入力されていません");
+            }
+            return true;
+        }
+
+        private M_Product GenereteDataAtUpdate()
+        {
+            string ManuID = ComboMakerName.SelectedIndex.ToString();
+            string PD = ComboSyobunrui.SelectedValue.ToString();
+            return new M_Product
+            {
+                MaID = int.Parse(ManuID),
+                PrID = int.Parse(TextboxSyouhinID.Text.Trim()),
+                PrName = TextboxSyohinName.Text.Trim(),
+                ScID = int.Parse(PD),
+                PrModelNumber = TextboxKataban.Text.Trim(),
+                PrSafetyStock = int.Parse(TextboxStock.Text.Trim()),
+                Price = int.Parse((TextboxKakaku.Text.Trim())),
+                PrColor = TextboxColor.Text.Trim(),
+                PrReleaseDate = HatubaiDate.Value,
+                PrFlag = 0,
+                PrHidden = null,
+            };
+        }
+
+        private void UpdateProduct(M_Product updPro)
+        {
+            DialogResult result = MessageBox.Show("商品データを更新します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            bool flg = ProductDataAccess.UpdateProductData(updPro);
+            if (flg == true)
+            {
+                MessageBox.Show("データを更新しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("データの更新に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TextboxSyohinName.Focus();
+            }
+            ClearInput();
+
+            GetDataGridView();
+        }
+        //更新処理ここまで--------------------------------------------------------------
+
+        //非表示処理---------------------------------------------------------------------
+
+        //非表示処理ここまで------------------------------------------------------------
+
+
+        //入力クリア---------------------------------------------------------------------
         private void ClearInput()
         {
             TextboxSyouhinID.Text = "";
@@ -413,14 +528,13 @@ namespace SalesManagement_SysDev
             TextboxColor.Text = "";
             HatubaiDate.Value = DateTime.Now;
             TextboxHihyouji.Text = "";
-
         }
+        //入力クリアここまで-------------------------------------------------------------
 
+        //入力リセットボタン-------------------------------------------------------------
         private void ButtonReset_Click(object sender, EventArgs e)
         {
             ClearInput();
         }
-
-       
     }
 }

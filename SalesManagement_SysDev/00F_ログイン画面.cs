@@ -737,6 +737,8 @@ namespace SalesManagement_SysDev
 
         EmployeeDataAccess employeeDataAccess = new EmployeeDataAccess();
 
+
+
         //ここからログイン処理---------------------------------------------------------------------------------------------------------
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
