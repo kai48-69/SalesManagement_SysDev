@@ -109,12 +109,6 @@
     <Compile Include="07F_売上管理.Designer.cs">
       <DependentUpon>07F_売上管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="F_小分類管理.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="F_小分類管理.Designer.cs">
-      <DependentUpon>F_小分類管理.cs</DependentUpon>
-    </Compile>
     <Compile Include="04F_商品管理.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +194,7 @@
     <Compile Include="Entity\T_Warehousing.cs" />
     <Compile Include="Entity\T_WarehousingDetail.cs" />
     <Compile Include="SalesManagement_DevContext.cs" />
+    <Compile Include="SusLoginState.cs" />
     <EmbeddedResource Include="01F_PW新規登録.resx">
       <DependentUpon>01F_PW新規登録.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,9 +218,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="07F_売上管理.resx">
       <DependentUpon>07F_売上管理.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="F_小分類管理.resx">
-      <DependentUpon>F_小分類管理.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="04F_商品管理.resx">
       <DependentUpon>04F_商品管理.cs</DependentUpon>

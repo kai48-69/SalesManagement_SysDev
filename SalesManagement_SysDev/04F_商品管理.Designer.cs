@@ -61,9 +61,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.TextboxColor = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.LblHatubaiDate = new System.Windows.Forms.Label();
             this.HatubaiDate = new System.Windows.Forms.DateTimePicker();
-            this.ButtonBunruikanri = new System.Windows.Forms.Button();
             this.TextboxStock = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -223,6 +222,7 @@
             this.RadioHihyouji.TabIndex = 108;
             this.RadioHihyouji.Text = "非表示";
             this.RadioHihyouji.UseVisualStyleBackColor = true;
+            this.RadioHihyouji.CheckedChanged += new System.EventHandler(this.RadioHihyouji_CheckedChanged);
             // 
             // RadioKousin
             // 
@@ -235,6 +235,7 @@
             this.RadioKousin.TabIndex = 107;
             this.RadioKousin.Text = "更新";
             this.RadioKousin.UseVisualStyleBackColor = true;
+            this.RadioKousin.CheckedChanged += new System.EventHandler(this.RadioKousin_CheckedChanged);
             // 
             // RadioKensaku
             // 
@@ -247,6 +248,7 @@
             this.RadioKensaku.TabIndex = 106;
             this.RadioKensaku.Text = "検索";
             this.RadioKensaku.UseVisualStyleBackColor = true;
+            this.RadioKensaku.CheckedChanged += new System.EventHandler(this.RadioKensaku_CheckedChanged);
             // 
             // RadioTouroku
             // 
@@ -261,6 +263,7 @@
             this.RadioTouroku.TabStop = true;
             this.RadioTouroku.Text = "登録";
             this.RadioTouroku.UseVisualStyleBackColor = true;
+            this.RadioTouroku.CheckedChanged += new System.EventHandler(this.RadioTouroku_CheckedChanged);
             // 
             // panel1
             // 
@@ -370,6 +373,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1308, 349);
             this.dataGridView1.TabIndex = 100;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // ComboMakerName
             // 
@@ -419,15 +423,15 @@
             this.TextboxColor.Size = new System.Drawing.Size(261, 32);
             this.TextboxColor.TabIndex = 127;
             // 
-            // label11
+            // LblHatubaiDate
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label11.Location = new System.Drawing.Point(972, 271);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(87, 25);
-            this.label11.TabIndex = 129;
-            this.label11.Text = "発売日";
+            this.LblHatubaiDate.AutoSize = true;
+            this.LblHatubaiDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.LblHatubaiDate.Location = new System.Drawing.Point(972, 271);
+            this.LblHatubaiDate.Name = "LblHatubaiDate";
+            this.LblHatubaiDate.Size = new System.Drawing.Size(87, 25);
+            this.LblHatubaiDate.TabIndex = 129;
+            this.LblHatubaiDate.Text = "発売日";
             // 
             // HatubaiDate
             // 
@@ -437,18 +441,6 @@
             this.HatubaiDate.Name = "HatubaiDate";
             this.HatubaiDate.Size = new System.Drawing.Size(283, 32);
             this.HatubaiDate.TabIndex = 130;
-            // 
-            // ButtonBunruikanri
-            // 
-            this.ButtonBunruikanri.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonBunruikanri.Location = new System.Drawing.Point(971, 168);
-            this.ButtonBunruikanri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonBunruikanri.Name = "ButtonBunruikanri";
-            this.ButtonBunruikanri.Size = new System.Drawing.Size(184, 58);
-            this.ButtonBunruikanri.TabIndex = 131;
-            this.ButtonBunruikanri.Text = "小分類管理へ";
-            this.ButtonBunruikanri.UseVisualStyleBackColor = true;
-            this.ButtonBunruikanri.Click += new System.EventHandler(this.ButtonBunruikanri_Click);
             // 
             // TextboxStock
             // 
@@ -465,9 +457,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 884);
             this.Controls.Add(this.TextboxStock);
-            this.Controls.Add(this.ButtonBunruikanri);
             this.Controls.Add(this.HatubaiDate);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.LblHatubaiDate);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TextboxColor);
             this.Controls.Add(this.label3);
@@ -534,9 +525,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TextboxColor;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label LblHatubaiDate;
         private System.Windows.Forms.DateTimePicker HatubaiDate;
-        private System.Windows.Forms.Button ButtonBunruikanri;
         private System.Windows.Forms.TextBox TextboxStock;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;

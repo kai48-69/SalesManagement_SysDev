@@ -52,5 +52,34 @@ namespace SalesManagement_SysDev
                 return false;
             }
         }
+
+        public bool CheckCascadeProduct(int PrID)
+        {
+            var context = new SalesManagement_DevContext();
+            bool flg = context.T_OrderDetails.Any(x => x.PrID == PrID);
+
+            return flg;
+        }
+
+        public bool HideProductData(M_Product hidPro)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Product = context.M_Products.Single(x => x.PrID == hidPro.PrID);
+                Product.PrFlag = hidPro.PrFlag;
+
+                context.SaveChanges();
+                context.Dispose();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
+        
 }

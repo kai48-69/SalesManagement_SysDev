@@ -125,8 +125,28 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[9].Width = 400;
 
-
             dataGridView1.Refresh();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (RadioHihyouji.Checked == false)
+            {
+                TextboxSyouhinID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+                ComboMakerName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
+                TextboxSyohinName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+                TextboxKakaku.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
+                TextboxStock.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
+                ComboSyobunrui.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+                TextboxKataban.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[6].Value.ToString();
+                TextboxColor.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[7].Value.ToString();
+                HatubaiDate.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[8].Value.ToString();
+            }
+            else
+            {
+                TextboxSyouhinID.Text= dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+            }
+
         }
 
         private void ButtonBack_Click(object sender, EventArgs e)
@@ -136,13 +156,9 @@ namespace SalesManagement_SysDev
             f_buturyuu.Show();
         }
 
-        private void ButtonBunruikanri_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            F_小分類管理 f_bunrui = new F_小分類管理();
-            f_bunrui.Show();
-        }
 
+
+        //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
         {
             //登録処理----------------------------------------------------------------------
@@ -158,6 +174,7 @@ namespace SalesManagement_SysDev
             }
             //登録処理ここまで-------------------------------------------------------------
 
+
             //検索処理----------------------------------------------------------------------
             if (RadioKensaku.Checked == true)
             {
@@ -170,6 +187,7 @@ namespace SalesManagement_SysDev
                 }
             }
             //検索処理ここまで-------------------------------------------------------------
+
 
             //更新処理----------------------------------------------------------------------
             if (RadioKousin.Checked == true)
@@ -187,19 +205,26 @@ namespace SalesManagement_SysDev
                 }
                 //更新処理ここまで-----------------------------------------------------------
             }
-            //非表示処理------------------------------------------------------------------
+            //検索処理ここまで-------------------------------------------------------------
+
+
+            //非表示処理--------------------------------------------------------------------
             if (RadioHihyouji.Checked == true)
             {
-                if (!GetVaildDataAtDelete())
+                if (!GetVaildDataAtHide())
                 {
                     return;
                 }
-                DeleteProduct();
-            }
-            //非表示処理ここまで---------------------------------------------------------
-        }
 
-        //登録処理------------------------------------------------------------------------
+                var hidProduct = GenereteDataAtHidden();
+
+                HideProduct(hidProduct);
+            }
+            //非表示処理ここまで-----------------------------------------------------------
+        }
+        //以下モジュール
+
+        //登録処理--------------------------------------------------------------------------
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
             if (String.IsNullOrEmpty(TextboxSyohinName.Text.Trim()))
@@ -296,7 +321,6 @@ namespace SalesManagement_SysDev
             ClearInput();
             GetDataGridView();
         }
-        //登録処理ここまで---------------------------------------------------------------
 
         //検索処理------------------------------------------------------------------------
         private bool GetVaildDataAtSelect() //入力データチェック
@@ -396,7 +420,7 @@ namespace SalesManagement_SysDev
                 PrName = TextboxSyohinName.Text.Trim(),
                 Price = Kakaku,
                 PrSafetyStock = Stock,
-                PrModelNumber = TextboxKataban.Text.Trim(),
+                PrModelNumber = ModelNo,
                 PrColor = TextboxColor.Text.Trim(),
                 PrReleaseDate = HatubaiDate.Value,
             };
@@ -408,7 +432,7 @@ namespace SalesManagement_SysDev
             SetDataGridView(tb);
             return true;
         }
-        //検索処理ここまで--------------------------------------------------------------
+
 
         //更新処理-----------------------------------------------------------------------
         private bool GetVaildDataAtUpdate()
@@ -452,7 +476,7 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-            if (!String.IsNullOrEmpty(TextboxColor.Text.Trim()))
+            if (String.IsNullOrEmpty(TextboxColor.Text.Trim()))
             {
                 MessageBox.Show("色が入力されていません");
                 TextboxColor.Focus();
@@ -509,32 +533,170 @@ namespace SalesManagement_SysDev
 
             GetDataGridView();
         }
-        //更新処理ここまで--------------------------------------------------------------
+
 
         //非表示処理---------------------------------------------------------------------
 
-        //非表示処理ここまで------------------------------------------------------------
+        private bool GetVaildDataAtHide()
+        {
+            if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
+            {
+                MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (ProductDataAccess.CheckCascadeProduct(int.Parse(TextboxSyouhinID.Text.Trim())))
+            {
+                MessageBox.Show("選択された商品は他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        private M_Product GenereteDataAtHidden()
+        {
+            string ManuID = ComboMakerName.SelectedIndex.ToString();
+            string PD = ComboSyobunrui.SelectedValue.ToString();
+            M_Product retProduct =  new M_Product
+            {
+                MaID = int.Parse(ManuID),
+                PrID = int.Parse(TextboxSyouhinID.Text.Trim()),
+                PrName = TextboxSyohinName.Text.Trim(),
+                ScID = int.Parse(PD),
+                PrModelNumber = TextboxKataban.Text.Trim(),
+                PrSafetyStock = int.Parse(TextboxStock.Text.Trim()),
+                Price = decimal.Parse((TextboxKakaku.Text.Trim())),
+                PrColor = TextboxColor.Text.Trim(),
+                PrReleaseDate = HatubaiDate.Value,
+                PrFlag = 2,
+                PrHidden = TextboxHihyouji.Text.Trim(),
+                
+            };
+            return retProduct;
+        }
+
+        private void HideProduct(M_Product hidPro)
+        {
+            DialogResult result = MessageBox.Show("商品データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            bool flg = ProductDataAccess.HideProductData(hidPro);
+            if (flg == true)
+            {
+                MessageBox.Show("データを非表示にしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ClearInput();
+            GetDataGridView();
+        }
 
 
         //入力クリア---------------------------------------------------------------------
         private void ClearInput()
         {
-            TextboxSyouhinID.Text = "";
-            TextboxSyohinName.Text = "";
-            TextboxKakaku.Text = "";
-            TextboxStock.Text = "";
-            ComboSyobunrui.Text = "";
-            TextboxKataban.Text = "";
-            TextboxColor.Text = "";
-            HatubaiDate.Value = DateTime.Now;
-            TextboxHihyouji.Text = "";
+            if (RadioKensaku.Checked == true)
+            {
+                ComboMakerName.SelectedIndex = -1;
+                ComboSyobunrui.SelectedIndex = -1;
+                TextboxSyouhinID.Text = "";
+                TextboxSyohinName.Text = "";
+                TextboxKakaku.Text = "";
+                TextboxStock.Text = "";
+                ComboSyobunrui.Text = "";
+                TextboxKataban.Text = "";
+                TextboxColor.Text = "";
+                HatubaiDate.Value = DateTime.Now;
+                TextboxHihyouji.Text = "";
+            }
+            else
+            {
+                ComboMakerName.SelectedIndex = 0;
+                ComboSyobunrui.SelectedIndex = 0;
+                TextboxSyouhinID.Text = "";
+                TextboxSyohinName.Text = "";
+                TextboxKakaku.Text = "";
+                TextboxStock.Text = "";
+                ComboSyobunrui.Text = "";
+                TextboxKataban.Text = "";
+                TextboxColor.Text = "";
+                HatubaiDate.Value = DateTime.Now;
+                TextboxHihyouji.Text = "";
+            }
         }
-        //入力クリアここまで-------------------------------------------------------------
 
         //入力リセットボタン-------------------------------------------------------------
         private void ButtonReset_Click(object sender, EventArgs e)
         {
             ClearInput();
+        }
+
+        private void RadioTouroku_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxSyouhinID.ReadOnly=true;
+            TextboxSyohinName.ReadOnly = false;
+            ComboMakerName.SelectedIndex = 0;
+            TextboxKakaku.ReadOnly = false;
+            TextboxStock.ReadOnly = false;
+            ComboSyobunrui.SelectedIndex=0;
+            TextboxKataban.ReadOnly = false;
+            TextboxColor.ReadOnly = false;
+            LblHatubaiDate.Visible = true;
+            HatubaiDate.Visible=true;
+            GetDataGridView();
+        }
+
+        private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxSyouhinID.ReadOnly = false;
+            TextboxSyohinName.ReadOnly = false;
+            ComboMakerName.SelectedIndex = -1;
+            TextboxKakaku.ReadOnly = false;
+            TextboxStock.ReadOnly = false;
+            ComboSyobunrui.SelectedIndex = -1;
+            TextboxKataban.ReadOnly = false;
+            TextboxColor.ReadOnly = false;
+            LblHatubaiDate.Visible = false;
+            HatubaiDate.Visible = false;
+        }
+
+        private void RadioKousin_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxSyouhinID.ReadOnly = true;
+            TextboxSyohinName.ReadOnly = false;
+            ComboMakerName.SelectedIndex = 0;
+            TextboxKakaku.ReadOnly = false;
+            TextboxStock.ReadOnly = false;
+            ComboSyobunrui.SelectedIndex = 0;
+            TextboxKataban.ReadOnly = false;
+            TextboxColor.ReadOnly = false;
+            LblHatubaiDate.Visible = true;
+            HatubaiDate.Visible = true;
+            GetDataGridView();
+        }
+
+        private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxSyouhinID.ReadOnly = true;
+            TextboxSyohinName.ReadOnly = true;
+            ComboMakerName.SelectedIndex = 0;
+            TextboxKakaku.ReadOnly = true;
+            TextboxStock.ReadOnly = true;
+            ComboSyobunrui.SelectedIndex = 0;
+            TextboxKataban.ReadOnly = true;
+            TextboxColor.ReadOnly = true;
+            LblHatubaiDate.Visible = true;
+            HatubaiDate.Visible = true;
+            GetDataGridView();
         }
     }
 }

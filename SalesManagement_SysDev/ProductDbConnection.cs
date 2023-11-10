@@ -20,7 +20,8 @@ namespace SalesManagement_SysDev
                          join SmallClassifications in context.M_SmallClassifications
                          on Product.ScID equals SmallClassifications.ScID
                          where Product.PrName.Contains(strName) &&
-                         Manufacturer.MaName.Contains(strMaker)
+                         Manufacturer.MaName.Contains(strMaker)&&
+                         Product.PrFlag.Equals(0)
 
                          select new DispProductListDTO
                          {
@@ -88,10 +89,10 @@ namespace SalesManagement_SysDev
                          on Product.MaID equals Manufacturer.MaID
                          join SmallClassifications in context.M_SmallClassifications
                          on Product.ScID equals SmallClassifications.ScID
+                         
                          where Product.PrName.Contains(selectCondition.PrName) &&
                          Product.PrColor.Contains(selectCondition.PrColor) &&
                          Product.PrModelNumber.Contains(selectCondition.PrModelNumber) &&
-                         Product.PrReleaseDate.CompareTo(value:selectCondition.PrReleaseDate)
                           ((selectCondition.PrID == -1) ? true :
                           Product.PrID == selectCondition.PrID) &&
                          ((selectCondition.MaID == -1) ? true :
@@ -101,16 +102,19 @@ namespace SalesManagement_SysDev
                          ((selectCondition.Price == -1) ? true :
                          Product.Price == selectCondition.Price) &&
                          ((selectCondition.PrSafetyStock == -1) ? true :
-                         Product.PrSafetyStock == selectCondition.PrSafetyStock) 
+                         Product.PrSafetyStock == selectCondition.PrSafetyStock)&&
+                         ((selectCondition.PrFlag==0)?true:
+                         Product.PrFlag==selectCondition.PrFlag)
+
 
                          select new DispProductListDTO
                          {
-                             PrID = Product.ProductCD,
-                             PrName = Product.ProductName,
+                             PrID = Product.PrID.ToString(),
+                             PrName = Product.PrName,
                              ScText = SmallClassifications.ScName,
-                             MaName = Manufacturer.ManufacturerName,
-                             PrSafetyStock = Product.SafetyStockCnt,
-                             PrColor = Product.Color,
+                             MaName = Manufacturer.MaName,
+                             PrSafetyStock = Product.PrSafetyStock,
+                             PrColor = Product.PrColor,
                              Price = Product.Price,
                              PrModelNumber = Product.PrModelNumber,
                              PrReleaseDate= Product.PrReleaseDate,

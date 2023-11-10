@@ -742,36 +742,36 @@ namespace SalesManagement_SysDev
         //ここからログイン処理---------------------------------------------------------------------------------------------------------
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-            // //入力チェック
-            // int SyainID = GetVaildDataAtLogin();
+            //入力チェック
+            int SyainID = GetVaildDataAtLogin();
 
-            // //ログイン機能
-            // if (!CheckIDPW(SyainID))
-            //{return;}
+            //ログイン機能
+            if (!CheckIDPW(SyainID))
+            { return; }
 
-            // //ログイン判定
-            // int PolID = DetermineForm(SyainID);
+            //ログイン判定
+            int PolID = DetermineForm(SyainID);
 
-            // //画面表示
-            // FormShow(PolID);
+            //画面表示
+            FormShow(PolID);
 
 
-            this.Visible = false;
-            if (int.Parse(TextboxShainID.Text) == 1)
-            {
-                F_管理者 f_Admin = new F_管理者();
-                f_Admin.Show();
-            }
-            if (int.Parse(TextboxShainID.Text) == 2)
-            {
-                F_営業 f_eigyou = new F_営業();
-                f_eigyou.Show();
-            }
-            if (int.Parse(TextboxShainID.Text) == 3)
-            {
-                F_物流 f_buturyuu = new F_物流();
-                f_buturyuu.Show();
-            }
+            //this.Visible = false;
+            //if (int.Parse(TextboxShainID.Text) == 1)
+            //{
+            //    F_管理者 f_Admin = new F_管理者();
+            //    f_Admin.Show();
+            //}
+            //if (int.Parse(TextboxShainID.Text) == 2)
+            //{
+            //    F_営業 f_eigyou = new F_営業();
+            //    f_eigyou.Show();
+            //}
+            //if (int.Parse(TextboxShainID.Text) == 3)
+            //{
+            //    F_物流 f_buturyuu = new F_物流();
+            //    f_buturyuu.Show();
+            //}
         }
 
         //入力チェック
