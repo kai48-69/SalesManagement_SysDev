@@ -587,7 +587,7 @@ namespace SalesManagement_SysDev
         }
 
 
-        //入力クリア---------------------------------------------------------------------
+        //入力クリア----------------------------------------------------------------------
         private void ClearInput()
         {
             
@@ -625,6 +625,15 @@ namespace SalesManagement_SysDev
         private void ButtonReset_Click(object sender, EventArgs e)
         {
             ClearInput();
+        }
+
+        //戻るボタン----------------------------------------------------------------------
+        private void ButtonBack_Click(object sender,EventArgs e)
+        {
+            this.Visible = false;
+            F_物流 f_buturyu = new F_物流();
+            f_buturyu.Show();
+            return;
         }
 
 
