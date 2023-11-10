@@ -26,17 +26,7 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
-        private bool GetDataGridView()
-        {
-            //在庫情報の全件取得
-            List<DispProductListDTO> tb = DB.ProductGetData("", "", 0);
-            if (tb == null)
-                return false;
-            //データグリッドビューへの設定
-            SetDataGridView(tb);
-            return true;
-        }
-
+        //画面ロード時処理
         private void F_商品管理_Load(object sender, EventArgs e)
         {
             SetFormComboBox();
@@ -48,6 +38,19 @@ namespace SalesManagement_SysDev
             }
         }
 
+        //データ全件表示
+        private bool GetDataGridView()
+        {
+            //在庫情報の全件取得
+            List<DispProductListDTO> tb = DB.ProductGetData("", "", 0);
+            if (tb == null)
+                return false;
+            //データグリッドビューへの設定
+            SetDataGridView(tb);
+            return true;
+        }
+
+        //コンボボックスの設定
         private void SetFormComboBox()
         {
             MNameDsp = DB.GetMakerNameDspData();
@@ -71,6 +74,7 @@ namespace SalesManagement_SysDev
             ComboSyobunrui.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+        //データグリッドビューの表示設定
         private void SetDataGridView(List<DispProductListDTO> tb)
         {
             dataGridView1.DataSource = tb;
@@ -128,6 +132,7 @@ namespace SalesManagement_SysDev
             dataGridView1.Refresh();
         }
 
+        //データグリッドビューをクリックしたときの処理
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (RadioHihyouji.Checked == false)
@@ -148,15 +153,7 @@ namespace SalesManagement_SysDev
             }
 
         }
-
-        private void ButtonBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            F_物流 f_buturyuu = new F_物流();
-            f_buturyuu.Show();
-        }
-
-
+     
 
         //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
@@ -172,8 +169,6 @@ namespace SalesManagement_SysDev
 
                 RegistrationProduct(regPro);
             }
-            //登録処理ここまで-------------------------------------------------------------
-
 
             //検索処理----------------------------------------------------------------------
             if (RadioKensaku.Checked == true)
@@ -186,8 +181,6 @@ namespace SalesManagement_SysDev
                     GenerateDataAtSelect();
                 }
             }
-            //検索処理ここまで-------------------------------------------------------------
-
 
             //更新処理----------------------------------------------------------------------
             if (RadioKousin.Checked == true)
@@ -203,10 +196,7 @@ namespace SalesManagement_SysDev
 
                     UpdateProduct(updProduct);
                 }
-                //更新処理ここまで-----------------------------------------------------------
             }
-            //検索処理ここまで-------------------------------------------------------------
-
 
             //非表示処理--------------------------------------------------------------------
             if (RadioHihyouji.Checked == true)
@@ -220,10 +210,10 @@ namespace SalesManagement_SysDev
 
                 HideProduct(hidProduct);
             }
-            //非表示処理ここまで-----------------------------------------------------------
         }
-        //以下モジュール
 
+        
+        //以下モジュール
         //登録処理--------------------------------------------------------------------------
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
@@ -435,7 +425,7 @@ namespace SalesManagement_SysDev
 
 
         //更新処理-----------------------------------------------------------------------
-        private bool GetVaildDataAtUpdate()
+        private bool GetVaildDataAtUpdate()//入力データチェック
         {
             if (String.IsNullOrEmpty(TextboxSyohinName.Text.Trim()))
             {
@@ -488,9 +478,9 @@ namespace SalesManagement_SysDev
                 MessageBox.Show("型番が入力されていません");
             }
             return true;
-        }
+        }　
 
-        private M_Product GenereteDataAtUpdate()
+        private M_Product GenereteDataAtUpdate()　//更新データ生成
         {
             string ManuID = ComboMakerName.SelectedIndex.ToString();
             string PD = ComboSyobunrui.SelectedValue.ToString();
@@ -510,7 +500,7 @@ namespace SalesManagement_SysDev
             };
         }
 
-        private void UpdateProduct(M_Product updPro)
+        private void UpdateProduct(M_Product updPro)　//データ更新処理
         {
             DialogResult result = MessageBox.Show("商品データを更新します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
@@ -537,7 +527,7 @@ namespace SalesManagement_SysDev
 
         //非表示処理---------------------------------------------------------------------
 
-        private bool GetVaildDataAtHide()
+        private bool GetVaildDataAtHide()//入力データチェック
         {
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
             {
@@ -553,7 +543,7 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-        private M_Product GenereteDataAtHidden()
+        private M_Product GenereteDataAtHidden()　//非表示データ生成(フラグの更新データ生成)
         {
             string ManuID = ComboMakerName.SelectedIndex.ToString();
             string PD = ComboSyobunrui.SelectedValue.ToString();
@@ -575,7 +565,7 @@ namespace SalesManagement_SysDev
             return retProduct;
         }
 
-        private void HideProduct(M_Product hidPro)
+        private void HideProduct(M_Product hidPro)　//データ非表示処理
         {
             DialogResult result = MessageBox.Show("商品データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
@@ -600,7 +590,8 @@ namespace SalesManagement_SysDev
         //入力クリア---------------------------------------------------------------------
         private void ClearInput()
         {
-            if (RadioKensaku.Checked == true)
+            
+            if (RadioKensaku.Checked == true)//検索時はコンボボックスの値を空にする
             {
                 ComboMakerName.SelectedIndex = -1;
                 ComboSyobunrui.SelectedIndex = -1;
@@ -614,7 +605,7 @@ namespace SalesManagement_SysDev
                 HatubaiDate.Value = DateTime.Now;
                 TextboxHihyouji.Text = "";
             }
-            else
+            else   //検索時以外は表示する
             {
                 ComboMakerName.SelectedIndex = 0;
                 ComboSyobunrui.SelectedIndex = 0;
@@ -636,6 +627,8 @@ namespace SalesManagement_SysDev
             ClearInput();
         }
 
+
+        //登録時の入力項目選択-----------------------------------------------------------
         private void RadioTouroku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
@@ -651,7 +644,7 @@ namespace SalesManagement_SysDev
             HatubaiDate.Visible=true;
             GetDataGridView();
         }
-
+        //検索時の入力項目選択-----------------------------------------------------------
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
@@ -666,7 +659,7 @@ namespace SalesManagement_SysDev
             LblHatubaiDate.Visible = false;
             HatubaiDate.Visible = false;
         }
-
+        //更新時の入力項目選択-----------------------------------------------------------
         private void RadioKousin_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
@@ -682,7 +675,7 @@ namespace SalesManagement_SysDev
             HatubaiDate.Visible = true;
             GetDataGridView();
         }
-
+        //非表示時の入力項目選択-----------------------------------------------------------
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
