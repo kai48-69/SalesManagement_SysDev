@@ -43,7 +43,7 @@
             // 
             // btn_CleateDabase
             // 
-            this.btn_CleateDabase.Location = new System.Drawing.Point(881, 399);
+            this.btn_CleateDabase.Location = new System.Drawing.Point(584, 302);
             this.btn_CleateDabase.Margin = new System.Windows.Forms.Padding(4);
             this.btn_CleateDabase.Name = "btn_CleateDabase";
             this.btn_CleateDabase.Size = new System.Drawing.Size(141, 61);
@@ -66,7 +66,7 @@
             // 
             // btn_InsertSampleData
             // 
-            this.btn_InsertSampleData.Location = new System.Drawing.Point(881, 486);
+            this.btn_InsertSampleData.Location = new System.Drawing.Point(584, 389);
             this.btn_InsertSampleData.Margin = new System.Windows.Forms.Padding(4);
             this.btn_InsertSampleData.Name = "btn_InsertSampleData";
             this.btn_InsertSampleData.Size = new System.Drawing.Size(141, 61);
@@ -153,7 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 420);
+            this.ClientSize = new System.Drawing.Size(684, 420);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ButtonLogin);
             this.Controls.Add(this.label2);
