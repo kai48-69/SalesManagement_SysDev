@@ -198,7 +198,7 @@
             this.button7.TabIndex = 5;
             this.button7.Text = "戻る";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.Click += new System.EventHandler(this.ButtonBack);
             // 
             // label18
             // 
@@ -320,6 +320,7 @@
             this.ButtonExe.TabIndex = 6;
             this.ButtonExe.Text = "実行";
             this.ButtonExe.UseVisualStyleBackColor = true;
+            this.ButtonExe.Click += new System.EventHandler(this.ButtonExe_Click);
             // 
             // ButtonReset
             // 

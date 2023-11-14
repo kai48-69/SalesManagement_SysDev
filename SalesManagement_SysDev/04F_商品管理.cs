@@ -41,7 +41,7 @@ namespace SalesManagement_SysDev
         //データ全件表示
         private bool GetDataGridView()
         {
-            //在庫情報の全件取得
+            //商品情報の全件取得
             List<DispProductListDTO> tb = DB.ProductGetData("", "", 0);
             if (tb == null)
                 return false;

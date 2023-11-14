@@ -77,5 +77,11 @@ namespace SalesManagement_SysDev
         [DisplayName("非表示理由")]
         public string ClHidden { get; set; }
     }
+
+    class DispOrderListDTO
+    {
+        [DisplayName()] 
+        public string ClID { get; set; }
+    }
 }
 
