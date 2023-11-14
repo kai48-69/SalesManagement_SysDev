@@ -44,7 +44,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //在庫情報の全件取得
-            List<DispEmployeeListDTO> tb = DB.EmployeeGetData("",0);
+            List<DispEmployeeListDTO> tb = DB.EmployeeGetData("", 0);
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -147,32 +147,29 @@ namespace SalesManagement_SysDev
 
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
-            if (String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
+            if (String.IsNullOrEmpty(TextboxSyainName.Text.Trim()))
             {
-                if (!ichk.IntegerCheck(TextboxSyainID.Text.Trim()))
-                {
-                    MessageBox.Show("安全在庫数は半角数字で入力してください");
-                    TextboxStock.Focus();
-                    return false;
-                }
-            }
-
-            if (!String.IsNullOrEmpty(TextboxStock.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxStock.Text.Trim()))
-                {
-                    MessageBox.Show("安全在庫数は半角数字で入力してください");
-                    TextboxStock.Focus();
-                    return false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("安全在庫数が入力されていません");
-                TextboxStock.Focus();
+                MessageBox.Show("社員名が入力されていません");
+                TextboxSyainName.Focus();
                 return false;
             }
 
+            if (!String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxTelNo.Text.Trim()))
+                {
+                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    TextboxTelNo.Focus();
+                    return false;
+                }
+
+                else
+                {
+                    MessageBox.Show("電話番号が入力されていません");
+                    TextboxTelNo.Focus();
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -186,8 +183,8 @@ namespace SalesManagement_SysDev
                 EmName = TextboxSyainName.Text.Trim(),
                 PoID = int.Parse(PoID),
                 EmPhone = int.Parse(TextboxTelNo.Text.Trim(),
-                =0,
-                EmHidden = null,
+
+
             };
         }
     }

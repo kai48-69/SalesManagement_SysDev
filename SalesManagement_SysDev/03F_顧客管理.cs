@@ -18,6 +18,7 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
+        private InputCheck ichk = new InputCheck();
         ClientDbConnection DB = new ClientDbConnection();
         private static List<M_SalesOffice> SoNameDsp;
 
@@ -144,65 +145,64 @@ namespace SalesManagement_SysDev
 
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
-            if (String.IsNullOrEmpty(TextboxSyohinName.Text.Trim()))
+            if (String.IsNullOrEmpty(TextboxKokyakuName.Text.Trim()))
             {
-                MessageBox.Show("商品名が入力されていません");
-                TextboxSyohinName.Focus();
+                MessageBox.Show("顧客名が入力されていません");
+                TextboxKokyakuName.Focus();
                 return false;
             }
 
-            if (!String.IsNullOrEmpty(TextboxStock.Text.Trim()))
+            if (!String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
             {
-                if (!ichk.IntegerCheck(TextboxStock.Text.Trim()))
+                if (!ichk.IntegerCheck(TextboxTelNo.Text.Trim()))
                 {
-                    MessageBox.Show("安全在庫数は半角数字で入力してください");
-                    TextboxStock.Focus();
+                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    TextboxTelNo.Focus();
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("安全在庫数が入力されていません");
-                TextboxStock.Focus();
+                MessageBox.Show("電話番号が入力されていません");
+                TextboxTelNo.Focus();
                 return false;
             }
 
 
-            if (!String.IsNullOrEmpty(TextboxKakaku.Text.Trim()))
+            if (!String.IsNullOrEmpty(TextboxFAX.Text.Trim()))
             {
-                if (!ichk.IntegerCheck(TextboxKakaku.Text.Trim()))
+                if (!ichk.IntegerCheck(TextboxFAX.Text.Trim()))
                 {
-                    MessageBox.Show("価格は半角数字で入力してください");
-                    TextboxKakaku.Focus();
+                    MessageBox.Show("FAXは半角数字で入力してください");
+                    TextboxFAX.Focus();
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("価格が入力されていません");
-                TextboxKakaku.Focus();
+                MessageBox.Show("FAXが入力されていません");
+                TextboxFAX.Focus();
                 return false;
             }
 
-            if (String.IsNullOrEmpty(TextboxColor.Text.Trim()))
+            if (String.IsNullOrEmpty(TextboxPostCD.Text.Trim()))
             {
-                MessageBox.Show("色が入力されていません");
-                TextboxColor.Focus();
+                MessageBox.Show("郵便番号が入力されていません");
+                TextboxPostCD.Focus();
                 return false;
             }
-            if (String.IsNullOrEmpty(TextboxKataban.Text.Trim()))
+            if (String.IsNullOrEmpty(TextboxAdress.Text.Trim()))
             {
-                MessageBox.Show("型番が入力されていません");
+                MessageBox.Show("住所が入力されていません");
             }
 
             return true;
         }
 
-        private M_Product GenerateDataAtRegistration() //登録データ生成
+        private M_Client GenerateDataAtRegistration() //登録データ生成
         {
-            string ManuID = ComboMakerName.SelectedIndex.ToString();
-            string PD = ComboSyobunrui.SelectedValue.ToString();
-            return new M_Product
+            string ManuID = ComboEigyousyoName.SelectedIndex.ToString();
+            return new M_Client
             {
                 MaID = int.Parse(ManuID),
                 PrID = int.Parse(TextboxSyouhinID.Text.Trim()),
