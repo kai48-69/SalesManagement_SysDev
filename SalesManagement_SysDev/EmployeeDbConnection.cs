@@ -26,15 +26,11 @@ namespace SalesManagement_SysDev
                          {
                              EmID = Employee.EmID.ToString(),
                              EmName = Employee.EmName,
-                              = Product.PrName,
-                             Price = Product.Price,
-                             ScText = SmallClassifications.ScName,
-                             PrSafetyStock = Product.PrSafetyStock,
-                             PrColor = Product.PrColor,
-                             PrModelNumber = Product.PrModelNumber,
-                             PrReleaseDate = Product.PrReleaseDate,
-                             PrHidden = Product.PrHidden,
-
+                             SoName = SOffice.SoName,
+                             PoName = Position.PoName,
+                             EmHiredate = Employee.EmHiredate.ToString(),
+                             EmPhone = Employee.EmPhone,
+                             EmHidden = Employee.EmHidden,
                          };
                 return tb.ToList();
             }
