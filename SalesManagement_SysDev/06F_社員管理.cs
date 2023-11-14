@@ -175,15 +175,18 @@ namespace SalesManagement_SysDev
 
         private M_Employee GenerateDataAtRegistration() //登録データ生成
         {
-            string SoID = ComboEigyousyoName.SelectedIndex.ToString();
-            string PoID = ComboYakusyokuName.SelectedValue.ToString();
+            int SoID = ComboEigyousyoName.SelectedIndex;
+            int PoID = ComboYakusyokuName.SelectedIndex;
             return new M_Employee
             {
                 EmID = int.Parse(TextboxSyainID.Text.Trim()),
                 EmName = TextboxSyainName.Text.Trim(),
-                PoID = int.Parse(PoID),
+                PoID = PoID,
                 EmPhone = TextboxTelNo.Text.Trim(),
-                 EmFlag
+                SoID = SoID,
+                EmFlag = 0,
+                EmHidden = null,
+
 
             };
 
