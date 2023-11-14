@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace SalesManagement_SysDev
 {
         public class LoginData
+
+        public class LoginData
         {            
             public int SyainID { get; set; }
             public string SyainName { get; set; }
