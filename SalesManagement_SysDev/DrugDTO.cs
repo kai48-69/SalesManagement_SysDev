@@ -50,5 +50,9 @@ namespace SalesManagement_SysDev
         [DisplayName("非表示理由")]
         public string EmHidden { get; set; }
     }
+
+    class DispOrderListDTO
+    {
+        [DisplayName()]
 }
 

@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ButtonBack = new System.Windows.Forms.Button();
             this.Lbl_tag = new System.Windows.Forms.Label();
-            this.ButtonLogin = new System.Windows.Forms.Button();
+            this.ButtonRegis = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TextboxPW = new System.Windows.Forms.TextBox();
             this.TextboxShainID = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.ButtonBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,18 @@
             this.panel1.Size = new System.Drawing.Size(684, 90);
             this.panel1.TabIndex = 13;
             // 
+            // ButtonBack
+            // 
+            this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ButtonBack.Location = new System.Drawing.Point(494, 22);
+            this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonBack.Name = "ButtonBack";
+            this.ButtonBack.Size = new System.Drawing.Size(151, 50);
+            this.ButtonBack.TabIndex = 16;
+            this.ButtonBack.Text = "戻る";
+            this.ButtonBack.UseVisualStyleBackColor = true;
+            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
+            // 
             // Lbl_tag
             // 
             this.Lbl_tag.AutoSize = true;
@@ -63,16 +75,17 @@
             this.Lbl_tag.TabIndex = 1;
             this.Lbl_tag.Text = "パスワード新規登録";
             // 
-            // ButtonLogin
+            // ButtonRegis
             // 
-            this.ButtonLogin.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.ButtonLogin.Location = new System.Drawing.Point(137, 381);
-            this.ButtonLogin.Margin = new System.Windows.Forms.Padding(4);
-            this.ButtonLogin.Name = "ButtonLogin";
-            this.ButtonLogin.Size = new System.Drawing.Size(437, 61);
-            this.ButtonLogin.TabIndex = 10;
-            this.ButtonLogin.Text = "登録";
-            this.ButtonLogin.UseVisualStyleBackColor = true;
+            this.ButtonRegis.Font = new System.Drawing.Font("MS UI Gothic", 30F);
+            this.ButtonRegis.Location = new System.Drawing.Point(137, 381);
+            this.ButtonRegis.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonRegis.Name = "ButtonRegis";
+            this.ButtonRegis.Size = new System.Drawing.Size(437, 61);
+            this.ButtonRegis.TabIndex = 10;
+            this.ButtonRegis.Text = "登録";
+            this.ButtonRegis.UseVisualStyleBackColor = true;
+            this.ButtonRegis.Click += new System.EventHandler(this.ButtonRegis_Click);
             // 
             // label2
             // 
@@ -131,18 +144,6 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "パスワード確認";
             // 
-            // ButtonBack
-            // 
-            this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonBack.Location = new System.Drawing.Point(494, 22);
-            this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonBack.Name = "ButtonBack";
-            this.ButtonBack.Size = new System.Drawing.Size(151, 50);
-            this.ButtonBack.TabIndex = 16;
-            this.ButtonBack.Text = "戻る";
-            this.ButtonBack.UseVisualStyleBackColor = true;
-            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
-            // 
             // F_PW新規登録
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -151,7 +152,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.ButtonLogin);
+            this.Controls.Add(this.ButtonRegis);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TextboxPW);
@@ -171,7 +172,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label Lbl_tag;
-        private System.Windows.Forms.Button ButtonLogin;
+        private System.Windows.Forms.Button ButtonRegis;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TextboxPW;

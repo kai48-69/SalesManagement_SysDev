@@ -23,5 +23,10 @@ namespace SalesManagement_SysDev
             F_ログイン画面 f_login = new F_ログイン画面();
             f_login.Show();
         }
+
+        private void ButtonRegis_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

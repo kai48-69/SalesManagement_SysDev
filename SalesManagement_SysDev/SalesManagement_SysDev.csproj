@@ -172,6 +172,7 @@
     <Compile Include="Entity\M_SalesOffice.cs" />
     <Compile Include="Entity\M_SmallClassification.cs" />
     <Compile Include="InputCheck.cs" />
+    <Compile Include="OrderDbConnection.cs" />
     <Compile Include="ProductDataAccess.cs" />
     <Compile Include="ProductDbConnection.cs" />
     <Compile Include="Program.cs" />
@@ -196,7 +197,7 @@
     <Compile Include="Entity\T_Warehousing.cs" />
     <Compile Include="Entity\T_WarehousingDetail.cs" />
     <Compile Include="SalesManagement_DevContext.cs" />
-    <Compile Include="SusLoginState.cs" />
+    <Compile Include="LoginData.cs" />
     <EmbeddedResource Include="01F_PW新規登録.resx">
       <DependentUpon>01F_PW新規登録.cs</DependentUpon>
     </EmbeddedResource>

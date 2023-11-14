@@ -12,6 +12,9 @@ namespace SalesManagement_SysDev
 {
     public partial class F_受注管理 : Form
     {
+        OrderDbConnection DB = new OrderDbConnection();
+        private static List<M_Client> ClNameDsp;
+
         public F_受注管理()
         {
             InitializeComponent();
@@ -33,18 +36,37 @@ namespace SalesManagement_SysDev
             }
         }
 
-        private void SetFormComboBox()
+        //データ全件表示
+        private bool GetDataGridView()
         {
-
+            //商品情報の全件取得
+            List<DispProductListDTO> tb = DB.ProductGetData("", "", 0);
+            if (tb == null)
+                return false;
+            //データグリッドビューへの設定
+            SetDataGridView(tb);
+            return true;
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void SetFormComboBox()
+        {
+            ClNameDsp = DB.GetClientNameDspData();
+            ComboKokyakuName.Items.AddRange(ClNameDsp.ToArray());
+            ComboKokyakuName.DisplayMember = "MaName";
+            ComboKokyakuName.ValueMember = "MaID";
+            ComboKokyakuName.DataSource = ClNameDsp;
+        }
+
+        private void ButtonBack(object sender, EventArgs e)
         {
             this.Close();
             F_営業　f_eigyou=new F_営業();
             f_eigyou.Show();
         }
 
+        private void ButtonExe_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
