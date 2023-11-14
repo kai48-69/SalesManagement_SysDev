@@ -81,6 +81,7 @@ namespace SalesManagement_SysDev
     class DispOrderListDTO
     {
         [DisplayName()] 
+        public string ClID { get; set; }
     }
 }
 
