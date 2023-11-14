@@ -182,10 +182,11 @@ namespace SalesManagement_SysDev
                 EmID = int.Parse(TextboxSyainID.Text.Trim()),
                 EmName = TextboxSyainName.Text.Trim(),
                 PoID = int.Parse(PoID),
-                EmPhone = int.Parse(TextboxTelNo.Text.Trim(),
-
+                EmPhone = TextboxTelNo.Text.Trim(),
+                 EmFlag
 
             };
+
         }
     }
 }
