@@ -28,5 +28,10 @@ namespace SalesManagement_SysDev
             F_営業 f_eigyou = new F_営業();
             f_eigyou.Show();
         }
+
+        private void ButtonReset_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

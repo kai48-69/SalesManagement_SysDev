@@ -32,14 +32,28 @@ namespace SalesManagement_SysDev
             var context= new SalesManagement_DevContext();
             PolID = 0;
             bool flg = context.M_Employees.Any(x => x.EmID == EmID);
+
+            if (flg)
             {
-                if (flg)
-                {
-                    var Emp = context.M_Employees.Single(x => x.EmID == EmID);
-                    PolID = Emp.PoID;
-                }
-                return true;
+                var Emp = context.M_Employees.Single(x => x.EmID == EmID);
+                PolID = Emp.PoID;
             }
+            return true;
+        }
+
+        //社員名の取得
+        public bool GetEmName(int EmID,out string EmName)
+        {
+            var context=new SalesManagement_DevContext();
+            EmName = "";
+            bool flg = context.M_Employees.Any(x => x.EmID == EmID);
+
+            if (flg)
+            {
+                var Emp=context.M_Employees.Single(x=> x.EmID == EmID);
+                EmName = Emp.EmName;
+            }
+            return true;
         }
     }
 }

@@ -47,17 +47,17 @@
             this.RadioKensaku = new System.Windows.Forms.RadioButton();
             this.RadioTouroku = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.TextboxHihyoji = new System.Windows.Forms.RichTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ComboYakusyokuName = new System.Windows.Forms.ComboBox();
-            this.NyusyaDate = new System.Windows.Forms.DateTimePicker();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.TextboxHihyoji = new System.Windows.Forms.RichTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ComboYakusyokuName = new System.Windows.Forms.ComboBox();
+            this.NyusyaDate = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -202,6 +202,7 @@
             this.ButtonExe.TabIndex = 72;
             this.ButtonExe.Text = "実行";
             this.ButtonExe.UseVisualStyleBackColor = true;
+            this.ButtonExe.Click += new System.EventHandler(this.ButtonExe_Click);
             // 
             // RadioHihyouji
             // 
@@ -270,56 +271,6 @@
             this.panel1.Size = new System.Drawing.Size(1403, 142);
             this.panel1.TabIndex = 77;
             // 
-            // TextboxHihyoji
-            // 
-            this.TextboxHihyoji.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxHihyoji.Location = new System.Drawing.Point(1020, 283);
-            this.TextboxHihyoji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextboxHihyoji.Name = "TextboxHihyoji";
-            this.TextboxHihyoji.Size = new System.Drawing.Size(316, 162);
-            this.TextboxHihyoji.TabIndex = 76;
-            this.TextboxHihyoji.Text = "";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label8.Location = new System.Drawing.Point(868, 286);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(137, 25);
-            this.label8.TabIndex = 75;
-            this.label8.Text = "非表示理由";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(56, 498);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1308, 349);
-            this.dataGridView1.TabIndex = 71;
-            // 
-            // ComboYakusyokuName
-            // 
-            this.ComboYakusyokuName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ComboYakusyokuName.FormattingEnabled = true;
-            this.ComboYakusyokuName.Location = new System.Drawing.Point(595, 333);
-            this.ComboYakusyokuName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ComboYakusyokuName.Name = "ComboYakusyokuName";
-            this.ComboYakusyokuName.Size = new System.Drawing.Size(247, 33);
-            this.ComboYakusyokuName.TabIndex = 98;
-            // 
-            // NyusyaDate
-            // 
-            this.NyusyaDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.NyusyaDate.Location = new System.Drawing.Point(595, 385);
-            this.NyusyaDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.NyusyaDate.Name = "NyusyaDate";
-            this.NyusyaDate.Size = new System.Drawing.Size(247, 32);
-            this.NyusyaDate.TabIndex = 99;
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -380,6 +331,56 @@
             this.label15.TabIndex = 83;
             this.label15.Text = "営業所";
             // 
+            // TextboxHihyoji
+            // 
+            this.TextboxHihyoji.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxHihyoji.Location = new System.Drawing.Point(1020, 283);
+            this.TextboxHihyoji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxHihyoji.Name = "TextboxHihyoji";
+            this.TextboxHihyoji.Size = new System.Drawing.Size(316, 162);
+            this.TextboxHihyoji.TabIndex = 76;
+            this.TextboxHihyoji.Text = "";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.label8.Location = new System.Drawing.Point(868, 286);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(137, 25);
+            this.label8.TabIndex = 75;
+            this.label8.Text = "非表示理由";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(56, 498);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1308, 349);
+            this.dataGridView1.TabIndex = 71;
+            // 
+            // ComboYakusyokuName
+            // 
+            this.ComboYakusyokuName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ComboYakusyokuName.FormattingEnabled = true;
+            this.ComboYakusyokuName.Location = new System.Drawing.Point(595, 333);
+            this.ComboYakusyokuName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ComboYakusyokuName.Name = "ComboYakusyokuName";
+            this.ComboYakusyokuName.Size = new System.Drawing.Size(247, 33);
+            this.ComboYakusyokuName.TabIndex = 98;
+            // 
+            // NyusyaDate
+            // 
+            this.NyusyaDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.NyusyaDate.Location = new System.Drawing.Point(595, 385);
+            this.NyusyaDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NyusyaDate.Name = "NyusyaDate";
+            this.NyusyaDate.Size = new System.Drawing.Size(247, 32);
+            this.NyusyaDate.TabIndex = 99;
+            // 
             // F_社員管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -411,6 +412,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "F_社員管理";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.F_社員管理_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
