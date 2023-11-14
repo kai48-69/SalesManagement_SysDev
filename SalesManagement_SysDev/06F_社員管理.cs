@@ -73,5 +73,10 @@ namespace SalesManagement_SysDev
             ComboEigyousyoName.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboYakusyokuName.DropDownStyle = ComboBoxStyle.DropDownList;
         }
+
+        private void ButtonExe_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
