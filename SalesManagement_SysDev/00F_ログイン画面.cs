@@ -6,6 +6,7 @@ using System.Data.Entity.Core.Common.CommandTrees;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -736,42 +737,42 @@ namespace SalesManagement_SysDev
         }
 
         EmployeeDataAccess employeeDataAccess = new EmployeeDataAccess();
-
-
+        loginData loginData = new loginData();
 
         //ここからログイン処理---------------------------------------------------------------------------------------------------------
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-            ////入力チェック
-            //int SyainID = GetVaildDataAtLogin();
+            //入力チェック
+            int SyainID = GetVaildDataAtLogin();
 
-            ////ログイン機能
-            //if (!CheckIDPW(SyainID))
-            //{ return; }
+            //ログイン機能
+            if (!CheckIDPW(SyainID))
+            { return; }
 
-            ////ログイン判定
-            //int PolID = DetermineForm(SyainID);
+            //ログイン判定
+            int PolID = DetermineForm(SyainID);
 
-            ////画面表示
-            //FormShow(PolID);
+            //画面表示
+            FormShow(PolID);
 
+            
 
-            this.Visible = false;
-            if (int.Parse(TextboxShainID.Text) == 1)
-            {
-                F_管理者 f_Admin = new F_管理者();
-                f_Admin.Show();
-            }
-            if (int.Parse(TextboxShainID.Text) == 2)
-            {
-                F_営業 f_eigyou = new F_営業();
-                f_eigyou.Show();
-            }
-            if (int.Parse(TextboxShainID.Text) == 3)
-            {
-                F_物流 f_buturyuu = new F_物流();
-                f_buturyuu.Show();
-            }
+            //this.Visible = false;
+            //if (int.Parse(TextboxShainID.Text) == 1)
+            //{
+            //    F_管理者 f_Admin = new F_管理者();
+            //    f_Admin.Show();
+            //}
+            //if (int.Parse(TextboxShainID.Text) == 2)
+            //{
+            //    F_営業 f_eigyou = new F_営業();
+            //    f_eigyou.Show();
+            //}
+            //if (int.Parse(TextboxShainID.Text) == 3)
+            //{
+            //    F_物流 f_buturyuu = new F_物流();
+            //    f_buturyuu.Show();
+            //}
         }
 
         //入力チェック
@@ -868,6 +869,7 @@ namespace SalesManagement_SysDev
             }
         }
 
+        //アプリ終了ボタン
         private void ButtonExit_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("アプリケーションを終了します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -875,6 +877,12 @@ namespace SalesManagement_SysDev
             {
                 Application.Exit();
             }
+        }
+
+        private void CreateSaveData( int SyainID ,ref string EmName, ref int SolID)
+        {
+            employeeDataAccess.GetEmName(SyainID, out EmName);
+            employeeDataAccess.GetPolID(SyainID, out SolID);
         }
     }
 }

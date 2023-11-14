@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="DrugDTO.cs" />
     <Compile Include="EmployeeDataAccess.cs" />
+    <Compile Include="EmployeeDbConnection.cs" />
     <Compile Include="Entity\M_MajorClassification.cs" />
     <Compile Include="Entity\M_Product.cs" />
     <Compile Include="05F_在庫管理.cs">

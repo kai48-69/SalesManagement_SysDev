@@ -24,6 +24,17 @@ namespace SalesManagement_SysDev
 
         private void F_受注管理_Load(object sender, EventArgs e)
         {
+            SetFormComboBox();
+
+            if (!GetDataGridView())
+            {
+                MessageBox.Show("商品情報を取得することができません。", "商品確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void SetFormComboBox()
+        {
 
         }
 

@@ -89,7 +89,6 @@ namespace SalesManagement_SysDev
                          on Product.MaID equals Manufacturer.MaID
                          join SmallClassifications in context.M_SmallClassifications
                          on Product.ScID equals SmallClassifications.ScID
-                         
                          where Product.PrName.Contains(selectCondition.PrName) &&
                          Product.PrColor.Contains(selectCondition.PrColor) &&
                          Product.PrModelNumber.Contains(selectCondition.PrModelNumber) &&
