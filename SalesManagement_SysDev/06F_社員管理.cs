@@ -23,5 +23,16 @@ namespace SalesManagement_SysDev
             F_管理者 f_Admin = new F_管理者();
             f_Admin.Show();
         }
+
+        private void F_社員管理_Load(object sender, EventArgs e)
+        {
+            SetFormComboBox();
+
+            if (!GetDataGridView())
+            {
+                MessageBox.Show("商品情報を取得することができません。", "商品確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
     }
 }
