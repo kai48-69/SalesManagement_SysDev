@@ -50,5 +50,32 @@ namespace SalesManagement_SysDev
         [DisplayName("非表示理由")]
         public string EmHidden { get; set; }
     }
+
+    class DispClientListDTO
+    {
+        [DisplayName("顧客ID")]
+        public string ClID { get; set; }
+
+        [DisplayName("営業所名")]
+        public string SoName { get; set; }
+
+        [DisplayName("顧客名")]
+        public string ClName{ get; set; }
+
+        [DisplayName("住所")]
+        public string ClAddress { get; set; }
+
+        [DisplayName("電話番号")]
+        public string ClPhone { get; set; }
+
+        [DisplayName("郵便番号")]
+        public string Clpostel { get; set; }
+
+        [DisplayName("FAX")]
+        public string ClFAX{ get; set; }
+
+        [DisplayName("非表示理由")]
+        public string ClHidden { get; set; }
+    }
 }
 
