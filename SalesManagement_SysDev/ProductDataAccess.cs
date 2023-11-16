@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace SalesManagement_SysDev
 {
     internal class ProductDataAccess
-    {
+    { 
         public bool AddProductData(M_Product regPro)
         {
             try

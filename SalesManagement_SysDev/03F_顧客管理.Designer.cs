@@ -350,7 +350,7 @@
             // TextboxKokyakuID
             // 
             this.TextboxKokyakuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxKokyakuID.Location = new System.Drawing.Point(189, 275);
+            this.TextboxKokyakuID.Location = new System.Drawing.Point(190, 277);
             this.TextboxKokyakuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxKokyakuID.Name = "TextboxKokyakuID";
             this.TextboxKokyakuID.Size = new System.Drawing.Size(232, 32);

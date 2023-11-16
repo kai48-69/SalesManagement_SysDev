@@ -41,7 +41,7 @@ namespace SalesManagement_SysDev
             }
             return null;
         }
-        public List<M_SalesOffice>GetSoNameDspData()
+        public List<M_SalesOffice> GetSoNameDspData()
         {
             List<M_SalesOffice> SoName = new List<M_SalesOffice>();
             try
@@ -71,6 +71,45 @@ namespace SalesManagement_SysDev
                 MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return PoName;
+        }
+
+        public List<DispEmployeeListDTO> GetEmployeeData(M_Employee selectCondition)
+        {
+            var context = new SalesManagement_DevContext();
+            try
+            {
+                var tb = from Employee in context.M_Employees
+                         join SOffice in context.M_SalesOffices
+                         on Employee.SoID equals SOffice.SoID
+                         join Position in context.M_Positions
+                         on Employee.PoID equals Position.PoID
+                         where Employee.EmID == selectCondition.EmID &&
+                         (selectCondition.EmID == -1) ? true :
+                         Employee.SoID == selectCondition.SoID &&
+                        ((selectCondition.SoID == -1) ? true :
+                        Employee.PoID == selectCondition.PoID) &&
+                        ((selectCondition.PoID == -1) ? true :
+                         ((selectCondition.EmFlag == 0) ? true :
+                         Employee.EmFlag == selectCondition.EmFlag))
+
+                         select new DispEmployeeListDTO
+                         {
+                             EmID = Employee.EmID.ToString(),
+                             EmName = Employee.EmName,
+                             SoName = SOffice.SoName,
+                             PoName = Position.PoName,
+                             EmHiredate = Employee.EmHiredate.ToString(),
+                             EmPhone = Employee.EmPhone,
+                             EmHidden = Employee.EmHidden,
+                         };
+
+                return tb.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return null;
         }
     }
 }
