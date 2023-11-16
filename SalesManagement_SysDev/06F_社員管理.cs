@@ -186,8 +186,6 @@ namespace SalesManagement_SysDev
                 SoID = SoID,
                 EmFlag = 0,
                 EmHidden = null,
-
-
             };
         }
     }
