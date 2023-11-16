@@ -201,11 +201,11 @@ namespace SalesManagement_SysDev
 
         private M_Client GenerateDataAtRegistration() //登録データ生成
         {
-            string ManuID = ComboEigyousyoName.SelectedIndex.ToString();
+            string SoName = ComboEigyousyoName.SelectedIndex.ToString();
             return new M_Client
             {
-                MaID = int.Parse(ManuID),
-                PrID = int.Parse(TextboxSyouhinID.Text.Trim()),
+                ClID = int.Parse(TextboxKokyakuID.Text),
+                SoName = int.Parse(ComboEigyousyoName.Text.Trim()),
                 PrName = TextboxSyohinName.Text.Trim(),
                 ScID = int.Parse(PD),
                 PrModelNumber = TextboxKataban.Text.Trim(),
