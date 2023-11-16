@@ -24,5 +24,9 @@ namespace SalesManagement_SysDev
             f_eigyou.Show();
         }
 
+        private void F_売上管理_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

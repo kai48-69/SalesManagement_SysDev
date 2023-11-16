@@ -84,6 +84,7 @@
             this.TextboxShainID.Name = "TextboxShainID";
             this.TextboxShainID.Size = new System.Drawing.Size(321, 49);
             this.TextboxShainID.TabIndex = 1;
+            this.TextboxShainID.TextChanged += new System.EventHandler(this.TextboxShainID_TextChanged);
             // 
             // TextboxPW
             // 

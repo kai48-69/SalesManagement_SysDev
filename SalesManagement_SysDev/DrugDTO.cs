@@ -55,33 +55,44 @@ namespace SalesManagement_SysDev
     {
         [DisplayName("顧客ID")]
         public string ClID { get; set; }
-
         [DisplayName("営業所名")]
         public string SoName { get; set; }
-
         [DisplayName("顧客名")]
-        public string ClName{ get; set; }
-
+        public string ClName { get; set; }
         [DisplayName("住所")]
         public string ClAddress { get; set; }
-
         [DisplayName("電話番号")]
         public string ClPhone { get; set; }
-
         [DisplayName("郵便番号")]
         public string Clpostel { get; set; }
-
         [DisplayName("FAX")]
-        public string ClFAX{ get; set; }
-
+        public string ClFAX { get; set; }
         [DisplayName("非表示理由")]
         public string ClHidden { get; set; }
     }
 
     class DispOrderListDTO
     {
-        [DisplayName()] 
-        public string ClID { get; set; }
+        [DisplayName("受注ID")]
+        public string OrID { get; set; }
+        [DisplayName("営業所名")]
+        public string SoName { get; set; }
+        [DisplayName("社員名")]
+        public string EmName { get; set; }
+        [DisplayName("顧客名")]
+        public string ClName { get; set; }
+        [DisplayName("顧客担当者名")]
+        public string ClCharge { get; set; }
+        [DisplayName("商品名")]
+        public string PrName { get; set; }
+        [DisplayName("数量")]
+        public string PrQuantity { get; set; }
+        [DisplayName("合計金額")]
+        public string OrTotalPrice { get; set; }
+        [DisplayName("受注年月日")]
+        public string OrDate { get; set; }
+        [DisplayName("非表示理由")]
+        public string OrHidden { get; set; }
     }
 }
 

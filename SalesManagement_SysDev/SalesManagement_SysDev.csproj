@@ -117,12 +117,6 @@
     <Compile Include="04F_商品管理.Designer.cs">
       <DependentUpon>04F_商品管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="06F_社員管理.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="06F_社員管理.Designer.cs">
-      <DependentUpon>06F_社員管理.cs</DependentUpon>
-    </Compile>
     <Compile Include="03F_顧客管理.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +166,7 @@
     <Compile Include="Entity\M_SalesOffice.cs" />
     <Compile Include="Entity\M_SmallClassification.cs" />
     <Compile Include="InputCheck.cs" />
+    <Compile Include="OrderDataAccess.cs" />
     <Compile Include="OrderDbConnection.cs" />
     <Compile Include="ProductDataAccess.cs" />
     <Compile Include="ProductDbConnection.cs" />
@@ -224,9 +219,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="04F_商品管理.resx">
       <DependentUpon>04F_商品管理.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="06F_社員管理.resx">
-      <DependentUpon>06F_社員管理.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="03F_顧客管理.resx">
       <DependentUpon>03F_顧客管理.cs</DependentUpon>

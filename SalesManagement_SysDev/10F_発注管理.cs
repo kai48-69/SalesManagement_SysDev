@@ -48,7 +48,8 @@ namespace SalesManagement_SysDev
 
         private void F_発注管理_Load(object sender, EventArgs e)
         {
-
+            +
+                +
         }
     }
 }

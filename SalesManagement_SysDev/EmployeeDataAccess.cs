@@ -27,7 +27,7 @@ namespace SalesManagement_SysDev
             return false;
         }
         //役職IDの取得
-        public bool GetPolID(int EmID,out int PolID)
+        public bool GetPoID(int EmID,out int PolID)
         {
             var context= new SalesManagement_DevContext();
             PolID = 0;

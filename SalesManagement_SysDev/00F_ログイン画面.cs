@@ -831,7 +831,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                employeeDataAccess.GetPolID(SyainID, out  PolID);
+                employeeDataAccess.GetPoID(SyainID, out  PolID);
             }
             return PolID;
         }
@@ -882,7 +882,12 @@ namespace SalesManagement_SysDev
         private void CreateSaveData( int SyainID ,ref string EmName, ref int SolID)
         {
             employeeDataAccess.GetEmName(SyainID, out EmName);
-            employeeDataAccess.GetPolID(SyainID, out SolID);
+            employeeDataAccess.GetPoID(SyainID, out SolID);
+        }
+
+        private void TextboxShainID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
