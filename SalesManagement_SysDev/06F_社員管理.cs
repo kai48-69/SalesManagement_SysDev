@@ -13,11 +13,13 @@ namespace SalesManagement_SysDev
 {
     public partial class F_社員管理 : Form
     {
+
         public F_社員管理()
         {
             InitializeComponent();
         }
 
+        EmployeeDataAccess EmployeeDataAccess = new EmployeeDataAccess();
         private InputCheck ichk = new InputCheck();
         EmployeeDbConnection DB = new EmployeeDbConnection();
         private static List<M_SalesOffice> SoNameDsp;
@@ -133,15 +135,44 @@ namespace SalesManagement_SysDev
 
         private void ButtonExe_Click(object sender, EventArgs e)
         {
+            //登録処理----------------------------------------------------------------------
             if (RadioTouroku.Checked == true)
             {
                 if (!GetVaildDataAtRegistration())
                 {
                     return;
                 }
-                var regPro = GenerateDataAtRegistration();
+                var regEmp = GenerateDataAtRegistration();
 
-                RegistrationProduct(regPro);
+                RegistrationProduct(regEmp);
+            }
+
+            //検索処理----------------------------------------------------------------------
+            if (RadioKensaku.Checked == true)
+            {
+                {
+                    if (!GetVaildDataAtSelect())
+                    {
+                        return;
+                    }
+                    GenerateDataAtSelect();
+                }
+            }
+
+            //更新処理----------------------------------------------------------------------
+            if (RadioKousin.Checked == true)
+            {
+                if (RadioKousin.Checked == true)
+                {
+                    if (!GetVaildDataAtUpdate())
+                    {
+                        return;
+                    }
+
+                    var updEmployee = GenereteDataAtUpdate();
+
+                    UpdateEmployee(updEmployee);
+                }
             }
         }
 
@@ -188,6 +219,190 @@ namespace SalesManagement_SysDev
                 EmHidden = null,
             };
 
+        }
+
+        private void RegistrationProduct(M_Employee regEmp) //データ登録処理
+        {
+            DialogResult result = MessageBox.Show("商品データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+            bool flg = EmployeeDataAccess.AddEmployeeData(regEmp);
+            if (flg == true)
+            {
+                MessageBox.Show("データを登録しました");
+            }
+            else
+            {
+                MessageBox.Show("データの登録に失敗しました");
+                TextboxSyainID.Focus();
+            }
+            ClearInput();
+            GetDataGridView();
+        }
+
+        private bool GetVaildDataAtSelect() //入力データチェック
+        {
+            if (!String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxSyainID.Text.Trim()))
+                {
+                    MessageBox.Show("社員IDはすべて半角数字で入力してください。");
+                    TextboxSyainID.Focus();
+                    return false;
+                }
+            }
+
+            if (!String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxTelNo.Text.Trim()))
+                {
+                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    TextboxTelNo.Focus();
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+
+        private bool GenerateDataAtSelect() //検索データ生成
+        {
+            int SoID;
+            if (ComboEigyousyoName.SelectedIndex == -1)
+            {
+                SoID = -1;
+            }
+            else
+            {
+                SoID = int.Parse(ComboEigyousyoName.SelectedValue.ToString());
+            }
+            int PoID;
+            if (ComboYakusyokuName.SelectedIndex == -1)
+            {
+                PoID = -1;
+            }
+            else
+            {
+                PoID = int.Parse(ComboYakusyokuName.SelectedValue.ToString());
+            }
+            //整数型(int)に変換する準備
+            
+            var EmID = TextboxSyainID.Text.Trim();
+
+            //変換処理
+            int SyainID;
+            if (!int.TryParse(EmID, out SyainID))
+            {
+                SyainID = -1;
+            }            
+
+            M_Employee selectCondition = new M_Employee()
+            {
+                SoID = SoID,
+                PoID = PoID,
+                EmID = SyainID,
+            };
+
+            List<DispEmployeeListDTO> tb = DB.GetEmployeeData(selectCondition);
+            if (tb == null)
+                return false;
+            //データグリッドビューへの設定
+            SetDataGridView(tb);
+            return true;
+        }
+
+        private bool GetVaildDataAtUpdate()//入力データチェック
+        {
+
+            if (String.IsNullOrEmpty(TextboxSyainName.Text.Trim()))
+            {
+                MessageBox.Show("社員名が入力されていません");
+                TextboxSyainName.Focus();
+                return false;
+            }
+
+            if (!String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxTelNo.Text.Trim()))
+                {
+                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    TextboxTelNo.Focus();
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("電話番号が入力されていません");
+                TextboxTelNo.Focus();
+                return false;
+            }
+            return true;
+        }
+
+        private M_Employee GenereteDataAtUpdate()　//更新データ生成
+        {
+             
+            int SoID = ComboEigyousyoName.SelectedIndex;
+            int PoID = ComboYakusyokuName.SelectedIndex;
+            return new M_Employee
+            {
+                EmID = int.Parse(TextboxSyainID.Text.Trim()),
+                EmName = TextboxSyainName.Text.Trim(),
+                PoID = PoID,
+                EmPhone = TextboxTelNo.Text.Trim(),
+                SoID = SoID,
+                EmFlag = 0,
+                EmHidden = null,
+            };
+        }
+
+        private void UpdateEmployee(M_Employee updEmp)　//データ更新処理
+        {
+            DialogResult result = MessageBox.Show("商品データを更新します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            bool flg = EmployeeDataAccess.UpdateEmployeeData(updEmp);
+            if (flg == true)
+            {
+                MessageBox.Show("データを更新しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("データの更新に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TextboxSyainName.Focus();
+            }
+            ClearInput();
+
+            GetDataGridView();
+        }
+
+        private void ClearInput()
+        {
+
+            if (RadioKensaku.Checked == true)//検索時はコンボボックスの値を空にする
+            {
+                ComboEigyousyoName.SelectedIndex = -1;
+                ComboYakusyokuName.SelectedIndex = -1;
+                TextboxSyainID.Text = "";
+                TextboxSyainName.Text = "";
+                TextboxTelNo.Text = "";
+                TextboxHihyoji.Text = "";
+            }
+            else   //検索時以外は表示する
+            {
+                ComboEigyousyoName.SelectedIndex = -1;
+                ComboYakusyokuName.SelectedIndex = -1;
+                TextboxSyainID.Text = "";
+                TextboxSyainName.Text = "";
+                TextboxTelNo.Text = "";
+                TextboxHihyoji.Text = "";
+            }
         }
     }
 }
