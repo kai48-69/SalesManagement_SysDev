@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,6 +19,7 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
+        ClientDataAccess ClientDataAccess = new ClientDataAccess();
         private InputCheck ichk = new InputCheck();
         ClientDbConnection DB = new ClientDbConnection();
         private static List<M_SalesOffice> SoNameDsp;
@@ -25,7 +27,13 @@ namespace SalesManagement_SysDev
         //画面ロード時処理
         private void Form1_Load(object sender, EventArgs e)
         {
+            SetFormComboBox();
 
+            if (!GetDataGridView())
+            {
+                MessageBox.Show("顧客情報を取得することができません。", "顧客確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         //データ全件表示
@@ -51,11 +59,11 @@ namespace SalesManagement_SysDev
 
             //初期値を０に
             ComboEigyousyoName.SelectedIndex = 0;
-           
+
 
             //読み込み専用に
             ComboEigyousyoName.DropDownStyle = ComboBoxStyle.DropDownList;
-           
+
         }
 
         //データグリッドビューの表示設定
@@ -116,17 +124,8 @@ namespace SalesManagement_SysDev
             dataGridView1.Refresh();
         }
 
-        private void ButtonBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            F_営業 f_eigyou = new F_営業();
-            f_eigyou.Show();
-        }
 
-        private void ButtonReset_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void ButtonExe_Click(object sender, EventArgs e)
         {
@@ -137,12 +136,40 @@ namespace SalesManagement_SysDev
                 {
                     return;
                 }
-                var regPro = GenerateDataAtRegistration();
+                var regCl = GenerateDataAtRegistration();
 
-                RegistrationProduct(regPro);
+                RegistrationClient(regCl);
+            }
+
+            //検索処理----------------------------------------------------------------------
+            if (RadioKensaku.Checked == true)
+            {
+                {
+                    if (!GetVaildDataAtSelect())
+                    {
+                        return;
+                    }
+                    GenerateDataAtSelect();
+                }
+            }
+
+
+            //更新処理----------------------------------------------------------------------
+            {
+                if (RadioKousin.Checked == true)
+                {
+                    if (!GetVaildDataAtUpdate())
+                    {
+                        return;
+                    }
+
+                    var updProduct = GenereteDataAtUpdate();
+
+                    UpdateProduct(updProduct);
+                }
             }
         }
-
+        //登録処理--------------------------------------------------------------------------
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
             if (String.IsNullOrEmpty(TextboxKokyakuName.Text.Trim()))
@@ -201,11 +228,165 @@ namespace SalesManagement_SysDev
 
         private M_Client GenerateDataAtRegistration() //登録データ生成
         {
-            string SoName = ComboEigyousyoName.SelectedIndex.ToString();
+            int SoID = ComboEigyousyoName.SelectedIndex;
             return new M_Client
             {
                 ClID = int.Parse(TextboxKokyakuID.Text),
-                SoName = int.Parse(ComboEigyousyoName.Text.Trim()),
+                SoID = SoID,
+                ClName = TextboxKokyakuName.Text.Trim(),
+                ClAddress = TextboxAdress.Text.Trim(),
+                ClPhone = TextboxTelNo.Text.Trim(),
+                ClPostal = TextboxPostCD.Text.Trim(),
+                ClFAX = TextboxFAX.Text.Trim(),
+                ClHidden = null,
+            };
+        }
+
+        private void RegistrationClient(M_Client regCl) //データ登録処理
+        {
+            DialogResult result = MessageBox.Show("顧客データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+            bool flg = ClientDataAccess.AddClientData(regCl);
+            if (flg == true)
+            {
+                MessageBox.Show("データを登録しました");
+            }
+            else
+            {
+                MessageBox.Show("データの登録に失敗しました");
+                TextboxKokyakuID.Focus();
+            }
+            ClearInput();
+            GetDataGridView();
+        }
+
+
+        //検索処理------------------------------------------------------------------------
+        private bool GetVaildDataAtSelect() //入力データチェック
+        {
+            if (!String.IsNullOrEmpty(TextboxKokyakuID.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxKokyakuID.Text.Trim()))
+                {
+                    MessageBox.Show("顧客IDはすべて半角数字で入力してください。");
+                    TextboxKokyakuID.Focus();
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool GenerateDataAtSelect() //検索データ生成
+        {
+            int SoID;
+            if (ComboEigyousyoName.SelectedIndex == -1)
+            {
+                SoID = -1;
+            }
+            else
+            {
+                SoID = int.Parse(ComboEigyousyoName.SelectedValue.ToString());
+            }
+
+            //整数型(int)に変換する準備
+            //顧客ID
+            var ClID = TextboxKokyakuID.Text.Trim();
+
+
+
+            //変換処理
+            int KokyakuID;
+            if (!int.TryParse(ClID, out KokyakuID))
+            {
+                KokyakuID = -1;
+            }
+
+            M_Client selectCondition = new M_Client()
+            {
+                ClID = KokyakuID,
+                SoID = SoID,
+                ClAddress = TextboxAdress.Text.Trim(),
+
+            };
+
+            List<DispClientListDTO> tb = DB.GetClientData(selectCondition);
+            if (tb == null)
+                return false;
+            //データグリッドビューへの設定
+            SetDataGridView(tb);
+            return true;
+        }
+
+
+        //更新処理-----------------------------------------------------------------------
+        private bool GetVaildDataAtUpdate()//入力データチェック
+        {
+            if (String.IsNullOrEmpty(TextboxKokyakuName.Text.Trim()))
+            {
+                MessageBox.Show("顧客名が入力されていません");
+                TextboxKokyakuName.Focus();
+                return false;
+            }
+
+            if (!String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxTelNo.Text.Trim()))
+                {
+                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    TextboxTelNo.Focus();
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("電話番号が入力されていません");
+                TextboxTelNo.Focus();
+                return false;
+            }
+
+
+            if (!String.IsNullOrEmpty(TextboxFAX.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxFAX.Text.Trim()))
+                {
+                    MessageBox.Show("FAXは半角数字で入力してください");
+                    TextboxFAX.Focus();
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("FAXが入力されていません");
+                TextboxFAX.Focus();
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(TextboxPostCD.Text.Trim()))
+            {
+                MessageBox.Show("郵便番号が入力されていません");
+                TextboxPostCD.Focus();
+                return false;
+            }
+            if (String.IsNullOrEmpty(TextboxAdress.Text.Trim()))
+            {
+                MessageBox.Show("住所が入力されていません");
+            }
+
+            return true;
+        }
+
+        private M_Client GenereteDataAtUpdate() //更新データ生成
+        {
+            string ManuID = ComboMakerName.SelectedIndex.ToString();
+            string PD = ComboSyobunrui.SelectedValue.ToString();
+            return new M_Product
+            {
+                MaID = int.Parse(ManuID),
+                PrID = int.Parse(TextboxSyouhinID.Text.Trim()),
                 PrName = TextboxSyohinName.Text.Trim(),
                 ScID = int.Parse(PD),
                 PrModelNumber = TextboxKataban.Text.Trim(),
@@ -218,69 +399,49 @@ namespace SalesManagement_SysDev
             };
         }
 
-        private void RegistrationProduct(M_Product regPro) //データ登録処理
+
+
+
+        //入力クリア----------------------------------------------------------------------
+        private void ClearInput()
         {
-            DialogResult result = MessageBox.Show("商品データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if (result == DialogResult.Cancel)
+
+            if (RadioKensaku.Checked == true)//検索時はコンボボックスの値を空にする
             {
-                return;
+                ComboEigyousyoName.SelectedIndex = -1;
+                TextboxKokyakuID.Text = "";
+                TextboxKokyakuName.Text = "";
+                TextboxTelNo.Text = "";
+                TextboxFAX.Text = "";
+                TextboxPostCD.Text = "";
+                TextboxAdress.Text = "";
+                TextboxHihyouji.Text = "";
             }
-            bool flg = ProductDataAccess.AddProductData(regPro);
-            if (flg == true)
+            else   //検索時以外は表示する
             {
-                MessageBox.Show("データを登録しました");
+                ComboEigyousyoName.SelectedIndex = 0;
+                TextboxKokyakuID.Text = "";
+                TextboxKokyakuName.Text = "";
+                TextboxTelNo.Text = "";
+                TextboxFAX.Text = "";
+                TextboxPostCD.Text = "";
+                TextboxAdress.Text = "";
+                TextboxHihyouji.Text = ""; ;
             }
-            else
-            {
-                MessageBox.Show("データの登録に失敗しました");
-                TextboxSyouhinID.Focus();
-            }
-            ClearInput();
-            GetDataGridView();
         }
 
-        //検索処理------------------------------------------------------------------------
-        private bool GetVaildDataAtSelect() //入力データチェック
+        //戻るボタン
+        private void ButtonBack_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(TextboxSyouhinID.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxSyouhinID.Text.Trim()))
-                {
-                    MessageBox.Show("商品コードはすべて半角数字で入力してください。");
-                    TextboxSyouhinID.Focus();
-                    return false;
-                }
-            }
+            this.Close();
+            F_営業 f_eigyou = new F_営業();
+            f_eigyou.Show();
+        }
 
-            if (!String.IsNullOrEmpty(TextboxStock.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxStock.Text.Trim()))
-                {
-                    MessageBox.Show("安全在庫数は半角数字で入力してください");
-                    TextboxStock.Focus();
-                    return false;
-                }
-            }
-
-            if (!String.IsNullOrEmpty(TextboxKakaku.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxKakaku.Text.Trim()))
-                {
-                    MessageBox.Show("価格は半角数字で入力してください");
-                    TextboxKakaku.Focus();
-                    return false;
-                }
-            }
-            if (!String.IsNullOrEmpty(TextboxKataban.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxKataban.Text.Trim()))
-                {
-                    MessageBox.Show("型番は半角数字で入力してください");
-                    TextboxKakaku.Focus();
-                    return false;
-                }
-            }
-            return true;
+        //入力リセット
+        private void ButtonReset_Click(object sender, EventArgs e)
+        {
+            ClearInput();
         }
     }
 
