@@ -416,5 +416,10 @@ namespace SalesManagement_SysDev
             F_管理者 f_Admin = new F_管理者();
             f_Admin.Show();
         }
+
+        private void ButtonReset_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
