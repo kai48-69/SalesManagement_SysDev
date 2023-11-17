@@ -14,15 +14,15 @@ namespace SalesManagement_SysDev
 {
     public partial class F_顧客管理 : Form
     {
-        public F_顧客管理()
-        {
-            InitializeComponent();
-        }
-
         ClientDataAccess ClientDataAccess = new ClientDataAccess();
         private InputCheck ichk = new InputCheck();
         ClientDbConnection DB = new ClientDbConnection();
         private static List<M_SalesOffice> SoNameDsp;
+
+        public F_顧客管理()
+        {
+            InitializeComponent();
+        }
 
         //画面ロード時処理
         private void Form1_Load(object sender, EventArgs e)
@@ -136,10 +136,8 @@ namespace SalesManagement_SysDev
             }
 
         }
-
-
-
-
+        
+        //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
         {
             //登録処理----------------------------------------------------------------------
@@ -176,428 +174,428 @@ namespace SalesManagement_SysDev
 
                 var updProduct = GenereteDataAtUpdate();
 
-                    UpdateClient(updProduct);
+                UpdateClient(updProduct);
+
+                //非表示処理----------------------------------------------------------------------
+                if (RadioHihyouji.Checked == true)
+                {
+                    if (!GetVaildDataAtHide())
+                    {
+                        return;
+                    }
+
+                    var hidClient = GenereteDataAtHidden();
+
+                    HideClient(hidClient);
                 }
             }
-            //非表示処理----------------------------------------------------------------------
-            if (RadioHihyouji.Checked == true)
+        }
+
+            //登録処理--------------------------------------------------------------------------
+            private bool GetVaildDataAtRegistration() //入力データチェック
             {
-                if (!GetVaildDataAtHide())
+                if (String.IsNullOrEmpty(TextboxKokyakuName.Text.Trim()))
+                {
+                    MessageBox.Show("顧客名が入力されていません");
+                    TextboxKokyakuName.Focus();
+                    return false;
+                }
+
+                if (!String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
+                {
+                    if (!ichk.IntegerCheck(TextboxTelNo.Text.Trim()))
+                    {
+                        MessageBox.Show("電話番号は半角数字で入力してください");
+                        TextboxTelNo.Focus();
+                        return false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("電話番号が入力されていません");
+                    TextboxTelNo.Focus();
+                    return false;
+                }
+
+
+                if (!String.IsNullOrEmpty(TextboxFAX.Text.Trim()))
+                {
+                    if (!ichk.IntegerCheck(TextboxFAX.Text.Trim()))
+                    {
+                        MessageBox.Show("FAXは半角数字で入力してください");
+                        TextboxFAX.Focus();
+                        return false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("FAXが入力されていません");
+                    TextboxFAX.Focus();
+                    return false;
+                }
+
+                if (String.IsNullOrEmpty(TextboxPostCD.Text.Trim()))
+                {
+                    MessageBox.Show("郵便番号が入力されていません");
+                    TextboxPostCD.Focus();
+                    return false;
+                }
+                if (String.IsNullOrEmpty(TextboxAdress.Text.Trim()))
+                {
+                    MessageBox.Show("住所が入力されていません");
+                }
+
+                return true;
+            }
+
+            private M_Client GenerateDataAtRegistration() //登録データ生成
+            {
+                int SoID = ComboEigyousyoName.SelectedIndex;
+                return new M_Client
+                {
+                    ClID = int.Parse(TextboxKokyakuID.Text),
+                    SoID = SoID,
+                    ClName = TextboxKokyakuName.Text.Trim(),
+                    ClAddress = TextboxAdress.Text.Trim(),
+                    ClPhone = TextboxTelNo.Text.Trim(),
+                    ClPostal = TextboxPostCD.Text.Trim(),
+                    ClFAX = TextboxFAX.Text.Trim(),
+                    ClHidden = null,
+                };
+            }
+
+            private void RegistrationClient(M_Client regCl) //データ登録処理
+            {
+                DialogResult result = MessageBox.Show("顧客データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (result == DialogResult.Cancel)
+                {
+                    return;
+                }
+                bool flg = ClientDataAccess.AddClientData(regCl);
+                if (flg == true)
+                {
+                    MessageBox.Show("データを登録しました");
+                }
+                else
+                {
+                    MessageBox.Show("データの登録に失敗しました");
+                    TextboxKokyakuID.Focus();
+                }
+                ClearInput();
+                GetDataGridView();
+            }
+
+            //検索処理------------------------------------------------------------------------
+            private bool GetVaildDataAtSelect() //入力データチェック
+            {
+                if (!String.IsNullOrEmpty(TextboxKokyakuID.Text.Trim()))
+                {
+                    if (!ichk.IntegerCheck(TextboxKokyakuID.Text.Trim()))
+                    {
+                        MessageBox.Show("顧客IDはすべて半角数字で入力してください。");
+                        TextboxKokyakuID.Focus();
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            private bool GenerateDataAtSelect() //検索データ生成
+            {
+                int SoID;
+                if (ComboEigyousyoName.SelectedIndex == -1)
+                {
+                    SoID = -1;
+                }
+                else
+                {
+                    SoID = int.Parse(ComboEigyousyoName.SelectedValue.ToString());
+                }
+
+                //整数型(int)に変換する準備
+                //顧客ID
+                var ClID = TextboxKokyakuID.Text.Trim();
+
+
+
+                //変換処理
+                int KokyakuID;
+                if (!int.TryParse(ClID, out KokyakuID))
+                {
+                    KokyakuID = -1;
+                }
+
+                M_Client selectCondition = new M_Client()
+                {
+                    ClID = KokyakuID,
+                    SoID = SoID,
+                    ClAddress = TextboxAdress.Text.Trim(),
+
+                };
+
+                List<DispClientListDTO> tb = DB.GetClientData(selectCondition);
+                if (tb == null)
+                    return false;
+                //データグリッドビューへの設定
+                SetDataGridView(tb);
+                return true;
+            }
+
+            //更新処理-----------------------------------------------------------------------
+            private bool GetVaildDataAtUpdate()//入力データチェック
+            {
+                if (String.IsNullOrEmpty(TextboxKokyakuName.Text.Trim()))
+                {
+                    MessageBox.Show("顧客名が入力されていません");
+                    TextboxKokyakuName.Focus();
+                    return false;
+                }
+
+                if (!String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
+                {
+                    if (!ichk.IntegerCheck(TextboxTelNo.Text.Trim()))
+                    {
+                        MessageBox.Show("電話番号は半角数字で入力してください");
+                        TextboxTelNo.Focus();
+                        return false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("電話番号が入力されていません");
+                    TextboxTelNo.Focus();
+                    return false;
+                }
+
+
+                if (!String.IsNullOrEmpty(TextboxFAX.Text.Trim()))
+                {
+                    if (!ichk.IntegerCheck(TextboxFAX.Text.Trim()))
+                    {
+                        MessageBox.Show("FAXは半角数字で入力してください");
+                        TextboxFAX.Focus();
+                        return false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("FAXが入力されていません");
+                    TextboxFAX.Focus();
+                    return false;
+                }
+
+                if (String.IsNullOrEmpty(TextboxPostCD.Text.Trim()))
+                {
+                    MessageBox.Show("郵便番号が入力されていません");
+                    TextboxPostCD.Focus();
+                    return false;
+                }
+                if (String.IsNullOrEmpty(TextboxAdress.Text.Trim()))
+                {
+                    MessageBox.Show("住所が入力されていません");
+                }
+
+                return true;
+            }
+
+            private M_Client GenereteDataAtUpdate() //更新データ生成
+            {
+                string SoID = ComboEigyousyoName.SelectedIndex.ToString();
+                return new M_Client
+                {
+                    SoID = int.Parse(SoID),
+                    ClID = int.Parse(TextboxKokyakuID.Text.Trim()),
+                    ClName = TextboxKokyakuName.Text.Trim(),
+                    ClPhone = TextboxTelNo.Text.Trim(),
+                    ClFAX = TextboxFAX.Text.Trim(),
+                    ClPostal = TextboxPostCD.Text.Trim(),
+                    ClAddress = TextboxAdress.Text.Trim(),
+                    ClHidden = null,
+                };
+            }
+
+            private void UpdateClient(M_Client updCl) //データ更新処理
+            {
+                DialogResult result = MessageBox.Show("商品データを更新します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                if (result == DialogResult.Cancel)
                 {
                     return;
                 }
 
-                var hidClient = GenereteDataAtHidden();
-
-                HideClient(hidClient);
-            }
-        }
-
-
-        //登録処理--------------------------------------------------------------------------
-        private bool GetVaildDataAtRegistration() //入力データチェック
-        {
-            if (String.IsNullOrEmpty(TextboxKokyakuName.Text.Trim()))
-            {
-                MessageBox.Show("顧客名が入力されていません");
-                TextboxKokyakuName.Focus();
-                return false;
-            }
-
-            if (!String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxTelNo.Text.Trim()))
+                bool flg = ClientDataAccess.UpdateClientData(updCl);
+                if (flg == true)
                 {
-                    MessageBox.Show("電話番号は半角数字で入力してください");
-                    TextboxTelNo.Focus();
+                    MessageBox.Show("データを更新しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("データの更新に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxKokyakuName.Focus();
+                }
+                ClearInput();
+
+                GetDataGridView();
+            }
+
+            //非表示処理---------------------------------------------------------------------
+
+            private bool GetVaildDataAtHide()//入力データチェック
+            {
+                if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
+                {
+                    MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-            }
-            else
-            {
-                MessageBox.Show("電話番号が入力されていません");
-                TextboxTelNo.Focus();
-                return false;
-            }
 
-
-            if (!String.IsNullOrEmpty(TextboxFAX.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxFAX.Text.Trim()))
+                if (ClientDataAccess.CheckCascadeClient(int.Parse(TextboxKokyakuID.Text.Trim())))
                 {
-                    MessageBox.Show("FAXは半角数字で入力してください");
-                    TextboxFAX.Focus();
+                    MessageBox.Show("入力された顧客IDは他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-            }
-            else
-            {
-                MessageBox.Show("FAXが入力されていません");
-                TextboxFAX.Focus();
-                return false;
+                return true;
             }
 
-            if (String.IsNullOrEmpty(TextboxPostCD.Text.Trim()))
+            private M_Client GenereteDataAtHidden() //非表示データ生成(フラグの更新データ生成)
             {
-                MessageBox.Show("郵便番号が入力されていません");
-                TextboxPostCD.Focus();
-                return false;
-            }
-            if (String.IsNullOrEmpty(TextboxAdress.Text.Trim()))
-            {
-                MessageBox.Show("住所が入力されていません");
-            }
-
-            return true;
-        }
-
-        private M_Client GenerateDataAtRegistration() //登録データ生成
-        {
-            int SoID = ComboEigyousyoName.SelectedIndex;
-            return new M_Client
-            {
-                ClID = int.Parse(TextboxKokyakuID.Text),
-                SoID = SoID,
-                ClName = TextboxKokyakuName.Text.Trim(),
-                ClAddress = TextboxAdress.Text.Trim(),
-                ClPhone = TextboxTelNo.Text.Trim(),
-                ClPostal = TextboxPostCD.Text.Trim(),
-                ClFAX = TextboxFAX.Text.Trim(),
-                ClHidden = null,
-            };
-        }
-
-        private void RegistrationClient(M_Client regCl) //データ登録処理
-        {
-            DialogResult result = MessageBox.Show("顧客データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if (result == DialogResult.Cancel)
-            {
-                return;
-            }
-            bool flg = ClientDataAccess.AddClientData(regCl);
-            if (flg == true)
-            {
-                MessageBox.Show("データを登録しました");
-            }
-            else
-            {
-                MessageBox.Show("データの登録に失敗しました");
-                TextboxKokyakuID.Focus();
-            }
-            ClearInput();
-            GetDataGridView();
-        }
-
-
-        //検索処理------------------------------------------------------------------------
-        private bool GetVaildDataAtSelect() //入力データチェック
-        {
-            if (!String.IsNullOrEmpty(TextboxKokyakuID.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxKokyakuID.Text.Trim()))
+                string SoID = ComboEigyousyoName.SelectedIndex.ToString();
+                return new M_Client
                 {
-                    MessageBox.Show("顧客IDはすべて半角数字で入力してください。");
-                    TextboxKokyakuID.Focus();
-                    return false;
+                    SoID = int.Parse(SoID),
+                    ClID = int.Parse(TextboxKokyakuID.Text.Trim()),
+                    ClName = TextboxKokyakuName.Text.Trim(),
+                    ClPhone = TextboxTelNo.Text.Trim(),
+                    ClFAX = TextboxFAX.Text.Trim(),
+                    ClPostal = TextboxPostCD.Text.Trim(),
+                    ClAddress = TextboxAdress.Text.Trim(),
+                    ClFlag = 2,
+                    ClHidden = null,
+                };
+            }
+
+            private void HideClient(M_Client hidCl) //データ非表示処理
+            {
+                DialogResult result = MessageBox.Show("顧客データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (result == DialogResult.Cancel)
+                {
+                    return;
+                }
+
+                bool flg = ClientDataAccess.HideClientData(hidCl);
+                if (flg == true)
+                {
+                    MessageBox.Show("データを非表示にしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                ClearInput();
+                GetDataGridView();
+            }
+
+            //入力クリア----------------------------------------------------------------------
+            private void ClearInput()
+            {
+
+                if (RadioKensaku.Checked == true)//検索時はコンボボックスの値を空にする
+                {
+                    ComboEigyousyoName.SelectedIndex = -1;
+                    TextboxKokyakuID.Text = "";
+                    TextboxKokyakuName.Text = "";
+                    TextboxTelNo.Text = "";
+                    TextboxFAX.Text = "";
+                    TextboxPostCD.Text = "";
+                    TextboxAdress.Text = "";
+                    TextboxHihyouji.Text = "";
+                }
+                else   //検索時以外は表示する
+                {
+                    ComboEigyousyoName.SelectedIndex = 0;
+                    TextboxKokyakuID.Text = "";
+                    TextboxKokyakuName.Text = "";
+                    TextboxTelNo.Text = "";
+                    TextboxFAX.Text = "";
+                    TextboxPostCD.Text = "";
+                    TextboxAdress.Text = "";
+                    TextboxHihyouji.Text = ""; ;
                 }
             }
 
-            return true;
-        }
-
-        private bool GenerateDataAtSelect() //検索データ生成
-        {
-            int SoID;
-            if (ComboEigyousyoName.SelectedIndex == -1)
+            //戻るボタン
+            private void ButtonBack_Click(object sender, EventArgs e)
             {
-                SoID = -1;
-            }
-            else
-            {
-                SoID = int.Parse(ComboEigyousyoName.SelectedValue.ToString());
+                this.Close();
+                F_営業 f_eigyou = new F_営業();
+                f_eigyou.Show();
             }
 
-            //整数型(int)に変換する準備
-            //顧客ID
-            var ClID = TextboxKokyakuID.Text.Trim();
-
-
-
-            //変換処理
-            int KokyakuID;
-            if (!int.TryParse(ClID, out KokyakuID))
+            //入力リセット
+            private void ButtonReset_Click(object sender, EventArgs e)
             {
-                KokyakuID = -1;
-            }
-
-            M_Client selectCondition = new M_Client()
-            {
-                ClID = KokyakuID,
-                SoID = SoID,
-                ClAddress = TextboxAdress.Text.Trim(),
-
-            };
-
-            List<DispClientListDTO> tb = DB.GetClientData(selectCondition);
-            if (tb == null)
-                return false;
-            //データグリッドビューへの設定
-            SetDataGridView(tb);
-            return true;
-        }
-
-
-        //更新処理-----------------------------------------------------------------------
-        private bool GetVaildDataAtUpdate()//入力データチェック
-        {
-            if (String.IsNullOrEmpty(TextboxKokyakuName.Text.Trim()))
-            {
-                MessageBox.Show("顧客名が入力されていません");
-                TextboxKokyakuName.Focus();
-                return false;
-            }
-
-            if (!String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxTelNo.Text.Trim()))
-                {
-                    MessageBox.Show("電話番号は半角数字で入力してください");
-                    TextboxTelNo.Focus();
-                    return false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("電話番号が入力されていません");
-                TextboxTelNo.Focus();
-                return false;
+                ClearInput();
             }
 
 
-            if (!String.IsNullOrEmpty(TextboxFAX.Text.Trim()))
+            //登録時の入力項目選択-----------------------------------------------------------
+            private void RadioTouroku_CheckedChanged(object sender, EventArgs e)
             {
-                if (!ichk.IntegerCheck(TextboxFAX.Text.Trim()))
-                {
-                    MessageBox.Show("FAXは半角数字で入力してください");
-                    TextboxFAX.Focus();
-                    return false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("FAXが入力されていません");
-                TextboxFAX.Focus();
-                return false;
-            }
-
-            if (String.IsNullOrEmpty(TextboxPostCD.Text.Trim()))
-            {
-                MessageBox.Show("郵便番号が入力されていません");
-                TextboxPostCD.Focus();
-                return false;
-            }
-            if (String.IsNullOrEmpty(TextboxAdress.Text.Trim()))
-            {
-                MessageBox.Show("住所が入力されていません");
-            }
-
-            return true;
-        }
-
-        private M_Client GenereteDataAtUpdate() //更新データ生成
-        {
-            string SoID = ComboEigyousyoName.SelectedIndex.ToString();
-            return new M_Client
-            {
-                SoID = int.Parse(SoID),
-                ClID = int.Parse(TextboxKokyakuID.Text.Trim()),
-                ClName = TextboxKokyakuName.Text.Trim(),
-                ClPhone = TextboxTelNo.Text.Trim(),
-                ClFAX = TextboxFAX.Text.Trim(),
-                ClPostal = TextboxPostCD.Text.Trim(),
-                ClAddress = TextboxAdress.Text.Trim(),
-                ClHidden = null,
-            };
-        }
-
-        private void UpdateClient(M_Client updCl)　//データ更新処理
-        {
-            DialogResult result = MessageBox.Show("商品データを更新します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-
-            if (result == DialogResult.Cancel)
-            {
-                return;
-            }
-
-            bool flg = ClientDataAccess.UpdateClientData(updCl);
-            if (flg == true)
-            {
-                MessageBox.Show("データを更新しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("データの更新に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TextboxKokyakuName.Focus();
-            }
-            ClearInput();
-
-            GetDataGridView();
-        }
-
-        //非表示処理---------------------------------------------------------------------
-
-        private bool GetVaildDataAtHide()//入力データチェック
-        {
-            if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
-            {
-                MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if (ClientDataAccess.CheckCascadeClient(int.Parse(TextboxKokyakuID.Text.Trim())))
-            {
-                MessageBox.Show("入力された顧客IDは他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            return true;
-        }
-
-        private M_Client GenereteDataAtHidden()　//非表示データ生成(フラグの更新データ生成)
-        {
-            string SoID = ComboEigyousyoName.SelectedIndex.ToString();
-            return new M_Client
-            {
-                SoID = int.Parse(SoID),
-                ClID = int.Parse(TextboxKokyakuID.Text.Trim()),
-                ClName = TextboxKokyakuName.Text.Trim(),
-                ClPhone = TextboxTelNo.Text.Trim(),
-                ClFAX = TextboxFAX.Text.Trim(),
-                ClPostal = TextboxPostCD.Text.Trim(),
-                ClAddress = TextboxAdress.Text.Trim(),
-                ClFlag = 2,
-                ClHidden = null,
-            };
-        }
-
-        private void HideClient(M_Client hidCl)　//データ非表示処理
-        {
-            DialogResult result = MessageBox.Show("顧客データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if (result == DialogResult.Cancel)
-            {
-                return;
-            }
-
-            bool flg = ClientDataAccess.HideClientData(hidCl);
-            if (flg == true)
-            {
-                MessageBox.Show("データを非表示にしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            ClearInput();
-            GetDataGridView();
-        }
-
-        //入力クリア----------------------------------------------------------------------
-        private void ClearInput()
-        {
-
-            if (RadioKensaku.Checked == true)//検索時はコンボボックスの値を空にする
-            {
-                ComboEigyousyoName.SelectedIndex = -1;
-                TextboxKokyakuID.Text = "";
-                TextboxKokyakuName.Text = "";
-                TextboxTelNo.Text = "";
-                TextboxFAX.Text = "";
-                TextboxPostCD.Text = "";
-                TextboxAdress.Text = "";
-                TextboxHihyouji.Text = "";
-            }
-            else   //検索時以外は表示する
-            {
+                ClearInput();
+                TextboxKokyakuID.ReadOnly = true;
                 ComboEigyousyoName.SelectedIndex = 0;
-                TextboxKokyakuID.Text = "";
-                TextboxKokyakuName.Text = "";
-                TextboxTelNo.Text = "";
-                TextboxFAX.Text = "";
-                TextboxPostCD.Text = "";
-                TextboxAdress.Text = "";
-                TextboxHihyouji.Text = ""; ;
+                TextboxKokyakuName.ReadOnly = false;
+                TextboxAdress.ReadOnly = false;
+                TextboxPostCD.ReadOnly = false;
+                TextboxTelNo.ReadOnly = false;
+                TextboxFAX.ReadOnly = false;
+                GetDataGridView();
             }
-        }
 
-        //戻るボタン
-        private void ButtonBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            F_営業 f_eigyou = new F_営業();
-            f_eigyou.Show();
-        }
+            //検索時の入力項目選択-----------------------------------------------------------
+            private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
+            {
 
-        //入力リセット
-        private void ButtonReset_Click(object sender, EventArgs e)
-        {
-            ClearInput();
-        }
+                ClearInput();
+                TextboxKokyakuID.ReadOnly = true;
+                ComboEigyousyoName.SelectedIndex = -1;
+                TextboxKokyakuName.ReadOnly = false;
+                TextboxAdress.ReadOnly = false;
+                TextboxPostCD.ReadOnly = false;
+                TextboxTelNo.ReadOnly = false;
+                TextboxFAX.ReadOnly = false;
+                GetDataGridView();
+            }
 
+            //更新時の入力項目選択-----------------------------------------------------------
+            private void RadioKousin_CheckedChanged(object sender, EventArgs e)
+            {
+                ClearInput();
+                TextboxKokyakuID.ReadOnly = true;
+                ComboEigyousyoName.SelectedIndex = 0;
+                TextboxKokyakuName.ReadOnly = false;
+                TextboxAdress.ReadOnly = false;
+                TextboxPostCD.ReadOnly = false;
+                TextboxTelNo.ReadOnly = false;
+                TextboxFAX.ReadOnly = false;
+                GetDataGridView();
+            }
 
-        //登録時の入力項目選択-----------------------------------------------------------
-        private void RadioTouroku_CheckedChanged(object sender, EventArgs e)
-        {
-            ClearInput();
-            TextboxKokyakuID.ReadOnly = true;
-            ComboEigyousyoName.SelectedIndex = 0;
-            TextboxKokyakuName.ReadOnly = false;
-            TextboxAdress.ReadOnly = false;
-            TextboxPostCD.ReadOnly = false;
-            TextboxTelNo.ReadOnly = false;
-            TextboxFAX.ReadOnly = false;
-            GetDataGridView();
-        }
-
-        //検索時の入力項目選択-----------------------------------------------------------
-        private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
-        {
-
-            ClearInput();
-            TextboxKokyakuID.ReadOnly = true;
-            ComboEigyousyoName.SelectedIndex = -1;
-            TextboxKokyakuName.ReadOnly = false;
-            TextboxAdress.ReadOnly = false;
-            TextboxPostCD.ReadOnly = false;
-            TextboxTelNo.ReadOnly = false;
-            TextboxFAX.ReadOnly = false;
-            GetDataGridView();
-        }
-
-        //更新時の入力項目選択-----------------------------------------------------------
-        private void RadioKousin_CheckedChanged(object sender, EventArgs e)
-        {
-            ClearInput();
-            TextboxKokyakuID.ReadOnly = true;
-            ComboEigyousyoName.SelectedIndex = 0;
-            TextboxKokyakuName.ReadOnly = false;
-            TextboxAdress.ReadOnly = false;
-            TextboxPostCD.ReadOnly = false;
-            TextboxTelNo.ReadOnly = false;
-            TextboxFAX.ReadOnly = false;
-            GetDataGridView();
-        }
-
-        //非表示時の入力項目選択-----------------------------------------------------------
-        private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
-        {
-            ClearInput();
-            TextboxKokyakuID.ReadOnly = true;
-            ComboEigyousyoName.SelectedIndex = 0;
-            TextboxKokyakuName.ReadOnly = false;
-            TextboxAdress.ReadOnly = false;
-            TextboxPostCD.ReadOnly = false;
-            TextboxTelNo.ReadOnly = false;
-            TextboxFAX.ReadOnly = false;
-            GetDataGridView();
-        }
+            //非表示時の入力項目選択-----------------------------------------------------------
+            private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
+            {
+                ClearInput();
+                TextboxKokyakuID.ReadOnly = true;
+                ComboEigyousyoName.SelectedIndex = 0;
+                TextboxKokyakuName.ReadOnly = false;
+                TextboxAdress.ReadOnly = false;
+                TextboxPostCD.ReadOnly = false;
+                TextboxTelNo.ReadOnly = false;
+                TextboxFAX.ReadOnly = false;
+                GetDataGridView();
+            }
     }
- }
+    } 
+
+
+

@@ -88,46 +88,34 @@ namespace SalesManagement_SysDev
             //行単位選択     
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //ヘッダー文字位置、セル文字位置、列幅の設定
-            ////商品ID
+            //社員ID
             dataGridView1.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridView1.Columns[0].Width = 40;
-            ////メーカー名
+            //社員名
             dataGridView1.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridView1.Columns[1].Width = 50;
-            //商品名
+            //営業所名
             dataGridView1.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridView1.Columns[2].Width = 80;
-            //価格
+            //役職名
             dataGridView1.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridView1.Columns[3].Width = 80;
-            ////安全在庫数
+            ////入社年月日
             dataGridView1.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridView1.Columns[4].Width = 40;
-            ////小分類
+            ////電話番号
             dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[5].Width = 80;
-            ////型番
+            ////非表示理由
             dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].Width = 30;
-            ////色
-            dataGridView1.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[7].Width = 70;
-            ////発売日
-            dataGridView1.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[8].Width = 80;
-            ////非表示理由 
-            dataGridView1.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[9].Width = 400;
 
             dataGridView1.Refresh();
         }
@@ -359,7 +347,6 @@ namespace SalesManagement_SysDev
 
         private M_Employee GenereteDataAtUpdate()　//更新データ生成
         {
-             
             int SoID = ComboEigyousyoName.SelectedIndex;
             int PoID = ComboYakusyokuName.SelectedIndex;
             return new M_Employee
@@ -398,15 +385,16 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
+        //非表示処理--------------------------------------------------------------------
         private bool GetVaildDataAtHide()//入力データチェック
         {
-            if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
+            if (String.IsNullOrEmpty(TextboxHihyoji.Text.Trim()))
             {
                 MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            if (EmployeeDataAccess.CheckCascadeEmployeet(int.Parse(TextboxSyainID.Text.Trim())))
+            if (EmployeeDataAccess.CheckCascadeEmployee(int.Parse(TextboxSyainID.Text.Trim())))
             {
                 MessageBox.Show("選択された商品は他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -414,27 +402,47 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-        private M_Product GenereteDataAtHidden()　//非表示データ生成(フラグの更新データ生成)
+        private M_Employee GenereteDataAtHidden()　//非表示データ生成(フラグの更新データ生成)
         {
-            string ManuID = ComboMakerName.SelectedIndex.ToString();
-            string PD = ComboSyobunrui.SelectedValue.ToString();
-            M_Product retProduct = new M_Product
+            int SoID = ComboEigyousyoName.SelectedIndex;
+            int PoID = ComboYakusyokuName.SelectedIndex;
+            return new M_Employee
             {
-                MaID = int.Parse(ManuID),
-                PrID = int.Parse(TextboxSyouhinID.Text.Trim()),
-                PrName = TextboxSyohinName.Text.Trim(),
-                ScID = int.Parse(PD),
-                PrModelNumber = TextboxKataban.Text.Trim(),
-                PrSafetyStock = int.Parse(TextboxStock.Text.Trim()),
-                Price = decimal.Parse((TextboxKakaku.Text.Trim())),
-                PrColor = TextboxColor.Text.Trim(),
-                PrReleaseDate = HatubaiDate.Value,
-                PrFlag = 2,
-                PrHidden = TextboxHihyouji.Text.Trim(),
-
+                EmID = int.Parse(TextboxSyainID.Text.Trim()),
+                EmName = TextboxSyainName.Text.Trim(),
+                PoID = PoID,
+                EmPhone = TextboxTelNo.Text.Trim(),
+                SoID = SoID,
+                EmFlag = 2,
+                EmHidden = null,
             };
-            return retProduct;
         }
+
+        private void HideEmployee(M_Employee updEmp)　//データ更新処理
+        {
+            DialogResult result = MessageBox.Show("顧客データを更新します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            bool flg = EmployeeDataAccess.UpdateEmployeeData(updEmp);
+            if (flg == true)
+            {
+                MessageBox.Show("データを更新しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("データの更新に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TextboxSyainName.Focus();
+            }
+            ClearInput();
+
+            GetDataGridView();
+        }
+
+        //入力クリア----------------------------------------------------------------------
         private void ClearInput()
         {
 
@@ -466,9 +474,10 @@ namespace SalesManagement_SysDev
             f_Admin.Show();
         }
 
+        //入力リセットボタン-------------------------------------------------------------
         private void ButtonReset_Click(object sender, EventArgs e)
         {
-
+            ClearInput();
         }
     }
 }
