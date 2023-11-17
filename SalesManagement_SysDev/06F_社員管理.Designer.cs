@@ -191,6 +191,7 @@
             this.ButtonReset.TabIndex = 82;
             this.ButtonReset.Text = "入力リセット";
             this.ButtonReset.UseVisualStyleBackColor = true;
+            this.ButtonReset.Click += new System.EventHandler(this.ButtonReset_Click);
             // 
             // ButtonExe
             // 

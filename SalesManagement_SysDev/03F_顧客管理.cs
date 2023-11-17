@@ -153,21 +153,19 @@ namespace SalesManagement_SysDev
                 }
             }
 
-
             //更新処理----------------------------------------------------------------------
+            if (RadioKousin.Checked == true)
             {
-                if (RadioKousin.Checked == true)
+                if (!GetVaildDataAtUpdate())
                 {
-                    if (!GetVaildDataAtUpdate())
-                    {
-                        return;
-                    }
-
-                    var updProduct = GenereteDataAtUpdate();
-
-                    UpdateProduct(updProduct);
+                    return;
                 }
+
+                var updProduct = GenereteDataAtUpdate();
+
+                UpdateProduct(updProduct);
             }
+
         }
         //登録処理--------------------------------------------------------------------------
         private bool GetVaildDataAtRegistration() //入力データチェック

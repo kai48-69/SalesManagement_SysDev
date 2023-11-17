@@ -143,7 +143,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label5.Location = new System.Drawing.Point(463, 317);
+            this.label5.Location = new System.Drawing.Point(467, 317);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(162, 25);
             this.label5.TabIndex = 10;

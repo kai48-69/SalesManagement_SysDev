@@ -14,24 +14,19 @@ namespace SalesManagement_SysDev
     public partial class F_社員管理 : Form
     {
 
-        public F_社員管理()
-        {
-            InitializeComponent();
-        }
-
         EmployeeDataAccess EmployeeDataAccess = new EmployeeDataAccess();
         private InputCheck ichk = new InputCheck();
         EmployeeDbConnection DB = new EmployeeDbConnection();
         private static List<M_SalesOffice> SoNameDsp;
         private static List<M_Position> PoNameDsp;
 
-        private void ButtonBack_Click(object sender, EventArgs e)
+        public F_社員管理()
         {
-            this.Close();
-            F_管理者 f_Admin = new F_管理者();
-            f_Admin.Show();
+            InitializeComponent();
         }
 
+
+        //画面ロード時処理
         private void F_社員管理_Load(object sender, EventArgs e)
         {
             SetFormComboBox();
@@ -43,6 +38,7 @@ namespace SalesManagement_SysDev
             }
         }
 
+        //データ全件表示
         private bool GetDataGridView()
         {
             //在庫情報の全件取得
@@ -54,6 +50,7 @@ namespace SalesManagement_SysDev
             return true;
         }
 
+        //コンボボックスの設定
         private void SetFormComboBox()
         {
             SoNameDsp = DB.GetSoNameDspData();
@@ -76,6 +73,8 @@ namespace SalesManagement_SysDev
             ComboEigyousyoName.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboYakusyokuName.DropDownStyle = ComboBoxStyle.DropDownList;
         }
+
+        //データグリッドビューの表示設定
         private void SetDataGridView(List<DispEmployeeListDTO> tb)
         {
             dataGridView1.DataSource = tb;
@@ -133,6 +132,7 @@ namespace SalesManagement_SysDev
             dataGridView1.Refresh();
         }
 
+        //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
         {
             //登録処理----------------------------------------------------------------------
@@ -176,6 +176,7 @@ namespace SalesManagement_SysDev
             }
         }
 
+        //登録処理--------------------------------------------------------------------------
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
             if (String.IsNullOrEmpty(TextboxSyainName.Text.Trim()))
@@ -242,6 +243,7 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
+        //検索処理------------------------------------------------------------------------
         private bool GetVaildDataAtSelect() //入力データチェック
         {
             if (!String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
@@ -313,6 +315,7 @@ namespace SalesManagement_SysDev
             return true;
         }
 
+        //更新処理-----------------------------------------------------------------------
         private bool GetVaildDataAtUpdate()//入力データチェック
         {
 
@@ -382,6 +385,7 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
+        //入力クリア----------------------------------------------------------------------
         private void ClearInput()
         {
 
@@ -403,6 +407,14 @@ namespace SalesManagement_SysDev
                 TextboxTelNo.Text = "";
                 TextboxHihyoji.Text = "";
             }
+        }
+
+        //戻るボタン----------------------------------------------------------------------
+        private void ButtonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            F_管理者 f_Admin = new F_管理者();
+            f_Admin.Show();
         }
     }
 }
