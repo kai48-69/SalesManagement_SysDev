@@ -63,6 +63,12 @@
     <Compile Include="01F_PW新規登録.Designer.cs">
       <DependentUpon>01F_PW新規登録.cs</DependentUpon>
     </Compile>
+    <Compile Include="06F_社員管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="06F_社員管理.Designer.cs">
+      <DependentUpon>06F_社員管理.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientDataAccess.cs" />
     <Compile Include="ClientDbConnection.cs" />
     <Compile Include="DrugDTO.cs" />
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="05F_在庫管理.resx">
       <DependentUpon>05F_在庫管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="06F_社員管理.resx">
+      <DependentUpon>06F_社員管理.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="10F_発注管理.resx">
       <DependentUpon>10F_発注管理.cs</DependentUpon>

@@ -174,6 +174,19 @@ namespace SalesManagement_SysDev
                     UpdateEmployee(updEmployee);
                 }
             }
+
+            // 非表示処理--------------------------------------------------------------------
+            if (RadioHihyouji.Checked == true)
+            {
+                if (!GetVaildDataAtHide())
+                {
+                    return;
+                }
+
+                var hidEmployee = GenereteDataAtHidden();
+
+                HideEmployee(hidEmployee);
+            }
         }
 
         private bool GetVaildDataAtRegistration() //入力データチェック
@@ -382,6 +395,43 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
+        private bool GetVaildDataAtHide()//入力データチェック
+        {
+            if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
+            {
+                MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (EmployeeDataAccess.CheckCascadeEmployeet(int.Parse(TextboxSyainID.Text.Trim())))
+            {
+                MessageBox.Show("選択された商品は他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        private M_Product GenereteDataAtHidden()　//非表示データ生成(フラグの更新データ生成)
+        {
+            string ManuID = ComboMakerName.SelectedIndex.ToString();
+            string PD = ComboSyobunrui.SelectedValue.ToString();
+            M_Product retProduct = new M_Product
+            {
+                MaID = int.Parse(ManuID),
+                PrID = int.Parse(TextboxSyouhinID.Text.Trim()),
+                PrName = TextboxSyohinName.Text.Trim(),
+                ScID = int.Parse(PD),
+                PrModelNumber = TextboxKataban.Text.Trim(),
+                PrSafetyStock = int.Parse(TextboxStock.Text.Trim()),
+                Price = decimal.Parse((TextboxKakaku.Text.Trim())),
+                PrColor = TextboxColor.Text.Trim(),
+                PrReleaseDate = HatubaiDate.Value,
+                PrFlag = 2,
+                PrHidden = TextboxHihyouji.Text.Trim(),
+
+            };
+            return retProduct;
+        }
         private void ClearInput()
         {
 
