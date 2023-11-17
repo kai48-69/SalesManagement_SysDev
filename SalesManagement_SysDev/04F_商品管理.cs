@@ -565,7 +565,7 @@ namespace SalesManagement_SysDev
             return retProduct;
         }
 
-        private void HideProduct(M_Product hidPro)　//データ非表示処理
+        private void HideProduct(M_Product hidEmp)　//データ非表示処理
         {
             DialogResult result = MessageBox.Show("商品データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
@@ -573,7 +573,7 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            bool flg = ProductDataAccess.HideProductData(hidPro);
+            bool flg = ProductDataAccess.HideProductData(hidEmp);
             if (flg == true)
             {
                 MessageBox.Show("データを非表示にしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);

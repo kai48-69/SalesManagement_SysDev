@@ -94,5 +94,33 @@ namespace SalesManagement_SysDev
                 return false;
             }
         }
+
+        public bool CheckCascadeEmployee(int EmID)
+        {
+            var context = new SalesManagement_DevContext();
+            bool flg = context.T_Orders.Any(x => x.EmID == EmID);
+
+            return flg;
+        }
+
+        public bool HideEmployeeData(M_Employee hidEmp)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Employee = context.M_Employees.Single(x => x.EmID == hidEmp.EmID);
+                Employee.EmFlag = hidEmp.EmFlag;
+
+                context.SaveChanges();
+                context.Dispose();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }
