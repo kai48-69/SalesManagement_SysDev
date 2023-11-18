@@ -159,7 +159,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label9.Location = new System.Drawing.Point(524, 44);
+            this.label9.Location = new System.Drawing.Point(524, 54);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(368, 50);
             this.label9.TabIndex = 4;
@@ -245,10 +245,10 @@
             // TextboxHihyouji
             // 
             this.TextboxHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxHihyouji.Location = new System.Drawing.Point(960, 274);
+            this.TextboxHihyouji.Location = new System.Drawing.Point(1017, 274);
             this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxHihyouji.Name = "TextboxHihyouji";
-            this.TextboxHihyouji.Size = new System.Drawing.Size(375, 162);
+            this.TextboxHihyouji.Size = new System.Drawing.Size(318, 162);
             this.TextboxHihyouji.TabIndex = 44;
             this.TextboxHihyouji.Text = "";
             // 
@@ -256,7 +256,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label8.Location = new System.Drawing.Point(817, 274);
+            this.label8.Location = new System.Drawing.Point(864, 275);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(137, 25);
             this.label8.TabIndex = 43;
@@ -272,12 +272,13 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1284, 368);
             this.dataGridView1.TabIndex = 25;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label7.Location = new System.Drawing.Point(68, 379);
+            this.label7.Location = new System.Drawing.Point(53, 377);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 25);
             this.label7.TabIndex = 64;
@@ -286,17 +287,17 @@
             // TextboxTelNo
             // 
             this.TextboxTelNo.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxTelNo.Location = new System.Drawing.Point(189, 374);
+            this.TextboxTelNo.Location = new System.Drawing.Point(174, 372);
             this.TextboxTelNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxTelNo.Name = "TextboxTelNo";
-            this.TextboxTelNo.Size = new System.Drawing.Size(232, 32);
+            this.TextboxTelNo.Size = new System.Drawing.Size(201, 32);
             this.TextboxTelNo.TabIndex = 63;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label4.Location = new System.Drawing.Point(576, 328);
+            this.label4.Location = new System.Drawing.Point(527, 328);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 25);
             this.label4.TabIndex = 57;
@@ -306,7 +307,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label3.Location = new System.Drawing.Point(502, 375);
+            this.label3.Location = new System.Drawing.Point(453, 375);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 25);
             this.label3.TabIndex = 56;
@@ -314,28 +315,28 @@
             // 
             // TextboxAdress
             // 
-            this.TextboxAdress.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxAdress.Location = new System.Drawing.Point(570, 372);
+            this.TextboxAdress.Font = new System.Drawing.Font("MS UI Gothic", 13F);
+            this.TextboxAdress.Location = new System.Drawing.Point(521, 376);
             this.TextboxAdress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxAdress.Name = "TextboxAdress";
-            this.TextboxAdress.Size = new System.Drawing.Size(229, 32);
+            this.TextboxAdress.Size = new System.Drawing.Size(317, 29);
             this.TextboxAdress.TabIndex = 55;
             // 
             // ComboEigyousyoName
             // 
             this.ComboEigyousyoName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ComboEigyousyoName.FormattingEnabled = true;
-            this.ComboEigyousyoName.Location = new System.Drawing.Point(570, 272);
+            this.ComboEigyousyoName.Location = new System.Drawing.Point(521, 272);
             this.ComboEigyousyoName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboEigyousyoName.Name = "ComboEigyousyoName";
-            this.ComboEigyousyoName.Size = new System.Drawing.Size(229, 33);
+            this.ComboEigyousyoName.Size = new System.Drawing.Size(317, 33);
             this.ComboEigyousyoName.TabIndex = 54;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label2.Location = new System.Drawing.Point(447, 277);
+            this.label2.Location = new System.Drawing.Point(397, 275);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 25);
             this.label2.TabIndex = 53;
@@ -345,7 +346,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label1.Location = new System.Drawing.Point(97, 279);
+            this.label1.Location = new System.Drawing.Point(82, 277);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 25);
             this.label1.TabIndex = 52;
@@ -354,26 +355,26 @@
             // TextboxKokyakuID
             // 
             this.TextboxKokyakuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxKokyakuID.Location = new System.Drawing.Point(190, 277);
+            this.TextboxKokyakuID.Location = new System.Drawing.Point(175, 275);
             this.TextboxKokyakuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxKokyakuID.Name = "TextboxKokyakuID";
-            this.TextboxKokyakuID.Size = new System.Drawing.Size(232, 32);
+            this.TextboxKokyakuID.Size = new System.Drawing.Size(200, 32);
             this.TextboxKokyakuID.TabIndex = 51;
             // 
             // TextboxKokyakuName
             // 
             this.TextboxKokyakuName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxKokyakuName.Location = new System.Drawing.Point(190, 325);
+            this.TextboxKokyakuName.Location = new System.Drawing.Point(175, 323);
             this.TextboxKokyakuName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxKokyakuName.Name = "TextboxKokyakuName";
-            this.TextboxKokyakuName.Size = new System.Drawing.Size(231, 32);
+            this.TextboxKokyakuName.Size = new System.Drawing.Size(200, 32);
             this.TextboxKokyakuName.TabIndex = 65;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label5.Location = new System.Drawing.Point(447, 329);
+            this.label5.Location = new System.Drawing.Point(397, 327);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 25);
             this.label5.TabIndex = 67;
@@ -382,17 +383,17 @@
             // TextboxPostCD
             // 
             this.TextboxPostCD.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxPostCD.Location = new System.Drawing.Point(570, 325);
+            this.TextboxPostCD.Location = new System.Drawing.Point(521, 325);
             this.TextboxPostCD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxPostCD.Name = "TextboxPostCD";
-            this.TextboxPostCD.Size = new System.Drawing.Size(229, 32);
+            this.TextboxPostCD.Size = new System.Drawing.Size(317, 32);
             this.TextboxPostCD.TabIndex = 66;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label6.Location = new System.Drawing.Point(95, 329);
+            this.label6.Location = new System.Drawing.Point(80, 327);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 25);
             this.label6.TabIndex = 68;
@@ -402,7 +403,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label10.Location = new System.Drawing.Point(127, 424);
+            this.label10.Location = new System.Drawing.Point(112, 422);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 25);
             this.label10.TabIndex = 70;
@@ -411,10 +412,10 @@
             // TextboxFAX
             // 
             this.TextboxFAX.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxFAX.Location = new System.Drawing.Point(189, 419);
+            this.TextboxFAX.Location = new System.Drawing.Point(174, 417);
             this.TextboxFAX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxFAX.Name = "TextboxFAX";
-            this.TextboxFAX.Size = new System.Drawing.Size(232, 32);
+            this.TextboxFAX.Size = new System.Drawing.Size(201, 32);
             this.TextboxFAX.TabIndex = 69;
             // 
             // F_顧客管理

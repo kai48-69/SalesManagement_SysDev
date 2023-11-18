@@ -503,7 +503,6 @@ namespace SalesManagement_SysDev
 
 
         //非表示処理---------------------------------------------------------------------
-
         private bool GetVaildDataAtHide()//入力データチェック
         {
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
