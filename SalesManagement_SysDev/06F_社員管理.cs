@@ -14,9 +14,9 @@ namespace SalesManagement_SysDev
     public partial class F_社員管理 : Form
     {
 
-        EmployeeDataAccess EmployeeDataAccess = new EmployeeDataAccess();
-        private InputCheck ichk = new InputCheck();
-        EmployeeDbConnection DB = new EmployeeDbConnection();
+        readonly EmployeeDataAccess EmployeeDataAccess = new EmployeeDataAccess();
+        private readonly InputCheck ichk = new InputCheck();
+        readonly EmployeeDbConnection DB = new EmployeeDbConnection();
         private static List<M_SalesOffice> SoNameDsp;
         private static List<M_Position> PoNameDsp;
 
@@ -295,8 +295,7 @@ namespace SalesManagement_SysDev
             var EmID = TextboxSyainID.Text.Trim();
 
             //変換処理
-            int SyainID;
-            if (!int.TryParse(EmID, out SyainID))
+            if (!int.TryParse(EmID, out int SyainID))
             {
                 SyainID = -1;
             }            

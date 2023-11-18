@@ -21,5 +21,10 @@ namespace SalesManagement_SysDev
             }
             return Price;
         }
+
+        public bool AddOrderData(T_Order regOr)
+        {
+            return true;
+        }
     }
 }

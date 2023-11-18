@@ -100,6 +100,7 @@
             this.RadioHihyouji.TabIndex = 49;
             this.RadioHihyouji.Text = "非表示";
             this.RadioHihyouji.UseVisualStyleBackColor = true;
+            this.RadioHihyouji.CheckedChanged += new System.EventHandler(this.RadioHihyouji_CheckedChanged);
             // 
             // RadioKousin
             // 
@@ -112,6 +113,7 @@
             this.RadioKousin.TabIndex = 48;
             this.RadioKousin.Text = "更新";
             this.RadioKousin.UseVisualStyleBackColor = true;
+            this.RadioKousin.CheckedChanged += new System.EventHandler(this.RadioKousin_CheckedChanged);
             // 
             // RadioKensaku
             // 
@@ -124,6 +126,7 @@
             this.RadioKensaku.TabIndex = 47;
             this.RadioKensaku.Text = "検索";
             this.RadioKensaku.UseVisualStyleBackColor = true;
+            this.RadioKensaku.CheckedChanged += new System.EventHandler(this.RadioKensaku_CheckedChanged);
             // 
             // RadioTouroku
             // 
@@ -138,6 +141,7 @@
             this.RadioTouroku.TabStop = true;
             this.RadioTouroku.Text = "登録";
             this.RadioTouroku.UseVisualStyleBackColor = true;
+            this.RadioTouroku.CheckedChanged += new System.EventHandler(this.RadioTouroku_CheckedChanged);
             // 
             // ButtonBack
             // 
@@ -446,7 +450,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "F_顧客管理";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.F_顧客管理_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

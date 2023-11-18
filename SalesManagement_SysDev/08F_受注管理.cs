@@ -128,7 +128,7 @@ namespace SalesManagement_SysDev
                 var regOr = GenerateDataAtRegistration();
                 var regDetailOr = GenerateDataAtDetailRegistration();
 
-                RegistrationProduct(regOr);
+                RegistrationOrder(regOr);
             }
         }
 
@@ -232,7 +232,7 @@ namespace SalesManagement_SysDev
             {
                 return;
             }
-            bool flg = ProductDataAccess.AddProductData(regOr);
+            bool flg = ODA.AddOrderData(regOr);
             if (flg == true)
             {
                 MessageBox.Show("データを登録しました");
@@ -240,7 +240,7 @@ namespace SalesManagement_SysDev
             else
             {
                 MessageBox.Show("データの登録に失敗しました");
-                TextboxID.Focus();
+                TextboxSyainName.Focus();
             }
             ClearInput();
             GetDataGridView();
@@ -254,7 +254,11 @@ namespace SalesManagement_SysDev
             F_営業 f_eigyou = new F_営業();
             f_eigyou.Show();
         }
+        private void ClearInput()
+        {
 
+        }
+        //リセットボタン------------------------------------------------------------------
         private void ButtonReset_Click(object sender, EventArgs e)
         {
 

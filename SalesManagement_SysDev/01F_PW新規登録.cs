@@ -16,17 +16,21 @@ namespace SalesManagement_SysDev
         {
             InitializeComponent();
         }
+        private void F_PW新規登録_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+        }
+
+        private void ButtonRegis_Click(object sender, EventArgs e)
+        {
+           
+        }
 
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
             F_ログイン画面 f_login = new F_ログイン画面();
             f_login.Show();
-        }
-
-        private void ButtonRegis_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

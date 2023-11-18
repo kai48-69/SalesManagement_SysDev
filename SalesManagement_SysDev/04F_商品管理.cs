@@ -14,9 +14,9 @@ namespace SalesManagement_SysDev
 {
     public partial class F_商品管理 : Form
     {
-        private InputCheck ichk = new InputCheck();
-        ProductDataAccess ProductDataAccess = new ProductDataAccess();
-        ProductDbConnection DB = new ProductDbConnection();
+        private readonly InputCheck ichk = new InputCheck();
+        readonly ProductDataAccess ProductDataAccess = new ProductDataAccess();
+        readonly  ProductDbConnection DB = new ProductDbConnection();
         private static List<M_Maker> MNameDsp;
         private static List<M_SmallClassification> ScDsp;
 
@@ -29,6 +29,9 @@ namespace SalesManagement_SysDev
         //画面ロード時処理
         private void F_商品管理_Load(object sender, EventArgs e)
         {
+            TextboxSyouhinID.ReadOnly = true;
+            TextboxHihyouji.Enabled = false;
+
             SetFormComboBox();
 
             if (!GetDataGridView())
@@ -133,27 +136,19 @@ namespace SalesManagement_SysDev
         }
 
         //データグリッドビューをクリックしたときの処理
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (RadioHihyouji.Checked == false)
-            {
-                TextboxSyouhinID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
-                ComboMakerName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
-                TextboxSyohinName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
-                TextboxKakaku.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
-                TextboxStock.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
-                ComboSyobunrui.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
-                TextboxKataban.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[6].Value.ToString();
-                TextboxColor.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[7].Value.ToString();
-                HatubaiDate.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[8].Value.ToString();
-            }
-            else
-            {
-                TextboxSyouhinID.Text= dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
-            }
-
+            TextboxSyouhinID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+            ComboMakerName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
+            TextboxSyohinName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+            TextboxKakaku.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
+            TextboxStock.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
+            ComboSyobunrui.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+            TextboxKataban.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[6].Value.ToString();
+            TextboxColor.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[7].Value.ToString();
+            HatubaiDate.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[8].Value.ToString();
         }
-     
+
 
         //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
@@ -212,7 +207,7 @@ namespace SalesManagement_SysDev
             }
         }
 
-        
+
         //以下モジュール
         //登録処理--------------------------------------------------------------------------
         private bool GetVaildDataAtRegistration() //入力データチェック
@@ -241,16 +236,7 @@ namespace SalesManagement_SysDev
             }
 
 
-            if (!String.IsNullOrEmpty(TextboxKakaku.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxKakaku.Text.Trim()))
-                {
-                    MessageBox.Show("価格は半角数字で入力してください");
-                    TextboxKakaku.Focus();
-                    return false;
-                }
-            }
-            else
+            if (String.IsNullOrEmpty(TextboxKakaku.Text.Trim()))
             {
                 MessageBox.Show("価格が入力されていません");
                 TextboxKakaku.Focus();
@@ -273,17 +259,17 @@ namespace SalesManagement_SysDev
 
         private M_Product GenerateDataAtRegistration() //登録データ生成
         {
-            string ManuID = ComboMakerName.SelectedIndex.ToString();
-            string PD = ComboSyobunrui.SelectedValue.ToString();
+            int ManuID = ComboMakerName.SelectedIndex;
+            int Sc = ComboSyobunrui.SelectedIndex;
             return new M_Product
             {
-                MaID = int.Parse(ManuID),
-                PrID = int.Parse(TextboxSyouhinID.Text.Trim()),
+                MaID = ManuID+1,
+                //PrID = int.Parse(TextboxSyouhinID.Text.Trim()),
                 PrName = TextboxSyohinName.Text.Trim(),
-                ScID = int.Parse(PD),
+                ScID = Sc+1,
                 PrModelNumber = TextboxKataban.Text.Trim(),
                 PrSafetyStock = int.Parse(TextboxStock.Text.Trim()),
-                Price = int.Parse((TextboxKakaku.Text.Trim())),
+                Price = decimal.Parse((TextboxKakaku.Text.Trim())),
                 PrColor = TextboxColor.Text.Trim(),
                 PrReleaseDate = HatubaiDate.Value,
                 PrFlag = 0,
@@ -387,17 +373,16 @@ namespace SalesManagement_SysDev
             var ModelNo = TextboxKataban.Text.Trim();
 
             //変換処理
-            int SyohinID, Kakaku, Stock;
-            if (!int.TryParse(PrID, out SyohinID))
+            if (!int.TryParse(PrID, out  int SyohinID))
             {
                 SyohinID = -1;
             }
 
-            if (!int.TryParse(Price, out Kakaku))
+            if (!int.TryParse(Price, out  int Kakaku))
             {
                 Kakaku = -1;
             }
-            if (!int.TryParse(SStock, out Stock))
+            if (!int.TryParse(SStock, out int Stock))
             {
                 Stock = -1;
             }
@@ -450,21 +435,13 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-            if (!String.IsNullOrEmpty(TextboxKakaku.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxKakaku.Text.Trim()))
-                {
-                    MessageBox.Show("価格は半角数字で入力してください");
-                    TextboxKakaku.Focus();
-                    return false;
-                }
-            }
-            else
+            if (String.IsNullOrEmpty(TextboxKakaku.Text.Trim()))
             {
                 MessageBox.Show("価格が入力されていません");
                 TextboxKakaku.Focus();
                 return false;
             }
+            
 
             if (String.IsNullOrEmpty(TextboxColor.Text.Trim()))
             {
@@ -478,21 +455,21 @@ namespace SalesManagement_SysDev
                 MessageBox.Show("型番が入力されていません");
             }
             return true;
-        }　
+        }
 
         private M_Product GenereteDataAtUpdate()　//更新データ生成
         {
-            string ManuID = ComboMakerName.SelectedIndex.ToString();
-            string PD = ComboSyobunrui.SelectedValue.ToString();
+             int ManuID = ComboMakerName.SelectedIndex;
+            int Sc = ComboSyobunrui.SelectedIndex;
             return new M_Product
             {
-                MaID = int.Parse(ManuID),
+                MaID = ManuID+1,
                 PrID = int.Parse(TextboxSyouhinID.Text.Trim()),
                 PrName = TextboxSyohinName.Text.Trim(),
-                ScID = int.Parse(PD),
+                ScID = Sc+1,
                 PrModelNumber = TextboxKataban.Text.Trim(),
                 PrSafetyStock = int.Parse(TextboxStock.Text.Trim()),
-                Price = int.Parse((TextboxKakaku.Text.Trim())),
+                Price = decimal.Parse((TextboxKakaku.Text.Trim())),
                 PrColor = TextboxColor.Text.Trim(),
                 PrReleaseDate = HatubaiDate.Value,
                 PrFlag = 0,
@@ -545,14 +522,14 @@ namespace SalesManagement_SysDev
 
         private M_Product GenereteDataAtHidden()　//非表示データ生成(フラグの更新データ生成)
         {
-            string ManuID = ComboMakerName.SelectedIndex.ToString();
-            string PD = ComboSyobunrui.SelectedValue.ToString();
-            M_Product retProduct =  new M_Product
+            int ManuID = ComboMakerName.SelectedIndex;
+            int Sc = ComboSyobunrui.SelectedIndex;
+            M_Product retProduct = new M_Product
             {
-                MaID = int.Parse(ManuID),
+                MaID = ManuID+1,
                 PrID = int.Parse(TextboxSyouhinID.Text.Trim()),
                 PrName = TextboxSyohinName.Text.Trim(),
-                ScID = int.Parse(PD),
+                ScID = Sc+1,
                 PrModelNumber = TextboxKataban.Text.Trim(),
                 PrSafetyStock = int.Parse(TextboxStock.Text.Trim()),
                 Price = decimal.Parse((TextboxKakaku.Text.Trim())),
@@ -560,7 +537,7 @@ namespace SalesManagement_SysDev
                 PrReleaseDate = HatubaiDate.Value,
                 PrFlag = 2,
                 PrHidden = TextboxHihyouji.Text.Trim(),
-                
+
             };
             return retProduct;
         }
@@ -590,8 +567,8 @@ namespace SalesManagement_SysDev
         //入力クリア----------------------------------------------------------------------
         private void ClearInput()
         {
-            
-            if (RadioKensaku.Checked == true)//検索時はコンボボックスの値を空にする
+            //検索時または非表示時はコンボボックスの値を空にする
+            if (RadioKensaku.Checked == true||RadioHihyouji.Checked==true)
             {
                 ComboMakerName.SelectedIndex = -1;
                 ComboSyobunrui.SelectedIndex = -1;
@@ -605,7 +582,8 @@ namespace SalesManagement_SysDev
                 HatubaiDate.Value = DateTime.Now;
                 TextboxHihyouji.Text = "";
             }
-            else   //検索時以外は表示する
+            //検索時または非表示時以外は表示する
+            else
             {
                 ComboMakerName.SelectedIndex = 0;
                 ComboSyobunrui.SelectedIndex = 0;
@@ -628,7 +606,7 @@ namespace SalesManagement_SysDev
         }
 
         //戻るボタン----------------------------------------------------------------------
-        private void ButtonBack_Click(object sender,EventArgs e)
+        private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             F_物流 f_buturyu = new F_物流();
@@ -641,16 +619,17 @@ namespace SalesManagement_SysDev
         private void RadioTouroku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxSyouhinID.ReadOnly=true;
+            TextboxSyouhinID.ReadOnly = true;
             TextboxSyohinName.ReadOnly = false;
             ComboMakerName.SelectedIndex = 0;
             TextboxKakaku.ReadOnly = false;
             TextboxStock.ReadOnly = false;
-            ComboSyobunrui.SelectedIndex=0;
+            ComboSyobunrui.SelectedIndex = 0;
             TextboxKataban.ReadOnly = false;
             TextboxColor.ReadOnly = false;
             LblHatubaiDate.Visible = true;
-            HatubaiDate.Visible=true;
+            TextboxHihyouji.Enabled = false;
+            HatubaiDate.Visible = true;
             GetDataGridView();
         }
         //検索時の入力項目選択-----------------------------------------------------------
@@ -666,6 +645,7 @@ namespace SalesManagement_SysDev
             TextboxKataban.ReadOnly = false;
             TextboxColor.ReadOnly = false;
             LblHatubaiDate.Visible = false;
+            TextboxHihyouji.Enabled = false;
             HatubaiDate.Visible = false;
         }
         //更新時の入力項目選択-----------------------------------------------------------
@@ -682,6 +662,7 @@ namespace SalesManagement_SysDev
             TextboxColor.ReadOnly = false;
             LblHatubaiDate.Visible = true;
             HatubaiDate.Visible = true;
+            TextboxHihyouji.Enabled = false;
             GetDataGridView();
         }
         //非表示時の入力項目選択-----------------------------------------------------------
@@ -690,14 +671,15 @@ namespace SalesManagement_SysDev
             ClearInput();
             TextboxSyouhinID.ReadOnly = true;
             TextboxSyohinName.ReadOnly = true;
-            ComboMakerName.SelectedIndex = 0;
+            ComboMakerName.SelectedIndex = -1;
             TextboxKakaku.ReadOnly = true;
             TextboxStock.ReadOnly = true;
-            ComboSyobunrui.SelectedIndex = 0;
+            ComboSyobunrui.SelectedIndex = -1;
             TextboxKataban.ReadOnly = true;
             TextboxColor.ReadOnly = true;
             LblHatubaiDate.Visible = true;
-            HatubaiDate.Visible = true;
+            TextboxHihyouji.Enabled = true;
+            HatubaiDate.Visible = false;
             GetDataGridView();
         }
     }

@@ -49,7 +49,7 @@
             // ButtonSyukka
             // 
             this.ButtonSyukka.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonSyukka.Location = new System.Drawing.Point(120, 354);
+            this.ButtonSyukka.Location = new System.Drawing.Point(117, 355);
             this.ButtonSyukka.Name = "ButtonSyukka";
             this.ButtonSyukka.Size = new System.Drawing.Size(242, 111);
             this.ButtonSyukka.TabIndex = 2;
@@ -60,7 +60,7 @@
             // ButtonNyuka
             // 
             this.ButtonNyuka.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonNyuka.Location = new System.Drawing.Point(395, 354);
+            this.ButtonNyuka.Location = new System.Drawing.Point(392, 355);
             this.ButtonNyuka.Name = "ButtonNyuka";
             this.ButtonNyuka.Size = new System.Drawing.Size(238, 111);
             this.ButtonNyuka.TabIndex = 3;
@@ -168,7 +168,7 @@
             // ButtonTyumon
             // 
             this.ButtonTyumon.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonTyumon.Location = new System.Drawing.Point(395, 191);
+            this.ButtonTyumon.Location = new System.Drawing.Point(392, 192);
             this.ButtonTyumon.Name = "ButtonTyumon";
             this.ButtonTyumon.Size = new System.Drawing.Size(238, 111);
             this.ButtonTyumon.TabIndex = 4;
@@ -179,7 +179,7 @@
             // ButtonJutyuu
             // 
             this.ButtonJutyuu.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonJutyuu.Location = new System.Drawing.Point(120, 194);
+            this.ButtonJutyuu.Location = new System.Drawing.Point(117, 195);
             this.ButtonJutyuu.Name = "ButtonJutyuu";
             this.ButtonJutyuu.Size = new System.Drawing.Size(242, 111);
             this.ButtonJutyuu.TabIndex = 5;
@@ -190,7 +190,7 @@
             // ButtonKokyaku
             // 
             this.ButtonKokyaku.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonKokyaku.Location = new System.Drawing.Point(671, 191);
+            this.ButtonKokyaku.Location = new System.Drawing.Point(668, 192);
             this.ButtonKokyaku.Name = "ButtonKokyaku";
             this.ButtonKokyaku.Size = new System.Drawing.Size(238, 111);
             this.ButtonKokyaku.TabIndex = 6;
@@ -201,7 +201,7 @@
             // ButtonUriage
             // 
             this.ButtonUriage.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonUriage.Location = new System.Drawing.Point(671, 354);
+            this.ButtonUriage.Location = new System.Drawing.Point(668, 355);
             this.ButtonUriage.Name = "ButtonUriage";
             this.ButtonUriage.Size = new System.Drawing.Size(238, 111);
             this.ButtonUriage.TabIndex = 7;
@@ -223,7 +223,8 @@
             this.Controls.Add(this.ButtonSyukka);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_営業";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "販売管理システム_営業管理画面";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

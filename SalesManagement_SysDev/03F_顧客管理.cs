@@ -14,9 +14,9 @@ namespace SalesManagement_SysDev
 {
     public partial class F_顧客管理 : Form
     {
-        ClientDataAccess ClientDataAccess = new ClientDataAccess();
-        private InputCheck ichk = new InputCheck();
-        ClientDbConnection DB = new ClientDbConnection();
+        readonly ClientDataAccess ClientDataAccess = new ClientDataAccess();
+        private readonly InputCheck ichk = new InputCheck();
+        readonly ClientDbConnection DB = new ClientDbConnection();
         private static List<M_SalesOffice> SoNameDsp;
 
         public F_顧客管理()
@@ -25,7 +25,7 @@ namespace SalesManagement_SysDev
         }
 
         //画面ロード時処理
-        private void Form1_Load(object sender, EventArgs e)
+        private void F_顧客管理_Load(object sender, EventArgs e)
         {
             SetFormComboBox();
 
@@ -87,7 +87,7 @@ namespace SalesManagement_SysDev
             ////営業所名
             dataGridView1.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridView1.Columns[1].Width = 50;
+            dataGridView1.Columns[1].Width = 100;
             //顧客名
             dataGridView1.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -95,29 +95,29 @@ namespace SalesManagement_SysDev
             //住所
             dataGridView1.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridView1.Columns[3].Width = 80;
+            dataGridView1.Columns[3].Width = 200;
             ////電話番号
             dataGridView1.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridView1.Columns[4].Width = 40;
+            dataGridView1.Columns[4].Width = 90;
             ////郵便番号
             dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[5].Width = 80;
+            dataGridView1.Columns[5].Width = 55;
             ////FAX
             dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].Width = 30;
+            dataGridView1.Columns[6].Width = 80;
             ////非表示理由
             dataGridView1.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[7].Width = 70;
+            dataGridView1.Columns[7].Width =265 ;
 
             dataGridView1.Refresh();
         }
 
         //データグリッドビューをクリックしたときの処理
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (RadioHihyouji.Checked == false)
             {
@@ -133,6 +133,12 @@ namespace SalesManagement_SysDev
             else
             {
                 TextboxKokyakuID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+                ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
+                TextboxKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+                TextboxAdress.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
+                TextboxPostCD.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
+                TextboxTelNo.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+                TextboxFAX.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[6].Value.ToString();
             }
 
         }
@@ -320,8 +326,7 @@ namespace SalesManagement_SysDev
 
 
                 //変換処理
-                int KokyakuID;
-                if (!int.TryParse(ClID, out KokyakuID))
+                if (!int.TryParse(ClID, out int KokyakuID))
                 {
                     KokyakuID = -1;
                 }

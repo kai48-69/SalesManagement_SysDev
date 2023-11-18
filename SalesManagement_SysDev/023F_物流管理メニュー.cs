@@ -17,6 +17,11 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
+        private void F_物流_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+        }
+
         private void ButtonLogout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("ログアウトします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -62,5 +67,7 @@ namespace SalesManagement_SysDev
             F_在庫管理 f_zaiko = new F_在庫管理();
             f_zaiko.Show();
         }
+
+       
     }
 }

@@ -17,6 +17,11 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
+        private void F_営業_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+        }
+
         private void ButtonLogout_Click(object sender, EventArgs e)
         {
             DialogResult result= MessageBox.Show("ログアウトします。よろしいですか？","確認",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
@@ -69,5 +74,7 @@ namespace SalesManagement_SysDev
             F_売上管理　f_uriage =new F_売上管理();
             f_uriage.Show();
         }
+
+        
     }
 }

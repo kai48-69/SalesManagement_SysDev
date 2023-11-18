@@ -17,12 +17,15 @@ namespace SalesManagement_SysDev
 {
     public partial class F_ログイン画面 : Form
     {
+        readonly EmployeeDataAccess employeeDataAccess = new EmployeeDataAccess();
+        LoginData loginData = new LoginData();
+
         public F_ログイン画面()
         {
             InitializeComponent();
         }
     
-        private void btn_CleateDabase_Click(object sender, EventArgs e)
+        private void Btn_CleateDabase_Click(object sender, EventArgs e)
         {
             //データベースの生成を行います．
             //再度実行する場合には，必ずデータベースの削除をしてから実行してください．
@@ -56,7 +59,7 @@ namespace SalesManagement_SysDev
             MessageBox.Show("テーブル作成完了");
         }
 
-        private void btn_InsertSampleData_Click(object sender, EventArgs e)
+        private void Btn_InsertSampleData_Click(object sender, EventArgs e)
         {
             SalesManagement_DevContext context = new SalesManagement_DevContext();
 
@@ -736,43 +739,54 @@ namespace SalesManagement_SysDev
             MessageBox.Show("サンプルデータ登録完了");
         }
 
-        EmployeeDataAccess employeeDataAccess = new EmployeeDataAccess();
-        LoginData loginData = new LoginData();
+
 
         //ここからログイン処理---------------------------------------------------------------------------------------------------------
+
+        private void F_ログイン画面_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+        }
+
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-            //入力チェック
-            int SyainID = GetVaildDataAtLogin();
+            ////入力チェック
+            //int SyainID = GetVaildDataAtLogin();
 
-            //ログイン機能
-            if (!CheckIDPW(SyainID))
-            { return; }
+            ////ログイン機能
+            //if (!CheckIDPW(SyainID))
+            //{ return; }
 
-            //ログイン判定
-            int PolID = DetermineForm(SyainID);
+            ////ログイン判定
+            //int PolID = DetermineForm(SyainID);
 
-            //画面表示
-            FormShow(PolID);
+            ////画面表示
+            //FormShow(PolID);
 
-            
 
-            //this.Visible = false;
-            //if (int.Parse(TextboxShainID.Text) == 1)
-            //{
-            //    F_管理者 f_Admin = new F_管理者();
-            //    f_Admin.Show();
-            //}
-            //if (int.Parse(TextboxShainID.Text) == 2)
-            //{
-            //    F_営業 f_eigyou = new F_営業();
-            //    f_eigyou.Show();
-            //}
-            //if (int.Parse(TextboxShainID.Text) == 3)
-            //{
-            //    F_物流 f_buturyuu = new F_物流();
-            //    f_buturyuu.Show();
-            //}
+
+            this.Visible = false;
+            if (int.Parse(TextboxShainID.Text) == 1)
+            {
+                F_管理者 f_Admin = new F_管理者();
+                f_Admin.Show();
+            }
+            if (int.Parse(TextboxShainID.Text) == 2)
+            {
+                F_営業 f_eigyou = new F_営業();
+                f_eigyou.Show();
+            }
+            if (int.Parse(TextboxShainID.Text) == 3)
+            {
+                F_物流 f_buturyuu = new F_物流();
+                f_buturyuu.Show();
+            }
+            if (int.Parse(TextboxShainID.Text) == 4)
+            {
+                F_PW新規登録 f_SinkiTouroku = new F_PW新規登録();
+                f_SinkiTouroku.Show();
+                return;
+            }
         }
 
         //入力チェック
@@ -885,9 +899,6 @@ namespace SalesManagement_SysDev
             employeeDataAccess.GetPoID(SyainID, out SolID);
         }
 
-        private void TextboxShainID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

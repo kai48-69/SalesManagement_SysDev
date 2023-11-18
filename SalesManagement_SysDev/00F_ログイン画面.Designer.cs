@@ -43,7 +43,7 @@
             // 
             // btn_CleateDabase
             // 
-            this.btn_CleateDabase.Location = new System.Drawing.Point(584, 302);
+            this.btn_CleateDabase.Location = new System.Drawing.Point(729, 382);
             this.btn_CleateDabase.Margin = new System.Windows.Forms.Padding(4);
             this.btn_CleateDabase.Name = "btn_CleateDabase";
             this.btn_CleateDabase.Size = new System.Drawing.Size(141, 61);
@@ -51,7 +51,7 @@
             this.btn_CleateDabase.TabStop = false;
             this.btn_CleateDabase.Text = "データベース生成";
             this.btn_CleateDabase.UseVisualStyleBackColor = true;
-            this.btn_CleateDabase.Click += new System.EventHandler(this.btn_CleateDabase_Click);
+            this.btn_CleateDabase.Click += new System.EventHandler(this.Btn_CleateDabase_Click);
             // 
             // Lbl_tag
             // 
@@ -66,7 +66,7 @@
             // 
             // btn_InsertSampleData
             // 
-            this.btn_InsertSampleData.Location = new System.Drawing.Point(584, 389);
+            this.btn_InsertSampleData.Location = new System.Drawing.Point(729, 469);
             this.btn_InsertSampleData.Margin = new System.Windows.Forms.Padding(4);
             this.btn_InsertSampleData.Name = "btn_InsertSampleData";
             this.btn_InsertSampleData.Size = new System.Drawing.Size(141, 61);
@@ -74,7 +74,7 @@
             this.btn_InsertSampleData.TabStop = false;
             this.btn_InsertSampleData.Text = "サンプルデータ登録";
             this.btn_InsertSampleData.UseVisualStyleBackColor = true;
-            this.btn_InsertSampleData.Click += new System.EventHandler(this.btn_InsertSampleData_Click);
+            this.btn_InsertSampleData.Click += new System.EventHandler(this.Btn_InsertSampleData_Click);
             // 
             // TextboxShainID
             // 
@@ -84,7 +84,6 @@
             this.TextboxShainID.Name = "TextboxShainID";
             this.TextboxShainID.Size = new System.Drawing.Size(321, 49);
             this.TextboxShainID.TabIndex = 1;
-            this.TextboxShainID.TextChanged += new System.EventHandler(this.TextboxShainID_TextChanged);
             // 
             // TextboxPW
             // 
@@ -118,7 +117,7 @@
             // ButtonLogin
             // 
             this.ButtonLogin.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.ButtonLogin.Location = new System.Drawing.Point(139, 318);
+            this.ButtonLogin.Location = new System.Drawing.Point(129, 301);
             this.ButtonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(437, 61);
@@ -141,7 +140,7 @@
             // ButtonExit
             // 
             this.ButtonExit.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonExit.Location = new System.Drawing.Point(569, 22);
+            this.ButtonExit.Location = new System.Drawing.Point(563, 22);
             this.ButtonExit.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonExit.Name = "ButtonExit";
             this.ButtonExit.Size = new System.Drawing.Size(101, 46);
@@ -154,7 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 420);
+            this.ClientSize = new System.Drawing.Size(677, 397);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ButtonLogin);
             this.Controls.Add(this.label2);
@@ -166,6 +165,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "F_ログイン画面";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "販売管理システム_ログイン画面";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
