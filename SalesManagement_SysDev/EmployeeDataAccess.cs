@@ -27,6 +27,8 @@ namespace SalesManagement_SysDev
             }
             return false;
         }
+
+
         //役職IDの取得
         public bool GetPoID(int EmID,out int PolID)
         {
@@ -110,6 +112,7 @@ namespace SalesManagement_SysDev
                 var context = new SalesManagement_DevContext();
                 var Employee = context.M_Employees.Single(x => x.EmID == hidEmp.EmID);
                 Employee.EmFlag = hidEmp.EmFlag;
+                Employee.EmHidden= hidEmp.EmHidden;
 
                 context.SaveChanges();
                 context.Dispose();
