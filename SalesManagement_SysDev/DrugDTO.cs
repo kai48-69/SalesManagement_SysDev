@@ -75,6 +75,8 @@ namespace SalesManagement_SysDev
     {
         [DisplayName("受注ID")]
         public string OrID { get; set; }
+        [DisplayName("受注詳細ID")]
+        public string OrDetailID { get; set; }  
         [DisplayName("営業所名")]
         public string SoName { get; set; }
         [DisplayName("社員名")]

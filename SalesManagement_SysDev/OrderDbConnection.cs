@@ -32,6 +32,7 @@ namespace SalesManagement_SysDev
                          select new DispOrderListDTO
                          {
                              OrID = Order.OrID.ToString(),
+                             OrDetailID=OrDetail.OrDetailID.ToString(),
                              SoName = SOffice.SoName,
                              EmName = Employee.EmName,
                              ClName = Client.ClName,
@@ -46,7 +47,6 @@ namespace SalesManagement_SysDev
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("在庫データ取得時に例外エラーが発生しました", "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return null;
@@ -66,6 +66,12 @@ namespace SalesManagement_SysDev
                 MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return Clname;
+        }
+
+        public int GetOrID()
+        {
+            var context = new SalesManagement_DevContext();
+            return context.T_Orders.Max(x => x.OrID);
         }
 
     }

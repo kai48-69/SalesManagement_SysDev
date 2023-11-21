@@ -117,7 +117,11 @@ namespace SalesManagement_SysDev
             ////非表示理由 
             dataGridView1.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[9].Width = 400;
+            dataGridView1.Columns[9].Width = 80;
+            ////非表示理由 
+            dataGridView1.Columns[10].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Columns[10].Width = 400;
 
             dataGridView1.Refresh();
         }
@@ -174,7 +178,7 @@ namespace SalesManagement_SysDev
             {
                 SoID = SoID+1,
                 EmID = int.Parse(TextboxSyainID.Text.Trim()),
-                ClID = ClID,
+                ClID = ClID+1,
                 ClCharge = TextboxTantousyaName.Text.Trim(),
                 OrDate = DateTime.Now,
                 OrFlag = 0,
