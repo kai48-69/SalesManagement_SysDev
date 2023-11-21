@@ -43,7 +43,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //在庫情報の全件取得
-            List<DispEmployeeListDTO> tb = DB.EmployeeGetData("", 0);
+            List<DispEmployeeListDTO> tb = DB.EmployeeGetData("");
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -491,6 +491,7 @@ namespace SalesManagement_SysDev
             ClearInput();
         }
 
+        //登録時の入力項目選択-----------------------------------------------------------
         private void RadioTouroku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
@@ -504,7 +505,7 @@ namespace SalesManagement_SysDev
             NyusyaDate.Visible = true;
             LblNyusyaDate.Visible = true;
         }
-
+        //検索時の入力項目選択-----------------------------------------------------------
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
@@ -517,7 +518,7 @@ namespace SalesManagement_SysDev
             NyusyaDate.Visible = false;
             LblNyusyaDate.Visible = false;
         }
-
+        //更新時の入力項目選択-----------------------------------------------------------
         private void RadioKousin_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
@@ -531,7 +532,7 @@ namespace SalesManagement_SysDev
             NyusyaDate.Visible = false;
             LblNyusyaDate.Visible = false;
         }
-
+        //非表示時の入力項目選択-----------------------------------------------------------
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();

@@ -43,7 +43,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //在庫情報の全件取得
-            List<DispClientListDTO> tb = DB.ClientGetData("", "", 0);
+            List<DispClientListDTO> tb = DB.ClientGetData("", "");
             if (tb == null)
                 return false;
             //データグリッドビューへの設定

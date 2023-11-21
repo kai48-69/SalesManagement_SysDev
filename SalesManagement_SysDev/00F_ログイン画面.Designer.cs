@@ -79,7 +79,7 @@
             // TextboxShainID
             // 
             this.TextboxShainID.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.TextboxShainID.Location = new System.Drawing.Point(300, 128);
+            this.TextboxShainID.Location = new System.Drawing.Point(268, 131);
             this.TextboxShainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxShainID.Name = "TextboxShainID";
             this.TextboxShainID.Size = new System.Drawing.Size(321, 49);
@@ -88,7 +88,7 @@
             // TextboxPW
             // 
             this.TextboxPW.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.TextboxPW.Location = new System.Drawing.Point(300, 215);
+            this.TextboxPW.Location = new System.Drawing.Point(268, 218);
             this.TextboxPW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxPW.Name = "TextboxPW";
             this.TextboxPW.Size = new System.Drawing.Size(321, 49);
@@ -98,7 +98,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.label1.Location = new System.Drawing.Point(100, 133);
+            this.label1.Location = new System.Drawing.Point(69, 133);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 42);
             this.label1.TabIndex = 4;
@@ -108,7 +108,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.label2.Location = new System.Drawing.Point(59, 221);
+            this.label2.Location = new System.Drawing.Point(28, 221);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(181, 42);
             this.label2.TabIndex = 5;
@@ -117,7 +117,7 @@
             // ButtonLogin
             // 
             this.ButtonLogin.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.ButtonLogin.Location = new System.Drawing.Point(129, 301);
+            this.ButtonLogin.Location = new System.Drawing.Point(95, 303);
             this.ButtonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(437, 61);
@@ -140,7 +140,7 @@
             // ButtonExit
             // 
             this.ButtonExit.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonExit.Location = new System.Drawing.Point(563, 22);
+            this.ButtonExit.Location = new System.Drawing.Point(489, 22);
             this.ButtonExit.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonExit.Name = "ButtonExit";
             this.ButtonExit.Size = new System.Drawing.Size(101, 46);
@@ -153,7 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 397);
+            this.ClientSize = new System.Drawing.Size(639, 397);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ButtonLogin);
             this.Controls.Add(this.label2);

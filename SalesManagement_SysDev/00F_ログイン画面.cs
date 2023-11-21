@@ -18,7 +18,7 @@ namespace SalesManagement_SysDev
     public partial class F_ログイン画面 : Form
     {
         readonly EmployeeDataAccess employeeDataAccess = new EmployeeDataAccess();
-        LoginData loginData = new LoginData();
+        readonly  LoginData loginData = new LoginData();
 
         public F_ログイン画面()
         {
