@@ -9,7 +9,7 @@ namespace SalesManagement_SysDev
 {
     internal class ClientDbConnection
     {
-        public List<DispClientListDTO> ClientGetData(string strName, string strSOffice, int safety)
+        public List<DispClientListDTO> ClientGetData(string strName, string strSOffice)
         {
             var context = new SalesManagement_DevContext();
             try

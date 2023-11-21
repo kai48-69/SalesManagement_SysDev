@@ -58,7 +58,7 @@ namespace SalesManagement_SysDev
             try
             {
                 var context = new SalesManagement_DevContext();
-                Clname = context.M_Clients.Where(x => x.ClName != null).ToList();
+                Clname = context.M_Clients.Where(x => x.ClName != null &&x.ClFlag==0) .ToList();
                 context.Dispose();
             }
             catch (Exception ex)
