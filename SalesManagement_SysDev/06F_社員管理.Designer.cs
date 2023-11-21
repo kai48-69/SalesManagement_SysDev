@@ -39,9 +39,8 @@
             this.TextboxSyainID = new System.Windows.Forms.TextBox();
             this.ButtonBack = new System.Windows.Forms.Button();
             this.TextboxTelNo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LblNyusyaDate = new System.Windows.Forms.Label();
             this.ButtonReset = new System.Windows.Forms.Button();
-            this.ButtonExe = new System.Windows.Forms.Button();
             this.RadioHihyouji = new System.Windows.Forms.RadioButton();
             this.RadioKousin = new System.Windows.Forms.RadioButton();
             this.RadioKensaku = new System.Windows.Forms.RadioButton();
@@ -58,6 +57,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ComboYakusyokuName = new System.Windows.Forms.ComboBox();
             this.NyusyaDate = new System.Windows.Forms.DateTimePicker();
+            this.ButtonExe = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +66,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label6.Location = new System.Drawing.Point(95, 341);
+            this.label6.Location = new System.Drawing.Point(82, 353);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 25);
             this.label6.TabIndex = 95;
@@ -76,7 +76,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label5.Location = new System.Drawing.Point(500, 337);
+            this.label5.Location = new System.Drawing.Point(489, 353);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 25);
             this.label5.TabIndex = 94;
@@ -85,7 +85,7 @@
             // TextboxSyainName
             // 
             this.TextboxSyainName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSyainName.Location = new System.Drawing.Point(189, 337);
+            this.TextboxSyainName.Location = new System.Drawing.Point(176, 349);
             this.TextboxSyainName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainName.Name = "TextboxSyainName";
             this.TextboxSyainName.Size = new System.Drawing.Size(221, 32);
@@ -105,7 +105,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label7.Location = new System.Drawing.Point(70, 390);
+            this.label7.Location = new System.Drawing.Point(57, 420);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 25);
             this.label7.TabIndex = 91;
@@ -115,7 +115,7 @@
             // 
             this.ComboEigyousyoName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ComboEigyousyoName.FormattingEnabled = true;
-            this.ComboEigyousyoName.Location = new System.Drawing.Point(595, 280);
+            this.ComboEigyousyoName.Location = new System.Drawing.Point(586, 285);
             this.ComboEigyousyoName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboEigyousyoName.Name = "ComboEigyousyoName";
             this.ComboEigyousyoName.Size = new System.Drawing.Size(247, 33);
@@ -125,7 +125,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label2.Location = new System.Drawing.Point(473, 284);
+            this.label2.Location = new System.Drawing.Point(464, 289);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 25);
             this.label2.TabIndex = 85;
@@ -135,7 +135,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label1.Location = new System.Drawing.Point(98, 288);
+            this.label1.Location = new System.Drawing.Point(85, 288);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 25);
             this.label1.TabIndex = 84;
@@ -144,7 +144,7 @@
             // TextboxSyainID
             // 
             this.TextboxSyainID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSyainID.Location = new System.Drawing.Point(190, 284);
+            this.TextboxSyainID.Location = new System.Drawing.Point(177, 284);
             this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainID.Name = "TextboxSyainID";
             this.TextboxSyainID.Size = new System.Drawing.Size(220, 32);
@@ -153,7 +153,7 @@
             // ButtonBack
             // 
             this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonBack.Location = new System.Drawing.Point(1171, 36);
+            this.ButtonBack.Location = new System.Drawing.Point(1194, 36);
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(165, 58);
@@ -165,21 +165,21 @@
             // TextboxTelNo
             // 
             this.TextboxTelNo.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxTelNo.Location = new System.Drawing.Point(191, 386);
+            this.TextboxTelNo.Location = new System.Drawing.Point(178, 416);
             this.TextboxTelNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxTelNo.Name = "TextboxTelNo";
             this.TextboxTelNo.Size = new System.Drawing.Size(219, 32);
             this.TextboxTelNo.TabIndex = 90;
             // 
-            // label3
+            // LblNyusyaDate
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label3.Location = new System.Drawing.Point(447, 390);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 25);
-            this.label3.TabIndex = 88;
-            this.label3.Text = "入社年月日";
+            this.LblNyusyaDate.AutoSize = true;
+            this.LblNyusyaDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.LblNyusyaDate.Location = new System.Drawing.Point(439, 418);
+            this.LblNyusyaDate.Name = "LblNyusyaDate";
+            this.LblNyusyaDate.Size = new System.Drawing.Size(137, 25);
+            this.LblNyusyaDate.TabIndex = 88;
+            this.LblNyusyaDate.Text = "入社年月日";
             // 
             // ButtonReset
             // 
@@ -191,18 +191,7 @@
             this.ButtonReset.TabIndex = 82;
             this.ButtonReset.Text = "入力リセット";
             this.ButtonReset.UseVisualStyleBackColor = true;
-            // 
-            // ButtonExe
-            // 
-            this.ButtonExe.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonExe.Location = new System.Drawing.Point(1171, 168);
-            this.ButtonExe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonExe.Name = "ButtonExe";
-            this.ButtonExe.Size = new System.Drawing.Size(165, 58);
-            this.ButtonExe.TabIndex = 72;
-            this.ButtonExe.Text = "実行";
-            this.ButtonExe.UseVisualStyleBackColor = true;
-            this.ButtonExe.Click += new System.EventHandler(this.ButtonExe_Click);
+            this.ButtonReset.Click += new System.EventHandler(this.ButtonReset_Click);
             // 
             // RadioHihyouji
             // 
@@ -215,6 +204,7 @@
             this.RadioHihyouji.TabIndex = 81;
             this.RadioHihyouji.Text = "非表示";
             this.RadioHihyouji.UseVisualStyleBackColor = true;
+            this.RadioHihyouji.CheckedChanged += new System.EventHandler(this.RadioHihyouji_CheckedChanged);
             // 
             // RadioKousin
             // 
@@ -227,18 +217,20 @@
             this.RadioKousin.TabIndex = 80;
             this.RadioKousin.Text = "更新";
             this.RadioKousin.UseVisualStyleBackColor = true;
+            this.RadioKousin.CheckedChanged += new System.EventHandler(this.RadioKousin_CheckedChanged);
             // 
             // RadioKensaku
             // 
             this.RadioKensaku.AutoSize = true;
             this.RadioKensaku.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.RadioKensaku.Location = new System.Drawing.Point(175, 178);
+            this.RadioKensaku.Location = new System.Drawing.Point(178, 178);
             this.RadioKensaku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioKensaku.Name = "RadioKensaku";
             this.RadioKensaku.Size = new System.Drawing.Size(94, 34);
             this.RadioKensaku.TabIndex = 79;
             this.RadioKensaku.Text = "検索";
             this.RadioKensaku.UseVisualStyleBackColor = true;
+            this.RadioKensaku.CheckedChanged += new System.EventHandler(this.RadioKensaku_CheckedChanged);
             // 
             // RadioTouroku
             // 
@@ -253,6 +245,7 @@
             this.RadioTouroku.TabStop = true;
             this.RadioTouroku.Text = "登録";
             this.RadioTouroku.UseVisualStyleBackColor = true;
+            this.RadioTouroku.CheckedChanged += new System.EventHandler(this.RadioTouroku_CheckedChanged);
             // 
             // panel1
             // 
@@ -337,7 +330,7 @@
             this.TextboxHihyoji.Location = new System.Drawing.Point(1020, 283);
             this.TextboxHihyoji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxHihyoji.Name = "TextboxHihyoji";
-            this.TextboxHihyoji.Size = new System.Drawing.Size(316, 162);
+            this.TextboxHihyoji.Size = new System.Drawing.Size(339, 162);
             this.TextboxHihyoji.TabIndex = 76;
             this.TextboxHihyoji.Text = "";
             // 
@@ -345,7 +338,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label8.Location = new System.Drawing.Point(868, 286);
+            this.label8.Location = new System.Drawing.Point(877, 284);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(137, 25);
             this.label8.TabIndex = 75;
@@ -354,19 +347,21 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(56, 498);
+            this.dataGridView1.Location = new System.Drawing.Point(56, 476);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1308, 349);
+            this.dataGridView1.Size = new System.Drawing.Size(1303, 371);
             this.dataGridView1.TabIndex = 71;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // ComboYakusyokuName
             // 
             this.ComboYakusyokuName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ComboYakusyokuName.FormattingEnabled = true;
-            this.ComboYakusyokuName.Location = new System.Drawing.Point(595, 333);
+            this.ComboYakusyokuName.Location = new System.Drawing.Point(584, 349);
             this.ComboYakusyokuName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboYakusyokuName.Name = "ComboYakusyokuName";
             this.ComboYakusyokuName.Size = new System.Drawing.Size(247, 33);
@@ -375,17 +370,31 @@
             // NyusyaDate
             // 
             this.NyusyaDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.NyusyaDate.Location = new System.Drawing.Point(595, 385);
+            this.NyusyaDate.Location = new System.Drawing.Point(587, 413);
             this.NyusyaDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NyusyaDate.Name = "NyusyaDate";
             this.NyusyaDate.Size = new System.Drawing.Size(247, 32);
             this.NyusyaDate.TabIndex = 99;
             // 
+            // ButtonExe
+            // 
+            this.ButtonExe.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ButtonExe.Location = new System.Drawing.Point(1194, 167);
+            this.ButtonExe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonExe.Name = "ButtonExe";
+            this.ButtonExe.Size = new System.Drawing.Size(165, 58);
+            this.ButtonExe.TabIndex = 100;
+            this.ButtonExe.Text = "実行";
+            this.ButtonExe.UseVisualStyleBackColor = true;
+            this.ButtonExe.Click += new System.EventHandler(this.ButtonExe_Click);
+            // 
             // F_社員管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1403, 884);
+            this.Controls.Add(this.ButtonExe);
             this.Controls.Add(this.NyusyaDate);
             this.Controls.Add(this.ComboYakusyokuName);
             this.Controls.Add(this.label6);
@@ -397,9 +406,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TextboxSyainID);
             this.Controls.Add(this.TextboxTelNo);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.LblNyusyaDate);
             this.Controls.Add(this.ButtonReset);
-            this.Controls.Add(this.ButtonExe);
             this.Controls.Add(this.RadioHihyouji);
             this.Controls.Add(this.RadioKousin);
             this.Controls.Add(this.RadioKensaku);
@@ -433,9 +441,8 @@
         private System.Windows.Forms.TextBox TextboxSyainID;
         private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.TextBox TextboxTelNo;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LblNyusyaDate;
         private System.Windows.Forms.Button ButtonReset;
-        private System.Windows.Forms.Button ButtonExe;
         private System.Windows.Forms.RadioButton RadioHihyouji;
         private System.Windows.Forms.RadioButton RadioKousin;
         private System.Windows.Forms.RadioButton RadioKensaku;
@@ -452,5 +459,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button ButtonExe;
     }
 }

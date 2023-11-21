@@ -9,7 +9,7 @@ namespace SalesManagement_SysDev
 {
     internal class EmployeeDbConnection
     {
-        public List<DispEmployeeListDTO> EmployeeGetData(string strName, int flg)
+        public List<DispEmployeeListDTO> EmployeeGetData(string strName)
         {
             var context = new SalesManagement_DevContext();
             try
@@ -83,14 +83,15 @@ namespace SalesManagement_SysDev
                          on Employee.SoID equals SOffice.SoID
                          join Position in context.M_Positions
                          on Employee.PoID equals Position.PoID
-                         where Employee.EmID == selectCondition.EmID &&
-                         (selectCondition.EmID == -1) ? true :
-                         Employee.SoID == selectCondition.SoID &&
+                         where Employee.EmPhone.Contains(selectCondition.EmPhone) &&
+
+                         ((selectCondition.EmID == -1) ? true :
+                         Employee.EmID == selectCondition.EmID) &&
                         ((selectCondition.SoID == -1) ? true :
-                        Employee.PoID == selectCondition.PoID) &&
+                        Employee.SoID == selectCondition.SoID) &&
                         ((selectCondition.PoID == -1) ? true :
-                         ((selectCondition.EmFlag == 0) ? true :
-                         Employee.EmFlag == selectCondition.EmFlag))
+                        (Employee.PoID == selectCondition.PoID)) &&
+                         Employee.EmFlag.Equals(0)
 
                          select new DispEmployeeListDTO
                          {
@@ -98,8 +99,8 @@ namespace SalesManagement_SysDev
                              EmName = Employee.EmName,
                              SoName = SOffice.SoName,
                              PoName = Position.PoName,
-                             EmHiredate = Employee.EmHiredate.ToString(),
                              EmPhone = Employee.EmPhone,
+                             EmHiredate=Employee.EmHiredate.ToString(),
                              EmHidden = Employee.EmHidden,
                          };
 

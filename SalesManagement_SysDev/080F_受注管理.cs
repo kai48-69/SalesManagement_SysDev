@@ -13,10 +13,12 @@ namespace SalesManagement_SysDev
 {
     public partial class F_受注管理 : Form
     {
-        OrderDbConnection DB = new OrderDbConnection();
-        OrderDataAccess ODA=new OrderDataAccess();
+        readonly OrderDbConnection DB = new OrderDbConnection();
+        readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
+        readonly OrderDataAccess ODA=new OrderDataAccess();
         private static List<M_Client> ClNameDsp;
-        private InputCheck ichk = new InputCheck();
+        private static List<M_SalesOffice> SoNameDsp;
+        readonly private InputCheck ichk = new InputCheck();
 
         public F_受注管理()
         {
@@ -51,9 +53,15 @@ namespace SalesManagement_SysDev
         {
             ClNameDsp = DB.GetClientNameDspData();
             ComboKokyakuName.Items.AddRange(ClNameDsp.ToArray());
-            ComboKokyakuName.DisplayMember = "MaName";
-            ComboKokyakuName.ValueMember = "MaID";
+            ComboKokyakuName.DisplayMember = "ClName";
+            ComboKokyakuName.ValueMember = "ClID";
             ComboKokyakuName.DataSource = ClNameDsp;
+
+            SoNameDsp = DB1.GetSoNameDspData();
+            ComboEigyousyoName.Items.AddRange(SoNameDsp.ToArray());
+            ComboEigyousyoName.DisplayMember = "SoName";
+            ComboEigyousyoName.ValueMember = "SoID";
+            ComboEigyousyoName.DataSource = SoNameDsp;
         }
 
         //データグリッドビューの表示設定
@@ -126,9 +134,8 @@ namespace SalesManagement_SysDev
                 }
 
                 var regOr = GenerateDataAtRegistration();
-                var regDetailOr = GenerateDataAtDetailRegistration();
 
-                RegistrationProduct(regOr);
+                RegistrationOrder(regOr);
             }
         }
 
@@ -136,60 +143,26 @@ namespace SalesManagement_SysDev
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
 
-            if (!String.IsNullOrEmpty(TextboxTantousyaName.Text.Trim()))
+            if (String.IsNullOrEmpty(TextboxTantousyaName.Text.Trim()))
             {
                 MessageBox.Show("顧客担当者名が入力されていません");
-                TextboxTantousyaName.Focus();
                 return false;
             }
 
-            if (String.IsNullOrEmpty(TextboxSyohinID.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxSyohinID.Text.Trim()))
-                {
-                    MessageBox.Show("商品IDは半角数字で入力してください");
-                    TextboxSyohinID.Focus();
-                    return false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("商品IDが入力されていません");
-                TextboxSyohinID.Focus();
-                return false;
-            }
-
-            if (String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
+            if (!String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
             {
                 if (!ichk.IntegerCheck(TextboxSyainID.Text.Trim()))
                 {
                     MessageBox.Show("社員IDは半角数字で入力してください");
-                    TextboxSyainID.Focus();
                     return false;
                 }
             }
             else
             {
                 MessageBox.Show("社員IDが入力されていません");
-                TextboxSyainID.Focus();
                 return false;
             }
 
-            if (String.IsNullOrEmpty(TextboxSuryou.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxSuryou.Text.Trim()))
-                {
-                    MessageBox.Show("数量は半角数字で入力してください");
-                    TextboxSyohinID.Focus();
-                    return false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("数量が入力されていません");
-                TextboxSyohinID.Focus();
-                return false;
-            }
             return true;
         }
 
@@ -199,48 +172,41 @@ namespace SalesManagement_SysDev
             int SoID=ComboEigyousyoName.SelectedIndex;
             return new T_Order
             {
-                OrID = int.Parse(TextboxJutyuID.Text.Trim()),
-                SoID = SoID,
+                SoID = SoID+1,
                 EmID = int.Parse(TextboxSyainID.Text.Trim()),
                 ClID = ClID,
                 ClCharge = TextboxTantousyaName.Text.Trim(),
                 OrDate = DateTime.Now,
-                OrHidden = TextboxHihyouji.Text.Trim(),
+                OrFlag = 0,
+                OrStateFlag=0,
+                OrHidden = null
             };
         }
 
-        private T_OrderDetail GenerateDataAtDetailRegistration() //詳細用登録データ生成
-        {
-            int PrID = int.Parse(TextboxSyohinID.Text.Trim());
-           int Suryou= int.Parse(TextboxSuryou.Text.Trim());
-            decimal Price =ODA.GetPrice(PrID);
-
-            return new T_OrderDetail
-            {
-                OrDetailID = int.Parse(TextboxSyosaiID.Text.Trim()),
-                OrID = int.Parse(TextboxJutyuID.Text.Trim()),
-                PrID = PrID,
-                OrQuantity = int.Parse(TextboxSuryou.Text.Trim()),
-                OrTotalPrice=Suryou*Price,
-            };
-        }
-
+      
         private void RegistrationOrder(T_Order regOr) //データ登録処理
         {
-            DialogResult result = MessageBox.Show("商品データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("受注データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
             {
                 return;
             }
-            bool flg = ProductDataAccess.AddProductData(regOr);
+            bool flg = ODA.AddOrderData(regOr);
             if (flg == true)
             {
-                MessageBox.Show("データを登録しました");
+                DialogResult result1= MessageBox.Show("データを登録しました");
+                if (result1==DialogResult.OK)
+                {
+                    F_受注詳細登録 f_JutyuSyousai = new F_受注詳細登録();
+                    this.Opacity = 30;
+                    f_JutyuSyousai.Show();
+                   
+                }
             }
             else
             {
                 MessageBox.Show("データの登録に失敗しました");
-                TextboxID.Focus();
+                TextboxSyainName.Focus();
             }
             ClearInput();
             GetDataGridView();
@@ -254,7 +220,11 @@ namespace SalesManagement_SysDev
             F_営業 f_eigyou = new F_営業();
             f_eigyou.Show();
         }
+        private void ClearInput()
+        {
 
+        }
+        //リセットボタン------------------------------------------------------------------
         private void ButtonReset_Click(object sender, EventArgs e)
         {
 

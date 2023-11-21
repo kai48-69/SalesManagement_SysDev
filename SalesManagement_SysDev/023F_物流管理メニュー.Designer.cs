@@ -96,7 +96,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label1.Location = new System.Drawing.Point(368, 45);
+            this.label1.Location = new System.Drawing.Point(369, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(368, 50);
             this.label1.TabIndex = 4;
@@ -210,7 +210,8 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_物流";
-            this.Text = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "販売管理システム_物流管理画面";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

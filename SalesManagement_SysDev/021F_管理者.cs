@@ -17,6 +17,11 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
+        private void F_管理者_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+        }
+
         private void ButtonEigyou_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -31,10 +36,6 @@ namespace SalesManagement_SysDev
             f_buturyuu.Show();
         }
 
-        private void ButtonHistory_Click(object sender,EventArgs e)
-        {
-
-        }
 
         private void ButtonSyain_Click(object sender, EventArgs e)
         {
@@ -54,5 +55,7 @@ namespace SalesManagement_SysDev
             }
 
         }
+
+        
     }
 }

@@ -9,7 +9,7 @@ namespace SalesManagement_SysDev
 {
     internal class ClientDbConnection
     {
-        public List<DispClientListDTO> ClientGetData(string strName, string strSOffice, int safety)
+        public List<DispClientListDTO> ClientGetData(string strName, string strSOffice)
         {
             var context = new SalesManagement_DevContext();
             try
@@ -72,8 +72,7 @@ namespace SalesManagement_SysDev
                           Client.ClID == selectCondition.ClID) &&
                          ((selectCondition.SoID == -1) ? true :
                          Client.SoID == selectCondition.SoID) &&
-                         ((selectCondition.ClFlag == 0) ? true :
-                        Client.ClFlag == selectCondition.ClFlag)
+                          Client.ClFlag.Equals(0)
 
 
                          select new DispClientListDTO
