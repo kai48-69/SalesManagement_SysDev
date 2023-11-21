@@ -9,7 +9,7 @@ namespace SalesManagement_SysDev
 {
     internal class EmployeeDbConnection
     {
-        public List<DispEmployeeListDTO> EmployeeGetData(string strName, int flg)
+        public List<DispEmployeeListDTO> EmployeeGetData(string strName)
         {
             var context = new SalesManagement_DevContext();
             try

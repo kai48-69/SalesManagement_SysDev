@@ -150,11 +150,11 @@
     <Compile Include="023F_物流管理メニュー.Designer.cs">
       <DependentUpon>023F_物流管理メニュー.cs</DependentUpon>
     </Compile>
-    <Compile Include="08F_受注管理.cs">
+    <Compile Include="080F_受注管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="08F_受注管理.Designer.cs">
-      <DependentUpon>08F_受注管理.cs</DependentUpon>
+    <Compile Include="080F_受注管理.Designer.cs">
+      <DependentUpon>080F_受注管理.cs</DependentUpon>
     </Compile>
     <Compile Include="021F_管理者.cs">
       <SubType>Form</SubType>
@@ -174,6 +174,12 @@
     <Compile Include="Entity\M_Position.cs" />
     <Compile Include="Entity\M_SalesOffice.cs" />
     <Compile Include="Entity\M_SmallClassification.cs" />
+    <Compile Include="081F_受注詳細登録.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="081F_受注詳細登録.Designer.cs">
+      <DependentUpon>081F_受注詳細登録.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputCheck.cs" />
     <Compile Include="OrderDataAccess.cs" />
     <Compile Include="OrderDbConnection.cs" />
@@ -244,14 +250,17 @@
     <EmbeddedResource Include="023F_物流管理メニュー.resx">
       <DependentUpon>023F_物流管理メニュー.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="08F_受注管理.resx">
-      <DependentUpon>08F_受注管理.cs</DependentUpon>
+    <EmbeddedResource Include="080F_受注管理.resx">
+      <DependentUpon>080F_受注管理.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="021F_管理者.resx">
       <DependentUpon>021F_管理者.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="00F_ログイン画面.resx">
       <DependentUpon>00F_ログイン画面.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="081F_受注詳細登録.resx">
+      <DependentUpon>081F_受注詳細登録.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
