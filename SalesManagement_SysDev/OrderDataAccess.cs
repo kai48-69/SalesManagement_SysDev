@@ -10,20 +10,7 @@ namespace SalesManagement_SysDev
 {
     internal class OrderDataAccess
     {
-        public decimal  GetPrice(int PrID)
-        {
-            var context = new SalesManagement_DevContext();
-            decimal Price = 0;
-            bool flg = context.M_Products.Any(x => x.PrID == PrID);
-
-            if (flg)
-            {
-                var Product = context.M_Products.Single(x => x.PrID == PrID);
-                Price = Product.Price;
-            }
-            return Price;
-        }
-
+        
         public bool AddOrderData(T_Order regOr)
         {
             try
@@ -40,5 +27,54 @@ namespace SalesManagement_SysDev
                 return false;
             }
         }
+
+        public bool AddOrderDetailData(T_OrderDetail regOrD)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                context.T_OrderDetails.Add(regOrD);
+                context.SaveChanges();
+                context.Dispose();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        
+         public bool HideOrderData(T_Order hidOr)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Order = context.T_Orders.Single(x => x.OrID == hidOr.OrID);
+                Order.OrFlag = hidOr.OrFlag;
+                Order.OrHidden = hidOr.OrHidden;
+
+                context.SaveChanges();
+                context.Dispose();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+       
+
+        public bool CheckCascadeOrderID(int OrID)
+        {
+            var context = new SalesManagement_DevContext();
+            bool flg = context.T_Chumons.Any(x => x.OrID == OrID);
+
+            return flg;
+        }
+
     }
 }

@@ -18,6 +18,7 @@ namespace SalesManagement_SysDev
     public partial class F_ログイン画面 : Form
     {
         readonly EmployeeDataAccess employeeDataAccess = new EmployeeDataAccess();
+        readonly EmployeeDbConnection　DB = new EmployeeDbConnection();
         readonly  LoginData loginData = new LoginData();
 
         public F_ログイン画面()
@@ -813,9 +814,9 @@ namespace SalesManagement_SysDev
         //ログイン機能
         private bool CheckIDPW(int SyainID)
         {
-            if (employeeDataAccess.CheckCascadeEmployeesID(SyainID))
+            if (DB.CheckCascadeEmployeesID(SyainID))
             {
-                if (!employeeDataAccess.CheckCascadeEmployeesPW(TextboxPW.Text.Trim(),SyainID)) 
+                if (!DB.CheckEmployeesPW(TextboxPW.Text.Trim(),SyainID)) 
                 {
                     MessageBox.Show("IDまたはパスワードが違います");
                     TextboxShainID.Focus();
@@ -845,7 +846,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                employeeDataAccess.GetPoID(SyainID, out  PolID);
+                DB.GetPoID(SyainID, out  PolID);
             }
             return PolID;
         }
@@ -895,8 +896,8 @@ namespace SalesManagement_SysDev
 
         private void CreateSaveData( int SyainID ,ref string EmName, ref int SolID)
         {
-            employeeDataAccess.GetEmName(SyainID, out EmName);
-            employeeDataAccess.GetPoID(SyainID, out SolID);
+            DB.GetEmName(SyainID, out EmName);
+            DB.GetPoID(SyainID, out SolID);
         }
 
        

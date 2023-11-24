@@ -53,13 +53,7 @@ namespace SalesManagement_SysDev
             }
         }
 
-        public bool CheckCascadeProduct(int PrID)
-        {
-            var context = new SalesManagement_DevContext();
-            bool flg = context.T_OrderDetails.Any(x => x.PrID == PrID);
-
-            return flg;
-        }
+      
 
         public bool HideProductData(M_Product hidPro)
         {

@@ -128,5 +128,27 @@ namespace SalesManagement_SysDev
             return null;
         }
 
+        public decimal GetPrice(int PrID)
+        {
+            var context = new SalesManagement_DevContext();
+            decimal Price = 0;
+            bool flg = context.M_Products.Any(x => x.PrID == PrID);
+
+            if (flg)
+            {
+                var Product = context.M_Products.Single(x => x.PrID == PrID);
+                Price = Product.Price;
+            }
+            return Price;
+        }
+
+        public bool CheckCascadeProduct(int PrID)
+        {
+            var context = new SalesManagement_DevContext();
+            bool flg = context.T_OrderDetails.Any(x => x.PrID == PrID);
+
+            return flg;
+        }
+
     }
 }
