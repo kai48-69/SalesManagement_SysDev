@@ -140,6 +140,7 @@ namespace SalesManagement_SysDev
             dataGridView1.Refresh();
         }
 
+        //データグリッドビューをクリックしたときの処理
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (RadioTouroku.Checked == true)
@@ -388,7 +389,6 @@ namespace SalesManagement_SysDev
             };
         }
 
-
         private void HideOr(T_Order hidOr)　//データ更新処理
         {
             DialogResult result = MessageBox.Show("受注データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -453,6 +453,7 @@ namespace SalesManagement_SysDev
         }
 
 
+        //登録時の入力項目選択-----------------------------------------------------------
         private void RadioTouroku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
@@ -465,6 +466,7 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = false;
         }
 
+        //検索時の入力項目選択-----------------------------------------------------------
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
@@ -477,6 +479,7 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = false;
         }
 
+        //非表示時の入力項目選択-----------------------------------------------------------
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
