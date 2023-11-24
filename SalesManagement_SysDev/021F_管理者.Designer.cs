@@ -46,11 +46,11 @@
             // ButtonLogis
             // 
             this.ButtonLogis.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonLogis.Location = new System.Drawing.Point(355, 185);
+            this.ButtonLogis.Location = new System.Drawing.Point(359, 185);
             this.ButtonLogis.Name = "ButtonLogis";
             this.ButtonLogis.Size = new System.Drawing.Size(283, 289);
             this.ButtonLogis.TabIndex = 1;
-            this.ButtonLogis.Text = "物流管理画面へ";
+            this.ButtonLogis.Text = "物流管理画面";
             this.ButtonLogis.UseVisualStyleBackColor = true;
             this.ButtonLogis.Click += new System.EventHandler(this.ButtonLogis_Click);
             // 
@@ -70,9 +70,9 @@
             this.ButtonEigyou.Font = new System.Drawing.Font("MS UI Gothic", 23F);
             this.ButtonEigyou.Location = new System.Drawing.Point(32, 185);
             this.ButtonEigyou.Name = "ButtonEigyou";
-            this.ButtonEigyou.Size = new System.Drawing.Size(272, 289);
+            this.ButtonEigyou.Size = new System.Drawing.Size(290, 289);
             this.ButtonEigyou.TabIndex = 3;
-            this.ButtonEigyou.Text = "営業管理画面へ";
+            this.ButtonEigyou.Text = "営業管理画面";
             this.ButtonEigyou.UseVisualStyleBackColor = true;
             this.ButtonEigyou.Click += new System.EventHandler(this.ButtonEigyou_Click);
             // 
