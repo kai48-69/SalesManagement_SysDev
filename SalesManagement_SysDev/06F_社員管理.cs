@@ -25,7 +25,6 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
-
         //画面ロード時処理
         private void F_社員管理_Load(object sender, EventArgs e)
         {
@@ -453,6 +452,7 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
+
         //入力クリア----------------------------------------------------------------------
         private void ClearInput()
         {
@@ -491,6 +491,7 @@ namespace SalesManagement_SysDev
             ClearInput();
         }
 
+
         //登録時の入力項目選択-----------------------------------------------------------
         private void RadioTouroku_CheckedChanged(object sender, EventArgs e)
         {
@@ -505,6 +506,7 @@ namespace SalesManagement_SysDev
             NyusyaDate.Visible = true;
             LblNyusyaDate.Visible = true;
         }
+
         //検索時の入力項目選択-----------------------------------------------------------
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
@@ -518,6 +520,7 @@ namespace SalesManagement_SysDev
             NyusyaDate.Visible = false;
             LblNyusyaDate.Visible = false;
         }
+
         //更新時の入力項目選択-----------------------------------------------------------
         private void RadioKousin_CheckedChanged(object sender, EventArgs e)
         {
@@ -532,6 +535,7 @@ namespace SalesManagement_SysDev
             NyusyaDate.Visible = false;
             LblNyusyaDate.Visible = false;
         }
+
         //非表示時の入力項目選択-----------------------------------------------------------
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {

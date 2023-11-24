@@ -25,6 +25,7 @@ namespace SalesManagement_SysDev
         {
             InitializeComponent();
         }
+
         //画面ロード時処理
         private void F_受注管理_Load(object sender, EventArgs e)
         {
