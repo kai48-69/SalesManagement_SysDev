@@ -457,7 +457,7 @@ namespace SalesManagement_SysDev
         private void ClearInput()
         {
 
-            if (RadioKensaku.Checked == true)//検索時はコンボボックスの値を空にする
+            if (RadioKensaku.Checked == true||RadioHihyouji.Checked==true)//検索時、非表示時はコンボボックスの値を空にする
             {
                 ComboEigyousyoName.SelectedIndex = -1;
                 ComboYakusyokuName.SelectedIndex = -1;
@@ -466,10 +466,10 @@ namespace SalesManagement_SysDev
                 TextboxTelNo.Text = "";
                 TextboxHihyoji.Text = "";
             }
-            else   //検索時以外は表示する
+            else   //上記以外の場合は表示する
             {
-                ComboEigyousyoName.SelectedIndex = -1;
-                ComboYakusyokuName.SelectedIndex = -1;
+                ComboEigyousyoName.SelectedIndex = 0;
+                ComboYakusyokuName.SelectedIndex = 0;
                 TextboxSyainID.Text = "";
                 TextboxSyainName.Text = "";
                 TextboxTelNo.Text = "";

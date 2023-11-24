@@ -45,5 +45,36 @@ namespace SalesManagement_SysDev
             }
         }
 
+        
+         public bool HideOrderData(T_Order hidOr)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Order = context.T_Orders.Single(x => x.OrID == hidOr.OrID);
+                Order.OrFlag = hidOr.OrFlag;
+                Order.OrHidden = hidOr.OrHidden;
+
+                context.SaveChanges();
+                context.Dispose();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+       
+
+        public bool CheckCascadeOrderID(int OrID)
+        {
+            var context = new SalesManagement_DevContext();
+            bool flg = context.T_Chumons.Any(x => x.OrID == OrID);
+
+            return flg;
+        }
+
     }
 }

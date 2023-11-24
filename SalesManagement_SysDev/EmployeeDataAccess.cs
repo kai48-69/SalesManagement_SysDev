@@ -49,14 +49,6 @@ namespace SalesManagement_SysDev
             }
         }
 
-        public bool CheckCascadeEmployee(int EmID)
-        {
-            var context = new SalesManagement_DevContext();
-            bool flg = context.T_Orders.Any(x => x.EmID == EmID);
-
-            return flg;
-        }
-
         public bool HideEmployeeData(M_Employee hidEmp)
         {
             try
@@ -77,5 +69,14 @@ namespace SalesManagement_SysDev
                 return false;
             }
         }
+
+        public bool CheckCascadeEmployee(int EmID)
+        {
+            var context = new SalesManagement_DevContext();
+            bool flg = context.T_Orders.Any(x => x.EmID == EmID);
+
+            return flg;
+        }
+
     }
 }
