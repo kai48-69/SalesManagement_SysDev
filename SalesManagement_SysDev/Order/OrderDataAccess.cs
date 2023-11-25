@@ -66,7 +66,26 @@ namespace SalesManagement_SysDev
                 return false;
             }
         }
-       
+
+        public bool UpdOrderFlg(T_Order UpdOrFlag)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Order = context.T_Orders.Single(x => x.OrID == UpdOrFlag.OrID);
+                Order.OrStateFlag = UpdOrFlag.OrStateFlag;
+
+                context.SaveChanges();
+                context.Dispose();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
 
         public bool CheckCascadeOrderID(int OrID)
         {

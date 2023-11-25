@@ -100,7 +100,7 @@ namespace SalesManagement_SysDev
                              SoName = SOffice.SoName,
                              PoName = Position.PoName,
                              EmPhone = Employee.EmPhone,
-                             EmHiredate=Employee.EmHiredate.ToString(),
+                             EmHiredate = Employee.EmHiredate.ToString(),
                              EmHidden = Employee.EmHidden,
                          };
 
@@ -114,11 +114,25 @@ namespace SalesManagement_SysDev
         }
 
         //IDの存在チェック
-        public bool CheckCascadeEmployeesID(int EmID)
+        public int CheckCascadeEmployeesID(int EmID)
         {
-            var context = new SalesManagement_DevContext();
-            bool flg = context.M_Employees.Any(x => x.EmID == EmID);
-            return flg;
+          
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Syain = context.M_Employees.Single(x => x.EmID == EmID);
+                int SyainID = Syain.EmID;
+                if (Syain.EmFlag == 0)
+                {
+                    return SyainID;
+                }
+                return -1;
+            }
+            catch
+            {
+                return -1;
+            }
+            
         }
 
         //PWチェック
@@ -150,18 +164,18 @@ namespace SalesManagement_SysDev
         }
 
         //社員名の取得
-        public bool GetEmName(int EmID, out string EmName)
+        public string GetEmName(int EmID)
         {
             var context = new SalesManagement_DevContext();
-            EmName = "";
-            bool flg = context.M_Employees.Any(x => x.EmID == EmID);
-
-            if (flg)
+           
+            var Emp = context.M_Employees.Single(x => x.EmID == EmID);
+            string EmName = Emp.EmName;
+            if (Emp.EmFlag == 0)
             {
-                var Emp = context.M_Employees.Single(x => x.EmID == EmID);
-                EmName = Emp.EmName;
+                return EmName;
             }
-            return true;
+            return "";
+           
         }
 
     }
