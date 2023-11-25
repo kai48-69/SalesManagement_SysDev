@@ -112,5 +112,24 @@ namespace SalesManagement_SysDev
         [DisplayName("合計金額")]
         public string OrTotalPrice { get; set;}
     }
+
+    class GetOrderDataDTO
+    {
+        [DisplayName("受注ID")]
+        public string OrID { get; set; }
+        [DisplayName("受注詳細ID")]
+        public string OrDetailID { get; set; }
+        [DisplayName("営業所ID")]
+        public string SoID { get; set; }
+        [DisplayName("社員ID")]
+        public string EmID { get; set; }
+        [DisplayName("顧客ID")]
+        public string ClID { get; set; }
+        [DisplayName("商品ID")]
+        public string PrID { get; set; }
+        [DisplayName("数量")]
+        public string PrQuantity { get; set; }
+
+    }
 }
 

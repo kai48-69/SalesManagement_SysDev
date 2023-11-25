@@ -23,6 +23,7 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
+        //
         private bool GetDataGridView()
         {
             //商品情報の全件取得
@@ -33,6 +34,7 @@ namespace SalesManagement_SysDev
             SetDataGridView(tb);
             return true;
         }
+
 
         private void SetDataGridView(List<DispOrderDetailListDTO> tb)
         {
@@ -76,6 +78,7 @@ namespace SalesManagement_SysDev
             dataGridView1.Refresh();
         }
 
+        //登録ボタン-------------------------------------------------------------------------------
         private void ButtonTouroku_Click(object sender, EventArgs e)
         {
             if (!GetVaildDataAtRegistration())
@@ -88,6 +91,7 @@ namespace SalesManagement_SysDev
             RegistrationOrderDetail(regOrD);
         }
 
+        //登録処理----------------------------------------------------------------------------------
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
 
@@ -167,6 +171,7 @@ namespace SalesManagement_SysDev
             //GetDataGridView();
         }
 
+        //戻るボタン--------------------------------------------------------------------------------
         private void ButtonBack_Click(object sender, EventArgs e)
         {
            DialogResult result= MessageBox.Show("商品登録を終了します。よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Information);

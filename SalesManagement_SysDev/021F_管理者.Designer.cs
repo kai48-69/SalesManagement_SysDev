@@ -49,7 +49,7 @@
             this.ButtonLogis.Location = new System.Drawing.Point(359, 185);
             this.ButtonLogis.Name = "ButtonLogis";
             this.ButtonLogis.Size = new System.Drawing.Size(283, 289);
-            this.ButtonLogis.TabIndex = 1;
+            this.ButtonLogis.TabIndex = 2;
             this.ButtonLogis.Text = "物流管理画面";
             this.ButtonLogis.UseVisualStyleBackColor = true;
             this.ButtonLogis.Click += new System.EventHandler(this.ButtonLogis_Click);
@@ -60,7 +60,7 @@
             this.ButtonSyain.Location = new System.Drawing.Point(684, 185);
             this.ButtonSyain.Name = "ButtonSyain";
             this.ButtonSyain.Size = new System.Drawing.Size(275, 289);
-            this.ButtonSyain.TabIndex = 2;
+            this.ButtonSyain.TabIndex = 3;
             this.ButtonSyain.Text = "社員管理";
             this.ButtonSyain.UseVisualStyleBackColor = true;
             this.ButtonSyain.Click += new System.EventHandler(this.ButtonSyain_Click);
@@ -71,7 +71,7 @@
             this.ButtonEigyou.Location = new System.Drawing.Point(32, 185);
             this.ButtonEigyou.Name = "ButtonEigyou";
             this.ButtonEigyou.Size = new System.Drawing.Size(290, 289);
-            this.ButtonEigyou.TabIndex = 3;
+            this.ButtonEigyou.TabIndex = 1;
             this.ButtonEigyou.Text = "営業管理画面";
             this.ButtonEigyou.UseVisualStyleBackColor = true;
             this.ButtonEigyou.Click += new System.EventHandler(this.ButtonEigyou_Click);
@@ -111,6 +111,7 @@
             this.ButtonLogout.Name = "ButtonLogout";
             this.ButtonLogout.Size = new System.Drawing.Size(174, 59);
             this.ButtonLogout.TabIndex = 1;
+            this.ButtonLogout.TabStop = false;
             this.ButtonLogout.Text = "ログアウト";
             this.ButtonLogout.UseVisualStyleBackColor = true;
             this.ButtonLogout.Click += new System.EventHandler(this.ButtonLogout_Click);

@@ -755,6 +755,8 @@ namespace SalesManagement_SysDev
             //int SyainID = GetVaildDataAtLogin();
 
             ////ログイン機能
+            //if(SyainID==-1)
+            //{ return;}
             //if (!CheckIDPW(SyainID))
             //{ return; }
 
@@ -814,7 +816,7 @@ namespace SalesManagement_SysDev
         //ログイン機能
         private bool CheckIDPW(int SyainID)
         {
-            if (DB.CheckCascadeEmployeesID(SyainID))
+            if (DB.CheckCascadeEmployeesID(SyainID)!=-1)
             {
                 if (!DB.CheckEmployeesPW(TextboxPW.Text.Trim(),SyainID)) 
                 {
@@ -896,7 +898,7 @@ namespace SalesManagement_SysDev
 
         private void CreateSaveData( int SyainID ,ref string EmName, ref int SolID)
         {
-            DB.GetEmName(SyainID, out EmName);
+            DB.GetEmName(SyainID);
             DB.GetPoID(SyainID, out SolID);
         }
 

@@ -52,7 +52,7 @@
             this.ButtonSyukka.Location = new System.Drawing.Point(117, 355);
             this.ButtonSyukka.Name = "ButtonSyukka";
             this.ButtonSyukka.Size = new System.Drawing.Size(242, 111);
-            this.ButtonSyukka.TabIndex = 2;
+            this.ButtonSyukka.TabIndex = 3;
             this.ButtonSyukka.Text = "出荷管理";
             this.ButtonSyukka.UseVisualStyleBackColor = true;
             this.ButtonSyukka.Click += new System.EventHandler(this.ButtonSyukka_Click);
@@ -63,7 +63,7 @@
             this.ButtonNyuka.Location = new System.Drawing.Point(392, 355);
             this.ButtonNyuka.Name = "ButtonNyuka";
             this.ButtonNyuka.Size = new System.Drawing.Size(238, 111);
-            this.ButtonNyuka.TabIndex = 3;
+            this.ButtonNyuka.TabIndex = 4;
             this.ButtonNyuka.Text = "入荷管理";
             this.ButtonNyuka.UseVisualStyleBackColor = true;
             this.ButtonNyuka.Click += new System.EventHandler(this.ButtonNyuka_Click);
@@ -161,6 +161,7 @@
             this.ButtonLogout.Name = "ButtonLogout";
             this.ButtonLogout.Size = new System.Drawing.Size(165, 58);
             this.ButtonLogout.TabIndex = 2;
+            this.ButtonLogout.TabStop = false;
             this.ButtonLogout.Text = "ログアウト";
             this.ButtonLogout.UseVisualStyleBackColor = true;
             this.ButtonLogout.Click += new System.EventHandler(this.ButtonLogout_Click);
@@ -171,7 +172,7 @@
             this.ButtonTyumon.Location = new System.Drawing.Point(392, 192);
             this.ButtonTyumon.Name = "ButtonTyumon";
             this.ButtonTyumon.Size = new System.Drawing.Size(238, 111);
-            this.ButtonTyumon.TabIndex = 4;
+            this.ButtonTyumon.TabIndex = 2;
             this.ButtonTyumon.Text = "注文管理";
             this.ButtonTyumon.UseVisualStyleBackColor = true;
             this.ButtonTyumon.Click += new System.EventHandler(this.ButtonTyumon_Click);
@@ -182,7 +183,7 @@
             this.ButtonJutyuu.Location = new System.Drawing.Point(117, 195);
             this.ButtonJutyuu.Name = "ButtonJutyuu";
             this.ButtonJutyuu.Size = new System.Drawing.Size(242, 111);
-            this.ButtonJutyuu.TabIndex = 5;
+            this.ButtonJutyuu.TabIndex = 1;
             this.ButtonJutyuu.Text = "受注管理";
             this.ButtonJutyuu.UseVisualStyleBackColor = true;
             this.ButtonJutyuu.Click += new System.EventHandler(this.ButtonJutyuu_Click);
@@ -193,7 +194,7 @@
             this.ButtonKokyaku.Location = new System.Drawing.Point(668, 192);
             this.ButtonKokyaku.Name = "ButtonKokyaku";
             this.ButtonKokyaku.Size = new System.Drawing.Size(238, 111);
-            this.ButtonKokyaku.TabIndex = 6;
+            this.ButtonKokyaku.TabIndex = 5;
             this.ButtonKokyaku.Text = "顧客管理";
             this.ButtonKokyaku.UseVisualStyleBackColor = true;
             this.ButtonKokyaku.Click += new System.EventHandler(this.ButtonKokyaku_Click);
@@ -204,7 +205,7 @@
             this.ButtonUriage.Location = new System.Drawing.Point(668, 355);
             this.ButtonUriage.Name = "ButtonUriage";
             this.ButtonUriage.Size = new System.Drawing.Size(238, 111);
-            this.ButtonUriage.TabIndex = 7;
+            this.ButtonUriage.TabIndex = 6;
             this.ButtonUriage.Text = "売上管理";
             this.ButtonUriage.UseVisualStyleBackColor = true;
             this.ButtonUriage.Click += new System.EventHandler(this.ButtonUriage_Click);
