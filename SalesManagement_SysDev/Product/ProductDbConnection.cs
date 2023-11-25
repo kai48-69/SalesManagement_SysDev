@@ -142,12 +142,36 @@ namespace SalesManagement_SysDev
             return Price;
         }
 
-        public bool CheckCascadeProduct(int PrID)
+        public string GetPrName(int PrID)
         {
             var context = new SalesManagement_DevContext();
-            bool flg = context.T_OrderDetails.Any(x => x.PrID == PrID);
 
-            return flg;
+            var Pr = context.M_Products.Single(x => x.PrID == PrID);
+            string PrName = Pr.PrName;
+            if (Pr.PrFlag == 0)
+            {
+                return PrName;
+            }
+            return "";
+        }
+
+        public int CheckCascadeProduct(int PrID)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Product = context.M_Products.Single(x => x.PrID == PrID);
+                int SyohinID = Product.PrID;
+                if (Product.PrFlag == 0)
+                {
+                    return SyohinID;
+                }
+                return -1;
+            }
+            catch
+            {
+                return -1;
+            }
         }
 
     }

@@ -35,6 +35,7 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = false;
             TextboxJutyuID.ReadOnly = true;
             TextboxSyainName.ReadOnly = true;
+            ButtonKakutei.Enabled = false;
             SetFormComboBox();
 
             if (!GetDataGridView())
@@ -618,10 +619,6 @@ namespace SalesManagement_SysDev
             {
                 TextboxSyainName.Text = "";
             }
-
-
-
-
         }
     }
 }

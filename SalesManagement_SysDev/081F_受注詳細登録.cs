@@ -182,5 +182,20 @@ namespace SalesManagement_SysDev
                 f_jutyu.Visible = true;
             }
         }
+
+        private void TextboxSyohinID_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(TextboxSyohinID.Text.Trim(), out int PrID))
+            {
+                if (DB.CheckCascadeProduct(PrID) != -1)
+                {
+                    TextboxSyohinName.Text = DB.GetPrName(PrID);
+                }
+            }
+            if (String.IsNullOrEmpty(TextboxSyohinID.Text))
+            {
+                TextboxSyohinName.Text = "";
+            }
+        }
     }
 }

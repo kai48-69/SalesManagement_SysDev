@@ -526,7 +526,7 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-            if (DB.CheckCascadeProduct(int.Parse(TextboxSyouhinID.Text.Trim())))
+            if (DB.CheckCascadeProduct(int.Parse(TextboxSyouhinID.Text.Trim()))==-1)
             {
                 MessageBox.Show("選択された商品は他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

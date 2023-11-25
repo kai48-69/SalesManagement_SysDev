@@ -116,7 +116,6 @@ namespace SalesManagement_SysDev
         //IDの存在チェック
         public int CheckCascadeEmployeesID(int EmID)
         {
-          
             try
             {
                 var context = new SalesManagement_DevContext();
@@ -132,7 +131,6 @@ namespace SalesManagement_SysDev
             {
                 return -1;
             }
-            
         }
 
         //PWチェック
