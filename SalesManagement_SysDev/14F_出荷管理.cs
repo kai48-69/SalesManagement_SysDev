@@ -17,6 +17,9 @@ namespace SalesManagement_SysDev
         {
             InitializeComponent();
             LoginData = LData;
+            this.LblEmName.Text = LData.EmName;
+            this.LblSoName.Text = LData.SoName;
+            this.LblLoginDate.Text = LData.LoginDatetime.ToString();
         }
 
         private void ButtonBack_Click(object sender, EventArgs e)
@@ -42,6 +45,11 @@ namespace SalesManagement_SysDev
         }
 
         private void F_出荷管理_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

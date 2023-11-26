@@ -29,6 +29,9 @@ namespace SalesManagement_SysDev
         {
             InitializeComponent();
             LoginData = LData;
+            this.LblEmName.Text = LData.EmName;
+            this.LblSoName.Text = LData.SoName;
+            this.LblLoginDate.Text = LData.LoginDatetime.ToString();
         }
 
         //画面ロード時処理

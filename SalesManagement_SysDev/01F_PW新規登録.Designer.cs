@@ -35,8 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TextboxPW = new System.Windows.Forms.TextBox();
-            this.TextboxShainID = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextboxSyainID = new System.Windows.Forms.TextBox();
+            this.TextboxConPW = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -47,18 +47,18 @@
             this.panel1.Controls.Add(this.ButtonBack);
             this.panel1.Controls.Add(this.Lbl_tag);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 90);
+            this.panel1.Size = new System.Drawing.Size(596, 72);
             this.panel1.TabIndex = 13;
             // 
             // ButtonBack
             // 
             this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonBack.Location = new System.Drawing.Point(494, 22);
-            this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonBack.Location = new System.Drawing.Point(423, 18);
+            this.ButtonBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ButtonBack.Name = "ButtonBack";
-            this.ButtonBack.Size = new System.Drawing.Size(151, 50);
+            this.ButtonBack.Size = new System.Drawing.Size(113, 40);
             this.ButtonBack.TabIndex = 16;
             this.ButtonBack.Text = "戻る";
             this.ButtonBack.UseVisualStyleBackColor = true;
@@ -68,20 +68,18 @@
             // 
             this.Lbl_tag.AutoSize = true;
             this.Lbl_tag.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.Lbl_tag.Location = new System.Drawing.Point(13, 22);
-            this.Lbl_tag.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_tag.Location = new System.Drawing.Point(10, 18);
             this.Lbl_tag.Name = "Lbl_tag";
-            this.Lbl_tag.Size = new System.Drawing.Size(417, 50);
+            this.Lbl_tag.Size = new System.Drawing.Size(333, 40);
             this.Lbl_tag.TabIndex = 1;
             this.Lbl_tag.Text = "パスワード新規登録";
             // 
             // ButtonRegis
             // 
             this.ButtonRegis.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.ButtonRegis.Location = new System.Drawing.Point(137, 381);
-            this.ButtonRegis.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonRegis.Location = new System.Drawing.Point(99, 310);
             this.ButtonRegis.Name = "ButtonRegis";
-            this.ButtonRegis.Size = new System.Drawing.Size(437, 61);
+            this.ButtonRegis.Size = new System.Drawing.Size(350, 49);
             this.ButtonRegis.TabIndex = 10;
             this.ButtonRegis.Text = "登録";
             this.ButtonRegis.UseVisualStyleBackColor = true;
@@ -91,74 +89,77 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.label2.Location = new System.Drawing.Point(12, 222);
+            this.label2.Location = new System.Drawing.Point(86, 175);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(265, 42);
+            this.label2.Size = new System.Drawing.Size(182, 34);
             this.label2.TabIndex = 12;
-            this.label2.Text = "新規パスワード";
+            this.label2.Text = "新パスワード";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.label1.Location = new System.Drawing.Point(144, 131);
+            this.label1.Location = new System.Drawing.Point(148, 107);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 42);
+            this.label1.Size = new System.Drawing.Size(113, 34);
             this.label1.TabIndex = 11;
             this.label1.Text = "社員ID";
             // 
             // TextboxPW
             // 
             this.TextboxPW.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.TextboxPW.Location = new System.Drawing.Point(324, 215);
-            this.TextboxPW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxPW.Location = new System.Drawing.Point(285, 172);
+            this.TextboxPW.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TextboxPW.Name = "TextboxPW";
-            this.TextboxPW.Size = new System.Drawing.Size(321, 49);
+            this.TextboxPW.Size = new System.Drawing.Size(242, 41);
             this.TextboxPW.TabIndex = 9;
             // 
-            // TextboxShainID
+            // TextboxSyainID
             // 
-            this.TextboxShainID.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.TextboxShainID.Location = new System.Drawing.Point(324, 128);
-            this.TextboxShainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextboxShainID.Name = "TextboxShainID";
-            this.TextboxShainID.Size = new System.Drawing.Size(321, 49);
-            this.TextboxShainID.TabIndex = 8;
+            this.TextboxSyainID.Font = new System.Drawing.Font("MS UI Gothic", 25F);
+            this.TextboxSyainID.Location = new System.Drawing.Point(285, 104);
+            this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextboxSyainID.Name = "TextboxSyainID";
+            this.TextboxSyainID.ReadOnly = true;
+            this.TextboxSyainID.Size = new System.Drawing.Size(242, 41);
+            this.TextboxSyainID.TabIndex = 8;
             // 
-            // textBox1
+            // TextboxConPW
             // 
-            this.textBox1.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.textBox1.Location = new System.Drawing.Point(324, 303);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(321, 49);
-            this.textBox1.TabIndex = 14;
+            this.TextboxConPW.Font = new System.Drawing.Font("MS UI Gothic", 25F);
+            this.TextboxConPW.Location = new System.Drawing.Point(285, 241);
+            this.TextboxConPW.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextboxConPW.Name = "TextboxConPW";
+            this.TextboxConPW.Size = new System.Drawing.Size(242, 41);
+            this.TextboxConPW.TabIndex = 14;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.label3.Location = new System.Drawing.Point(18, 310);
+            this.label3.Location = new System.Drawing.Point(11, 248);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(265, 42);
+            this.label3.Size = new System.Drawing.Size(270, 34);
             this.label3.TabIndex = 15;
-            this.label3.Text = "パスワード確認";
+            this.label3.Text = "新パスワード(確認)";
             // 
             // F_PW新規登録
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 481);
+            this.ClientSize = new System.Drawing.Size(557, 385);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TextboxConPW);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ButtonRegis);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TextboxPW);
-            this.Controls.Add(this.TextboxShainID);
+            this.Controls.Add(this.TextboxSyainID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "F_PW新規登録";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "販売管理システム_パスワード新規登録画面";
@@ -177,8 +178,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TextboxPW;
-        private System.Windows.Forms.TextBox TextboxShainID;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextboxSyainID;
+        private System.Windows.Forms.TextBox TextboxConPW;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button ButtonBack;
     }

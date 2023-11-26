@@ -16,13 +16,10 @@ namespace SalesManagement_SysDev
         public F_注文管理(LoginData LData)
         {
             InitializeComponent();
-            LoginData = LData;  
-        }
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            LoginData = LData;
+            this.LblEmName.Text = LData.EmName;
+            this.LblSoName.Text = LData.SoName;
+            this.LblLoginDate.Text = LData.LoginDatetime.ToString();
         }
 
         private void ButtonBack_Click(object sender, EventArgs e)

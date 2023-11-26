@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
@@ -25,6 +26,9 @@ namespace SalesManagement_SysDev
         {
             InitializeComponent();
             LoginData = LData;
+            this.LblEmName.Text = LData.EmName;
+            this.LblSoName.Text = LData.SoName;
+            this.LblLoginDate.Text = LData.LoginDatetime.ToString();
         }
 
         //画面ロード時処理
@@ -143,7 +147,7 @@ namespace SalesManagement_SysDev
                 TextboxTelNo.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
             }
         }
-            
+
 
         //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
@@ -175,17 +179,14 @@ namespace SalesManagement_SysDev
             //更新処理----------------------------------------------------------------------
             if (RadioKousin.Checked == true)
             {
-                if (RadioKousin.Checked == true)
+                if (!GetVaildDataAtUpdate())
                 {
-                    if (!GetVaildDataAtUpdate())
-                    {
-                        return;
-                    }
-
-                    var updEmployee = GenereteDataAtUpdate();
-
-                    UpdateEmployee(updEmployee);
+                    return;
                 }
+
+                var updEmployee = GenereteDataAtUpdate();
+
+                UpdateEmployee(updEmployee);
             }
 
             // 非表示処理--------------------------------------------------------------------
@@ -203,8 +204,16 @@ namespace SalesManagement_SysDev
         }
 
         //登録処理--------------------------------------------------------------------------
+
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
+            if (DB.CheckCascadeEmployeesID(int.Parse(TextboxSyainID.Text)) != -1)
+            {
+                MessageBox.Show("その社員IDは既に使われているため、登録できません");
+                TextboxSyainID.Focus();
+                return false;
+            }
+
             if (String.IsNullOrEmpty(TextboxSyainName.Text.Trim()))
             {
                 MessageBox.Show("社員名が入力されていません");
@@ -218,6 +227,7 @@ namespace SalesManagement_SysDev
                 TextboxTelNo.Focus();
                 return false;
             }
+
             return true;
         }
 
@@ -231,7 +241,7 @@ namespace SalesManagement_SysDev
                 EmName = TextboxSyainName.Text.Trim(),
                 EmPhone = TextboxTelNo.Text.Trim(),
                 SoID = SoID + 1,
-                PoID = PoID ,
+                PoID = PoID,
                 EmHiredate = NyusyaDate.Value,
                 EmPassword = "oic",
                 EmFlag = 0,
@@ -358,7 +368,7 @@ namespace SalesManagement_SysDev
                 EmID = int.Parse(TextboxSyainID.Text.Trim()),
                 EmName = TextboxSyainName.Text.Trim(),
                 EmPhone = TextboxTelNo.Text.Trim(),
-                SoID = SoID+1,
+                SoID = SoID + 1,
                 PoID = PoID,
                 EmFlag = 0,
                 EmHidden = null,
@@ -410,7 +420,7 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-          
+
             return true;
         }
 
@@ -426,7 +436,7 @@ namespace SalesManagement_SysDev
                 SoID = SoID + 1,
                 PoID = PoID,
                 EmFlag = 2,
-                EmHidden=TextboxHihyoji.Text.Trim(),
+                EmHidden = TextboxHihyoji.Text.Trim(),
             };
         }
 
@@ -459,7 +469,7 @@ namespace SalesManagement_SysDev
         private void ClearInput()
         {
 
-            if (RadioKensaku.Checked == true||RadioHihyouji.Checked==true)//検索時、非表示時はコンボボックスの値を空にする
+            if (RadioKensaku.Checked == true || RadioHihyouji.Checked == true)//検索時、非表示時はコンボボックスの値を空にする
             {
                 ComboEigyousyoName.SelectedIndex = -1;
                 ComboYakusyokuName.SelectedIndex = -1;

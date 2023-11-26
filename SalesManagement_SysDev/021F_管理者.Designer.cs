@@ -171,7 +171,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(71, 62);
+            this.label15.Location = new System.Drawing.Point(69, 62);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(69, 19);
             this.label15.TabIndex = 89;
