@@ -12,15 +12,17 @@ namespace SalesManagement_SysDev
 {
     public partial class F_出荷管理 : Form
     {
-        public F_出荷管理()
+        readonly LoginData LoginData;
+        public F_出荷管理(LoginData LData)
         {
             InitializeComponent();
+            LoginData = LData;
         }
 
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            F_営業 f_eigyou = new F_営業();
+            F_営業 f_eigyou = new F_営業(LoginData);
             f_eigyou.Show();
         }
 

@@ -187,6 +187,7 @@
       <DependentUpon>081F_受注詳細登録.cs</DependentUpon>
     </Compile>
     <Compile Include="InputCheck.cs" />
+    <Compile Include="LoginData.cs" />
     <Compile Include="Order\OrderDataAccess.cs" />
     <Compile Include="Order\OrderDbConnection.cs" />
     <Compile Include="Product\ProductDataAccess.cs" />
@@ -213,7 +214,6 @@
     <Compile Include="Entity\T_Warehousing.cs" />
     <Compile Include="Entity\T_WarehousingDetail.cs" />
     <Compile Include="SalesManagement_DevContext.cs" />
-    <Compile Include="LoginData.cs" />
     <EmbeddedResource Include="01F_PW新規登録.resx">
       <DependentUpon>01F_PW新規登録.cs</DependentUpon>
     </EmbeddedResource>

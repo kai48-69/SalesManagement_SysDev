@@ -23,10 +23,12 @@ namespace SalesManagement_SysDev
         private static List<M_Client> ClNameDsp;
         private static List<M_SalesOffice> SoNameDsp;
         readonly private InputCheck ichk = new InputCheck();
+        readonly LoginData LoginData;
 
-        public F_受注管理()
+        public F_受注管理(LoginData LData)
         {
             InitializeComponent();
+            LoginData = LData;
         }
 
         //画面ロード時処理
@@ -241,6 +243,12 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
+            if (String.IsNullOrEmpty(TextboxSyainName.Text))
+            {
+                MessageBox.Show("正しい社員ID を入力して下さい");
+                return false;
+            }
+
             return true;
         }
 
@@ -275,7 +283,7 @@ namespace SalesManagement_SysDev
                 if (result1 == DialogResult.OK)
                 {
                     this.Close();
-                    F_受注詳細登録 f_JutyuSyousai = new F_受注詳細登録();
+                    F_受注詳細登録 f_JutyuSyousai = new F_受注詳細登録(LoginData);
                     f_JutyuSyousai.Show();
 
                 }
@@ -442,11 +450,13 @@ namespace SalesManagement_SysDev
             List<GetOrderDataDTO> Data1 = DB.SetOrderData(selectCondition);
 
             //形式変換(DispOrderListDTO→T_Chumon)
-            T_Chumon chumon = new T_Chumon();
-            chumon.OrID = int.Parse(Data1[0].OrID);
-            chumon.SoID = int.Parse(Data1[0].SoID);
-            chumon.EmID = int.Parse(Data1[0].EmID);
-            chumon.ClID = int.Parse(Data1[0].ClID);
+            T_Chumon chumon = new T_Chumon
+            {
+                OrID = int.Parse(Data1[0].OrID),
+                SoID = int.Parse(Data1[0].SoID),
+                EmID = int.Parse(Data1[0].EmID),
+                ClID = int.Parse(Data1[0].ClID)
+            };
             //登録処理
             bool flg1 = CDA.AddChumonData(chumon);
             //詳細確定------------------------------------------------------------------------
@@ -507,7 +517,7 @@ namespace SalesManagement_SysDev
         private void ButtonBack(object sender, EventArgs e)
         {
             this.Close();
-            F_営業 f_eigyou = new F_営業();
+            F_営業 f_eigyou = new F_営業(LoginData);
             f_eigyou.Show();
         }
 
@@ -590,7 +600,7 @@ namespace SalesManagement_SysDev
             ButtonExe.Visible = true;
         }
 
-        //確定時の入力項目選択
+        //確定時の入力項目選択-----------------------------------------------------------
         private void RadioKakutei_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
@@ -606,6 +616,7 @@ namespace SalesManagement_SysDev
             ButtonExe.Visible = false;
         }
 
+        //社員名自動入力
         private void TextboxSyainID_TextChanged(object sender, EventArgs e)
         {
             if (int.TryParse(TextboxSyainID.Text.Trim(),out int EmID))

@@ -129,7 +129,13 @@ namespace SalesManagement_SysDev
         public string PrID { get; set; }
         [DisplayName("数量")]
         public string PrQuantity { get; set; }
-
+    }
+    class SetLoginDataDTO
+    {
+        public int EmID { get; set; }
+        public string EmName { get; set; }
+        public string SoName { get; set; }
+        public int PoID { get; set; }
     }
 }
 

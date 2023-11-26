@@ -12,15 +12,13 @@ namespace SalesManagement_SysDev
 {
     public partial class F_注文管理 : Form
     {
-        public F_注文管理()
+        readonly LoginData LoginData;
+        public F_注文管理(LoginData LData)
         {
             InitializeComponent();
+            LoginData = LData;  
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -30,7 +28,7 @@ namespace SalesManagement_SysDev
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            F_営業 f_eigyou = new F_営業();
+            F_営業 f_eigyou = new F_営業(LoginData);
             f_eigyou.Show();
         }
 

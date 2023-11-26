@@ -32,7 +32,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.ButtonTouroku = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ButtonBack = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TextboxSyohinID = new System.Windows.Forms.TextBox();
@@ -46,17 +45,17 @@
             // TextboxSuryou
             // 
             this.TextboxSuryou.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSuryou.Location = new System.Drawing.Point(463, 159);
+            this.TextboxSuryou.Location = new System.Drawing.Point(424, 154);
             this.TextboxSuryou.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSuryou.Name = "TextboxSuryou";
-            this.TextboxSuryou.Size = new System.Drawing.Size(223, 32);
+            this.TextboxSuryou.Size = new System.Drawing.Size(188, 32);
             this.TextboxSuryou.TabIndex = 60;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label10.Location = new System.Drawing.Point(381, 166);
+            this.label10.Location = new System.Drawing.Point(342, 161);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 25);
             this.label10.TabIndex = 57;
@@ -65,10 +64,10 @@
             // ButtonTouroku
             // 
             this.ButtonTouroku.Font = new System.Drawing.Font("MS UI Gothic", 22F);
-            this.ButtonTouroku.Location = new System.Drawing.Point(723, 152);
+            this.ButtonTouroku.Location = new System.Drawing.Point(648, 154);
             this.ButtonTouroku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonTouroku.Name = "ButtonTouroku";
-            this.ButtonTouroku.Size = new System.Drawing.Size(160, 102);
+            this.ButtonTouroku.Size = new System.Drawing.Size(160, 104);
             this.ButtonTouroku.TabIndex = 45;
             this.ButtonTouroku.Text = "登録";
             this.ButtonTouroku.UseVisualStyleBackColor = true;
@@ -77,31 +76,18 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.ButtonBack);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Location = new System.Drawing.Point(-131, -28);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1072, 142);
+            this.panel1.Size = new System.Drawing.Size(998, 142);
             this.panel1.TabIndex = 52;
-            // 
-            // ButtonBack
-            // 
-            this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonBack.Location = new System.Drawing.Point(848, 59);
-            this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonBack.Name = "ButtonBack";
-            this.ButtonBack.Size = new System.Drawing.Size(165, 58);
-            this.ButtonBack.TabIndex = 6;
-            this.ButtonBack.Text = "戻る";
-            this.ButtonBack.UseVisualStyleBackColor = true;
-            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label9.Location = new System.Drawing.Point(437, 59);
+            this.label9.Location = new System.Drawing.Point(396, 65);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(322, 50);
             this.label9.TabIndex = 4;
@@ -111,7 +97,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label2.Location = new System.Drawing.Point(60, 230);
+            this.label2.Location = new System.Drawing.Point(44, 226);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 25);
             this.label2.TabIndex = 44;
@@ -120,7 +106,7 @@
             // TextboxSyohinID
             // 
             this.TextboxSyohinID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSyohinID.Location = new System.Drawing.Point(165, 162);
+            this.TextboxSyohinID.Location = new System.Drawing.Point(149, 158);
             this.TextboxSyohinID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyohinID.Name = "TextboxSyohinID";
             this.TextboxSyohinID.Size = new System.Drawing.Size(185, 32);
@@ -131,7 +117,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label5.Location = new System.Drawing.Point(63, 169);
+            this.label5.Location = new System.Drawing.Point(47, 165);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 25);
             this.label5.TabIndex = 49;
@@ -140,20 +126,21 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(49, 305);
+            this.dataGridView1.Location = new System.Drawing.Point(49, 299);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(833, 294);
+            this.dataGridView1.Size = new System.Drawing.Size(759, 294);
             this.dataGridView1.TabIndex = 41;
             // 
             // TextboxSyohinName
             // 
             this.TextboxSyohinName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSyohinName.Location = new System.Drawing.Point(165, 230);
+            this.TextboxSyohinName.Location = new System.Drawing.Point(149, 226);
             this.TextboxSyohinName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyohinName.Name = "TextboxSyohinName";
+            this.TextboxSyohinName.ReadOnly = true;
             this.TextboxSyohinName.Size = new System.Drawing.Size(185, 32);
             this.TextboxSyohinName.TabIndex = 61;
             // 
@@ -161,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(940, 648);
+            this.ClientSize = new System.Drawing.Size(867, 648);
             this.Controls.Add(this.TextboxSyohinName);
             this.Controls.Add(this.TextboxSuryou);
             this.Controls.Add(this.label10);
@@ -195,6 +182,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox TextboxSyohinName;
-        private System.Windows.Forms.Button ButtonBack;
     }
 }

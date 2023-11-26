@@ -57,7 +57,7 @@
             // 
             this.Lbl_tag.AutoSize = true;
             this.Lbl_tag.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.Lbl_tag.Location = new System.Drawing.Point(13, 22);
+            this.Lbl_tag.Location = new System.Drawing.Point(26, 22);
             this.Lbl_tag.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_tag.Name = "Lbl_tag";
             this.Lbl_tag.Size = new System.Drawing.Size(380, 50);

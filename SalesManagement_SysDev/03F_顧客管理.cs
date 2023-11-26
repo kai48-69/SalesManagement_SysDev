@@ -18,10 +18,12 @@ namespace SalesManagement_SysDev
         private readonly InputCheck ichk = new InputCheck();
         readonly ClientDbConnection DB = new ClientDbConnection();
         private static List<M_SalesOffice> SoNameDsp;
+        readonly LoginData LoginData ;
 
-        public F_顧客管理()
+        public F_顧客管理(LoginData LData)
         {
             InitializeComponent();
+            LoginData = LData;
         }
 
         //画面ロード時処理
@@ -519,7 +521,7 @@ namespace SalesManagement_SysDev
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            F_営業 f_eigyou = new F_営業();
+            F_営業 f_eigyou = new F_営業(LoginData);
             f_eigyou.Show();
         }
 

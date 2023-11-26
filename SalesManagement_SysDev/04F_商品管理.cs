@@ -19,11 +19,13 @@ namespace SalesManagement_SysDev
         readonly  ProductDbConnection DB = new ProductDbConnection();
         private static List<M_Maker> MNameDsp;
         private static List<M_SmallClassification> ScDsp;
+       readonly LoginData LoginData;
 
 
-        public F_商品管理()
+        public F_商品管理(LoginData LData)
         {
             InitializeComponent();
+            LoginData = LData;
         }
 
         //画面ロード時処理
@@ -45,7 +47,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<DispProductListDTO> tb = DB.ProductGetData("", "", 0);
+            List<DispProductListDTO> tb = DB.ProductGetData("", "");
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -423,7 +425,6 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-
         //更新処理-----------------------------------------------------------------------
         private bool GetVaildDataAtUpdate()//入力データチェック
         {
@@ -515,7 +516,6 @@ namespace SalesManagement_SysDev
 
             GetDataGridView();
         }
-
 
         //非表示処理---------------------------------------------------------------------
         private bool GetVaildDataAtHide()//入力データチェック
@@ -623,7 +623,7 @@ namespace SalesManagement_SysDev
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            F_物流 f_buturyu = new F_物流();
+            F_物流 f_buturyu = new F_物流(LoginData);
             f_buturyu.Show();
             return;
         }

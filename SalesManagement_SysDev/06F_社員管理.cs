@@ -8,21 +8,23 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace SalesManagement_SysDev
 {
     public partial class F_社員管理 : Form
     {
-
         readonly EmployeeDataAccess EmployeeDataAccess = new EmployeeDataAccess();
         private readonly InputCheck ichk = new InputCheck();
         readonly EmployeeDbConnection DB = new EmployeeDbConnection();
         private static List<M_SalesOffice> SoNameDsp;
         private static List<M_Position> PoNameDsp;
+        readonly LoginData LoginData;
 
-        public F_社員管理()
+        public F_社員管理(LoginData LData)
         {
             InitializeComponent();
+            LoginData = LData;
         }
 
         //画面ロード時処理
@@ -481,7 +483,7 @@ namespace SalesManagement_SysDev
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            F_管理者 f_Admin = new F_管理者();
+            F_管理者 f_Admin = new F_管理者(LoginData);
             f_Admin.Show();
         }
 

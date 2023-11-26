@@ -9,7 +9,7 @@ namespace SalesManagement_SysDev
 {
     internal class ProductDbConnection
     {
-        public List<DispProductListDTO> ProductGetData(string strName, string strMaker, int safety)
+        public List<DispProductListDTO> ProductGetData(string strName, string strMaker)
         {
             var context = new SalesManagement_DevContext();
             try

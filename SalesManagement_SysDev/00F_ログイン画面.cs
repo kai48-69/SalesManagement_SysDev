@@ -17,9 +17,7 @@ namespace SalesManagement_SysDev
 {
     public partial class F_ログイン画面 : Form
     {
-        readonly EmployeeDataAccess employeeDataAccess = new EmployeeDataAccess();
         readonly EmployeeDbConnection　DB = new EmployeeDbConnection();
-        readonly  LoginData loginData = new LoginData();
 
         public F_ログイン画面()
         {
@@ -751,45 +749,20 @@ namespace SalesManagement_SysDev
 
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-            ////入力チェック
-            //int SyainID = GetVaildDataAtLogin();
+            //入力チェック
+            int SyainID = GetVaildDataAtLogin();
 
-            ////ログイン機能
-            //if(SyainID==-1)
-            //{ return;}
-            //if (!CheckIDPW(SyainID))
-            //{ return; }
+            //ログイン機能
+            if (SyainID == -1)
+            { return; }
+            if (!CheckIDPW(SyainID))
+            { return; }
 
-            ////ログイン判定
-            //int PolID = DetermineForm(SyainID);
+            //ログイン判定
+            int PoID = DetermineForm(SyainID);
 
-            ////画面表示
-            //FormShow(PolID);
-
-
-
-            this.Visible = false;
-            if (int.Parse(TextboxShainID.Text) == 1)
-            {
-                F_管理者 f_Admin = new F_管理者();
-                f_Admin.Show();
-            }
-            if (int.Parse(TextboxShainID.Text) == 2)
-            {
-                F_営業 f_eigyou = new F_営業();
-                f_eigyou.Show();
-            }
-            if (int.Parse(TextboxShainID.Text) == 3)
-            {
-                F_物流 f_buturyuu = new F_物流();
-                f_buturyuu.Show();
-            }
-            if (int.Parse(TextboxShainID.Text) == 4)
-            {
-                F_PW新規登録 f_SinkiTouroku = new F_PW新規登録();
-                f_SinkiTouroku.Show();
-                return;
-            }
+            //画面表示
+            FormShow(PoID);
         }
 
         //入力チェック
@@ -840,47 +813,49 @@ namespace SalesManagement_SysDev
         //ログイン判定
         private int DetermineForm(int SyainID)
         {
-            int PolID;
+            int PoID;
 
             if (TextboxPW.Text == "oic")
             {
-               PolID = 4; 
+               PoID = 4; 
             }
             else
             {
-                DB.GetPoID(SyainID, out  PolID);
+                DB.GetPoID(SyainID, out  PoID);
             }
-            return PolID;
+            return PoID;
         }
 
         //画面表示
-        private void FormShow(int PolID)
+        public void FormShow(int PolID)
         {
+            LoginData LoginData = SetLoginData();
+
             if (PolID == 1)
             {
                 this.Visible = false;
-                F_管理者 f_Admin = new F_管理者();
+                F_管理者 f_Admin = new F_管理者(LoginData);
                 f_Admin.Show();
                 return;
             }
             if (PolID == 2)
             {
                 this.Visible = false;
-                F_営業 f_Eigyou = new F_営業();
+                F_営業 f_Eigyou = new F_営業(LoginData);
                 f_Eigyou.Show();
                 return;
             }
             if (PolID == 3)
             {
                 this.Visible= false;
-                F_物流 f_buturyu=new F_物流();
+                F_物流 f_buturyu=new F_物流(LoginData);
                 f_buturyu.Show();
                 return;
             }
             else
             {
                 this.Visible = false;
-                F_PW新規登録 f_SinkiTouroku=new F_PW新規登録();
+                F_PW新規登録 f_SinkiTouroku=new F_PW新規登録(LoginData);
                 f_SinkiTouroku.Show();
                 return;
             }
@@ -896,12 +871,28 @@ namespace SalesManagement_SysDev
             }
         }
 
-        private void CreateSaveData( int SyainID ,ref string EmName, ref int SolID)
+
+        public LoginData SetLoginData()
         {
-            DB.GetEmName(SyainID);
-            DB.GetPoID(SyainID, out SolID);
+            M_Employee selectCondition = new M_Employee()
+            {
+                EmID = int.Parse(TextboxShainID.Text),
+            };
+            List<SetLoginDataDTO> LData = DB.SetLoginData(selectCondition);
+
+            //形式変換(DispOrderListDTO→T_Chumon)
+            LoginData LoginData = new LoginData
+            {
+                EmID = LData[0].EmID,
+                EmName = LData[0].EmName,
+                SoName = LData[0].SoName,
+                PoID = LData[0].PoID,
+                LoginDatetime = DateTime.Now.ToString("yy/MM/dd HH:mm")
+            };
+
+            return LoginData;
         }
 
-       
+
     }
 }

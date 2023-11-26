@@ -12,9 +12,10 @@ namespace SalesManagement_SysDev
 {
     public partial class F_PW新規登録 : Form
     {
-        public F_PW新規登録()
+        public F_PW新規登録(LoginData LoginData)
         {
             InitializeComponent();
+            this.TextboxShainID.Text = LoginData.EmID.ToString();
         }
         private void F_PW新規登録_Load(object sender, EventArgs e)
         {

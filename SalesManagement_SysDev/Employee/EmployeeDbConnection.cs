@@ -36,7 +36,6 @@ namespace SalesManagement_SysDev
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("在庫データ取得時に例外エラーが発生しました", "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return null;
@@ -84,7 +83,6 @@ namespace SalesManagement_SysDev
                          join Position in context.M_Positions
                          on Employee.PoID equals Position.PoID
                          where Employee.EmPhone.Contains(selectCondition.EmPhone) &&
-
                          ((selectCondition.EmID == -1) ? true :
                          Employee.EmID == selectCondition.EmID) &&
                         ((selectCondition.SoID == -1) ? true :
@@ -174,6 +172,34 @@ namespace SalesManagement_SysDev
             }
             return "";
            
+        }
+
+        public List<SetLoginDataDTO> SetLoginData(M_Employee selectCondition)
+        {
+            var context = new SalesManagement_DevContext();
+            try
+            {
+                var tb = from Employee in context.M_Employees
+                         join Soffice in context.M_SalesOffices
+                         on Employee.SoID equals Soffice.SoID
+                         where Employee.EmID.Equals(selectCondition.EmID) &&
+                         Employee.EmFlag.Equals(0)
+
+                         select new SetLoginDataDTO
+                         {
+                             EmID = Employee.EmID,
+                             EmName = Employee.EmName,
+                             SoName = Soffice.SoName.ToString(),
+                             PoID = Employee.PoID,
+
+                         };
+                return tb.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return null;
         }
 
     }
