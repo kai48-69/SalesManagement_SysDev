@@ -102,16 +102,19 @@ namespace SalesManagement_SysDev
                 if (!ichk.IntegerCheck(TextboxSyohinID.Text.Trim()))
                 {
                     MessageBox.Show("商品IDは半角数字で入力してください");
+                    return false;
                 }
             }
             else
             {
                 MessageBox.Show("商品IDを入力してください");
+                return false;
             }
 
             if (String.IsNullOrEmpty(TextboxSyohinName.Text))
             {
                 MessageBox.Show("正しい商品IDを入力してください");
+                return false;
             }
 
             if (!String.IsNullOrEmpty(TextboxSuryou.Text.Trim()))
@@ -198,11 +201,21 @@ namespace SalesManagement_SysDev
                 {
                     TextboxSyohinName.Text = DB.GetPrName(PrID);
                 }
+                else
+                {
+                    TextboxSyohinName.Text = "";
+                }
             }
             if (String.IsNullOrEmpty(TextboxSyohinID.Text))
             {
                 TextboxSyohinName.Text = "";
             }
+            
+        }
+
+        private void TextboxSyohinName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

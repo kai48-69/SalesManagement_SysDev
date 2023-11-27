@@ -93,7 +93,7 @@ namespace SalesManagement_SysDev
 
         private void RegistrationPW(M_Employee RegPW)　//データ更新処理
         {
-            DialogResult result = MessageBox.Show("社員データを更新します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("パスワードを登録します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (result == DialogResult.Cancel)
             {

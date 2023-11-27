@@ -143,6 +143,7 @@
             this.TextboxSyohinName.ReadOnly = true;
             this.TextboxSyohinName.Size = new System.Drawing.Size(185, 32);
             this.TextboxSyohinName.TabIndex = 61;
+            this.TextboxSyohinName.TextChanged += new System.EventHandler(this.TextboxSyohinName_TextChanged);
             // 
             // F_受注詳細登録
             // 

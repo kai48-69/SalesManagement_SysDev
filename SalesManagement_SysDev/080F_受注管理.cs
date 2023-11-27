@@ -217,6 +217,11 @@ namespace SalesManagement_SysDev
         //確定ボタン----------------------------------------------------------------------
         private void ButtonKakutei_Click(object sender, EventArgs e)
         {
+            if (!CheckDataAtConfirm())
+            {
+                return;
+            }
+               
             ConfirmOr();
             var ConOr = GenereteDataAtUpdateFlg();
             UpdOrFlag(ConOr);
@@ -438,6 +443,16 @@ namespace SalesManagement_SysDev
         }
 
         //確定処理------------------------------------------------------------------------
+      private bool CheckDataAtConfirm()
+        {
+            if (String.IsNullOrEmpty(TextboxJutyuID.Text.Trim()))
+            {
+                MessageBox.Show("確定を行うデータが選択されていません");
+                return false;
+            }
+            return true;
+        }
+        
         private void ConfirmOr()//注文テーブルにデータを登録する
         {
             DialogResult result = MessageBox.Show("受注情報を確定します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -497,7 +512,7 @@ namespace SalesManagement_SysDev
             //}
         } 
 
-        private T_Order GenereteDataAtUpdateFlg()　//非表示データ生成(フラグの更新データ生成)
+        private T_Order GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
         {
             return new T_Order
             {
@@ -506,7 +521,7 @@ namespace SalesManagement_SysDev
             };
         }
 
-        private void UpdOrFlag(T_Order ConOr)　//データ更新処理
+        private void UpdOrFlag(T_Order ConOr)　//フラグ更新処理
         {
             ODA.UpdOrderFlg(ConOr);
           

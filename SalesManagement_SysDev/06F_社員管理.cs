@@ -221,7 +221,16 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-            if (String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
+            if (!String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxTelNo.Text.Trim()))
+                {
+                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    TextboxTelNo.Focus();
+                    return false;
+                }
+            }
+            else
             {
                 MessageBox.Show("電話番号が入力されていません");
                 TextboxTelNo.Focus();
@@ -233,15 +242,33 @@ namespace SalesManagement_SysDev
 
         private M_Employee GenerateDataAtRegistration() //登録データ生成
         {
+            string TelNo = TextboxTelNo.Text;
+            if (TelNo.Length == 10)
+            {
+                string D1 = TelNo.Substring(0, 2);
+                string D2 = TelNo.Substring(2, 4);
+                string D3 = TelNo.Substring(6, 4);
+                TelNo = string.Format(D1 + "-" + D2 + "-" + D3);
+            }
+            //000-0000-0000
+            else if (TelNo.Length == 11)
+            {
+             string D1=  TelNo.Substring(0,3);
+            string D2= TelNo. Substring(3,4);
+            string D3=TelNo.Substring(7,4);
+                TelNo = string.Format(D1 + "-"+D2 + "-" + D3);
+
+               
+            }
             int SoID = ComboEigyousyoName.SelectedIndex;
             int PoID = ComboYakusyokuName.SelectedIndex;
             return new M_Employee
             {
                 EmID = int.Parse(TextboxSyainID.Text.Trim()),
                 EmName = TextboxSyainName.Text.Trim(),
-                EmPhone = TextboxTelNo.Text.Trim(),
+                EmPhone = TelNo,
                 SoID = SoID + 1,
-                PoID = PoID,
+                PoID = PoID+1,
                 EmHiredate = NyusyaDate.Value,
                 EmPassword = "oic",
                 EmFlag = 0,
