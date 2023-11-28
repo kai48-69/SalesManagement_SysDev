@@ -12,15 +12,20 @@ namespace SalesManagement_SysDev
 {
     public partial class F_出庫管理 : Form
     {
-        public F_出庫管理()
+        readonly LoginData LoginData;
+        public F_出庫管理(LoginData LData)
         {
             InitializeComponent();
+            LoginData=LData;
+            this.LblEmName.Text = LData.EmName;
+            this.LblSoName.Text = LData.SoName;
+            this.LblLoginDate.Text = LData.LoginDatetime.ToString();
         }
 
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            F_物流 f_buturyuu = new F_物流();
+            F_物流 f_buturyuu = new F_物流(LoginData);
             f_buturyuu.Show();
         }
 
@@ -36,6 +41,11 @@ namespace SalesManagement_SysDev
         }
 
         private void F_出庫管理_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

@@ -10,19 +10,22 @@ using System.Windows.Forms;
 
 namespace SalesManagement_SysDev
 {
+    
     public partial class F_受注詳細登録 : Form
     {
-        InputCheck ichk = new InputCheck();
-        ProductDbConnection DB = new ProductDbConnection();
-        OrderDbConnection DB1 = new OrderDbConnection();
-        OrderDataAccess ODA = new OrderDataAccess();
+       readonly InputCheck ichk = new InputCheck();
+       readonly ProductDbConnection DB = new ProductDbConnection();
+       readonly OrderDbConnection DB1 = new OrderDbConnection();
+       readonly OrderDataAccess ODA = new OrderDataAccess();
+        readonly LoginData LoginData;
 
-
-        public F_受注詳細登録()
+        public F_受注詳細登録(LoginData LData)
         {
             InitializeComponent();
+            LoginData= LData;
         }
 
+        //データ全件表示
         private bool GetDataGridView()
         {
             //商品情報の全件取得
@@ -34,6 +37,7 @@ namespace SalesManagement_SysDev
             return true;
         }
 
+        //データグリッドビューの表示設定
         private void SetDataGridView(List<DispOrderDetailListDTO> tb)
         {
             dataGridView1.DataSource = tb;
@@ -76,6 +80,7 @@ namespace SalesManagement_SysDev
             dataGridView1.Refresh();
         }
 
+        //登録ボタン-------------------------------------------------------------------------------
         private void ButtonTouroku_Click(object sender, EventArgs e)
         {
             if (!GetVaildDataAtRegistration())
@@ -88,6 +93,7 @@ namespace SalesManagement_SysDev
             RegistrationOrderDetail(regOrD);
         }
 
+        //登録処理----------------------------------------------------------------------------------
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
 
@@ -96,11 +102,19 @@ namespace SalesManagement_SysDev
                 if (!ichk.IntegerCheck(TextboxSyohinID.Text.Trim()))
                 {
                     MessageBox.Show("商品IDは半角数字で入力してください");
+                    return false;
                 }
             }
             else
             {
                 MessageBox.Show("商品IDを入力してください");
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(TextboxSyohinName.Text))
+            {
+                MessageBox.Show("正しい商品IDを入力してください");
+                return false;
             }
 
             if (!String.IsNullOrEmpty(TextboxSuryou.Text.Trim()))
@@ -153,7 +167,7 @@ namespace SalesManagement_SysDev
                 else
                 {
                     this.Close();
-                    F_受注管理 f_jutyu = new F_受注管理();
+                    F_受注管理 f_jutyu = new F_受注管理(LoginData);
                     f_jutyu.Visible=true;
                 }
             }
@@ -167,15 +181,41 @@ namespace SalesManagement_SysDev
             //GetDataGridView();
         }
 
+        //戻るボタン--------------------------------------------------------------------------------
         private void ButtonBack_Click(object sender, EventArgs e)
         {
            DialogResult result= MessageBox.Show("商品登録を終了します。よろしいですか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if(result == DialogResult.Yes)
             {
                 this.Close();
-                F_受注管理 f_jutyu = new F_受注管理();
+                F_受注管理 f_jutyu = new F_受注管理(LoginData);
                 f_jutyu.Visible = true;
             }
+        }
+
+        private void TextboxSyohinID_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(TextboxSyohinID.Text.Trim(), out int PrID))
+            {
+                if (DB.CheckCascadeProduct(PrID) != -1)
+                {
+                    TextboxSyohinName.Text = DB.GetPrName(PrID);
+                }
+                else
+                {
+                    TextboxSyohinName.Text = "";
+                }
+            }
+            if (String.IsNullOrEmpty(TextboxSyohinID.Text))
+            {
+                TextboxSyohinName.Text = "";
+            }
+            
+        }
+
+        private void TextboxSyohinName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

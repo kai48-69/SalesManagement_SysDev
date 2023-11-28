@@ -30,13 +30,11 @@ namespace SalesManagement_SysDev
                              PoName = Position.PoName,
                              EmHiredate = Employee.EmHiredate.ToString(),
                              EmPhone = Employee.EmPhone,
-                             EmHidden = Employee.EmHidden,
                          };
                 return tb.ToList();
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("在庫データ取得時に例外エラーが発生しました", "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return null;
@@ -84,7 +82,6 @@ namespace SalesManagement_SysDev
                          join Position in context.M_Positions
                          on Employee.PoID equals Position.PoID
                          where Employee.EmPhone.Contains(selectCondition.EmPhone) &&
-
                          ((selectCondition.EmID == -1) ? true :
                          Employee.EmID == selectCondition.EmID) &&
                         ((selectCondition.SoID == -1) ? true :
@@ -100,8 +97,7 @@ namespace SalesManagement_SysDev
                              SoName = SOffice.SoName,
                              PoName = Position.PoName,
                              EmPhone = Employee.EmPhone,
-                             EmHiredate=Employee.EmHiredate.ToString(),
-                             EmHidden = Employee.EmHidden,
+                             EmHiredate = Employee.EmHiredate.ToString(),
                          };
 
                 return tb.ToList();
@@ -114,11 +110,23 @@ namespace SalesManagement_SysDev
         }
 
         //IDの存在チェック
-        public bool CheckCascadeEmployeesID(int EmID)
+        public int CheckCascadeEmployeesID(int EmID)
         {
-            var context = new SalesManagement_DevContext();
-            bool flg = context.M_Employees.Any(x => x.EmID == EmID);
-            return flg;
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Syain = context.M_Employees.Single(x => x.EmID == EmID);
+                int SyainID = Syain.EmID;
+                if (Syain.EmFlag == 0)
+                {
+                    return SyainID;
+                }
+                return -1;
+            }
+            catch
+            {
+                return -1;
+            }
         }
 
         //PWチェック
@@ -150,18 +158,46 @@ namespace SalesManagement_SysDev
         }
 
         //社員名の取得
-        public bool GetEmName(int EmID, out string EmName)
+        public string GetEmName(int EmID)
         {
             var context = new SalesManagement_DevContext();
-            EmName = "";
-            bool flg = context.M_Employees.Any(x => x.EmID == EmID);
-
-            if (flg)
+           
+            var Emp = context.M_Employees.Single(x => x.EmID == EmID);
+            string EmName = Emp.EmName;
+            if (Emp.EmFlag == 0)
             {
-                var Emp = context.M_Employees.Single(x => x.EmID == EmID);
-                EmName = Emp.EmName;
+                return EmName;
             }
-            return true;
+            return "";
+           
+        }
+
+        public List<SetLoginDataDTO> SetLoginData(M_Employee selectCondition)
+        {
+            var context = new SalesManagement_DevContext();
+            try
+            {
+                var tb = from Employee in context.M_Employees
+                         join Soffice in context.M_SalesOffices
+                         on Employee.SoID equals Soffice.SoID
+                         where Employee.EmID.Equals(selectCondition.EmID) &&
+                         Employee.EmFlag.Equals(0)
+
+                         select new SetLoginDataDTO
+                         {
+                             EmID = Employee.EmID,
+                             EmName = Employee.EmName,
+                             SoName = Soffice.SoName.ToString(),
+                             PoID = Employee.PoID,
+
+                         };
+                return tb.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return null;
         }
 
     }
