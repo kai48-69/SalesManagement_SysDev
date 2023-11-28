@@ -100,50 +100,46 @@ namespace SalesManagement_SysDev
             //行単位選択     
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //ヘッダー文字位置、セル文字位置、列幅の設定
-            ////商品ID
+            //受注ID
             dataGridView1.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[0].Width = 40;
-            ////メーカー名
+            ////受注詳細ID
             dataGridView1.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[1].Width = 50;
-            //商品名
+            //営業所名
             dataGridView1.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[2].Width = 80;
-            //価格
+            //社員名
             dataGridView1.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[3].Width = 80;
-            ////安全在庫数
+            //顧客名
             dataGridView1.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridView1.Columns[4].Width = 40;
-            ////小分類
+            dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[4].Width = 80;
+            //顧客担当者名
             dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[5].Width = 80;
-            ////型番
+            dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[5].Width = 120;
+            //商品名
             dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].Width = 30;
-            ////色
+            dataGridView1.Columns[6].Width = 70;
+            //数量
             dataGridView1.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[7].Width = 70;
-            ////発売日
+            //合計金額
             dataGridView1.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[8].Width = 80;
-            ////非表示理由 
+            //受注年月日
             dataGridView1.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[9].Width = 80;
-            ////非表示理由 
-            dataGridView1.Columns[10].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[10].Width = 400;
+            dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[9].Width = 90;
 
             dataGridView1.Refresh();
         }
@@ -584,6 +580,9 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
+            ComboEigyousyoName.Enabled = true;
+            ComboKokyakuName.Enabled = true;
+            GetDataGridView();
         }
 
         //検索時の入力項目選択-----------------------------------------------------------
@@ -600,6 +599,9 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
+            ComboEigyousyoName.Enabled = true;
+            ComboKokyakuName.Enabled = true;
+            GetDataGridView();
         }
 
         //非表示時の入力項目選択---------------------------------------------------------
@@ -616,6 +618,9 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = true;
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
+            ComboEigyousyoName.Enabled = true;
+            ComboKokyakuName.Enabled = true;
+            GetDataGridView();
         }
 
         //確定時の入力項目選択-----------------------------------------------------------
@@ -632,6 +637,9 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = true;
             ButtonExe.Visible = false;
+            ComboEigyousyoName.Enabled = false;
+            ComboKokyakuName.Enabled = false;
+            GetDataGridView();
         }
 
         //社員名自動入力

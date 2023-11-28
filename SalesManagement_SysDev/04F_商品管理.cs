@@ -132,10 +132,7 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[8].Width = 80;
-            ////非表示理由 
-            dataGridView1.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[9].Width = 400;
+
 
             dataGridView1.Refresh();
         }
@@ -647,6 +644,8 @@ namespace SalesManagement_SysDev
             LblHatubaiDate.Visible = true;
             TextboxHihyouji.Enabled = false;
             HatubaiDate.Visible = true;
+            ComboMakerName.Enabled = true;
+            ComboSyobunrui.Enabled = true;
             GetDataGridView();
         }
         //検索時の入力項目選択-----------------------------------------------------------
@@ -664,6 +663,9 @@ namespace SalesManagement_SysDev
             LblHatubaiDate.Visible = false;
             TextboxHihyouji.Enabled = false;
             HatubaiDate.Visible = false;
+            ComboMakerName.Enabled = true;
+            ComboSyobunrui.Enabled = true;
+            GetDataGridView();
         }
         //更新時の入力項目選択-----------------------------------------------------------
         private void RadioKousin_CheckedChanged(object sender, EventArgs e)
@@ -680,6 +682,8 @@ namespace SalesManagement_SysDev
             LblHatubaiDate.Visible = true;
             HatubaiDate.Visible = true;
             TextboxHihyouji.Enabled = false;
+            ComboMakerName.Enabled = true;
+            ComboSyobunrui.Enabled = true;
             GetDataGridView();
         }
         //非表示時の入力項目選択-----------------------------------------------------------
@@ -697,6 +701,8 @@ namespace SalesManagement_SysDev
             LblHatubaiDate.Visible = true;
             TextboxHihyouji.Enabled = true;
             HatubaiDate.Visible = false;
+            ComboMakerName.Enabled =false;
+            ComboSyobunrui.Enabled= false;
             GetDataGridView();
         }
     }

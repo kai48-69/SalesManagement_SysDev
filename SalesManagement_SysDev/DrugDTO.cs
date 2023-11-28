@@ -29,8 +29,7 @@ namespace SalesManagement_SysDev
         public string PrColor { get; set; }
         [DisplayName("発売日")]
         public DateTime PrReleaseDate { get; set; }
-        [DisplayName("非表示理由")]
-        public string PrHidden { get; set; }
+     
     }
 
     class DispEmployeeListDTO
@@ -47,8 +46,7 @@ namespace SalesManagement_SysDev
         public string EmHiredate { get; set; }
         [DisplayName("電話番号")]
         public string EmPhone { get; set; }
-        [DisplayName("非表示理由")]
-        public string EmHidden { get; set; }
+     
     }
 
     class DispClientListDTO
@@ -67,8 +65,7 @@ namespace SalesManagement_SysDev
         public string Clpostel { get; set; }
         [DisplayName("FAX")]
         public string ClFAX { get; set; }
-        [DisplayName("非表示理由")]
-        public string ClHidden { get; set; }
+      
     }
 
     class DispOrderListDTO
@@ -93,8 +90,7 @@ namespace SalesManagement_SysDev
         public string OrTotalPrice { get; set; }
         [DisplayName("受注年月日")]
         public string OrDate { get; set; }
-        [DisplayName("非表示理由")]
-        public string OrHidden { get; set; }
+      
     }
 
     class DispOrderDetailListDTO

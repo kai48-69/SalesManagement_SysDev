@@ -41,7 +41,6 @@ namespace SalesManagement_SysDev
                              PrQuantity=OrDetail.OrQuantity.ToString(),
                              OrTotalPrice=OrDetail.OrTotalPrice.ToString(),
                              OrDate=Order.OrDate.ToString(),
-                             OrHidden=Order.OrHidden,
                          };
                 return tb.ToList();
             }
@@ -145,7 +144,6 @@ namespace SalesManagement_SysDev
                              PrQuantity=OrDetail.OrQuantity.ToString(),
                              OrTotalPrice=OrDetail.OrTotalPrice.ToString(),
                              OrDate=Order.OrDate.ToString(),
-                             OrHidden=Order.OrHidden,
                           };
 
                 return tb.ToList();

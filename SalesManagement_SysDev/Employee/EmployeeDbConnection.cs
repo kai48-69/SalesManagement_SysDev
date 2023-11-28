@@ -30,7 +30,6 @@ namespace SalesManagement_SysDev
                              PoName = Position.PoName,
                              EmHiredate = Employee.EmHiredate.ToString(),
                              EmPhone = Employee.EmPhone,
-                             EmHidden = Employee.EmHidden,
                          };
                 return tb.ToList();
             }
@@ -99,7 +98,6 @@ namespace SalesManagement_SysDev
                              PoName = Position.PoName,
                              EmPhone = Employee.EmPhone,
                              EmHiredate = Employee.EmHiredate.ToString(),
-                             EmHidden = Employee.EmHidden,
                          };
 
                 return tb.ToList();

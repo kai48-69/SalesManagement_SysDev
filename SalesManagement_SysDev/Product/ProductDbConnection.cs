@@ -34,7 +34,6 @@ namespace SalesManagement_SysDev
                              PrColor = Product.PrColor, 
                              PrModelNumber= Product.PrModelNumber, 
                              PrReleaseDate = Product.PrReleaseDate,
-                             PrHidden = Product.PrHidden,
 
                          };
                 return tb.ToList();

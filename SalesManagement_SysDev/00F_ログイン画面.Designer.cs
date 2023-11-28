@@ -93,6 +93,7 @@
             this.TextboxPW.Name = "TextboxPW";
             this.TextboxPW.Size = new System.Drawing.Size(321, 49);
             this.TextboxPW.TabIndex = 2;
+            this.TextboxPW.UseSystemPasswordChar = true;
             // 
             // label1
             // 

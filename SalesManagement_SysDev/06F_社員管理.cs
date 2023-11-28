@@ -118,10 +118,6 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[5].Width = 80;
-            ////非表示理由
-            dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].Width = 513;
 
             dataGridView1.Refresh();
         }
@@ -544,6 +540,9 @@ namespace SalesManagement_SysDev
             NyusyaDate.Value = DateTime.Now;
             NyusyaDate.Visible = true;
             LblNyusyaDate.Visible = true;
+            ComboEigyousyoName.Enabled = true;
+            ComboYakusyokuName.Enabled = true;
+            GetDataGridView();
         }
 
         //検索時の入力項目選択-----------------------------------------------------------
@@ -558,6 +557,9 @@ namespace SalesManagement_SysDev
             TextboxHihyoji.Enabled = false;
             NyusyaDate.Visible = false;
             LblNyusyaDate.Visible = false;
+            ComboEigyousyoName.Enabled = true;
+            ComboYakusyokuName.Enabled = true;
+            GetDataGridView();
         }
 
         //更新時の入力項目選択-----------------------------------------------------------
@@ -573,6 +575,9 @@ namespace SalesManagement_SysDev
             NyusyaDate.Value = DateTime.Now;
             NyusyaDate.Visible = false;
             LblNyusyaDate.Visible = false;
+            ComboEigyousyoName.Enabled = true;
+            ComboYakusyokuName.Enabled = true;
+            GetDataGridView();
         }
 
         //非表示時の入力項目選択-----------------------------------------------------------
@@ -588,6 +593,9 @@ namespace SalesManagement_SysDev
             NyusyaDate.Value = DateTime.Now;
             NyusyaDate.Visible = false;
             LblNyusyaDate.Visible = false;
+            ComboEigyousyoName.Enabled = false;
+            ComboYakusyokuName.Enabled = false;
+            GetDataGridView();
         }
     }
 }
