@@ -32,11 +32,11 @@
             this.ButtonSyain = new System.Windows.Forms.Button();
             this.ButtonEigyou = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
+            this.LblLoginDate = new System.Windows.Forms.Label();
             this.ButtonLogout = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
+            this.LblSoName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.LblEmName = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -46,11 +46,11 @@
             // ButtonLogis
             // 
             this.ButtonLogis.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonLogis.Location = new System.Drawing.Point(355, 185);
+            this.ButtonLogis.Location = new System.Drawing.Point(359, 185);
             this.ButtonLogis.Name = "ButtonLogis";
             this.ButtonLogis.Size = new System.Drawing.Size(283, 289);
-            this.ButtonLogis.TabIndex = 1;
-            this.ButtonLogis.Text = "物流管理画面へ";
+            this.ButtonLogis.TabIndex = 2;
+            this.ButtonLogis.Text = "物流管理画面";
             this.ButtonLogis.UseVisualStyleBackColor = true;
             this.ButtonLogis.Click += new System.EventHandler(this.ButtonLogis_Click);
             // 
@@ -60,7 +60,7 @@
             this.ButtonSyain.Location = new System.Drawing.Point(684, 185);
             this.ButtonSyain.Name = "ButtonSyain";
             this.ButtonSyain.Size = new System.Drawing.Size(275, 289);
-            this.ButtonSyain.TabIndex = 2;
+            this.ButtonSyain.TabIndex = 3;
             this.ButtonSyain.Text = "社員管理";
             this.ButtonSyain.UseVisualStyleBackColor = true;
             this.ButtonSyain.Click += new System.EventHandler(this.ButtonSyain_Click);
@@ -70,9 +70,9 @@
             this.ButtonEigyou.Font = new System.Drawing.Font("MS UI Gothic", 23F);
             this.ButtonEigyou.Location = new System.Drawing.Point(32, 185);
             this.ButtonEigyou.Name = "ButtonEigyou";
-            this.ButtonEigyou.Size = new System.Drawing.Size(272, 289);
-            this.ButtonEigyou.TabIndex = 3;
-            this.ButtonEigyou.Text = "営業管理画面へ";
+            this.ButtonEigyou.Size = new System.Drawing.Size(290, 289);
+            this.ButtonEigyou.TabIndex = 1;
+            this.ButtonEigyou.Text = "営業管理画面";
             this.ButtonEigyou.UseVisualStyleBackColor = true;
             this.ButtonEigyou.Click += new System.EventHandler(this.ButtonEigyou_Click);
             // 
@@ -80,11 +80,11 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.LblLoginDate);
             this.panel1.Controls.Add(this.ButtonLogout);
-            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.LblSoName);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.LblEmName);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label15);
@@ -94,15 +94,15 @@
             this.panel1.Size = new System.Drawing.Size(992, 142);
             this.panel1.TabIndex = 4;
             // 
-            // label19
+            // LblLoginDate
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label19.Location = new System.Drawing.Point(144, 93);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(153, 19);
-            this.label19.TabIndex = 92;
-            this.label19.Text = "23/10/30 11:15";
+            this.LblLoginDate.AutoSize = true;
+            this.LblLoginDate.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.LblLoginDate.Location = new System.Drawing.Point(144, 93);
+            this.LblLoginDate.Name = "LblLoginDate";
+            this.LblLoginDate.Size = new System.Drawing.Size(153, 19);
+            this.LblLoginDate.TabIndex = 92;
+            this.LblLoginDate.Text = "23/10/30 11:15";
             // 
             // ButtonLogout
             // 
@@ -111,19 +111,20 @@
             this.ButtonLogout.Name = "ButtonLogout";
             this.ButtonLogout.Size = new System.Drawing.Size(174, 59);
             this.ButtonLogout.TabIndex = 1;
+            this.ButtonLogout.TabStop = false;
             this.ButtonLogout.Text = "ログアウト";
             this.ButtonLogout.UseVisualStyleBackColor = true;
             this.ButtonLogout.Click += new System.EventHandler(this.ButtonLogout_Click);
             // 
-            // label18
+            // LblSoName
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(144, 62);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(129, 19);
-            this.label18.TabIndex = 91;
-            this.label18.Text = "◯◯◯営業所";
+            this.LblSoName.AutoSize = true;
+            this.LblSoName.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.LblSoName.Location = new System.Drawing.Point(144, 62);
+            this.LblSoName.Name = "LblSoName";
+            this.LblSoName.Size = new System.Drawing.Size(129, 19);
+            this.LblSoName.TabIndex = 91;
+            this.LblSoName.Text = "◯◯◯営業所";
             // 
             // label1
             // 
@@ -136,21 +137,21 @@
             this.label1.Text = "本社管理メニュー";
             this.label1.UseMnemonic = false;
             // 
-            // label16
+            // LblEmName
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(144, 30);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(109, 19);
-            this.label16.TabIndex = 90;
-            this.label16.Text = "江戸川乱歩";
+            this.LblEmName.AutoSize = true;
+            this.LblEmName.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.LblEmName.Location = new System.Drawing.Point(144, 30);
+            this.LblEmName.Name = "LblEmName";
+            this.LblEmName.Size = new System.Drawing.Size(109, 19);
+            this.LblEmName.TabIndex = 90;
+            this.LblEmName.Text = "江戸川乱歩";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(11, 30);
+            this.label14.Location = new System.Drawing.Point(9, 30);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(130, 19);
             this.label14.TabIndex = 87;
@@ -160,7 +161,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(33, 93);
+            this.label17.Location = new System.Drawing.Point(29, 93);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(110, 19);
             this.label17.TabIndex = 88;
@@ -170,7 +171,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(70, 62);
+            this.label15.Location = new System.Drawing.Point(69, 62);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(69, 19);
             this.label15.TabIndex = 89;
@@ -202,9 +203,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ButtonLogout;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label LblLoginDate;
+        private System.Windows.Forms.Label LblSoName;
+        private System.Windows.Forms.Label LblEmName;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;

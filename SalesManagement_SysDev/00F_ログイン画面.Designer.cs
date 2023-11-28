@@ -43,8 +43,8 @@
             // 
             // btn_CleateDabase
             // 
-            this.btn_CleateDabase.Location = new System.Drawing.Point(911, 458);
-            this.btn_CleateDabase.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_CleateDabase.Location = new System.Drawing.Point(677, 375);
+            this.btn_CleateDabase.Margin = new System.Windows.Forms.Padding(4);
             this.btn_CleateDabase.Name = "btn_CleateDabase";
             this.btn_CleateDabase.Size = new System.Drawing.Size(176, 73);
             this.btn_CleateDabase.TabIndex = 0;
@@ -57,8 +57,8 @@
             // 
             this.Lbl_tag.AutoSize = true;
             this.Lbl_tag.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.Lbl_tag.Location = new System.Drawing.Point(16, 26);
-            this.Lbl_tag.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.Lbl_tag.Location = new System.Drawing.Point(26, 22);
+            this.Lbl_tag.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_tag.Name = "Lbl_tag";
             this.Lbl_tag.Size = new System.Drawing.Size(455, 60);
             this.Lbl_tag.TabIndex = 1;
@@ -66,8 +66,8 @@
             // 
             // btn_InsertSampleData
             // 
-            this.btn_InsertSampleData.Location = new System.Drawing.Point(911, 563);
-            this.btn_InsertSampleData.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_InsertSampleData.Location = new System.Drawing.Point(677, 462);
+            this.btn_InsertSampleData.Margin = new System.Windows.Forms.Padding(4);
             this.btn_InsertSampleData.Name = "btn_InsertSampleData";
             this.btn_InsertSampleData.Size = new System.Drawing.Size(176, 73);
             this.btn_InsertSampleData.TabIndex = 0;
@@ -93,6 +93,7 @@
             this.TextboxPW.Name = "TextboxPW";
             this.TextboxPW.Size = new System.Drawing.Size(400, 57);
             this.TextboxPW.TabIndex = 2;
+            this.TextboxPW.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -155,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 476);
+            this.ClientSize = new System.Drawing.Size(859, 555);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ButtonLogin);
             this.Controls.Add(this.label2);

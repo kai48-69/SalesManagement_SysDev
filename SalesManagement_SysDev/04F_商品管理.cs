@@ -19,11 +19,16 @@ namespace SalesManagement_SysDev
         readonly  ProductDbConnection DB = new ProductDbConnection();
         private static List<M_Maker> MNameDsp;
         private static List<M_SmallClassification> ScDsp;
+       readonly LoginData LoginData;
 
 
-        public F_商品管理()
+        public F_商品管理(LoginData LData)
         {
             InitializeComponent();
+            LoginData = LData;
+            this.LblEmName.Text = LData.EmName;
+            this.LblSoName.Text = LData.SoName;
+            this.LblLoginDate.Text = LData.LoginDatetime.ToString();
         }
 
         //画面ロード時処理
@@ -45,7 +50,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<DispProductListDTO> tb = DB.ProductGetData("", "", 0);
+            List<DispProductListDTO> tb = DB.ProductGetData("", "");
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -127,10 +132,7 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[8].Width = 80;
-            ////非表示理由 
-            dataGridView1.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[9].Width = 400;
+
 
             dataGridView1.Refresh();
         }
@@ -423,7 +425,6 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-
         //更新処理-----------------------------------------------------------------------
         private bool GetVaildDataAtUpdate()//入力データチェック
         {
@@ -516,7 +517,6 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
-
         //非表示処理---------------------------------------------------------------------
         private bool GetVaildDataAtHide()//入力データチェック
         {
@@ -526,7 +526,7 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-            if (ProductDataAccess.CheckCascadeProduct(int.Parse(TextboxSyouhinID.Text.Trim())))
+            if (DB.CheckCascadeProduct(int.Parse(TextboxSyouhinID.Text.Trim()))==-1)
             {
                 MessageBox.Show("選択された商品は他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -623,7 +623,7 @@ namespace SalesManagement_SysDev
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            F_物流 f_buturyu = new F_物流();
+            F_物流 f_buturyu = new F_物流(LoginData);
             f_buturyu.Show();
             return;
         }
@@ -644,6 +644,8 @@ namespace SalesManagement_SysDev
             LblHatubaiDate.Visible = true;
             TextboxHihyouji.Enabled = false;
             HatubaiDate.Visible = true;
+            ComboMakerName.Enabled = true;
+            ComboSyobunrui.Enabled = true;
             GetDataGridView();
         }
         //検索時の入力項目選択-----------------------------------------------------------
@@ -661,6 +663,9 @@ namespace SalesManagement_SysDev
             LblHatubaiDate.Visible = false;
             TextboxHihyouji.Enabled = false;
             HatubaiDate.Visible = false;
+            ComboMakerName.Enabled = true;
+            ComboSyobunrui.Enabled = true;
+            GetDataGridView();
         }
         //更新時の入力項目選択-----------------------------------------------------------
         private void RadioKousin_CheckedChanged(object sender, EventArgs e)
@@ -677,6 +682,8 @@ namespace SalesManagement_SysDev
             LblHatubaiDate.Visible = true;
             HatubaiDate.Visible = true;
             TextboxHihyouji.Enabled = false;
+            ComboMakerName.Enabled = true;
+            ComboSyobunrui.Enabled = true;
             GetDataGridView();
         }
         //非表示時の入力項目選択-----------------------------------------------------------
@@ -694,6 +701,8 @@ namespace SalesManagement_SysDev
             LblHatubaiDate.Visible = true;
             TextboxHihyouji.Enabled = true;
             HatubaiDate.Visible = false;
+            ComboMakerName.Enabled =false;
+            ComboSyobunrui.Enabled= false;
             GetDataGridView();
         }
     }
