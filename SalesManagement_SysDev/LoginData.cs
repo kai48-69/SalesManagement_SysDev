@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 
 namespace SalesManagement_SysDev
 {
-
-        public class LoginData
-        {            
-            public int SyainID { get; set; }
-            public string SyainName { get; set; }
-            public string LoginDate { get; set; }
-            public string SoID{ get; set; }
-            public int PolID { get; set; }            
-        }
+    public class LoginData
+    {
+        public int EmID { get; set; }
+        public string EmName { get; set; }
+        public string LoginDatetime { get; set; }
+        public string SoName { get; set; }
+        public int PoID { get; set; }
+    }
 }
-
-

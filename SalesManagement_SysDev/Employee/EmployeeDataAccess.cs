@@ -9,55 +9,7 @@ namespace SalesManagement_SysDev
 {
     internal class EmployeeDataAccess
     {
-        //IDの存在チェック
-        public bool CheckCascadeEmployeesID(int EmID)
-        {
-            var context = new SalesManagement_DevContext();
-            bool flg = context.M_Employees.Any(x => x.EmID == EmID);
-            return flg;
-        }
-        //PWチェック
-        public bool CheckCascadeEmployeesPW(string EmPassword, int SyainID)
-        {
-            var context = new SalesManagement_DevContext();
-            var syain = context.M_Employees.Single(x => x.EmID == SyainID);
-            if (syain.EmPassword == EmPassword)
-            {
-                return true;
-            }
-            return false;
-        }
-
-
-        //役職IDの取得
-        public bool GetPoID(int EmID,out int PolID)
-        {
-            var context= new SalesManagement_DevContext();
-            PolID = 0;
-            bool flg = context.M_Employees.Any(x => x.EmID == EmID);
-
-            if (flg)
-            {
-                var Emp = context.M_Employees.Single(x => x.EmID == EmID);
-                PolID = Emp.PoID;
-            }
-            return true;
-        }
-
-        //社員名の取得
-        public bool GetEmName(int EmID,out string EmName)
-        {
-            var context=new SalesManagement_DevContext();
-            EmName = "";
-            bool flg = context.M_Employees.Any(x => x.EmID == EmID);
-
-            if (flg)
-            {
-                var Emp=context.M_Employees.Single(x=> x.EmID == EmID);
-                EmName = Emp.EmName;
-            }
-            return true;
-        }
+       
 
         public bool AddEmployeeData(M_Employee regEmp)
         {
@@ -97,14 +49,6 @@ namespace SalesManagement_SysDev
             }
         }
 
-        public bool CheckCascadeEmployee(int EmID)
-        {
-            var context = new SalesManagement_DevContext();
-            bool flg = context.T_Orders.Any(x => x.EmID == EmID);
-
-            return flg;
-        }
-
         public bool HideEmployeeData(M_Employee hidEmp)
         {
             try
@@ -125,5 +69,32 @@ namespace SalesManagement_SysDev
                 return false;
             }
         }
+
+        public bool RegistrationPW(M_Employee RegPW)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Employee = context.M_Employees.First(x => x.EmID == RegPW.EmID);
+                Employee.EmPassword = RegPW.EmPassword;
+                context.SaveChanges();
+                context.Dispose();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool CheckCascadeEmployee(int EmID)
+        {
+            var context = new SalesManagement_DevContext();
+            bool flg = context.T_Orders.Any(x => x.EmID == EmID);
+
+            return flg;
+        }
+
     }
 }

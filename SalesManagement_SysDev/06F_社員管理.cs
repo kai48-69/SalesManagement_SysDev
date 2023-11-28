@@ -2,29 +2,34 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace SalesManagement_SysDev
 {
     public partial class F_社員管理 : Form
     {
-
         readonly EmployeeDataAccess EmployeeDataAccess = new EmployeeDataAccess();
         private readonly InputCheck ichk = new InputCheck();
         readonly EmployeeDbConnection DB = new EmployeeDbConnection();
         private static List<M_SalesOffice> SoNameDsp;
         private static List<M_Position> PoNameDsp;
+        readonly LoginData LoginData;
 
-        public F_社員管理()
+        public F_社員管理(LoginData LData)
         {
             InitializeComponent();
+            LoginData = LData;
+            this.LblEmName.Text = LData.EmName;
+            this.LblSoName.Text = LData.SoName;
+            this.LblLoginDate.Text = LData.LoginDatetime.ToString();
         }
-
 
         //画面ロード時処理
         private void F_社員管理_Load(object sender, EventArgs e)
@@ -113,10 +118,6 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[5].Width = 80;
-            ////非表示理由
-            dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].Width = 513;
 
             dataGridView1.Refresh();
         }
@@ -142,7 +143,7 @@ namespace SalesManagement_SysDev
                 TextboxTelNo.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
             }
         }
-            
+
 
         //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
@@ -174,17 +175,14 @@ namespace SalesManagement_SysDev
             //更新処理----------------------------------------------------------------------
             if (RadioKousin.Checked == true)
             {
-                if (RadioKousin.Checked == true)
+                if (!GetVaildDataAtUpdate())
                 {
-                    if (!GetVaildDataAtUpdate())
-                    {
-                        return;
-                    }
-
-                    var updEmployee = GenereteDataAtUpdate();
-
-                    UpdateEmployee(updEmployee);
+                    return;
                 }
+
+                var updEmployee = GenereteDataAtUpdate();
+
+                UpdateEmployee(updEmployee);
             }
 
             // 非表示処理--------------------------------------------------------------------
@@ -202,8 +200,16 @@ namespace SalesManagement_SysDev
         }
 
         //登録処理--------------------------------------------------------------------------
+
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
+            if (DB.CheckCascadeEmployeesID(int.Parse(TextboxSyainID.Text)) != -1)
+            {
+                MessageBox.Show("その社員IDは既に使われているため、登録できません");
+                TextboxSyainID.Focus();
+                return false;
+            }
+
             if (String.IsNullOrEmpty(TextboxSyainName.Text.Trim()))
             {
                 MessageBox.Show("社員名が入力されていません");
@@ -211,26 +217,54 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-            if (String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
+            if (!String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxTelNo.Text.Trim()))
+                {
+                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    TextboxTelNo.Focus();
+                    return false;
+                }
+            }
+            else
             {
                 MessageBox.Show("電話番号が入力されていません");
                 TextboxTelNo.Focus();
                 return false;
             }
+
             return true;
         }
 
         private M_Employee GenerateDataAtRegistration() //登録データ生成
         {
+            string TelNo = TextboxTelNo.Text;
+            if (TelNo.Length == 10)
+            {
+                string D1 = TelNo.Substring(0, 2);
+                string D2 = TelNo.Substring(2, 4);
+                string D3 = TelNo.Substring(6, 4);
+                TelNo = string.Format(D1 + "-" + D2 + "-" + D3);
+            }
+            //000-0000-0000
+            else if (TelNo.Length == 11)
+            {
+             string D1=  TelNo.Substring(0,3);
+            string D2= TelNo. Substring(3,4);
+            string D3=TelNo.Substring(7,4);
+                TelNo = string.Format(D1 + "-"+D2 + "-" + D3);
+
+               
+            }
             int SoID = ComboEigyousyoName.SelectedIndex;
             int PoID = ComboYakusyokuName.SelectedIndex;
             return new M_Employee
             {
                 EmID = int.Parse(TextboxSyainID.Text.Trim()),
                 EmName = TextboxSyainName.Text.Trim(),
-                EmPhone = TextboxTelNo.Text.Trim(),
+                EmPhone = TelNo,
                 SoID = SoID + 1,
-                PoID = PoID ,
+                PoID = PoID+1,
                 EmHiredate = NyusyaDate.Value,
                 EmPassword = "oic",
                 EmFlag = 0,
@@ -357,7 +391,7 @@ namespace SalesManagement_SysDev
                 EmID = int.Parse(TextboxSyainID.Text.Trim()),
                 EmName = TextboxSyainName.Text.Trim(),
                 EmPhone = TextboxTelNo.Text.Trim(),
-                SoID = SoID+1,
+                SoID = SoID + 1,
                 PoID = PoID,
                 EmFlag = 0,
                 EmHidden = null,
@@ -409,7 +443,7 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-          
+
             return true;
         }
 
@@ -425,7 +459,7 @@ namespace SalesManagement_SysDev
                 SoID = SoID + 1,
                 PoID = PoID,
                 EmFlag = 2,
-                EmHidden=TextboxHihyoji.Text.Trim(),
+                EmHidden = TextboxHihyoji.Text.Trim(),
             };
         }
 
@@ -453,11 +487,12 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
+
         //入力クリア----------------------------------------------------------------------
         private void ClearInput()
         {
 
-            if (RadioKensaku.Checked == true)//検索時はコンボボックスの値を空にする
+            if (RadioKensaku.Checked == true || RadioHihyouji.Checked == true)//検索時、非表示時はコンボボックスの値を空にする
             {
                 ComboEigyousyoName.SelectedIndex = -1;
                 ComboYakusyokuName.SelectedIndex = -1;
@@ -466,10 +501,10 @@ namespace SalesManagement_SysDev
                 TextboxTelNo.Text = "";
                 TextboxHihyoji.Text = "";
             }
-            else   //検索時以外は表示する
+            else   //上記以外の場合は表示する
             {
-                ComboEigyousyoName.SelectedIndex = -1;
-                ComboYakusyokuName.SelectedIndex = -1;
+                ComboEigyousyoName.SelectedIndex = 0;
+                ComboYakusyokuName.SelectedIndex = 0;
                 TextboxSyainID.Text = "";
                 TextboxSyainName.Text = "";
                 TextboxTelNo.Text = "";
@@ -481,7 +516,7 @@ namespace SalesManagement_SysDev
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            F_管理者 f_Admin = new F_管理者();
+            F_管理者 f_Admin = new F_管理者(LoginData);
             f_Admin.Show();
         }
 
@@ -490,6 +525,7 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
         }
+
 
         //登録時の入力項目選択-----------------------------------------------------------
         private void RadioTouroku_CheckedChanged(object sender, EventArgs e)
@@ -504,7 +540,11 @@ namespace SalesManagement_SysDev
             NyusyaDate.Value = DateTime.Now;
             NyusyaDate.Visible = true;
             LblNyusyaDate.Visible = true;
+            ComboEigyousyoName.Enabled = true;
+            ComboYakusyokuName.Enabled = true;
+            GetDataGridView();
         }
+
         //検索時の入力項目選択-----------------------------------------------------------
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
@@ -517,7 +557,11 @@ namespace SalesManagement_SysDev
             TextboxHihyoji.Enabled = false;
             NyusyaDate.Visible = false;
             LblNyusyaDate.Visible = false;
+            ComboEigyousyoName.Enabled = true;
+            ComboYakusyokuName.Enabled = true;
+            GetDataGridView();
         }
+
         //更新時の入力項目選択-----------------------------------------------------------
         private void RadioKousin_CheckedChanged(object sender, EventArgs e)
         {
@@ -531,7 +575,11 @@ namespace SalesManagement_SysDev
             NyusyaDate.Value = DateTime.Now;
             NyusyaDate.Visible = false;
             LblNyusyaDate.Visible = false;
+            ComboEigyousyoName.Enabled = true;
+            ComboYakusyokuName.Enabled = true;
+            GetDataGridView();
         }
+
         //非表示時の入力項目選択-----------------------------------------------------------
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
@@ -545,6 +593,9 @@ namespace SalesManagement_SysDev
             NyusyaDate.Value = DateTime.Now;
             NyusyaDate.Visible = false;
             LblNyusyaDate.Visible = false;
+            ComboEigyousyoName.Enabled = false;
+            ComboYakusyokuName.Enabled = false;
+            GetDataGridView();
         }
     }
 }
