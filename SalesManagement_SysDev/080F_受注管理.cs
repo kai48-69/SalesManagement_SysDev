@@ -657,5 +657,10 @@ namespace SalesManagement_SysDev
                 TextboxSyainName.Text = "";
             }
         }
+
+        private void ComboEigyousyoName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
