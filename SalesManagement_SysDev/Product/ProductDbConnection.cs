@@ -9,7 +9,7 @@ namespace SalesManagement_SysDev
 {
     internal class ProductDbConnection
     {
-        public List<DispProductListDTO> ProductGetData(string strName, string strMaker, int safety)
+        public List<DispProductListDTO> ProductGetData(string strName, string strMaker)
         {
             var context = new SalesManagement_DevContext();
             try
@@ -34,7 +34,6 @@ namespace SalesManagement_SysDev
                              PrColor = Product.PrColor, 
                              PrModelNumber= Product.PrModelNumber, 
                              PrReleaseDate = Product.PrReleaseDate,
-                             PrHidden = Product.PrHidden,
 
                          };
                 return tb.ToList();
@@ -142,12 +141,36 @@ namespace SalesManagement_SysDev
             return Price;
         }
 
-        public bool CheckCascadeProduct(int PrID)
+        public string GetPrName(int PrID)
         {
             var context = new SalesManagement_DevContext();
-            bool flg = context.T_OrderDetails.Any(x => x.PrID == PrID);
 
-            return flg;
+            var Pr = context.M_Products.Single(x => x.PrID == PrID);
+            string PrName = Pr.PrName;
+            if (Pr.PrFlag == 0)
+            {
+                return PrName;
+            }
+            return "";
+        }
+
+        public int CheckCascadeProduct(int PrID)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Product = context.M_Products.Single(x => x.PrID == PrID);
+                int SyohinID = Product.PrID;
+                if (Product.PrFlag == 0)
+                {
+                    return SyohinID;
+                }
+                return -1;
+            }
+            catch
+            {
+                return -1;
+            }
         }
 
     }

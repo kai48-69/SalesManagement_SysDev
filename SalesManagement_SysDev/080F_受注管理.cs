@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,14 +17,21 @@ namespace SalesManagement_SysDev
     {
         readonly OrderDbConnection DB = new OrderDbConnection();
         readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
-        readonly OrderDataAccess ODA=new OrderDataAccess();
+        readonly ChumonDbConnection DB2 = new ChumonDbConnection();
+        readonly OrderDataAccess ODA = new OrderDataAccess();
+        readonly ChumonDataAccess CDA = new ChumonDataAccess();
         private static List<M_Client> ClNameDsp;
         private static List<M_SalesOffice> SoNameDsp;
         readonly private InputCheck ichk = new InputCheck();
+        readonly LoginData LoginData;
 
-        public F_受注管理()
+        public F_受注管理(LoginData LData)
         {
             InitializeComponent();
+            LoginData = LData;
+            this.LblEmName.Text = LData.EmName;
+            this.LblSoName.Text = LData.SoName;
+            this.LblLoginDate.Text = LData.LoginDatetime.ToString();
         }
 
         //画面ロード時処理
@@ -32,9 +40,8 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = false;
             TextboxJutyuID.ReadOnly = true;
             TextboxSyainName.ReadOnly = true;
+            ButtonKakutei.Enabled = false;
             SetFormComboBox();
-
-
 
             if (!GetDataGridView())
             {
@@ -93,50 +100,46 @@ namespace SalesManagement_SysDev
             //行単位選択     
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //ヘッダー文字位置、セル文字位置、列幅の設定
-            ////商品ID
+            //受注ID
             dataGridView1.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[0].Width = 40;
-            ////メーカー名
+            ////受注詳細ID
             dataGridView1.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[1].Width = 50;
-            //商品名
+            //営業所名
             dataGridView1.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[2].Width = 80;
-            //価格
+            //社員名
             dataGridView1.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[3].Width = 80;
-            ////安全在庫数
+            //顧客名
             dataGridView1.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridView1.Columns[4].Width = 40;
-            ////小分類
+            dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[4].Width = 80;
+            //顧客担当者名
             dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[5].Width = 80;
-            ////型番
+            dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[5].Width = 120;
+            //商品名
             dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].Width = 30;
-            ////色
+            dataGridView1.Columns[6].Width = 70;
+            //数量
             dataGridView1.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[7].Width = 70;
-            ////発売日
+            //合計金額
             dataGridView1.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[8].Width = 80;
-            ////非表示理由 
+            //受注年月日
             dataGridView1.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[9].Width = 80;
-            ////非表示理由 
-            dataGridView1.Columns[10].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[10].Width = 400;
+            dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[9].Width = 90;
 
             dataGridView1.Refresh();
         }
@@ -146,11 +149,15 @@ namespace SalesManagement_SysDev
         {
             if (RadioTouroku.Checked == true)
             {
-               
+
                 ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
                 TextboxSyainName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
                 ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
                 TextboxTantousyaName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+            }
+            else if (RadioKensaku.Checked == true)
+            {
+
             }
             else
             {
@@ -203,6 +210,19 @@ namespace SalesManagement_SysDev
             }
         }
 
+        //確定ボタン----------------------------------------------------------------------
+        private void ButtonKakutei_Click(object sender, EventArgs e)
+        {
+            if (!CheckDataAtConfirm())
+            {
+                return;
+            }
+               
+            ConfirmOr();
+            var ConOr = GenereteDataAtUpdateFlg();
+            UpdOrFlag(ConOr);
+        }
+
         //登録処理--------------------------------------------------------------------------
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
@@ -227,22 +247,28 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
+            if (String.IsNullOrEmpty(TextboxSyainName.Text))
+            {
+                MessageBox.Show("正しい社員ID を入力して下さい");
+                return false;
+            }
+
             return true;
         }
 
         private T_Order GenerateDataAtRegistration() //登録データ生成
         {
             int ClID = ComboKokyakuName.SelectedIndex;
-            int SoID=ComboEigyousyoName.SelectedIndex;
+            int SoID = ComboEigyousyoName.SelectedIndex;
             return new T_Order
             {
-                SoID = SoID+1,
+                SoID = SoID + 1,
                 EmID = int.Parse(TextboxSyainID.Text.Trim()),
-                ClID = ClID+1,
+                ClID = ClID + 1,
                 ClCharge = TextboxTantousyaName.Text.Trim(),
                 OrDate = DateTime.Now,
                 OrFlag = 0,
-                OrStateFlag=0,
+                OrStateFlag = 0,
                 OrHidden = null
             };
         }
@@ -257,13 +283,13 @@ namespace SalesManagement_SysDev
             bool flg = ODA.AddOrderData(regOr);
             if (flg == true)
             {
-                DialogResult result1= MessageBox.Show("データを登録しました");
-                if (result1==DialogResult.OK)
+                DialogResult result1 = MessageBox.Show("データを登録しました");
+                if (result1 == DialogResult.OK)
                 {
                     this.Close();
-                    F_受注詳細登録 f_JutyuSyousai = new F_受注詳細登録();
+                    F_受注詳細登録 f_JutyuSyousai = new F_受注詳細登録(LoginData);
                     f_JutyuSyousai.Show();
-                   
+
                 }
             }
             else
@@ -336,15 +362,15 @@ namespace SalesManagement_SysDev
             {
                 SyainID = -1;
             }
-           
+
 
             T_Order selectCondition = new T_Order()
             {
                 OrID = JutyuID,
                 SoID = SoID,
                 ClID = ClID,
-                EmID= SyainID,
-                ClCharge=TextboxTantousyaName.Text.Trim(),
+                EmID = SyainID,
+                ClCharge = TextboxTantousyaName.Text.Trim(),
             };
 
             List<DispOrderListDTO> tb = DB.GetOrderData(selectCondition);
@@ -360,7 +386,7 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxJutyuID.Text.Trim()))
             {
-                MessageBox.Show("非表示にする受注データを選択してください","エラー");
+                MessageBox.Show("非表示にする受注データを選択してください", "エラー");
                 return false;
             }
 
@@ -380,13 +406,11 @@ namespace SalesManagement_SysDev
 
         private T_Order GenereteDataAtHidden()　//非表示データ生成(フラグの更新データ生成)
         {
-            int SoID = ComboEigyousyoName.SelectedIndex;
-            int PoID = ComboKokyakuName.SelectedIndex;
             return new T_Order
             {
-                OrID=int.Parse(TextboxJutyuID.Text),
+                OrID = int.Parse(TextboxJutyuID.Text),
                 OrFlag = 2,
-                OrHidden =TextboxHihyouji.Text ,
+                OrHidden = TextboxHihyouji.Text,
             };
         }
 
@@ -414,19 +438,107 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
+        //確定処理------------------------------------------------------------------------
+      private bool CheckDataAtConfirm()
+        {
+            if (String.IsNullOrEmpty(TextboxJutyuID.Text.Trim()))
+            {
+                MessageBox.Show("確定を行うデータが選択されていません");
+                return false;
+            }
+            return true;
+        }
+        
+        private void ConfirmOr()//注文テーブルにデータを登録する
+        {
+            DialogResult result = MessageBox.Show("受注情報を確定します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            T_Order selectCondition = new T_Order()
+            {
+                OrID = int.Parse(TextboxJutyuID.Text),
+            };
+            List<GetOrderDataDTO> Data1 = DB.SetOrderData(selectCondition);
+
+            //形式変換(DispOrderListDTO→T_Chumon)
+            T_Chumon chumon = new T_Chumon
+            {
+                OrID = int.Parse(Data1[0].OrID),
+                SoID = int.Parse(Data1[0].SoID),
+                EmID = int.Parse(Data1[0].EmID),
+                ClID = int.Parse(Data1[0].ClID)
+            };
+            //登録処理
+            bool flg1 = CDA.AddChumonData(chumon);
+            //詳細確定------------------------------------------------------------------------
+            //登録したChIDを取得
+            int chID = DB2.GetChID();
+            T_ChumonDetail ChumonDetail = new T_ChumonDetail();
+            for (int i = 0; i < Data1.Count; i++)
+            {
+
+                //各データをchumonDetailに代入
+                ChumonDetail.ChID = chID;
+                ChumonDetail.PrID = int.Parse(Data1[i].PrID);
+                ChumonDetail.ChQuantity = int.Parse(Data1[i].PrQuantity);
+                //chumonDetail登録
+                CDA.AddChumonDetailData(ChumonDetail);
+            }
+            bool flg2 = true;
+
+
+            if (flg1 == true && flg2 == true)
+            {
+                DialogResult result1 = MessageBox.Show("データを確定しました");
+                if (result1 == DialogResult.OK)
+                {
+                    //this.Close();
+                    //F_受注詳細登録 f_JutyuSyousai = new F_受注詳細登録();
+                    //f_JutyuSyousai.Show();
+
+                }
+            }
+            //else
+            //{
+            //    MessageBox.Show("データの確定に失敗しました");
+            //    TextboxSyainName.Focus();
+            //}
+        } 
+
+        private T_Order GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
+        {
+            return new T_Order
+            {
+                OrID = int.Parse(TextboxJutyuID.Text),
+                OrStateFlag = 1,
+            };
+        }
+
+        private void UpdOrFlag(T_Order ConOr)　//フラグ更新処理
+        {
+            ODA.UpdOrderFlg(ConOr);
+          
+            ClearInput();
+
+            GetDataGridView();
+        }
+
 
         //戻るボタン----------------------------------------------------------------------
         private void ButtonBack(object sender, EventArgs e)
         {
             this.Close();
-            F_営業 f_eigyou = new F_営業();
+            F_営業 f_eigyou = new F_営業(LoginData);
             f_eigyou.Show();
         }
 
         //入力リセット--------------------------------------------------------------------
         private void ClearInput()
         {
-            if (RadioTouroku.Checked==true)//登録時はコンボボックスに値を表示する
+            if (RadioTouroku.Checked == true)//登録時はコンボボックスに値を表示する
             {
                 TextboxJutyuID.Text = "";
                 ComboEigyousyoName.SelectedIndex = 0;
@@ -434,7 +546,7 @@ namespace SalesManagement_SysDev
                 TextboxTantousyaName.Text = "";
                 TextboxSyainID.Text = "";
                 TextboxSyainName.Text = "";
-                
+
             }
             else   //検索時、非表示時はコンボボックスの値を空にする
             {
@@ -462,9 +574,15 @@ namespace SalesManagement_SysDev
             ComboKokyakuName.SelectedIndex = 0;
             TextboxTantousyaName.ReadOnly = false;
             ComboEigyousyoName.SelectedIndex = 0;
-            TextboxSyainID.ReadOnly = false;
+            TextboxSyainID.Visible = true;
+            LblSyainID.Visible = true;
             TextboxSyainName.ReadOnly = true;
             TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = false;
+            ButtonExe.Visible = true;
+            ComboEigyousyoName.Enabled = true;
+            ComboKokyakuName.Enabled = true;
+            GetDataGridView();
         }
 
         //検索時の入力項目選択-----------------------------------------------------------
@@ -475,12 +593,18 @@ namespace SalesManagement_SysDev
             ComboKokyakuName.SelectedIndex = -1;
             TextboxTantousyaName.ReadOnly = false;
             ComboEigyousyoName.SelectedIndex = -1;
-            TextboxSyainID.ReadOnly = false;
+            TextboxSyainID.Visible =true;
+            LblSyainID.Visible = true;
             TextboxSyainName.ReadOnly = true;
             TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = false;
+            ButtonExe.Visible = true;
+            ComboEigyousyoName.Enabled = true;
+            ComboKokyakuName.Enabled = true;
+            GetDataGridView();
         }
 
-        //非表示時の入力項目選択-----------------------------------------------------------
+        //非表示時の入力項目選択---------------------------------------------------------
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
@@ -488,9 +612,50 @@ namespace SalesManagement_SysDev
             ComboKokyakuName.SelectedIndex = -1;
             TextboxTantousyaName.ReadOnly = true;
             ComboEigyousyoName.SelectedIndex = -1;
-            TextboxSyainID.ReadOnly = true;
+            TextboxSyainID.Visible = false;
+            LblSyainID.Visible=false;
             TextboxSyainName.ReadOnly = true;
             TextboxHihyouji.Enabled = true;
+            ButtonKakutei.Enabled = false;
+            ButtonExe.Visible = true;
+            ComboEigyousyoName.Enabled = true;
+            ComboKokyakuName.Enabled = true;
+            GetDataGridView();
+        }
+
+        //確定時の入力項目選択-----------------------------------------------------------
+        private void RadioKakutei_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxJutyuID.ReadOnly = true;
+            ComboKokyakuName.SelectedIndex = -1;
+            TextboxTantousyaName.ReadOnly = true;
+            ComboEigyousyoName.SelectedIndex = -1;
+            TextboxSyainID.Visible = false;
+            LblSyainID.Visible = false;
+            TextboxSyainName.ReadOnly = true;
+            TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = true;
+            ButtonExe.Visible = false;
+            ComboEigyousyoName.Enabled = false;
+            ComboKokyakuName.Enabled = false;
+            GetDataGridView();
+        }
+
+        //社員名自動入力
+        private void TextboxSyainID_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(TextboxSyainID.Text.Trim(),out int EmID))
+            {
+                if (DB1.CheckCascadeEmployeesID(EmID) != -1)
+                {
+                    TextboxSyainName.Text = DB1.GetEmName(EmID);
+                }
+            }
+            if (String.IsNullOrEmpty(TextboxSyainID.Text))
+            {
+                TextboxSyainName.Text = "";
+            }
         }
     }
 }

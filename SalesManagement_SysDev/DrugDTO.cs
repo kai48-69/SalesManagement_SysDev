@@ -29,8 +29,7 @@ namespace SalesManagement_SysDev
         public string PrColor { get; set; }
         [DisplayName("発売日")]
         public DateTime PrReleaseDate { get; set; }
-        [DisplayName("非表示理由")]
-        public string PrHidden { get; set; }
+     
     }
 
     class DispEmployeeListDTO
@@ -47,8 +46,7 @@ namespace SalesManagement_SysDev
         public string EmHiredate { get; set; }
         [DisplayName("電話番号")]
         public string EmPhone { get; set; }
-        [DisplayName("非表示理由")]
-        public string EmHidden { get; set; }
+     
     }
 
     class DispClientListDTO
@@ -67,8 +65,7 @@ namespace SalesManagement_SysDev
         public string Clpostel { get; set; }
         [DisplayName("FAX")]
         public string ClFAX { get; set; }
-        [DisplayName("非表示理由")]
-        public string ClHidden { get; set; }
+      
     }
 
     class DispOrderListDTO
@@ -93,8 +90,7 @@ namespace SalesManagement_SysDev
         public string OrTotalPrice { get; set; }
         [DisplayName("受注年月日")]
         public string OrDate { get; set; }
-        [DisplayName("非表示理由")]
-        public string OrHidden { get; set; }
+      
     }
 
     class DispOrderDetailListDTO
@@ -111,6 +107,31 @@ namespace SalesManagement_SysDev
         public string PrQuantity { get; set; }
         [DisplayName("合計金額")]
         public string OrTotalPrice { get; set;}
+    }
+
+    class GetOrderDataDTO
+    {
+        [DisplayName("受注ID")]
+        public string OrID { get; set; }
+        [DisplayName("受注詳細ID")]
+        public string OrDetailID { get; set; }
+        [DisplayName("営業所ID")]
+        public string SoID { get; set; }
+        [DisplayName("社員ID")]
+        public string EmID { get; set; }
+        [DisplayName("顧客ID")]
+        public string ClID { get; set; }
+        [DisplayName("商品ID")]
+        public string PrID { get; set; }
+        [DisplayName("数量")]
+        public string PrQuantity { get; set; }
+    }
+    class SetLoginDataDTO
+    {
+        public int EmID { get; set; }
+        public string EmName { get; set; }
+        public string SoName { get; set; }
+        public int PoID { get; set; }
     }
 }
 

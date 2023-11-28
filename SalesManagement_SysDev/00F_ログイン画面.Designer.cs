@@ -43,7 +43,7 @@
             // 
             // btn_CleateDabase
             // 
-            this.btn_CleateDabase.Location = new System.Drawing.Point(729, 382);
+            this.btn_CleateDabase.Location = new System.Drawing.Point(677, 375);
             this.btn_CleateDabase.Margin = new System.Windows.Forms.Padding(4);
             this.btn_CleateDabase.Name = "btn_CleateDabase";
             this.btn_CleateDabase.Size = new System.Drawing.Size(141, 61);
@@ -57,7 +57,7 @@
             // 
             this.Lbl_tag.AutoSize = true;
             this.Lbl_tag.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.Lbl_tag.Location = new System.Drawing.Point(13, 22);
+            this.Lbl_tag.Location = new System.Drawing.Point(26, 22);
             this.Lbl_tag.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_tag.Name = "Lbl_tag";
             this.Lbl_tag.Size = new System.Drawing.Size(380, 50);
@@ -66,7 +66,7 @@
             // 
             // btn_InsertSampleData
             // 
-            this.btn_InsertSampleData.Location = new System.Drawing.Point(729, 469);
+            this.btn_InsertSampleData.Location = new System.Drawing.Point(677, 462);
             this.btn_InsertSampleData.Margin = new System.Windows.Forms.Padding(4);
             this.btn_InsertSampleData.Name = "btn_InsertSampleData";
             this.btn_InsertSampleData.Size = new System.Drawing.Size(141, 61);
@@ -93,6 +93,7 @@
             this.TextboxPW.Name = "TextboxPW";
             this.TextboxPW.Size = new System.Drawing.Size(321, 49);
             this.TextboxPW.TabIndex = 2;
+            this.TextboxPW.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -153,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 397);
+            this.ClientSize = new System.Drawing.Size(859, 555);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ButtonLogin);
             this.Controls.Add(this.label2);

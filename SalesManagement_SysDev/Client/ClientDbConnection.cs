@@ -30,7 +30,6 @@ namespace SalesManagement_SysDev
                              ClPhone = Client.ClPhone,
                              Clpostel = Client.ClPostal,
                              ClFAX = Client.ClFAX,
-                             ClHidden = Client.ClHidden,
                              
                          };
                 return tb.ToList();
@@ -84,7 +83,6 @@ namespace SalesManagement_SysDev
                              ClPhone = Client.ClPhone,
                              Clpostel = Client.ClPostal,
                              ClFAX = Client.ClFAX,
-                             ClHidden = Client.ClHidden,
 
                          };
 

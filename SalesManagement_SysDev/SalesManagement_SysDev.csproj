@@ -71,11 +71,19 @@
     <Compile Include="06F_社員管理.Designer.cs">
       <DependentUpon>06F_社員管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientDataAccess.cs" />
-    <Compile Include="ClientDbConnection.cs" />
+    <Compile Include="101F_発注詳細登録.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="101F_発注詳細登録.Designer.cs">
+      <DependentUpon>101F_発注詳細登録.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChumonDataAccess.cs" />
+    <Compile Include="ChumonDbConnection.cs" />
+    <Compile Include="Client\ClientDataAccess.cs" />
+    <Compile Include="Client\ClientDbConnection.cs" />
     <Compile Include="DrugDTO.cs" />
-    <Compile Include="EmployeeDataAccess.cs" />
-    <Compile Include="EmployeeDbConnection.cs" />
+    <Compile Include="Employee\EmployeeDataAccess.cs" />
+    <Compile Include="Employee\EmployeeDbConnection.cs" />
     <Compile Include="Entity\M_MajorClassification.cs" />
     <Compile Include="Entity\M_Product.cs" />
     <Compile Include="05F_在庫管理.cs">
@@ -84,11 +92,11 @@
     <Compile Include="05F_在庫管理.Designer.cs">
       <DependentUpon>05F_在庫管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="10F_発注管理.cs">
+    <Compile Include="100F_発注管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="10F_発注管理.Designer.cs">
-      <DependentUpon>10F_発注管理.cs</DependentUpon>
+    <Compile Include="100F_発注管理.Designer.cs">
+      <DependentUpon>100F_発注管理.cs</DependentUpon>
     </Compile>
     <Compile Include="11F_入庫管理.cs">
       <SubType>Form</SubType>
@@ -181,10 +189,11 @@
       <DependentUpon>081F_受注詳細登録.cs</DependentUpon>
     </Compile>
     <Compile Include="InputCheck.cs" />
-    <Compile Include="OrderDataAccess.cs" />
-    <Compile Include="OrderDbConnection.cs" />
-    <Compile Include="ProductDataAccess.cs" />
-    <Compile Include="ProductDbConnection.cs" />
+    <Compile Include="LoginData.cs" />
+    <Compile Include="Order\OrderDataAccess.cs" />
+    <Compile Include="Order\OrderDbConnection.cs" />
+    <Compile Include="Product\ProductDataAccess.cs" />
+    <Compile Include="Product\ProductDbConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entity\T_Arrival.cs" />
@@ -207,7 +216,6 @@
     <Compile Include="Entity\T_Warehousing.cs" />
     <Compile Include="Entity\T_WarehousingDetail.cs" />
     <Compile Include="SalesManagement_DevContext.cs" />
-    <Compile Include="LoginData.cs" />
     <EmbeddedResource Include="01F_PW新規登録.resx">
       <DependentUpon>01F_PW新規登録.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,8 +225,11 @@
     <EmbeddedResource Include="06F_社員管理.resx">
       <DependentUpon>06F_社員管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="10F_発注管理.resx">
-      <DependentUpon>10F_発注管理.cs</DependentUpon>
+    <EmbeddedResource Include="100F_発注管理.resx">
+      <DependentUpon>100F_発注管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="101F_発注詳細登録.resx">
+      <DependentUpon>101F_発注詳細登録.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="11F_入庫管理.resx">
       <DependentUpon>11F_入庫管理.cs</DependentUpon>

@@ -41,7 +41,6 @@ namespace SalesManagement_SysDev
                              PrQuantity=OrDetail.OrQuantity.ToString(),
                              OrTotalPrice=OrDetail.OrTotalPrice.ToString(),
                              OrDate=Order.OrDate.ToString(),
-                             OrHidden=Order.OrHidden,
                          };
                 return tb.ToList();
             }
@@ -135,7 +134,7 @@ namespace SalesManagement_SysDev
 
                          select new DispOrderListDTO
                          {
-                               OrID = Order.OrID.ToString(),
+                             OrID = Order.OrID.ToString(),
                              OrDetailID=OrDetail.OrDetailID.ToString(),
                              SoName = SOffice.SoName,
                              EmName = Employee.EmName,
@@ -145,7 +144,6 @@ namespace SalesManagement_SysDev
                              PrQuantity=OrDetail.OrQuantity.ToString(),
                              OrTotalPrice=OrDetail.OrTotalPrice.ToString(),
                              OrDate=Order.OrDate.ToString(),
-                             OrHidden=Order.OrHidden,
                           };
 
                 return tb.ToList();
@@ -157,5 +155,44 @@ namespace SalesManagement_SysDev
             return null;
         }
 
+        public List<GetOrderDataDTO> SetOrderData(T_Order selectCondition)
+        {
+            var context = new SalesManagement_DevContext();
+            try
+            {
+                var tb = from Order in context.T_Orders
+                         join SOffice in context.M_SalesOffices
+                         on Order.SoID equals SOffice.SoID
+                         join Employee in context.M_Employees
+                         on Order.EmID equals Employee.EmID
+                         join Client in context.M_Clients
+                         on Order.ClID equals Client.ClID
+                         join OrDetail in context.T_OrderDetails
+                         on Order.OrID equals OrDetail.OrID
+                         join Product in context.M_Products
+                         on OrDetail.PrID equals Product.PrID
+                         where Order.OrID.Equals(selectCondition.OrID) &&
+                         Order.OrFlag.Equals(0) &&
+                         Order.OrStateFlag.Equals(0)
+
+                         select new GetOrderDataDTO
+                         {
+                             OrID = Order.OrID.ToString(),
+                             SoID = SOffice.SoID.ToString(),
+                             EmID = Employee.EmID.ToString(),
+                             ClID = Client.ClID.ToString(),
+                             OrDetailID = OrDetail.OrDetailID.ToString(),
+                             PrID = Product.PrID.ToString(),
+                             PrQuantity = OrDetail.OrQuantity.ToString()
+                         };
+
+                return tb.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return null;
+        }
     }
 }

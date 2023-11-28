@@ -12,9 +12,14 @@ namespace SalesManagement_SysDev
 {
     public partial class F_発注管理 : Form
     {
-        public F_発注管理()
+        readonly LoginData LoginData;
+        public F_発注管理(LoginData LData)
         {
             InitializeComponent();
+            LoginData = LData;
+            this.LblEmName.Text = LData.EmName;
+            this.LblSoName.Text = LData.SoName;
+            this.LblLoginDate.Text = LData.LoginDatetime.ToString();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -30,7 +35,7 @@ namespace SalesManagement_SysDev
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            F_物流 f_buturyuu = new F_物流();
+            F_物流 f_buturyuu = new F_物流(LoginData);
             f_buturyuu.Show();
         }
 

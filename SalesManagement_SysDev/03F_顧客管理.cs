@@ -18,10 +18,15 @@ namespace SalesManagement_SysDev
         private readonly InputCheck ichk = new InputCheck();
         readonly ClientDbConnection DB = new ClientDbConnection();
         private static List<M_SalesOffice> SoNameDsp;
+        readonly LoginData LoginData ;
 
-        public F_顧客管理()
+        public F_顧客管理(LoginData LData)
         {
             InitializeComponent();
+            LoginData = LData;
+            this.LblEmName.Text = LData.EmName;
+            this.LblSoName.Text = LData.SoName;
+            this.LblLoginDate.Text = LData.LoginDatetime.ToString();
         }
 
         //画面ロード時処理
@@ -82,6 +87,7 @@ namespace SalesManagement_SysDev
             dataGridView1.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.True;
             //行単位選択     
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
             //ヘッダー文字位置、セル文字位置、列幅の設定
             ////顧客ID
             dataGridView1.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -111,10 +117,6 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].Width = 80;
-            ////非表示理由
-            dataGridView1.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[7].Width = 265;
 
             dataGridView1.Refresh();
         }
@@ -491,7 +493,7 @@ namespace SalesManagement_SysDev
         private void ClearInput()
         {
 
-            if (RadioKensaku.Checked == true)//検索時はコンボボックスの値を空にする
+            if (RadioKensaku.Checked == true||RadioHihyouji.Checked==true)//検索時、非表示時はコンボボックスの値を空にする
             {
                 ComboEigyousyoName.SelectedIndex = -1;
                 TextboxKokyakuID.Text = "";
@@ -502,7 +504,7 @@ namespace SalesManagement_SysDev
                 TextboxAdress.Text = "";
                 TextboxHihyouji.Text = "";
             }
-            else   //検索時以外は表示する
+            else   //検索時、非表示時以外は表示する
             {
                 ComboEigyousyoName.SelectedIndex = 0;
                 TextboxKokyakuID.Text = "";
@@ -519,7 +521,7 @@ namespace SalesManagement_SysDev
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            F_営業 f_eigyou = new F_営業();
+            F_営業 f_eigyou = new F_営業(LoginData);
             f_eigyou.Show();
         }
 
@@ -541,7 +543,8 @@ namespace SalesManagement_SysDev
             TextboxPostCD.ReadOnly = false;
             TextboxTelNo.ReadOnly = false;
             TextboxFAX.ReadOnly = false;
-            TextboxHihyouji.Enabled = false; ;
+            TextboxHihyouji.Enabled = false;
+            ComboEigyousyoName.Enabled = true;
 
             GetDataGridView();
         }
@@ -557,7 +560,8 @@ namespace SalesManagement_SysDev
             TextboxPostCD.ReadOnly = false;
             TextboxTelNo.ReadOnly = false;
             TextboxFAX.ReadOnly = false;
-            TextboxHihyouji.Enabled = false; ;
+            TextboxHihyouji.Enabled = false;
+            ComboEigyousyoName.Enabled = true;
             GetDataGridView();
         }
 
@@ -573,6 +577,7 @@ namespace SalesManagement_SysDev
             TextboxTelNo.ReadOnly = false;
             TextboxFAX.ReadOnly = false;
             TextboxHihyouji.Enabled = false; ;
+            ComboEigyousyoName.Enabled = true;
             GetDataGridView();
         }
 
@@ -581,13 +586,14 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxKokyakuID.ReadOnly = true;
-            ComboEigyousyoName.SelectedIndex = 0;
+            ComboEigyousyoName.SelectedIndex = -1;
             TextboxKokyakuName.ReadOnly = true;
             TextboxAdress.ReadOnly = true;
             TextboxPostCD.ReadOnly = true;
             TextboxTelNo.ReadOnly = true;
             TextboxFAX.ReadOnly = true;
             TextboxHihyouji.Enabled = true;
+            ComboEigyousyoName.Enabled = false;
             GetDataGridView();
         }
     }
