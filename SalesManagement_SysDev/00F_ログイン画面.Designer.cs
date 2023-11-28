@@ -43,10 +43,10 @@
             // 
             // btn_CleateDabase
             // 
-            this.btn_CleateDabase.Location = new System.Drawing.Point(729, 382);
-            this.btn_CleateDabase.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_CleateDabase.Location = new System.Drawing.Point(911, 458);
+            this.btn_CleateDabase.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btn_CleateDabase.Name = "btn_CleateDabase";
-            this.btn_CleateDabase.Size = new System.Drawing.Size(141, 61);
+            this.btn_CleateDabase.Size = new System.Drawing.Size(176, 73);
             this.btn_CleateDabase.TabIndex = 0;
             this.btn_CleateDabase.TabStop = false;
             this.btn_CleateDabase.Text = "データベース生成";
@@ -57,19 +57,19 @@
             // 
             this.Lbl_tag.AutoSize = true;
             this.Lbl_tag.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.Lbl_tag.Location = new System.Drawing.Point(13, 22);
-            this.Lbl_tag.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_tag.Location = new System.Drawing.Point(16, 26);
+            this.Lbl_tag.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Lbl_tag.Name = "Lbl_tag";
-            this.Lbl_tag.Size = new System.Drawing.Size(380, 50);
+            this.Lbl_tag.Size = new System.Drawing.Size(455, 60);
             this.Lbl_tag.TabIndex = 1;
             this.Lbl_tag.Text = "販売管理システム";
             // 
             // btn_InsertSampleData
             // 
-            this.btn_InsertSampleData.Location = new System.Drawing.Point(729, 469);
-            this.btn_InsertSampleData.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_InsertSampleData.Location = new System.Drawing.Point(911, 563);
+            this.btn_InsertSampleData.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btn_InsertSampleData.Name = "btn_InsertSampleData";
-            this.btn_InsertSampleData.Size = new System.Drawing.Size(141, 61);
+            this.btn_InsertSampleData.Size = new System.Drawing.Size(176, 73);
             this.btn_InsertSampleData.TabIndex = 0;
             this.btn_InsertSampleData.TabStop = false;
             this.btn_InsertSampleData.Text = "サンプルデータ登録";
@@ -79,28 +79,29 @@
             // TextboxShainID
             // 
             this.TextboxShainID.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.TextboxShainID.Location = new System.Drawing.Point(268, 131);
-            this.TextboxShainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxShainID.Location = new System.Drawing.Point(335, 157);
+            this.TextboxShainID.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.TextboxShainID.Name = "TextboxShainID";
-            this.TextboxShainID.Size = new System.Drawing.Size(321, 49);
+            this.TextboxShainID.Size = new System.Drawing.Size(400, 57);
             this.TextboxShainID.TabIndex = 1;
             // 
             // TextboxPW
             // 
             this.TextboxPW.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.TextboxPW.Location = new System.Drawing.Point(268, 218);
-            this.TextboxPW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxPW.Location = new System.Drawing.Point(335, 262);
+            this.TextboxPW.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.TextboxPW.Name = "TextboxPW";
-            this.TextboxPW.Size = new System.Drawing.Size(321, 49);
+            this.TextboxPW.Size = new System.Drawing.Size(400, 57);
             this.TextboxPW.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.label1.Location = new System.Drawing.Point(69, 133);
+            this.label1.Location = new System.Drawing.Point(86, 160);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 42);
+            this.label1.Size = new System.Drawing.Size(166, 50);
             this.label1.TabIndex = 4;
             this.label1.Text = "社員ID";
             // 
@@ -108,19 +109,20 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 25F);
-            this.label2.Location = new System.Drawing.Point(28, 221);
+            this.label2.Location = new System.Drawing.Point(35, 265);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 42);
+            this.label2.Size = new System.Drawing.Size(217, 50);
             this.label2.TabIndex = 5;
             this.label2.Text = "パスワード";
             // 
             // ButtonLogin
             // 
             this.ButtonLogin.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.ButtonLogin.Location = new System.Drawing.Point(95, 303);
-            this.ButtonLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonLogin.Location = new System.Drawing.Point(119, 364);
+            this.ButtonLogin.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ButtonLogin.Name = "ButtonLogin";
-            this.ButtonLogin.Size = new System.Drawing.Size(437, 61);
+            this.ButtonLogin.Size = new System.Drawing.Size(546, 73);
             this.ButtonLogin.TabIndex = 3;
             this.ButtonLogin.Text = "ログイン";
             this.ButtonLogin.UseVisualStyleBackColor = true;
@@ -132,18 +134,18 @@
             this.panel1.Controls.Add(this.ButtonExit);
             this.panel1.Controls.Add(this.Lbl_tag);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 90);
+            this.panel1.Size = new System.Drawing.Size(855, 108);
             this.panel1.TabIndex = 7;
             // 
             // ButtonExit
             // 
             this.ButtonExit.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonExit.Location = new System.Drawing.Point(489, 22);
-            this.ButtonExit.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonExit.Location = new System.Drawing.Point(611, 26);
+            this.ButtonExit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ButtonExit.Name = "ButtonExit";
-            this.ButtonExit.Size = new System.Drawing.Size(101, 46);
+            this.ButtonExit.Size = new System.Drawing.Size(126, 55);
             this.ButtonExit.TabIndex = 4;
             this.ButtonExit.Text = "終了";
             this.ButtonExit.UseVisualStyleBackColor = true;
@@ -151,9 +153,9 @@
             // 
             // F_ログイン画面
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 397);
+            this.ClientSize = new System.Drawing.Size(799, 476);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ButtonLogin);
             this.Controls.Add(this.label2);
@@ -163,7 +165,7 @@
             this.Controls.Add(this.btn_InsertSampleData);
             this.Controls.Add(this.btn_CleateDabase);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "F_ログイン画面";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "販売管理システム_ログイン画面";
