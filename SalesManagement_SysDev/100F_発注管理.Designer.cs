@@ -47,13 +47,13 @@
             this.TextboxSyainName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TextboxSyainID = new System.Windows.Forms.TextBox();
-            this.TextboxMekarName = new System.Windows.Forms.ComboBox();
+            this.ComboMakerName = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TextBoxHattyuID = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButtonKakutei = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -68,7 +68,6 @@
             this.ButtonReset.TabIndex = 50;
             this.ButtonReset.Text = "入力リセット";
             this.ButtonReset.UseVisualStyleBackColor = true;
-            this.ButtonReset.Click += new System.EventHandler(this.ButtonReset_Click);
             // 
             // ButtonExe
             // 
@@ -130,7 +129,6 @@
             this.ButtonBack.TabIndex = 5;
             this.ButtonBack.Text = "戻る";
             this.ButtonBack.UseVisualStyleBackColor = true;
-            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
             // 
             // label9
             // 
@@ -267,15 +265,15 @@
             this.TextboxSyainID.Size = new System.Drawing.Size(244, 32);
             this.TextboxSyainID.TabIndex = 30;
             // 
-            // TextboxMekarName
+            // ComboMakerName
             // 
-            this.TextboxMekarName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxMekarName.FormattingEnabled = true;
-            this.TextboxMekarName.Location = new System.Drawing.Point(173, 349);
-            this.TextboxMekarName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextboxMekarName.Name = "TextboxMekarName";
-            this.TextboxMekarName.Size = new System.Drawing.Size(245, 33);
-            this.TextboxMekarName.TabIndex = 29;
+            this.ComboMakerName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ComboMakerName.FormattingEnabled = true;
+            this.ComboMakerName.Location = new System.Drawing.Point(173, 349);
+            this.ComboMakerName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ComboMakerName.Name = "ComboMakerName";
+            this.ComboMakerName.Size = new System.Drawing.Size(245, 33);
+            this.ComboMakerName.TabIndex = 29;
             // 
             // label2
             // 
@@ -327,23 +325,23 @@
             this.richTextBox1.TabIndex = 66;
             this.richTextBox1.Text = "";
             // 
-            // button1
+            // ButtonKakutei
             // 
-            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.button1.Location = new System.Drawing.Point(540, 798);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(324, 61);
-            this.button1.TabIndex = 67;
-            this.button1.Text = "確定";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ButtonKakutei.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ButtonKakutei.Location = new System.Drawing.Point(540, 798);
+            this.ButtonKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonKakutei.Name = "ButtonKakutei";
+            this.ButtonKakutei.Size = new System.Drawing.Size(324, 61);
+            this.ButtonKakutei.TabIndex = 67;
+            this.ButtonKakutei.Text = "確定";
+            this.ButtonKakutei.UseVisualStyleBackColor = true;
             // 
             // F_発注管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 884);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ButtonKakutei);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.ButtonReset);
             this.Controls.Add(this.ButtonExe);
@@ -356,7 +354,7 @@
             this.Controls.Add(this.TextboxSyainName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TextboxSyainID);
-            this.Controls.Add(this.TextboxMekarName);
+            this.Controls.Add(this.ComboMakerName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TextBoxHattyuID);
@@ -389,13 +387,13 @@
         private System.Windows.Forms.TextBox TextboxSyainName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TextboxSyainID;
-        private System.Windows.Forms.ComboBox TextboxMekarName;
+        private System.Windows.Forms.ComboBox ComboMakerName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TextBoxHattyuID;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonKakutei;
         private System.Windows.Forms.Label LblLoginDate;
         private System.Windows.Forms.Label LblSoName;
         private System.Windows.Forms.Label LblEmName;
