@@ -126,6 +126,27 @@ namespace SalesManagement_SysDev
         [DisplayName("数量")]
         public string PrQuantity { get; set; }
     }
+    class GetSyukoListDTO
+    {
+        [DisplayName("出庫ID")]
+        public string SyID { get; set; }
+        [DisplayName("出庫詳細ID")]
+        public string SyDetailID { get; set; }
+        [DisplayName("社員名")]
+        public string EmName { get; set; }
+        [DisplayName("顧客名")]
+        public string ClName { get; set; }
+        [DisplayName("営業所名")]
+        public string SoName { get; set; }
+        [DisplayName("受注ID")]
+        public string OrID { get; set; }
+        [DisplayName("商品名")]
+        public string PrName { get; set; }
+        [DisplayName("数量")]
+        public string SyQuantity { get; set; }
+        [DisplayName("出庫年月日")]
+        public string SyDate { get; set; }
+    }
     class SetLoginDataDTO
     {
         public int EmID { get; set; }

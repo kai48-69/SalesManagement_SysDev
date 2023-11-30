@@ -596,6 +596,8 @@ namespace SalesManagement_SysDev
             ComboEigyousyoName.Enabled = false;
             GetDataGridView();
         }
+
+        
     }
 }
 
