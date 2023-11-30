@@ -22,12 +22,12 @@ namespace SalesManagement_SysDev
             this.LblLoginDate.Text = LData.LoginDatetime.ToString();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void F_発注管理_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        private void ButtonExe_Click(object sender, EventArgs e)
         {
 
         }
@@ -38,22 +38,12 @@ namespace SalesManagement_SysDev
             F_物流 f_buturyuu = new F_物流(LoginData);
             f_buturyuu.Show();
         }
-
-      
-
-        private void TextboxMekarName_SelectedIndexChanged(object sender, EventArgs e)
+       
+        private void ButtonReset_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void F_発注管理_Load(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }

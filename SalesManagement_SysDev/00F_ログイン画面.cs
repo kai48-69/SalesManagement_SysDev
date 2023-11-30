@@ -744,7 +744,6 @@ namespace SalesManagement_SysDev
 
         private void F_ログイン画面_Load(object sender, EventArgs e)
         {
-            this.ControlBox = false;
         }
 
         private void ButtonLogin_Click(object sender, EventArgs e)
