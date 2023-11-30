@@ -12,6 +12,14 @@ namespace SalesManagement_SysDev
 {
     public partial class F_注文管理 : Form
     {
+        readonly OrderDbConnection DB = new OrderDbConnection();
+        readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
+        readonly ChumonDbConnection DB2 = new ChumonDbConnection();
+        readonly OrderDataAccess ODA = new OrderDataAccess();
+        readonly ChumonDataAccess CDA = new ChumonDataAccess();
+        private static List<M_Client> ClNameDsp;
+        private static List<M_SalesOffice> SoNameDsp;
+        readonly private InputCheck ichk = new InputCheck();
         readonly LoginData LoginData;
         public F_注文管理(LoginData LData)
         {
@@ -149,6 +157,11 @@ namespace SalesManagement_SysDev
         }
 
         private void ButtonReset_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void F_注文管理_Load(object sender, EventArgs e)
         {
 
         }

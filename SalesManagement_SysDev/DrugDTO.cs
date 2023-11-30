@@ -133,5 +133,14 @@ namespace SalesManagement_SysDev
         public string SoName { get; set; }
         public int PoID { get; set; }
     }
+    class TyuumonDataDTO
+    {
+        public int EmID { get; set; }
+        public string EmName { get; set; }
+        public string SoName { get; set; }
+        public int PoID { get; set; }
+    }
+
+
 }
 
