@@ -146,10 +146,7 @@ namespace SalesManagement_SysDev
         public string ArQuantity { get; set; }
         [DisplayName("入荷年月日")]
         public string ArDate { get; set; }
-
-
     }
-
 
     class SetLoginDataDTO
     {
@@ -158,6 +155,7 @@ namespace SalesManagement_SysDev
         public string SoName { get; set; }
         public int PoID { get; set; }
     }
+
     class DispHattyuListDTO
     {
         [DisplayName("発注ID")]
@@ -214,14 +212,29 @@ namespace SalesManagement_SysDev
         public string OrID  { get; set; }
         [DisplayName("出荷完了年月日")]
         public string ShFinishDate { get; set; }
-        
-        
-
-
-        
     }
 
-
+    class GetSyukoListDTO
+    {
+        [DisplayName("出庫ID")]
+        public string SyID { get; set; }
+        [DisplayName("出庫詳細ID")]
+        public string SyDetailID { get; set; }
+        [DisplayName("社員名")]
+        public string EmName { get; set; }
+        [DisplayName("顧客名")]
+        public string ClName { get; set; }
+        [DisplayName("営業所名")]
+        public string SoName { get; set; }
+        [DisplayName("受注ID")]
+        public string OrID { get; set; }
+        [DisplayName("商品名")]
+        public string PrName { get; set; }
+        [DisplayName("数量")]
+        public int SyQuantity { get; set; }
+        [DisplayName("出庫年月日")]
+        public string SyDate { get; set; }
+    }
 
 }
 
