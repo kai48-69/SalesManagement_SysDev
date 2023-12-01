@@ -65,8 +65,7 @@ namespace SalesManagement_SysDev
         [DisplayName("郵便番号")]
         public string Clpostel { get; set; }
         [DisplayName("FAX")]
-        public string ClFAX { get; set; }
-      
+        public string ClFAX { get; set;}
     }
 
     class DispOrderListDTO
@@ -123,8 +122,7 @@ namespace SalesManagement_SysDev
         [DisplayName("商品ID")]
         public string PrID { get; set; }
         [DisplayName("数量")]
-        public string PrQuantity { get; set; }
-    }
+        public string PrQuantity{get;set;}
 
     class DispArrivalListDTO
     {
@@ -147,7 +145,7 @@ namespace SalesManagement_SysDev
         [DisplayName("入荷年月日")]
         public string ArDate { get; set; }
     }
-
+      
     class SetLoginDataDTO
     {
         public int EmID { get; set; }
@@ -235,8 +233,4 @@ namespace SalesManagement_SysDev
         [DisplayName("出庫年月日")]
         public string SyDate { get; set; }
     }
-
 }
-
-
-
