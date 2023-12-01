@@ -15,8 +15,9 @@ namespace SalesManagement_SysDev
         readonly LoginData LoginData;
         private static List<M_Client> ClNameDsp;
         private static List<M_SalesOffice> SoNameDsp;
-        readonly OrderDbConnection DB = new OrderDbConnection();
+        readonly SyukkoDBConnection DB = new SyukkoDBConnection();
         readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
+        readonly ClientDbConnection DB2 = new ClientDbConnection();
         public F_出庫管理(LoginData LData)
         {
             InitializeComponent();
@@ -62,7 +63,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<DispOrderListDTO> tb = DB.OrderGetData("");
+            List<GetSyukoListDTO> tb = DB.SyukoGetData("");
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -73,7 +74,7 @@ namespace SalesManagement_SysDev
         //コンボボックスの設定
         private void SetFormComboBox()
         {
-            ClNameDsp = DB.GetClientNameDspData();
+            ClNameDsp = DB2.GetClientNameDspData();
             ComboKokyakuName.Items.AddRange(ClNameDsp.ToArray());
             ComboKokyakuName.DisplayMember = "ClName";
             ComboKokyakuName.ValueMember = "ClID";
@@ -168,6 +169,11 @@ namespace SalesManagement_SysDev
         {
 
         }
+
+        private void ButtonExe_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 
     private void button1_Click(object sender, EventArgs e)
@@ -176,3 +182,4 @@ namespace SalesManagement_SysDev
         }
     }
 }
+

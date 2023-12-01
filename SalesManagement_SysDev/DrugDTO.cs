@@ -143,9 +143,9 @@ namespace SalesManagement_SysDev
         [DisplayName("商品名")]
         public string PrName { get; set; }
         [DisplayName("数量")]
-        public string SyQuantity { get; set; }
+        public int SyQuantity { get; set; }
         [DisplayName("出庫年月日")]
-        public string SyDate { get; set; }
+        public DateTime? SyDate { get; set; }
     }
     class SetLoginDataDTO
     {
