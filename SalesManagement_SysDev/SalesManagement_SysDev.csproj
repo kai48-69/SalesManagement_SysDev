@@ -190,6 +190,8 @@
     <Compile Include="LoginData.cs" />
     <Compile Include="Order\OrderDataAccess.cs" />
     <Compile Include="Order\OrderDbConnection.cs" />
+    <Compile Include="Order\WareHousingDataAccess.cs" />
+    <Compile Include="Order\WareHousingDBConnection.cs" />
     <Compile Include="Product\ProductDataAccess.cs" />
     <Compile Include="Product\ProductDbConnection.cs" />
     <Compile Include="Program.cs" />

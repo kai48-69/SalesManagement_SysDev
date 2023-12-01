@@ -133,5 +133,20 @@ namespace SalesManagement_SysDev
         public string SoName { get; set; }
         public int PoID { get; set; }
     }
-}
+
+    class DispWareHousingListDTO
+    {
+        [DisplayName("入庫ID")]
+        public int WaID { get; set; }
+        [DisplayName("入庫詳細ID")]
+        public int WaDetailID { get; set; }
+        [DisplayName("発注ID")]
+        public int HaID { get; set;}
+        [DisplayName("商品名")]
+        public string PrName { get; set; }
+        [DisplayName("数量")]
+        public int WaQuantity { get; set; }
+        
+    }
+    }
 
