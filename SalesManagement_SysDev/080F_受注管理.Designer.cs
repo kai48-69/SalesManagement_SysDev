@@ -427,7 +427,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1754, 1061);
+            this.ClientSize = new System.Drawing.Size(1403, 884);
             this.Controls.Add(this.RadioKakutei);
             this.Controls.Add(this.ComboEigyousyoName);
             this.Controls.Add(this.ButtonKakutei);

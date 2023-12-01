@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 
 namespace SalesManagement_SysDev
 {
@@ -132,6 +133,24 @@ namespace SalesManagement_SysDev
         public string EmName { get; set; }
         public string SoName { get; set; }
         public int PoID { get; set; }
+    }
+    class DispHattyuDetailListDTO
+    {
+        [DisplayName("発注ID")]
+        public string HaID { get; set; }
+        [DisplayName("発注詳細ID")]
+        public string HaDitailID { get; set; }
+        [DisplayName("メーカー名")]
+        public string MaName { get; set; }
+        [DisplayName("社員名")]
+        public string EmName { get; set; }
+        [DisplayName("商品名")]
+        public string PrName { get; set; }
+        [DisplayName("数量")]
+        public string HaQuantity { get; set; }
+        [DisplayName("発注年月日")]
+        public string HaDate { get; set; }
+        
     }
 
     class DispShipListDTO

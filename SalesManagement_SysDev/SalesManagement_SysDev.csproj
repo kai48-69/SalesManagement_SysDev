@@ -82,6 +82,7 @@
     <Compile Include="DrugDTO.cs" />
     <Compile Include="Employee\EmployeeDataAccess.cs" />
     <Compile Include="Employee\EmployeeDbConnection.cs" />
+    <Compile Include="MakerDbConnection.cs" />
     <Compile Include="Entity\M_MajorClassification.cs" />
     <Compile Include="Entity\M_Product.cs" />
     <Compile Include="05F_在庫管理.cs">
@@ -188,6 +189,7 @@
     </Compile>
     <Compile Include="InputCheck.cs" />
     <Compile Include="LoginData.cs" />
+    <Compile Include="Order\HattyuDbConnection.cs" />
     <Compile Include="Order\OrderDataAccess.cs" />
     <Compile Include="Order\OrderDbConnection.cs" />
     <Compile Include="Product\ProductDataAccess.cs" />
