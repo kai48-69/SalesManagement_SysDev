@@ -135,10 +135,20 @@ namespace SalesManagement_SysDev
     }
     class TyuumonDataDTO
     {
+        [DisplayName("注文ID")]
+        public int ChID { get; set; }
+        [DisplayName("営業所ID")]
+        public int SoID { get; set; }
+        [DisplayName("社員ID")]
         public int EmID { get; set; }
-        public string EmName { get; set; }
-        public string SoName { get; set; }
-        public int PoID { get; set; }
+        [DisplayName("顧客ID")]
+        public int ClID { get; set; }
+        [DisplayName("受注ID")]
+        public int OrID { get; set; }
+        [DisplayName("注文年月日")]
+        public DateTime ChDate { get; set; }
+        [DisplayName("非表示理由")]
+        public string ChHidden { get; set; }
     }
 
 

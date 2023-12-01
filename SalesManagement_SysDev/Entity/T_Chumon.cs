@@ -38,5 +38,6 @@ namespace SalesManagement_SysDev
         public virtual T_Order T_Order { get; set; }
         public virtual ICollection<T_ChumonDetail> T_ChumonDetail { get; set; }
         public virtual ICollection<T_Sale> T_Sale { get; set; }
+        public object PrName { get; internal set; }
     }
 }
