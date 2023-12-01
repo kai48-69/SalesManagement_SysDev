@@ -100,8 +100,6 @@ namespace SalesManagement_SysDev
         public string OrID { get; set; }
         [DisplayName("受注詳細ID")]
         public string OrDetailID { get; set;}
-        [DisplayName("商品ID")]
-        public string PrID { get; set; }
         [DisplayName("商品名")]
         public string PrName { get; set; }
         [DisplayName("数量")]
@@ -134,12 +132,12 @@ namespace SalesManagement_SysDev
         public string SoName { get; set; }
         public int PoID { get; set; }
     }
-    class DispHattyuDetailListDTO
+    class DispHattyuListDTO
     {
         [DisplayName("発注ID")]
         public string HaID { get; set; }
         [DisplayName("発注詳細ID")]
-        public string HaDitailID { get; set; }
+        public string HaDetailID { get; set; }
         [DisplayName("メーカー名")]
         public string MaName { get; set; }
         [DisplayName("社員名")]
@@ -150,7 +148,29 @@ namespace SalesManagement_SysDev
         public string HaQuantity { get; set; }
         [DisplayName("発注年月日")]
         public string HaDate { get; set; }
-        
     }
+
+    class DispHattyuDetailListDTO
+    {
+        [DisplayName("発注詳細ID")]
+        public string HaDetailID { get; set; }
+        [DisplayName("発注ID")]
+        public string HaID { get; set; }
+        [DisplayName("商品名")]
+        public string PrName { get; set; }
+        [DisplayName("数量")]
+        public string HaQuantity { get; set; }
+    }
+
+    class GetHattyuDataDTO
+    {
+        [DisplayName("発注ID")]
+        public string HaID { get; set; }
+        [DisplayName("商品ID")]
+        public string PrID { get; set; }
+        [DisplayName("数量")]
+        public string HaQuantity { get; set; }
+    }
+
 }
 

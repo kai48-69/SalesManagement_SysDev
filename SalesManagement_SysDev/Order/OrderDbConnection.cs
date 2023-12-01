@@ -68,7 +68,6 @@ namespace SalesManagement_SysDev
                          {
                              OrID = Order.OrID.ToString(),
                              OrDetailID = OrderDetail.OrDetailID.ToString(),
-                             PrID = Product.PrID.ToString(),
                              PrName = Product.PrName,
                              PrQuantity = OrderDetail.OrQuantity.ToString(),
                              OrTotalPrice = OrderDetail.OrTotalPrice.ToString(),
@@ -124,11 +123,11 @@ namespace SalesManagement_SysDev
                          ((selectCondition.OrID == -1) ? true :
                          Order.OrID == selectCondition.OrID) &&
                          ((selectCondition.EmID == -1) ? true :
-                         Employee.EmID == selectCondition.EmID) &&
+                         Order.EmID == selectCondition.EmID) &&
                         ((selectCondition.SoID == -1) ? true :
-                        Employee.SoID == selectCondition.SoID) &&
+                        Order.SoID == selectCondition.SoID) &&
                         ((selectCondition.ClID == -1) ? true :
-                        (Employee.PoID == selectCondition.ClID)) &&
+                        (Order.ClID == selectCondition.ClID)) &&
                          Order.OrFlag.Equals(0) &&
                          Order.OrStateFlag.Equals(0)
 

@@ -25,5 +25,4 @@ namespace SalesManagement_SysDev.Employee
             return MaName;
         }
     }
-    }
 }

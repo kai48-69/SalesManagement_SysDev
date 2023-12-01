@@ -82,6 +82,7 @@
     <Compile Include="DrugDTO.cs" />
     <Compile Include="Employee\EmployeeDataAccess.cs" />
     <Compile Include="Employee\EmployeeDbConnection.cs" />
+    <Compile Include="Hattyu\HattyuDataAccess.cs" />
     <Compile Include="MakerDbConnection.cs" />
     <Compile Include="Entity\M_MajorClassification.cs" />
     <Compile Include="Entity\M_Product.cs" />
@@ -189,7 +190,7 @@
     </Compile>
     <Compile Include="InputCheck.cs" />
     <Compile Include="LoginData.cs" />
-    <Compile Include="Order\HattyuDbConnection.cs" />
+    <Compile Include="Hattyu\HattyuDbConnection.cs" />
     <Compile Include="Order\OrderDataAccess.cs" />
     <Compile Include="Order\OrderDbConnection.cs" />
     <Compile Include="Product\ProductDataAccess.cs" />
@@ -216,6 +217,8 @@
     <Compile Include="Entity\T_Warehousing.cs" />
     <Compile Include="Entity\T_WarehousingDetail.cs" />
     <Compile Include="SalesManagement_DevContext.cs" />
+    <Compile Include="WarehouseDataAccess.cs" />
+    <Compile Include="WarehouseDbConnection.cs" />
     <EmbeddedResource Include="01F_PW新規登録.resx">
       <DependentUpon>01F_PW新規登録.cs</DependentUpon>
     </EmbeddedResource>
