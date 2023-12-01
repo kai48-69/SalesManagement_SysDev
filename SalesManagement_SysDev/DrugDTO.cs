@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 
 namespace SalesManagement_SysDev
 {
@@ -64,8 +65,7 @@ namespace SalesManagement_SysDev
         [DisplayName("郵便番号")]
         public string Clpostel { get; set; }
         [DisplayName("FAX")]
-        public string ClFAX { get; set; }
-      
+        public string ClFAX { get; set;}
     }
 
     class DispOrderListDTO
@@ -99,8 +99,6 @@ namespace SalesManagement_SysDev
         public string OrID { get; set; }
         [DisplayName("受注詳細ID")]
         public string OrDetailID { get; set;}
-        [DisplayName("商品ID")]
-        public string PrID { get; set; }
         [DisplayName("商品名")]
         public string PrName { get; set; }
         [DisplayName("数量")]
@@ -124,8 +122,96 @@ namespace SalesManagement_SysDev
         [DisplayName("商品ID")]
         public string PrID { get; set; }
         [DisplayName("数量")]
-        public string PrQuantity { get; set; }
+        public string PrQuantity{get;set;}
+
+    class DispArrivalListDTO
+    {
+        [DisplayName("入荷ID")]
+        public string ArID { get; set; }
+       [DisplayName("入荷詳細ID")]
+        public string ArDetailID { get; set; }
+        [DisplayName("営業所名")]
+        public string SoName { get; set; }
+        [DisplayName("社員名")]
+        public string EmName { get; set; }
+        [DisplayName("顧客名")]
+        public string ClName { get; set; }
+        [DisplayName("受注ID")]
+        public string OrID { get; set; }
+        [DisplayName("商品名")]
+        public string PrName{ get; set; }
+        [DisplayName("数量")]
+        public string ArQuantity { get; set; }
+        [DisplayName("入荷年月日")]
+        public string ArDate { get; set; }
     }
+      
+    class SetLoginDataDTO
+    {
+        public int EmID { get; set; }
+        public string EmName { get; set; }
+        public string SoName { get; set; }
+        public int PoID { get; set; }
+    }
+
+    class DispHattyuListDTO
+    {
+        [DisplayName("発注ID")]
+        public string HaID { get; set; }
+        [DisplayName("発注詳細ID")]
+        public string HaDetailID { get; set; }
+        [DisplayName("メーカー名")]
+        public string MaName { get; set; }
+        [DisplayName("社員名")]
+        public string EmName { get; set; }
+        [DisplayName("商品名")]
+        public string PrName { get; set; }
+        [DisplayName("数量")]
+        public string HaQuantity { get; set; }
+        [DisplayName("発注年月日")]
+        public string HaDate { get; set; }
+    }
+
+    class DispHattyuDetailListDTO
+    {
+        [DisplayName("発注詳細ID")]
+        public string HaDetailID { get; set; }
+        [DisplayName("発注ID")]
+        public string HaID { get; set; }
+        [DisplayName("商品名")]
+        public string PrName { get; set; }
+        [DisplayName("数量")]
+        public string HaQuantity { get; set; }
+    }
+
+    class GetHattyuDataDTO
+    {
+        [DisplayName("発注ID")]
+        public string HaID { get; set; }
+        [DisplayName("商品ID")]
+        public string PrID { get; set; }
+        [DisplayName("数量")]
+        public string HaQuantity { get; set; }
+    }
+
+    class DispShipListDTO
+    {
+        [DisplayName("出荷ID")]
+        public string ShID { get; set; }
+        [DisplayName("出荷詳細ID")]
+        public string ShDetailID { get; set; }
+        [DisplayName("顧客名")]
+        public string ClName { get; set; }
+        [DisplayName("社員名")]
+        public string EmName { get; set; }
+        [DisplayName("営業所名")]
+        public string SoName { get; set; }
+        [DisplayName("受注ID")]
+        public string OrID  { get; set; }
+        [DisplayName("出荷完了年月日")]
+        public string ShFinishDate { get; set; }
+    }
+
     class GetSyukoListDTO
     {
         [DisplayName("出庫ID")]
@@ -145,14 +231,6 @@ namespace SalesManagement_SysDev
         [DisplayName("数量")]
         public int SyQuantity { get; set; }
         [DisplayName("出庫年月日")]
-        public DateTime? SyDate { get; set; }
-    }
-    class SetLoginDataDTO
-    {
-        public int EmID { get; set; }
-        public string EmName { get; set; }
-        public string SoName { get; set; }
-        public int PoID { get; set; }
+        public string SyDate { get; set; }
     }
 }
-
