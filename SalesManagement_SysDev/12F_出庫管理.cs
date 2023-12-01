@@ -18,6 +18,7 @@ namespace SalesManagement_SysDev
         readonly SyukkoDBConnection DB = new SyukkoDBConnection();
         readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
         readonly ClientDbConnection DB2 = new ClientDbConnection();
+        readonly OrderDbConnection DB3 = new OrderDbConnection();
         public F_出庫管理(LoginData LData)
         {
             InitializeComponent();
@@ -63,7 +64,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<GetSyukoListDTO> tb = DB.SyukoGetData("");
+            List<DispSyukkoListDTO> tb = DB.SyukoGetData("");
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -74,7 +75,7 @@ namespace SalesManagement_SysDev
         //コンボボックスの設定
         private void SetFormComboBox()
         {
-            ClNameDsp = DB2.GetClientNameDspData();
+            ClNameDsp = DB3.GetClientNameDspData();
             ComboKokyakuName.Items.AddRange(ClNameDsp.ToArray());
             ComboKokyakuName.DisplayMember = "ClName";
             ComboKokyakuName.ValueMember = "ClID";
@@ -96,7 +97,7 @@ namespace SalesManagement_SysDev
         }
 
         //データグリッドビューの表示設定
-        private void SetDataGridView(List<DispEmployeeListDTO> tb)
+        private void SetDataGridView(List<DispSyukkoListDTO> tb)
         {
             dataGridView1.DataSource = tb;
             //列幅自動設定解除
@@ -151,7 +152,6 @@ namespace SalesManagement_SysDev
                 ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
                 ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
                 textBoxSyainID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
-                ComboSyukkoDate.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
                 textBoxSyainName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[6].Value.ToString();
             }
             else
@@ -161,7 +161,6 @@ namespace SalesManagement_SysDev
                 ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
                 ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
                 textBoxSyainID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
-                ComboSyukkoDate.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
                 textBoxSyainName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[6].Value.ToString();
             }
         }
@@ -171,12 +170,6 @@ namespace SalesManagement_SysDev
         }
 
         private void ButtonExe_Click_1(object sender, EventArgs e)
-        {
-
-        }
-    }
-
-    private void button1_Click(object sender, EventArgs e)
         {
 
         }
