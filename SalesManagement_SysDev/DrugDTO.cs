@@ -133,5 +133,32 @@ namespace SalesManagement_SysDev
         public string SoName { get; set; }
         public int PoID { get; set; }
     }
+
+    class DispShipListDTO
+    {
+        [DisplayName("出荷ID")]
+        public string ShID { get; set; }
+        [DisplayName("出荷詳細ID")]
+        public string ShDetailID { get; set; }
+        [DisplayName("顧客名")]
+        public string ClName { get; set; }
+        [DisplayName("社員名")]
+        public string EmName { get; set; }
+        [DisplayName("営業所名")]
+        public string SoName { get; set; }
+        [DisplayName("受注ID")]
+        public string OrID  { get; set; }
+        [DisplayName("出荷完了年月日")]
+        public string ShFinishDate { get; set; }
+        
+        
+
+
+        
+    }
+
+
 }
+
+
 
