@@ -10,7 +10,7 @@ namespace SalesManagement_SysDev
 {
     internal class SyukkoDBConnection
     {
-        public List<GetSyukoListDTO> SyukoGetData(string strName)
+        public List<DispSyukkoListDTO> SyukoGetData(string strName)
         {
             var context = new SalesManagement_DevContext();
             try
@@ -32,7 +32,7 @@ namespace SalesManagement_SysDev
                          Syukko.SyStateFlag.Equals(0)
 
 
-                         select new GetSyukoListDTO
+                         select new DispSyukkoListDTO
                          {
                              SyID = Syukko.SyID.ToString(),
                              SyDetailID = SyukkoDetail.SyDetailID.ToString(),
@@ -42,7 +42,7 @@ namespace SalesManagement_SysDev
                              OrID = Order.OrID.ToString(),
                              PrName = Product.PrName,
                              SyQuantity = SyukkoDetail.SyQuantity,
-                             SyDate = Syukko.SyDate
+                             SyDate = Syukko.ToString()
                          };
                 return tb.ToList();
             }

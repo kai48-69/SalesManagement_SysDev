@@ -44,8 +44,6 @@
             this.TextboxHihyouji = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ComboSyukkoDate = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
             this.ComboKokyakuName = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -241,25 +239,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1308, 289);
             this.dataGridView1.TabIndex = 53;
             // 
-            // ComboSyukkoDate
-            // 
-            this.ComboSyukkoDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ComboSyukkoDate.Location = new System.Drawing.Point(228, 384);
-            this.ComboSyukkoDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ComboSyukkoDate.Name = "ComboSyukkoDate";
-            this.ComboSyukkoDate.Size = new System.Drawing.Size(244, 32);
-            this.ComboSyukkoDate.TabIndex = 84;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label6.Location = new System.Drawing.Point(77, 392);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(137, 25);
-            this.label6.TabIndex = 83;
-            this.label6.Text = "出庫年月日";
-            // 
             // ComboKokyakuName
             // 
             this.ComboKokyakuName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
@@ -294,7 +273,7 @@
             // 
             this.ComboEigyousyoName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ComboEigyousyoName.FormattingEnabled = true;
-            this.ComboEigyousyoName.Location = new System.Drawing.Point(228, 327);
+            this.ComboEigyousyoName.Location = new System.Drawing.Point(228, 339);
             this.ComboEigyousyoName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboEigyousyoName.Name = "ComboEigyousyoName";
             this.ComboEigyousyoName.Size = new System.Drawing.Size(244, 33);
@@ -304,7 +283,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label2.Location = new System.Drawing.Point(107, 329);
+            this.label2.Location = new System.Drawing.Point(107, 341);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 25);
             this.label2.TabIndex = 77;
@@ -399,8 +378,6 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.TextboxKokyakuID);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.ComboSyukkoDate);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.ComboKokyakuName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -440,8 +417,6 @@
         private System.Windows.Forms.RichTextBox TextboxHihyouji;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DateTimePicker ComboSyukkoDate;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox ComboKokyakuName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

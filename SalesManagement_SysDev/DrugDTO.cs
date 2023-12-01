@@ -30,7 +30,6 @@ namespace SalesManagement_SysDev
         public string PrColor { get; set; }
         [DisplayName("発売日")]
         public DateTime PrReleaseDate { get; set; }
-     
     }
 
     class DispEmployeeListDTO
@@ -47,7 +46,7 @@ namespace SalesManagement_SysDev
         public string EmHiredate { get; set; }
         [DisplayName("電話番号")]
         public string EmPhone { get; set; }
-     
+
     }
 
     class DispClientListDTO
@@ -65,7 +64,7 @@ namespace SalesManagement_SysDev
         [DisplayName("郵便番号")]
         public string Clpostel { get; set; }
         [DisplayName("FAX")]
-        public string ClFAX { get; set;}
+        public string ClFAX { get; set; }
     }
 
     class DispOrderListDTO
@@ -73,7 +72,7 @@ namespace SalesManagement_SysDev
         [DisplayName("受注ID")]
         public string OrID { get; set; }
         [DisplayName("受注詳細ID")]
-        public string OrDetailID { get; set; }  
+        public string OrDetailID { get; set; }
         [DisplayName("営業所名")]
         public string SoName { get; set; }
         [DisplayName("社員名")]
@@ -90,7 +89,7 @@ namespace SalesManagement_SysDev
         public string OrTotalPrice { get; set; }
         [DisplayName("受注年月日")]
         public string OrDate { get; set; }
-      
+
     }
 
     class DispOrderDetailListDTO
@@ -98,13 +97,13 @@ namespace SalesManagement_SysDev
         [DisplayName("受注ID")]
         public string OrID { get; set; }
         [DisplayName("受注詳細ID")]
-        public string OrDetailID { get; set;}
+        public string OrDetailID { get; set; }
         [DisplayName("商品名")]
         public string PrName { get; set; }
         [DisplayName("数量")]
         public string PrQuantity { get; set; }
         [DisplayName("合計金額")]
-        public string OrTotalPrice { get; set;}
+        public string OrTotalPrice { get; set; }
     }
 
     class GetOrderDataDTO
@@ -122,13 +121,13 @@ namespace SalesManagement_SysDev
         [DisplayName("商品ID")]
         public string PrID { get; set; }
         [DisplayName("数量")]
-        public string PrQuantity{get;set;}
-
+        public string PrQuantity { get; set; }
+    }
     class DispArrivalListDTO
     {
         [DisplayName("入荷ID")]
         public string ArID { get; set; }
-       [DisplayName("入荷詳細ID")]
+        [DisplayName("入荷詳細ID")]
         public string ArDetailID { get; set; }
         [DisplayName("営業所名")]
         public string SoName { get; set; }
@@ -139,13 +138,13 @@ namespace SalesManagement_SysDev
         [DisplayName("受注ID")]
         public string OrID { get; set; }
         [DisplayName("商品名")]
-        public string PrName{ get; set; }
+        public string PrName { get; set; }
         [DisplayName("数量")]
         public string ArQuantity { get; set; }
         [DisplayName("入荷年月日")]
         public string ArDate { get; set; }
     }
-      
+
     class SetLoginDataDTO
     {
         public int EmID { get; set; }
@@ -207,12 +206,12 @@ namespace SalesManagement_SysDev
         [DisplayName("営業所名")]
         public string SoName { get; set; }
         [DisplayName("受注ID")]
-        public string OrID  { get; set; }
+        public string OrID { get; set; }
         [DisplayName("出荷完了年月日")]
         public string ShFinishDate { get; set; }
     }
 
-    class GetSyukoListDTO
+    class DispSyukkoListDTO
     {
         [DisplayName("出庫ID")]
         public string SyID { get; set; }
