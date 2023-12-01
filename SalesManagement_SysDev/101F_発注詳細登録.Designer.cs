@@ -32,7 +32,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.ButtonTouroku = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ButtonBack = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.TextboxSyohinName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,17 +45,17 @@
             // TextboxSuryou
             // 
             this.TextboxSuryou.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSuryou.Location = new System.Drawing.Point(463, 160);
+            this.TextboxSuryou.Location = new System.Drawing.Point(457, 160);
             this.TextboxSuryou.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSuryou.Name = "TextboxSuryou";
-            this.TextboxSuryou.Size = new System.Drawing.Size(223, 32);
+            this.TextboxSuryou.Size = new System.Drawing.Size(173, 32);
             this.TextboxSuryou.TabIndex = 69;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label10.Location = new System.Drawing.Point(381, 167);
+            this.label10.Location = new System.Drawing.Point(375, 167);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 25);
             this.label10.TabIndex = 68;
@@ -65,41 +64,30 @@
             // ButtonTouroku
             // 
             this.ButtonTouroku.Font = new System.Drawing.Font("MS UI Gothic", 22F);
-            this.ButtonTouroku.Location = new System.Drawing.Point(723, 153);
+            this.ButtonTouroku.Location = new System.Drawing.Point(657, 154);
             this.ButtonTouroku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonTouroku.Name = "ButtonTouroku";
             this.ButtonTouroku.Size = new System.Drawing.Size(160, 102);
             this.ButtonTouroku.TabIndex = 64;
             this.ButtonTouroku.Text = "登録";
             this.ButtonTouroku.UseVisualStyleBackColor = true;
+            this.ButtonTouroku.Click += new System.EventHandler(this.ButtonTouroku_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.ButtonBack);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Location = new System.Drawing.Point(-131, -27);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1072, 142);
+            this.panel1.Size = new System.Drawing.Size(1000, 142);
             this.panel1.TabIndex = 67;
-            // 
-            // ButtonBack
-            // 
-            this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonBack.Location = new System.Drawing.Point(849, 57);
-            this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonBack.Name = "ButtonBack";
-            this.ButtonBack.Size = new System.Drawing.Size(165, 58);
-            this.ButtonBack.TabIndex = 6;
-            this.ButtonBack.Text = "戻る";
-            this.ButtonBack.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label9.Location = new System.Drawing.Point(439, 57);
+            this.label9.Location = new System.Drawing.Point(428, 64);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(322, 50);
             this.label9.TabIndex = 4;
@@ -132,6 +120,7 @@
             this.TextboxSyohinID.Name = "TextboxSyohinID";
             this.TextboxSyohinID.Size = new System.Drawing.Size(185, 32);
             this.TextboxSyohinID.TabIndex = 65;
+            this.TextboxSyohinID.TextChanged += new System.EventHandler(this.TextboxSyohinID_TextChanged);
             // 
             // label5
             // 
@@ -151,7 +140,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(833, 294);
+            this.dataGridView1.Size = new System.Drawing.Size(768, 294);
             this.dataGridView1.TabIndex = 62;
             // 
             // _101F_発注詳細登録
@@ -159,7 +148,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(940, 648);
+            this.ClientSize = new System.Drawing.Size(867, 648);
             this.Controls.Add(this.TextboxSuryou);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.ButtonTouroku);
@@ -187,7 +176,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button ButtonTouroku;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TextboxSyohinName;
         private System.Windows.Forms.Label label2;

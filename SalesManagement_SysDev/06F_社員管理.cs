@@ -203,9 +203,18 @@ namespace SalesManagement_SysDev
 
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
-            if (DB.CheckCascadeEmployeesID(int.Parse(TextboxSyainID.Text)) != -1)
+            if (!String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
             {
-                MessageBox.Show("その社員IDは既に使われているため、登録できません");
+                if (DB.CheckCascadeEmployeesID(int.Parse(TextboxSyainID.Text)) != -1)
+                {
+                    MessageBox.Show("その社員IDは既に使われているため、登録できません");
+                    TextboxSyainID.Focus();
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("社員IDが入力されていません");
                 TextboxSyainID.Focus();
                 return false;
             }
@@ -225,6 +234,11 @@ namespace SalesManagement_SysDev
                     TextboxTelNo.Focus();
                     return false;
                 }
+                if (TextboxTelNo.Text.Length < 10)
+                {
+                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    return false;
+                }
             }
             else
             {
@@ -238,24 +252,7 @@ namespace SalesManagement_SysDev
 
         private M_Employee GenerateDataAtRegistration() //登録データ生成
         {
-            string TelNo = TextboxTelNo.Text;
-            if (TelNo.Length == 10)
-            {
-                string D1 = TelNo.Substring(0, 2);
-                string D2 = TelNo.Substring(2, 4);
-                string D3 = TelNo.Substring(6, 4);
-                TelNo = string.Format(D1 + "-" + D2 + "-" + D3);
-            }
-            //000-0000-0000
-            else if (TelNo.Length == 11)
-            {
-             string D1=  TelNo.Substring(0,3);
-            string D2= TelNo. Substring(3,4);
-            string D3=TelNo.Substring(7,4);
-                TelNo = string.Format(D1 + "-"+D2 + "-" + D3);
-
-               
-            }
+            string TelNo = SetPhoneFormat(TextboxTelNo.Text);
             int SoID = ComboEigyousyoName.SelectedIndex;
             int PoID = ComboYakusyokuName.SelectedIndex;
             return new M_Employee
@@ -264,7 +261,7 @@ namespace SalesManagement_SysDev
                 EmName = TextboxSyainName.Text.Trim(),
                 EmPhone = TelNo,
                 SoID = SoID + 1,
-                PoID = PoID+1,
+                PoID = PoID + 1,
                 EmHiredate = NyusyaDate.Value,
                 EmPassword = "oic",
                 EmFlag = 0,
@@ -372,7 +369,22 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-            if (String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
+            if (!String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxTelNo.Text.Trim()))
+                {
+                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    TextboxTelNo.Focus();
+                    return false;
+                }
+                if (TextboxTelNo.Text.Length < 10)
+                {
+                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    TextboxTelNo.Focus();
+                    return false;
+                }
+            }
+            else
             {
                 MessageBox.Show("電話番号が入力されていません");
                 TextboxTelNo.Focus();
@@ -384,13 +396,14 @@ namespace SalesManagement_SysDev
 
         private M_Employee GenereteDataAtUpdate()　//更新データ生成
         {
+            string TelNo = SetPhoneFormat(TextboxTelNo.Text);
             int SoID = ComboEigyousyoName.SelectedIndex;
             int PoID = ComboYakusyokuName.SelectedIndex;
             return new M_Employee
             {
                 EmID = int.Parse(TextboxSyainID.Text.Trim()),
                 EmName = TextboxSyainName.Text.Trim(),
-                EmPhone = TextboxTelNo.Text.Trim(),
+                EmPhone = TelNo,
                 SoID = SoID + 1,
                 PoID = PoID,
                 EmFlag = 0,
@@ -597,5 +610,26 @@ namespace SalesManagement_SysDev
             ComboYakusyokuName.Enabled = false;
             GetDataGridView();
         }
+
+        private string SetPhoneFormat(string TelNo)
+        {
+            if (TelNo.Length == 10)
+            {
+                string D1 = TelNo.Substring(0, 2);
+                string D2 = TelNo.Substring(2, 4);
+                string D3 = TelNo.Substring(6, 4);
+                TelNo = string.Format(D1 + "-" + D2 + "-" + D3);
+            }
+            //000-0000-0000
+            else if (TelNo.Length == 11)
+            {
+                string D1 = TelNo.Substring(0, 3);
+                string D2 = TelNo.Substring(3, 4);
+                string D3 = TelNo.Substring(7, 4);
+                TelNo = string.Format(D1 + "-" + D2 + "-" + D3);
+            }
+            return TelNo;
+        }
+
     }
 }
