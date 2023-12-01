@@ -39,5 +39,10 @@ namespace SalesManagement_SysDev
         {
 
         }
+
+        private void F_注文管理_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
