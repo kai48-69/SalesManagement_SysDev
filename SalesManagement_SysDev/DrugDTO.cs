@@ -89,7 +89,6 @@ namespace SalesManagement_SysDev
         public string OrTotalPrice { get; set; }
         [DisplayName("受注年月日")]
         public string OrDate { get; set; }
-
     }
 
     class DispOrderDetailListDTO
@@ -251,17 +250,22 @@ namespace SalesManagement_SysDev
     {
         [DisplayName("注文ID")]
         public int ChID { get; set; }
-        [DisplayName("営業所ID")]
-        public int SoID { get; set; }
-        [DisplayName("社員ID")]
-        public int EmID { get; set; }
-        [DisplayName("顧客ID")]
-        public int ClID { get; set; }
+        [DisplayName("注文詳細ID")]
+        public int ChDID { get; set; }
+        [DisplayName("営業所名")]
+        public string SoName { get; set; }
+        [DisplayName("社員名")]
+        public string  EmName { get; set; }
+        [DisplayName("顧客名")]
+        public string ClName { get; set; }
         [DisplayName("受注ID")]
         public int OrID { get; set; }
+        [DisplayName("商品名")]
+        public string PrName { get; set; }
+        [DisplayName("数量")]
+        public int ChQuantity { get; set; }
         [DisplayName("注文年月日")]
         public string ChDate { get; set; }
-        [DisplayName("非表示理由")]
-        public string ChHidden { get; set; }
+   
     }
 }

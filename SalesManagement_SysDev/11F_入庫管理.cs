@@ -51,7 +51,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<DispWareHousingListDTO> tb = DB2.WareHousingGetData("");
+            List<DispWarehousingListDTO> tb = DB2.WareHousingGetData("");
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -60,7 +60,7 @@ namespace SalesManagement_SysDev
         }
 
         //データグリッドビューの表示設定
-        private void SetDataGridView(List<DispWareHousingListDTO> tb)
+        private void SetDataGridView(List<DispWarehousingListDTO> tb)
         {
             dataGridView1.DataSource = tb;
             //列幅自動設定解除
@@ -142,7 +142,7 @@ namespace SalesManagement_SysDev
 
                 var hidOr = GenereteDataAtHidden();
 
-                HideOr(hidOr);
+                HideWa(hidOr);
             }
         }
 
@@ -218,7 +218,7 @@ namespace SalesManagement_SysDev
                 HaID= HattyuID
             };
 
-            List<DispWareHousingListDTO> tb = DB2.GetWareHousingData(selectCondition);
+            List<DispWarehousingListDTO> tb = DB2.GetWareHousingData(selectCondition);
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -270,11 +270,6 @@ namespace SalesManagement_SysDev
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ButtonExe_Click(object sender, EventArgs e)
         {
 
         }

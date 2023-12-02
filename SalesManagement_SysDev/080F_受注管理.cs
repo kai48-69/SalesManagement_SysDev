@@ -192,9 +192,9 @@ namespace SalesManagement_SysDev
                     {
                         return;
                     }
+
                     GenerateDataAtSelect();
                 }
-
             }
             //非表示処理--------------------------------------------------------------------
             if (RadioHihyouji.Checked == true)
@@ -202,12 +202,9 @@ namespace SalesManagement_SysDev
                 if (!GetVaildDataAtHide())
                 {
                     return;
-
-
                 }
 
                 var hidOr = GenereteDataAtHidden();
-
 
                 HideOr(hidOr);
             }
