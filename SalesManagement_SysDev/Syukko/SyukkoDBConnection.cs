@@ -52,5 +52,12 @@ namespace SalesManagement_SysDev
             }
             return null;
         }
+
+        public int GetSyID()
+        {
+            var context = new SalesManagement_DevContext();
+            return context.T_Syukkos.Max(x => x.SyID);
+        }
+
     }
 }

@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace SalesManagement_SysDev
 {
-    internal class SyukkoDateAccess
+    internal class StockDataAccess
     {
-        
     }
 }

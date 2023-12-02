@@ -18,6 +18,9 @@ namespace SalesManagement_SysDev
         readonly OrderDbConnection DB = new OrderDbConnection();
         readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
         readonly ChumonDbConnection DB2 = new ChumonDbConnection();
+        readonly SyukkoDBConnection DB3 = new SyukkoDBConnection();
+        readonly ChumonDataAccess CDA= new ChumonDataAccess();
+        readonly SyukkoDateAccess SDA= new SyukkoDateAccess();
         readonly private InputCheck ichk = new InputCheck();
         public F_注文管理(LoginData LData)
         {
@@ -117,14 +120,6 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].Width = 70;
-            //数量
-            dataGridView1.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[7].Width = 70;
-            //合計金額
-            dataGridView1.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[8].Width = 80;
 
             dataGridView1.Refresh();
         }
@@ -139,7 +134,7 @@ namespace SalesManagement_SysDev
 
         private void ButtonExe_Click(object sender, EventArgs e)
         {
-            //検索処理----------------------------------------------------------------------
+            //検索処理---------------------------------------------------------------------
             if (RadioKensaku.Checked == true)
             {
                 {
@@ -151,57 +146,261 @@ namespace SalesManagement_SysDev
                 }
 
             }
-            //非表示処理--------------------------------------------------------------------
+            //非表示処理-----------------------------------------------------------------
             if (RadioHihyouji.Checked == true)
             {
                 if (!GetVaildDataAtHide())
                 {
                     return;
                 }
-                var hidOr = GenereteDataAtHidden();
+                var hidCh = GenereteDataAtHidden();
 
-                HideOr(hidOr);
+                HideCh(hidCh);
             }
         }
-
+        //確定ボタン----------------------------------------------------------------
         private void ButtonKakutei_Click(object sender, EventArgs e)
         {
+            if (!CheckDataAtConfirm())
+            {
+                return;
+            }
 
+            ConfirmCh();
+            var ConOr = GenereteDataAtUpdateFlg();
+            UpdChFlag(ConOr);
         }
 
-        //検索処理------------------------------------------------------------------------
+        //検索処理----------------------------------------------------------------------
         private bool GetVaildDataAtSelect() //入力データチェック
         {
             if (!String.IsNullOrEmpty(TextboxChumonID.Text.Trim()))
             {
-                if (!ichk.IntegerCheck(TextboxJutyuID.Text.Trim()))
+                if (!ichk.IntegerCheck(TextboxChumonID.Text.Trim()))
                 {
                     MessageBox.Show("受注IDはすべて半角数字で入力してください。");
-                    TextboxJutyuID.Focus();
+                    TextboxChumonID.Focus();
                     return false;
                 }
             }
 
-            if (!String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
+            if (!String.IsNullOrEmpty(TextboxOrderID.Text.Trim()))
             {
-
-                if (!ichk.IntegerCheck(TextboxSyainID.Text.Trim()))
+                if (!ichk.IntegerCheck(TextboxOrderID.Text.Trim()))
                 {
-                    MessageBox.Show("社員IDは半角数字で入力してください");
-                    TextboxSyainID.Focus();
+                    MessageBox.Show("受注IDは半角数字で入力してください");
+                    TextboxOrderID.Focus();
                     return false;
                 }
+            }
+            
+            return true;
+        }
+
+        private bool GenerateDataAtSelect() //検索データ生成
+        {
+            int ClID;
+            if (ComboKokyakuName.SelectedIndex == -1)
+            {
+                ClID = -1;
+            }
+            else
+            {
+                ClID = int.Parse(ComboKokyakuName.SelectedValue.ToString());
+            }
+            int SoID;
+            if (ComboEigyousyoName.SelectedIndex == -1)
+            {
+                SoID = -1;
+            }
+            else
+            {
+                SoID = int.Parse(ComboEigyousyoName.SelectedValue.ToString());
+            }
+            //整数型(int)に変換する準備
+            var OrID = TextboxOrderID.Text.Trim();
+            var ChID = TextboxChumonID.Text.Trim();
+
+            //変換処理
+            if (!int.TryParse(OrID, out int JutyuID))
+            {
+                JutyuID = -1;
+            }
+
+            if(!int.TryParse(ChID,out int ChumonID))
+            {
+                ChumonID= -1;
+            }
+
+
+            T_Chumon selectCondition = new T_Chumon()
+            {
+                OrID = JutyuID,
+                SoID = SoID,
+                ClID = ClID,
+                ChID= ChumonID,
+            };
+
+            List<DispChumonListDTO> tb = DB2.GetChumonData(selectCondition);
+            if (tb == null)
+                return false;
+            //データグリッドビューへの設定
+            SetDataGridView(tb);
+            return true;
+        }
+
+        //非表示処理----------------------------------------------------------------------
+        private bool GetVaildDataAtHide()//入力データチェック
+        {
+            if (String.IsNullOrEmpty(TextboxChumonID.Text.Trim()))
+            {
+                MessageBox.Show("非表示にする注文データを選択してください", "エラー");
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
+            {
+                MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             return true;
         }
 
-        private void ButtonReset_Click(object sender, EventArgs e)
+        private T_Chumon GenereteDataAtHidden()　//非表示データ生成(フラグの更新データ生成)
         {
-
+            return new T_Chumon
+            {
+                ChID = int.Parse(TextboxChumonID.Text),
+                ChFlag = 2,
+                ChHidden = TextboxHihyouji.Text,
+            };
         }
 
-       
+        private void HideCh(T_Chumon hidCh)　//データ更新処理
+        {
+            DialogResult result = MessageBox.Show("受注データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
-      
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+
+            bool flg = CDA.HideChumonData(hidCh);
+            if (flg == true)
+            {
+                MessageBox.Show("データを非表示にしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TextboxChumonID.Focus();
+            }
+            ClearInput();
+
+            GetDataGridView();
+        }
+
+        //確定処理------------------------------------------------------------------------
+        private bool CheckDataAtConfirm()
+        {
+            if (String.IsNullOrEmpty(TextboxChumonID.Text.Trim()))
+            {
+                MessageBox.Show("確定を行うデータが選択されていません");
+                return false;
+            }
+            return true;
+        }
+        private void ConfirmCh()//注文テーブルにデータを登録する
+        {
+            DialogResult result = MessageBox.Show("注文情報を確定します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            T_Chumon selectCondition = new T_Chumon()
+            {
+                ChID = int.Parse(TextboxChumonID.Text),
+            };
+            List<GetChumonDataDTO> Data1 = DB2.SetChumonData(selectCondition);
+
+            //形式変換(DispOrderListDTO→T_Chumon)
+            T_Syukko Syukko = new T_Syukko
+            {
+                OrID = Data1[0].OrID,
+                SoID = Data1[0].SoID,
+                ClID = Data1[0].ClID,
+                SyDate=null,
+                
+            };
+            //登録処理
+            bool flg1 = SDA.AddSyukkoData(Syukko);
+            //詳細確定------------------------------------------------------------------------
+            //登録したChIDを取得
+            int SyID = DB3.GetSyID();
+            T_SyukkoDetail SyukkoDetail = new T_SyukkoDetail();
+            for (int i = 0; i < Data1.Count; i++)
+            {
+                //各データをchumonDetailに代入
+                SyukkoDetail.SyID = SyID;
+                SyukkoDetail.PrID = Data1[i].PrID;
+                SyukkoDetail.SyQuantity = Data1[i].ChQuantity;
+                //chumonDetail登録
+                SDA.AddSyukkoDetailData(SyukkoDetail);
+            }
+            bool flg2 = true;
+
+
+            if (flg1 == true && flg2 == true)
+            {
+                DialogResult result1 = MessageBox.Show("データを確定しました");
+                if (result1 == DialogResult.OK)
+                {
+                    //this.Close();
+                    //F_受注詳細登録 f_JutyuSyousai = new F_受注詳細登録();
+                    //f_JutyuSyousai.Show();
+
+                }
+            }
+            //else
+            //{
+            //    MessageBox.Show("データの確定に失敗しました");
+            //    TextboxSyainName.Focus();
+            //}
+        }
+
+        private T_Chumon GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
+        {
+            return new T_Chumon
+            {
+                OrID = int.Parse(TextboxChumonID.Text),
+                ChStateFlag = 1,
+            };
+        }
+
+        private void UpdChFlag(T_Chumon ConCh)　//フラグ更新処理
+        {
+            CDA.UpdChumonFlg(ConCh);
+
+            ClearInput();
+
+            GetDataGridView();
+        }
+
+        //入力リセット--------------------------------------------------------------------
+        private void ClearInput()
+        {
+            TextboxOrderID.Text = "";
+            TextboxChumonID.Text = "";
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+        }
+
+        //リセットボタン------------------------------------------------------------------
+        private void ButtonReset_Click(object sender, EventArgs e)
+        {
+            ClearInput();
+        }
     }
 }

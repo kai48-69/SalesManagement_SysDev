@@ -80,10 +80,10 @@
             // TextboxJutyuID
             // 
             this.TextboxJutyuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxJutyuID.Location = new System.Drawing.Point(224, 289);
+            this.TextboxJutyuID.Location = new System.Drawing.Point(151, 292);
             this.TextboxJutyuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxJutyuID.Name = "TextboxJutyuID";
-            this.TextboxJutyuID.Size = new System.Drawing.Size(249, 32);
+            this.TextboxJutyuID.Size = new System.Drawing.Size(253, 32);
             this.TextboxJutyuID.TabIndex = 1;
             this.TextboxJutyuID.TextChanged += new System.EventHandler(this.TextboxJutyuID_TextChanged);
             // 
@@ -91,7 +91,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label1.Location = new System.Drawing.Point(125, 292);
+            this.label1.Location = new System.Drawing.Point(51, 295);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 25);
             this.label1.TabIndex = 2;
@@ -111,7 +111,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label4.Location = new System.Drawing.Point(125, 356);
+            this.label4.Location = new System.Drawing.Point(527, 354);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 25);
             this.label4.TabIndex = 7;
@@ -121,7 +121,7 @@
             // 
             this.ComboKokyakuName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ComboKokyakuName.FormattingEnabled = true;
-            this.ComboKokyakuName.Location = new System.Drawing.Point(223, 352);
+            this.ComboKokyakuName.Location = new System.Drawing.Point(625, 350);
             this.ComboKokyakuName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboKokyakuName.Name = "ComboKokyakuName";
             this.ComboKokyakuName.Size = new System.Drawing.Size(249, 33);
@@ -131,7 +131,7 @@
             // TextboxTantousyaName
             // 
             this.TextboxTantousyaName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxTantousyaName.Location = new System.Drawing.Point(224, 412);
+            this.TextboxTantousyaName.Location = new System.Drawing.Point(626, 410);
             this.TextboxTantousyaName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxTantousyaName.Name = "TextboxTantousyaName";
             this.TextboxTantousyaName.Size = new System.Drawing.Size(249, 32);
@@ -141,7 +141,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label5.Location = new System.Drawing.Point(47, 418);
+            this.label5.Location = new System.Drawing.Point(449, 416);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(162, 25);
             this.label5.TabIndex = 10;
@@ -291,7 +291,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label7.Location = new System.Drawing.Point(525, 421);
+            this.label7.Location = new System.Drawing.Point(51, 420);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 25);
             this.label7.TabIndex = 31;
@@ -300,7 +300,7 @@
             // TextboxSyainName
             // 
             this.TextboxSyainName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSyainName.Location = new System.Drawing.Point(639, 414);
+            this.TextboxSyainName.Location = new System.Drawing.Point(151, 413);
             this.TextboxSyainName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainName.Name = "TextboxSyainName";
             this.TextboxSyainName.Size = new System.Drawing.Size(253, 32);
@@ -310,7 +310,7 @@
             // 
             this.LblSyainID.AutoSize = true;
             this.LblSyainID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.LblSyainID.Location = new System.Drawing.Point(529, 354);
+            this.LblSyainID.Location = new System.Drawing.Point(51, 357);
             this.LblSyainID.Name = "LblSyainID";
             this.LblSyainID.Size = new System.Drawing.Size(84, 25);
             this.LblSyainID.TabIndex = 28;
@@ -319,7 +319,7 @@
             // TextboxSyainID
             // 
             this.TextboxSyainID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSyainID.Location = new System.Drawing.Point(639, 349);
+            this.TextboxSyainID.Location = new System.Drawing.Point(151, 354);
             this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainID.Name = "TextboxSyainID";
             this.TextboxSyainID.Size = new System.Drawing.Size(253, 32);
@@ -342,7 +342,7 @@
             // 
             this.ComboEigyousyoName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ComboEigyousyoName.FormattingEnabled = true;
-            this.ComboEigyousyoName.Location = new System.Drawing.Point(639, 289);
+            this.ComboEigyousyoName.Location = new System.Drawing.Point(625, 289);
             this.ComboEigyousyoName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboEigyousyoName.Name = "ComboEigyousyoName";
             this.ComboEigyousyoName.Size = new System.Drawing.Size(253, 33);
@@ -352,7 +352,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label8.Location = new System.Drawing.Point(901, 292);
+            this.label8.Location = new System.Drawing.Point(902, 292);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(137, 25);
             this.label8.TabIndex = 17;

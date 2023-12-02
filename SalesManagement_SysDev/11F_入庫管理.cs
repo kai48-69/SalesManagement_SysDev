@@ -1,5 +1,4 @@
 ﻿using SalesManagement_SysDev.Order;
-using SalesManagement_SysDev.WarHousing;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +15,13 @@ namespace SalesManagement_SysDev
     {
         readonly OrderDbConnection DB = new OrderDbConnection();
         readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
-        readonly WareHousingDBConnection DB2 = new WareHousingDBConnection();
-        readonly WareHousingDataAccess WHA = new WareHousingDataAccess();
+        readonly WarehouseDbConnection DB2 = new WarehouseDbConnection();
+        readonly WarehouseDataAccess WDA = new WarehouseDataAccess();
         private static List<M_Client> ClNameDsp;
         private static List<M_SalesOffice> SoNameDsp;
         readonly private InputCheck ichk = new InputCheck();
         readonly LoginData LoginData;
+
         public F_入庫管理(LoginData LData)
         {
             InitializeComponent();
@@ -36,8 +36,6 @@ namespace SalesManagement_SysDev
         private void F_入庫管理_Load(object sender, EventArgs e)
         {
             TextboxHihyouji.Enabled = false;
-            TextboxNyukoID.ReadOnly = true;
-            TextboxSyainName.ReadOnly = true;
             ButtonKakutei.Enabled = false;
 
             if (!GetDataGridView())
@@ -140,9 +138,9 @@ namespace SalesManagement_SysDev
                     return;
                 }
 
-                var hidOr = GenereteDataAtHidden();
+                var hidWa = GenereteDataAtHidden();
 
-                HideWa(hidOr);
+                HideWa(hidWa);
             }
         }
 
@@ -154,28 +152,18 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxNyukoID.Text.Trim()))
                 {
-                    MessageBox.Show("受注IDはすべて半角数字で入力してください。");
+                    MessageBox.Show("受注IDは半角数字で入力してください。");
                     TextboxNyukoID.Focus();
                     return false;
                 }
             }
 
-            if (!String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
+            if (!String.IsNullOrEmpty(TextboxHattyuID.Text.Trim()))
             {
-                if (!ichk.IntegerCheck(TextboxSyainID.Text.Trim()))
-                {
-                    MessageBox.Show("社員IDは半角数字で入力してください");
-                    TextboxSyainID.Focus();
-                    return false;
-                }
-            }
-
-            if (!String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxSyainID.Text.Trim()))
+                if (!ichk.IntegerCheck(TextboxHattyuID.Text.Trim()))
                 {
                     MessageBox.Show("発注IDは半角数字で入力してください");
-                    TextboxSyainID.Focus();
+                    TextboxHattyuID.Focus();
                     return false;
                 }
             }
@@ -190,7 +178,7 @@ namespace SalesManagement_SysDev
             
             var WaID = TextboxNyukoID.Text.Trim();
             
-            var EmID = TextboxSyainID.Text.Trim();
+    
 
             var HaID=TextboxHattyuID.Text.Trim();    
 
@@ -200,10 +188,7 @@ namespace SalesManagement_SysDev
                 JutyuID = -1;
             }
 
-            if (!int.TryParse(EmID, out int SyainID))
-            {
-                SyainID = -1;
-            }
+        
 
             if(!int.TryParse(HaID,out int HattyuID))
             {
@@ -214,7 +199,7 @@ namespace SalesManagement_SysDev
            T_Warehousing  selectCondition = new T_Warehousing()
             {
                 WaID = JutyuID,
-                EmID = SyainID,
+             
                 HaID= HattyuID
             };
 
@@ -254,14 +239,46 @@ namespace SalesManagement_SysDev
             };
         }
 
+        private void HideWa(T_Warehousing hidWa)　//データ更新処理
+        {
+            DialogResult result = MessageBox.Show("受注データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
 
+            bool flg = WDA.HideWarehouseData(hidWa);
+            if (flg == true)
+            {
+                MessageBox.Show("データを非表示にしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TextboxNyukoID.Focus();
+            }
+            ClearInput();
+
+            GetDataGridView();
+        }
 
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
             F_物流 f_buturyuu = new F_物流(LoginData);
             f_buturyuu.Show();
+        }
+
+        private void ClearInput()
+        {
+            TextboxHattyuID.Text = "";
+            TextboxNyukoID.Text = "";
+        }
+
+        private void ButtonReset_Click(object sender, EventArgs e)
+        {
+            ClearInput();
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -273,5 +290,12 @@ namespace SalesManagement_SysDev
         {
 
         }
+
+        private void ButtonKakutei_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }

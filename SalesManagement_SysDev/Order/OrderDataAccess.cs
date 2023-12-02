@@ -45,8 +45,8 @@ namespace SalesManagement_SysDev
             }
         }
 
-        
-         public bool HideOrderData(T_Order hidOr)
+
+        public bool HideOrderData(T_Order hidOr)
         {
             try
             {

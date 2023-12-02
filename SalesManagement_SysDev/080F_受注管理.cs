@@ -411,7 +411,6 @@ namespace SalesManagement_SysDev
             return new T_Order
             {
                 OrID = int.Parse(TextboxJutyuID.Text),
-
                 OrFlag = 2,
                 OrHidden = TextboxHihyouji.Text,
             };
@@ -472,7 +471,6 @@ namespace SalesManagement_SysDev
             {
                 OrID = int.Parse(Data1[0].OrID),
                 SoID = int.Parse(Data1[0].SoID),
-                EmID = int.Parse(Data1[0].EmID),
                 ClID = int.Parse(Data1[0].ClID)
             };
             //登録処理

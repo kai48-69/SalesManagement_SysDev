@@ -15,7 +15,6 @@ namespace SalesManagement_SysDev
         readonly OrderDbConnection DB = new OrderDbConnection();
         readonly ArrivalDbConnection DB1= new ArrivalDbConnection();    
         private static List<M_Client> ClNameDsp;
-        private static List<M_SalesOffice> SoNameDsp;
         readonly private InputCheck ichk = new InputCheck();
         readonly LoginData LoginData;
         readonly ArrivalDbConnection DB2 = new ArrivalDbConnection();

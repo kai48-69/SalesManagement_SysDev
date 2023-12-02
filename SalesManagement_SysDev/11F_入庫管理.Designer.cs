@@ -42,17 +42,14 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.TextboxHihyouji = new System.Windows.Forms.RichTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.TextboxSyainName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TextboxSyainID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TextboxNyukoID = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.TextboxHattyuID = new System.Windows.Forms.TextBox();
             this.ButtonKakutei = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.RadioKakutei = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -89,6 +86,7 @@
             this.ButtonReset.TabIndex = 72;
             this.ButtonReset.Text = "入力リセット";
             this.ButtonReset.UseVisualStyleBackColor = true;
+            this.ButtonReset.Click += new System.EventHandler(this.ButtonReset_Click);
             // 
             // ButtonExe
             // 
@@ -214,6 +212,67 @@
             this.TextboxHihyouji.Text = "";
             this.TextboxHihyouji.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.label1.Location = new System.Drawing.Point(73, 275);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 25);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "入庫ID";
+            // 
+            // TextboxNyukoID
+            // 
+            this.TextboxNyukoID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxNyukoID.Location = new System.Drawing.Point(176, 268);
+            this.TextboxNyukoID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxNyukoID.Name = "TextboxNyukoID";
+            this.TextboxNyukoID.Size = new System.Drawing.Size(255, 32);
+            this.TextboxNyukoID.TabIndex = 54;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(43, 433);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1308, 333);
+            this.dataGridView1.TabIndex = 53;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.label2.Location = new System.Drawing.Point(511, 271);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 25);
+            this.label2.TabIndex = 75;
+            this.label2.Text = "発注ID";
+            // 
+            // TextboxHattyuID
+            // 
+            this.TextboxHattyuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxHattyuID.Location = new System.Drawing.Point(614, 264);
+            this.TextboxHattyuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxHattyuID.Name = "TextboxHattyuID";
+            this.TextboxHattyuID.Size = new System.Drawing.Size(257, 32);
+            this.TextboxHattyuID.TabIndex = 74;
+            // 
+            // ButtonKakutei
+            // 
+            this.ButtonKakutei.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ButtonKakutei.Location = new System.Drawing.Point(538, 798);
+            this.ButtonKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonKakutei.Name = "ButtonKakutei";
+            this.ButtonKakutei.Size = new System.Drawing.Size(324, 61);
+            this.ButtonKakutei.TabIndex = 97;
+            this.ButtonKakutei.Text = "確定";
+            this.ButtonKakutei.UseVisualStyleBackColor = true;
+            this.ButtonKakutei.Click += new System.EventHandler(this.ButtonKakutei_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -224,111 +283,24 @@
             this.label8.TabIndex = 67;
             this.label8.Text = "非表示理由";
             // 
-            // label7
+            // RadioKakutei
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label7.Location = new System.Drawing.Point(551, 378);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(87, 25);
-            this.label7.TabIndex = 66;
-            this.label7.Text = "社員名";
-            // 
-            // TextboxSyainName
-            // 
-            this.TextboxSyainName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSyainName.Location = new System.Drawing.Point(648, 375);
-            this.TextboxSyainName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextboxSyainName.Name = "TextboxSyainName";
-            this.TextboxSyainName.ReadOnly = true;
-            this.TextboxSyainName.Size = new System.Drawing.Size(255, 32);
-            this.TextboxSyainName.TabIndex = 65;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label3.Location = new System.Drawing.Point(551, 275);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 25);
-            this.label3.TabIndex = 60;
-            this.label3.Text = "社員ID";
-            // 
-            // TextboxSyainID
-            // 
-            this.TextboxSyainID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSyainID.Location = new System.Drawing.Point(648, 268);
-            this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextboxSyainID.Name = "TextboxSyainID";
-            this.TextboxSyainID.Size = new System.Drawing.Size(255, 32);
-            this.TextboxSyainID.TabIndex = 58;
-            this.TextboxSyainID.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label1.Location = new System.Drawing.Point(124, 275);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 25);
-            this.label1.TabIndex = 55;
-            this.label1.Text = "入庫ID";
-            // 
-            // TextboxNyukoID
-            // 
-            this.TextboxNyukoID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxNyukoID.Location = new System.Drawing.Point(227, 268);
-            this.TextboxNyukoID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextboxNyukoID.Name = "TextboxNyukoID";
-            this.TextboxNyukoID.Size = new System.Drawing.Size(255, 32);
-            this.TextboxNyukoID.TabIndex = 54;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(43, 465);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1308, 301);
-            this.dataGridView1.TabIndex = 53;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label2.Location = new System.Drawing.Point(124, 382);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 25);
-            this.label2.TabIndex = 75;
-            this.label2.Text = "発注ID";
-            // 
-            // TextboxHattyuID
-            // 
-            this.TextboxHattyuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxHattyuID.Location = new System.Drawing.Point(227, 375);
-            this.TextboxHattyuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextboxHattyuID.Name = "TextboxHattyuID";
-            this.TextboxHattyuID.Size = new System.Drawing.Size(257, 32);
-            this.TextboxHattyuID.TabIndex = 74;
-            // 
-            // ButtonKakutei
-            // 
-            this.ButtonKakutei.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonKakutei.Location = new System.Drawing.Point(509, 798);
-            this.ButtonKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonKakutei.Name = "ButtonKakutei";
-            this.ButtonKakutei.Size = new System.Drawing.Size(324, 61);
-            this.ButtonKakutei.TabIndex = 97;
-            this.ButtonKakutei.Text = "確定";
-            this.ButtonKakutei.UseVisualStyleBackColor = true;
+            this.RadioKakutei.AutoSize = true;
+            this.RadioKakutei.Font = new System.Drawing.Font("MS UI Gothic", 18F);
+            this.RadioKakutei.Location = new System.Drawing.Point(307, 186);
+            this.RadioKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RadioKakutei.Name = "RadioKakutei";
+            this.RadioKakutei.Size = new System.Drawing.Size(94, 34);
+            this.RadioKakutei.TabIndex = 98;
+            this.RadioKakutei.Text = "確定";
+            this.RadioKakutei.UseVisualStyleBackColor = true;
             // 
             // F_入庫管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 884);
+            this.Controls.Add(this.RadioKakutei);
             this.Controls.Add(this.ButtonKakutei);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TextboxHattyuID);
@@ -339,10 +311,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TextboxHihyouji);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.TextboxSyainName);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.TextboxSyainID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TextboxNyukoID);
             this.Controls.Add(this.dataGridView1);
@@ -367,11 +335,6 @@
         private System.Windows.Forms.RadioButton RadioKensaku;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox TextboxHihyouji;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox TextboxSyainName;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TextboxSyainID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TextboxNyukoID;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -385,5 +348,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RadioButton RadioKakutei;
     }
 }
