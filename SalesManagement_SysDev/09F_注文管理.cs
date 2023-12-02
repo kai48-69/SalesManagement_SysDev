@@ -46,7 +46,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<DispChumonListDTO> tb = DB2.ChumonGetData("");
+            List<DispChumonListDTO> tb = DB2.ChumonGetData();
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
