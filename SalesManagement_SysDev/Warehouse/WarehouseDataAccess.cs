@@ -2,21 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SalesManagement_SysDev
 {
-    internal class OrderDataAccess
+    internal class WarehouseDataAccess
     {
-        
-        public bool AddOrderData(T_Order regOr)
+        public bool AddWarehouseData(T_Warehousing Warehouse)
         {
             try
             {
                 var context = new SalesManagement_DevContext();
-                context.T_Orders.Add(regOr);
+                context.T_Warehousings.Add(Warehouse);
                 context.SaveChanges();
                 context.Dispose();
                 return true;
@@ -28,12 +26,12 @@ namespace SalesManagement_SysDev
             }
         }
 
-        public bool AddOrderDetailData(T_OrderDetail regOrD)
+        public bool AddChumonDetailData(T_WarehousingDetail WDetail)
         {
             try
             {
                 var context = new SalesManagement_DevContext();
-                context.T_OrderDetails.Add(regOrD);
+                context.T_WarehousingDetails.Add(WDetail);
                 context.SaveChanges();
                 context.Dispose();
                 return true;
@@ -45,35 +43,14 @@ namespace SalesManagement_SysDev
             }
         }
 
-
-        public bool HideOrderData(T_Order hidOr)
+        public bool HideWarehouseData(T_Warehousing hidWa)
         {
             try
             {
                 var context = new SalesManagement_DevContext();
-                var Order = context.T_Orders.Single(x => x.OrID == hidOr.OrID);
-                Order.OrFlag = hidOr.OrFlag;
-                Order.OrHidden = hidOr.OrHidden;
-
-                context.SaveChanges();
-                context.Dispose();
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-        public bool UpdOrderFlg(T_Order UpdOrFlag)
-        {
-            try
-            {
-                var context = new SalesManagement_DevContext();
-                var Order = context.T_Orders.Single(x => x.OrID == UpdOrFlag.OrID);
-                Order.OrStateFlag = UpdOrFlag.OrStateFlag;
+                var Warehouse = context.T_Warehousings.Single(x => x.WaID == hidWa.WaID);
+                Warehouse.WaFlag = hidWa.WaFlag;
+                Warehouse.WaHidden = hidWa.WaHidden;
 
                 context.SaveChanges();
                 context.Dispose();
@@ -87,13 +64,6 @@ namespace SalesManagement_SysDev
             }
         }
 
-        public bool CheckCascadeOrderID(int OrID)
-        {
-            var context = new SalesManagement_DevContext();
-            bool flg = context.T_Chumons.Any(x => x.OrID == OrID);
-
-            return flg;
-        }
 
     }
 }

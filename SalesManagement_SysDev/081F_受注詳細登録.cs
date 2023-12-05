@@ -71,10 +71,6 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridView1.Columns[4].Width = 40;
-            ////小分類
-            dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[5].Width = 80;
 
 
             dataGridView1.Refresh();
@@ -158,10 +154,10 @@ namespace SalesManagement_SysDev
             bool flg = ODA.AddOrderDetailData(regOrD);
             if (flg == true)
             {
+                GetDataGridView();
                 DialogResult result1= MessageBox.Show("データを登録しました\n続けて登録しますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result1 == DialogResult.Yes)
                 {
-                    GetDataGridView();
                     return;
                 }
                 else
@@ -211,11 +207,6 @@ namespace SalesManagement_SysDev
                 TextboxSyohinName.Text = "";
             }
             
-        }
-
-        private void TextboxSyohinName_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -192,9 +192,9 @@ namespace SalesManagement_SysDev
                     {
                         return;
                     }
+
                     GenerateDataAtSelect();
                 }
-
             }
             //非表示処理--------------------------------------------------------------------
             if (RadioHihyouji.Checked == true)
@@ -316,6 +316,7 @@ namespace SalesManagement_SysDev
 
             if (!String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
             {
+
                 if (!ichk.IntegerCheck(TextboxSyainID.Text.Trim()))
                 {
                     MessageBox.Show("社員IDは半角数字で入力してください");
@@ -394,6 +395,7 @@ namespace SalesManagement_SysDev
             {
                 MessageBox.Show("選択された受注内容は他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+
             }
 
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
@@ -422,6 +424,7 @@ namespace SalesManagement_SysDev
             {
                 return;
             }
+
 
             bool flg = ODA.HideOrderData(hidOr);
             if (flg == true)
@@ -468,7 +471,6 @@ namespace SalesManagement_SysDev
             {
                 OrID = int.Parse(Data1[0].OrID),
                 SoID = int.Parse(Data1[0].SoID),
-                EmID = int.Parse(Data1[0].EmID),
                 ClID = int.Parse(Data1[0].ClID)
             };
             //登録処理
@@ -656,6 +658,21 @@ namespace SalesManagement_SysDev
             {
                 TextboxSyainName.Text = "";
             }
+        }
+
+        private void TextboxHihyouji_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboKokyakuName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextboxJutyuID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
