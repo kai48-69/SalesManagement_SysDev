@@ -15,7 +15,7 @@ namespace SalesManagement_SysDev
             return context.T_Warehousings.Max(x => x.WaID);
         }
 
-        public List<DispWarehousingListDTO> WareHousingGetData(string strClCharge)
+        public List<DispWarehousingListDTO> WareHousingGetData()
         {
             var context = new SalesManagement_DevContext();
             try
@@ -82,6 +82,31 @@ namespace SalesManagement_SysDev
             return null;
         }
 
+        public List<GetNyukoDataDTO> SetNyukoData(T_Warehousing selectCondition)
+        {
+            var context = new SalesManagement_DevContext();
+            try
+            {
+                var tb = from Warehouse in context.T_Warehousings
+                         join WarehouseD in context.T_WarehousingDetails
+                         on Warehouse.WaID equals WarehouseD.WaID
+                         where Warehouse.WaID.Equals(selectCondition.WaID)
+                       
+
+                         select new GetNyukoDataDTO
+                         {
+                           PrID=WarehouseD.PrID,
+                           WaQuantity=WarehouseD.WaQuantity
+                         };
+
+                return tb.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return null;
+        }
 
     }
 }

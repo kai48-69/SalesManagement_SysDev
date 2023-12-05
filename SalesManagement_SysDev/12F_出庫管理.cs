@@ -64,7 +64,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<DispSyukkoListDTO> tb = DB.SyukoGetData("");
+            List<DispSyukkoListDTO> tb = DB.SyukoGetData();
             if (tb == null)
                 return false;
             //データグリッドビューへの設定

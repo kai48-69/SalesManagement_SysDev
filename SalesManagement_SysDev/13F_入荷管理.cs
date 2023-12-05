@@ -144,10 +144,7 @@ namespace SalesManagement_SysDev
         {
                 TextBoxNyuukaID.Text = "";
                 ComboEigyousyoName.SelectedIndex = -1;
-                TextBoxkokyakuID.Text="";
-                TextBoxkokyakuName.Text = "";
-                TextBoxSyainID.Text = "";
-                TextBoxSyainName.Text = "";
+
             
         }
 
@@ -205,25 +202,7 @@ namespace SalesManagement_SysDev
                 }
             }
 
-            if (!String.IsNullOrEmpty(TextBoxkokyakuID.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextBoxkokyakuID.Text.Trim()))
-                {
-                    MessageBox.Show("顧客IDは半角数字で入力してください");
-                    TextBoxkokyakuID.Focus();
-                    return false;
-                }
-            }
-
-            if (!String.IsNullOrEmpty(TextBoxSyainID.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextBoxSyainID.Text.Trim()))
-                {
-                    MessageBox.Show("IDはすべて半角数字で入力してください。");
-                    TextBoxSyainID.Focus();
-                    return false;
-                }
-            }
+       
             return true;
 
         }
@@ -242,9 +221,9 @@ namespace SalesManagement_SysDev
             }
             //整数型(int)に変換する準備
             //価格
-            var EmID = TextBoxSyainID.Text.Trim();
+           
             var ArID =TextBoxNyuukaID.Text.Trim();
-            var ClID=TextBoxkokyakuID.Text.Trim();
+          
 
 
             //変換処理
@@ -253,23 +232,15 @@ namespace SalesManagement_SysDev
                 NyukaID = -1;
             }
 
-            if (!int.TryParse(EmID, out int SyainID))
-            {
-                SyainID = -1;
-            }
 
-            if (!int.TryParse(ClID, out int KokyakuID))
-            {
-                KokyakuID = -1;
-            }
 
 
             T_Arrival selectCondition = new T_Arrival()
             {
                 ArID = NyukaID,
                 SoID = SoID,
-                ClID = KokyakuID,
-                EmID = SyainID,
+              
+            
             };
 
             List<DispArrivalListDTO> tb = DB1.GetArrivalData(selectCondition);
@@ -325,7 +296,6 @@ namespace SalesManagement_SysDev
             else
             {
                 MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TextBoxSyainName.Focus();
             }
             ClearInput();
 
