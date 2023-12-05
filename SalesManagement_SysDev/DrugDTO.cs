@@ -108,19 +108,19 @@ namespace SalesManagement_SysDev
     class GetOrderDataDTO
     {
         [DisplayName("受注ID")]
-        public string OrID { get; set; }
+        public int OrID { get; set; }
         [DisplayName("受注詳細ID")]
-        public string OrDetailID { get; set; }
+        public int OrDetailID { get; set; }
         [DisplayName("営業所ID")]
-        public string SoID { get; set; }
-        [DisplayName("社員ID")]
-        public string EmID { get; set; }
+        public int SoID { get; set; }
         [DisplayName("顧客ID")]
-        public string ClID { get; set; }
+        public int ClID { get; set; }
         [DisplayName("商品ID")]
-        public string PrID { get; set; }
+        public int PrID { get; set; }
         [DisplayName("数量")]
-        public string PrQuantity { get; set; }
+        public int PrQuantity { get; set; }
+        [DisplayName("受注年月日")]
+        public DateTime OrDate { get; set; }
     }
     class DispArrivalListDTO
     {

@@ -25,8 +25,6 @@ namespace SalesManagement_SysDev
                          on Chumon.ChID equals ChumonDetail.ChID
                          join SOffice in context.M_SalesOffices
                          on Chumon.SoID equals SOffice.SoID
-                         join Employee in context.M_Employees
-                         on Chumon.EmID equals Employee.EmID
                          join Client in context.M_Clients
                          on Chumon.ClID equals Client.ClID
                          join Order in context.T_Orders
@@ -34,7 +32,8 @@ namespace SalesManagement_SysDev
                          join Product in context.M_Products
                          on ChumonDetail.PrID equals Product.PrID
                          where Chumon.ChFlag.Equals(0) &&
-                         Chumon.ChStateFlag.Equals(0)
+                         Chumon.ChStateFlag.Equals(0) &&
+                         Chumon.EmID==null
 
                          select new DispChumonListDTO
                          {

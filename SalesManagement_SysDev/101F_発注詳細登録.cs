@@ -174,7 +174,8 @@ namespace SalesManagement_SysDev
             {
                 if (DB.CheckCascadeProduct(PrID) != -1)
                 {
-                    TextboxSyohinName.Text = DB.GetPrName(PrID);
+                    int HaID = DB1.GetHaID();
+                    TextboxSyohinName.Text = DB.GetPrName(PrID,HaID);
                 }
                 else
                 {

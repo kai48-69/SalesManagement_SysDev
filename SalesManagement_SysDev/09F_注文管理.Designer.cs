@@ -53,7 +53,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.ButtonKakutei = new System.Windows.Forms.Button();
             this.ComboKokyakuName = new System.Windows.Forms.ComboBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.RadioKakutei = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -69,18 +69,22 @@
             this.RadioHihyouji.TabIndex = 48;
             this.RadioHihyouji.Text = "非表示";
             this.RadioHihyouji.UseVisualStyleBackColor = true;
+            this.RadioHihyouji.CheckedChanged += new System.EventHandler(this.RadioHihyouji_CheckedChanged);
             // 
             // RadioKensaku
             // 
             this.RadioKensaku.AutoSize = true;
+            this.RadioKensaku.Checked = true;
             this.RadioKensaku.Font = new System.Drawing.Font("MS UI Gothic", 18F);
             this.RadioKensaku.Location = new System.Drawing.Point(47, 182);
             this.RadioKensaku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioKensaku.Name = "RadioKensaku";
             this.RadioKensaku.Size = new System.Drawing.Size(94, 34);
             this.RadioKensaku.TabIndex = 46;
+            this.RadioKensaku.TabStop = true;
             this.RadioKensaku.Text = "検索";
             this.RadioKensaku.UseVisualStyleBackColor = true;
+            this.RadioKensaku.CheckedChanged += new System.EventHandler(this.RadioKensaku_CheckedChanged);
             // 
             // ButtonBack
             // 
@@ -262,6 +266,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1308, 316);
             this.dataGridView1.TabIndex = 24;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // label4
             // 
@@ -326,24 +331,25 @@
             this.ComboKokyakuName.Size = new System.Drawing.Size(262, 33);
             this.ComboKokyakuName.TabIndex = 69;
             // 
-            // radioButton1
+            // RadioKakutei
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.radioButton1.Location = new System.Drawing.Point(327, 182);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(94, 34);
-            this.radioButton1.TabIndex = 77;
-            this.radioButton1.Text = "確定";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.RadioKakutei.AutoSize = true;
+            this.RadioKakutei.Font = new System.Drawing.Font("MS UI Gothic", 18F);
+            this.RadioKakutei.Location = new System.Drawing.Point(327, 182);
+            this.RadioKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RadioKakutei.Name = "RadioKakutei";
+            this.RadioKakutei.Size = new System.Drawing.Size(94, 34);
+            this.RadioKakutei.TabIndex = 77;
+            this.RadioKakutei.Text = "確定";
+            this.RadioKakutei.UseVisualStyleBackColor = true;
+            this.RadioKakutei.CheckedChanged += new System.EventHandler(this.RadioKakutei_CheckedChanged);
             // 
             // F_注文管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 884);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.RadioKakutei);
             this.Controls.Add(this.ComboKokyakuName);
             this.Controls.Add(this.ButtonKakutei);
             this.Controls.Add(this.label3);
@@ -400,6 +406,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox ComboKokyakuName;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton RadioKakutei;
     }
 }
