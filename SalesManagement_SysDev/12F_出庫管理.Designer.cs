@@ -102,6 +102,7 @@
             this.ButtonExe.TabIndex = 59;
             this.ButtonExe.Text = "実行";
             this.ButtonExe.UseVisualStyleBackColor = true;
+            this.ButtonExe.Click += new System.EventHandler(this.ButtonExe_Click);
             // 
             // radioButton4
             // 

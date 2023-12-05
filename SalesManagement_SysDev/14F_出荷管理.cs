@@ -129,13 +129,7 @@ namespace SalesManagement_SysDev
         }
 
         private void ClearInput()
-        {
-            TextboxSyukkaID.Text = "";
-            ComboEigyousyoName.SelectedIndex = 0;
-            TextBoxKoyakuID.Text = "";
-            TextboxKokyakuName.Text = "";
-            TextboxSyainID.Text = "";
-            TextboxTantouName.Text = "";
+        {   
             TextboxHihyouji.Text = "";
 
         }
@@ -201,27 +195,6 @@ namespace SalesManagement_SysDev
                     return false;
                 }
             }
-
-            if (!String.IsNullOrEmpty(TextBoxKoyakuID.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextBoxKoyakuID.Text.Trim()))
-                {
-                    MessageBox.Show("顧客IDは半角数字で入力してください");
-                    TextBoxKoyakuID.Focus();
-                    return false;
-                }
-            }
-
-
-            if (!String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxSyainID.Text.Trim()))
-                {
-                    MessageBox.Show("社員IDは半角数字で入力してください");
-                    TextboxSyainID.Focus();
-                    return false;
-                }
-            }
             return true;
 
         }
@@ -244,23 +217,17 @@ namespace SalesManagement_SysDev
 
             //整数型(int)に変換する準備
 
-            var EmID = TextboxSyainID.Text;
+         
             var ShID = TextboxSyukkaID.Text;
-            var ClID = TextBoxKoyakuID.Text;
+           
 
             //変換処理
-            if (!int.TryParse(EmID, out int SyainID))
-            {
-                SyainID = -1;
-            }
+        
             if (!int.TryParse(ShID, out int SyukkaID))
             {
                 SyukkaID = -1;
             }
-            if (!int.TryParse(ClID, out int KokyakuID))
-            {
-                SyainID = -1;
-            }
+          
 
 
 
@@ -268,8 +235,7 @@ namespace SalesManagement_SysDev
             {
                 ShID = SyukkaID,
                 SoID = SoID,
-                ClID = KokyakuID,
-                EmID = SyainID,
+             
 
             };
 
@@ -324,6 +290,10 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
+        private void ButtonKakutei_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

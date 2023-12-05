@@ -10,7 +10,7 @@ namespace SalesManagement_SysDev
 {
     internal class SyukkoDBConnection
     {
-        public List<DispSyukkoListDTO> SyukoGetData(string strName)
+        public List<DispSyukkoListDTO> SyukoGetData()
         {
             var context = new SalesManagement_DevContext();
             try

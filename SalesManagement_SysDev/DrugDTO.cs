@@ -282,4 +282,10 @@ namespace SalesManagement_SysDev
         public int ChQuantity { get; set; }
     }
 
+    class GetNyukoDataDTO
+    {
+        public int PrID { get; set; }
+        public int WaQuantity { get; set; }
+    }
+
 }

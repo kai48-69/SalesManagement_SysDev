@@ -15,7 +15,7 @@ namespace SalesManagement_SysDev
             return context.T_Chumons.Max(x => x.ChID);
         }
 
-        public List<DispChumonListDTO> ChumonGetData(string all)
+        public List<DispChumonListDTO> ChumonGetData()
         {
             var context = new SalesManagement_DevContext();
             try

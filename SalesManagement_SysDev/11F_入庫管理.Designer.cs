@@ -210,7 +210,6 @@
             this.TextboxHihyouji.Size = new System.Drawing.Size(353, 125);
             this.TextboxHihyouji.TabIndex = 68;
             this.TextboxHihyouji.Text = "";
-            this.TextboxHihyouji.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // label1
             // 
@@ -347,7 +346,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton RadioKakutei;
     }

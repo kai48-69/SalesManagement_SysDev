@@ -13,12 +13,9 @@ namespace SalesManagement_SysDev
 {
     public partial class F_入庫管理 : Form
     {
-        readonly OrderDbConnection DB = new OrderDbConnection();
-        readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
         readonly WarehouseDbConnection DB2 = new WarehouseDbConnection();
         readonly WarehouseDataAccess WDA = new WarehouseDataAccess();
-        private static List<M_Client> ClNameDsp;
-        private static List<M_SalesOffice> SoNameDsp;
+        readonly StockDataAccess SDA = new StockDataAccess();
         readonly private InputCheck ichk = new InputCheck();
         readonly LoginData LoginData;
 
@@ -49,7 +46,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<DispWarehousingListDTO> tb = DB2.WareHousingGetData("");
+            List<DispWarehousingListDTO> tb = DB2.WareHousingGetData();
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -143,7 +140,17 @@ namespace SalesManagement_SysDev
                 HideWa(hidWa);
             }
         }
-
+        //確定ボタン----------------------------------------------------------------------
+        private void ButtonKakutei_Click(object sender, EventArgs e)
+        {
+            if (!CheckDataAtConfirm())
+            {
+                return;
+            }
+            ConfirmWa();
+            var ConWa = GenereteDataAtUpdateFlg();
+            UpdWaFlag(ConWa);
+        }
 
         //検索処理------------------------------------------------------------------------
         private bool GetVaildDataAtSelect() //入力データチェック
@@ -270,32 +277,70 @@ namespace SalesManagement_SysDev
             f_buturyuu.Show();
         }
 
+        //確定処理------------------------------------------------------------------------
+        private bool CheckDataAtConfirm()
+        {
+            if (String.IsNullOrEmpty(TextboxNyukoID.Text.Trim()))
+            {
+                MessageBox.Show("確定を行うデータが選択されていません");
+                return false;
+            }
+            return true;
+        }
+
+        private void ConfirmWa()//注文テーブルにデータを登録する
+        {
+            DialogResult result = MessageBox.Show("入庫情報を確定します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            T_Warehousing selectCondition = new T_Warehousing()
+            {
+                WaID = int.Parse(TextboxNyukoID.Text),
+            };
+            List<GetNyukoDataDTO> Data1 = DB2.SetNyukoData(selectCondition);
+           
+            T_Stock Stock = new T_Stock();
+            for (int i = 0; i < Data1.Count; i++)
+            {
+                Stock.PrID = Data1[i].PrID;
+                Stock.StQuantity = Data1[i].WaQuantity;
+                SDA.AddStockData(Stock);
+            }
+      
+             MessageBox.Show("データを確定しました");
+        }
+
+        private T_Warehousing GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
+        {
+            return new T_Warehousing
+            {
+                WaID = int.Parse(TextboxNyukoID.Text),
+                WaShelfFlag = 1,
+            };
+        }
+
+        private void UpdWaFlag(T_Warehousing ConWa)　//フラグ更新処理
+        {
+            WDA.UpdWarehouseFlg(ConWa);
+
+            ClearInput();
+
+            GetDataGridView();
+        }
+
+        //入力リセット--------------------------------------------------------------------
         private void ClearInput()
         {
             TextboxHattyuID.Text = "";
             TextboxNyukoID.Text = "";
         }
-
+        //リセットボタン------------------------------------------------------------------
         private void ButtonReset_Click(object sender, EventArgs e)
         {
             ClearInput();
         }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ButtonKakutei_Click(object sender, EventArgs e)
-        {
-
-        }
-
-      
     }
 }
