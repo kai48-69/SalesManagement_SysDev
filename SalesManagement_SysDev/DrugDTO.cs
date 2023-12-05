@@ -133,5 +133,27 @@ namespace SalesManagement_SysDev
         public string SoName { get; set; }
         public int PoID { get; set; }
     }
+    class DispChumonDataListDTO
+    {
+        [DisplayName("注文ID")]
+        public int ChID { get; set; }
+        [DisplayName("注文詳細ID")]
+        public int ChDetailID { get; set; }
+        [DisplayName("営業所名")]
+        public string SoName { get; set; }
+        [DisplayName("社員名")]
+        public string EmName { get; set; }
+        [DisplayName("顧客名")]
+        public string ClName { get; set; }
+        [DisplayName("受注ID")]
+        public  int OrID { get; set; }
+        [DisplayName("商品名")]
+        public string PrName { get; set; }
+        [DisplayName("注文年月日")]
+        public DateTime ChDate { get; set; }
+
+    }
+
+
 }
 
