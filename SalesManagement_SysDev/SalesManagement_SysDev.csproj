@@ -220,6 +220,7 @@
     <Compile Include="Entity\T_SyukkoDetail.cs" />
     <Compile Include="Entity\T_Warehousing.cs" />
     <Compile Include="Entity\T_WarehousingDetail.cs" />
+    <Compile Include="SaleDataAccess.cs" />
     <Compile Include="SalesManagement_DevContext.cs" />
     <Compile Include="StockDataAccess.cs" />
     <Compile Include="Syukko\SyukkoDateAccess.cs" />

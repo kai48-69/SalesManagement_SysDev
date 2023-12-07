@@ -443,5 +443,10 @@ namespace SalesManagement_SysDev
             ButtonKakutei.Enabled = true;
             ButtonExe.Visible = false;
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
