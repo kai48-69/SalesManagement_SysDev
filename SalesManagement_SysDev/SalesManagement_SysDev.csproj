@@ -77,6 +77,7 @@
     <Compile Include="101F_発注詳細登録.Designer.cs">
       <DependentUpon>101F_発注詳細登録.cs</DependentUpon>
     </Compile>
+    <Compile Include="ArrivalDataAccess.cs" />
     <Compile Include="ArrivalDbConnection.cs" />
     <Compile Include="Chumon\ChumonDataAccess.cs" />
     <Compile Include="Chumon\ChumonDbConnection.cs" />

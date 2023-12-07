@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder.Hierarchy;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,7 +44,26 @@ namespace SalesManagement_SysDev
             }
         }
 
-       
+        public bool HideSyukkoData(T_Syukko hidSy)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Chumon = context.T_Syukkos.Single(x => x.SyID == hidSy.SyID);
+                Chumon.SyFlag = hidSy.SyFlag;
+                Chumon.SyHidden = hidSy.SyHidden;
+
+                context.SaveChanges();
+                context.Dispose();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
 
     }
 }

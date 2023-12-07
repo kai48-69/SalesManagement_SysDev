@@ -21,6 +21,7 @@ namespace SalesManagement_SysDev
         readonly SyukkoDBConnection DB3 = new SyukkoDBConnection();
         readonly ChumonDataAccess CDA = new ChumonDataAccess();
         readonly SyukkoDateAccess SDA = new SyukkoDateAccess();
+        readonly StockDataAccess StDA = new StockDataAccess();
         readonly private InputCheck ichk = new InputCheck();
         public F_注文管理(LoginData LData)
         {
@@ -147,7 +148,7 @@ namespace SalesManagement_SysDev
 
         private void ButtonExe_Click(object sender, EventArgs e)
         {
-            //検索処理---------------------------------------------------------------------
+                //検索処理---------------------------------------------------------------------
             if (RadioKensaku.Checked == true)
             {
                 {
@@ -191,7 +192,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxChumonID.Text.Trim()))
                 {
-                    MessageBox.Show("受注IDはすべて半角数字で入力してください。");
+                    MessageBox.Show("注文IDは半角数字で入力してください。");
                     TextboxChumonID.Focus();
                     return false;
                 }
@@ -361,6 +362,7 @@ namespace SalesManagement_SysDev
                 SyukkoDetail.SyQuantity = Data1[i].ChQuantity;
                 //chumonDetail登録
                 SDA.AddSyukkoDetailData(SyukkoDetail);
+                StDA.;
             }
             MessageBox.Show("データを確定しました");
         }
