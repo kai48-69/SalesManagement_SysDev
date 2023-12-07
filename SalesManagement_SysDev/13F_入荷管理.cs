@@ -13,7 +13,8 @@ namespace SalesManagement_SysDev
     public partial class F_入荷管理 : Form
     {
         readonly OrderDbConnection DB = new OrderDbConnection();
-        readonly ArrivalDbConnection DB1= new ArrivalDbConnection();    
+        readonly ArrivalDbConnection DB1= new ArrivalDbConnection();  
+        readonly ArrivalDataAccess ADA =new ArrivalDataAccess();
         private static List<M_Client> ClNameDsp;
         readonly private InputCheck ichk = new InputCheck();
         readonly LoginData LoginData;
@@ -201,10 +202,7 @@ namespace SalesManagement_SysDev
                     return false;
                 }
             }
-
-       
             return true;
-
         }
 
         private bool GenerateDataAtSelect() //検索データ生成
@@ -232,15 +230,10 @@ namespace SalesManagement_SysDev
                 NyukaID = -1;
             }
 
-
-
-
             T_Arrival selectCondition = new T_Arrival()
             {
                 ArID = NyukaID,
                 SoID = SoID,
-              
-            
             };
 
             List<DispArrivalListDTO> tb = DB1.GetArrivalData(selectCondition);
@@ -288,7 +281,7 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            bool flg = DB2.HideOrderData(hidAr);
+            bool flg = ADA.HideArrivalData(hidAr);
             if (flg == true)
             {
                 MessageBox.Show("データを非表示にしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);

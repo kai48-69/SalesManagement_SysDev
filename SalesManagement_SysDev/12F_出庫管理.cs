@@ -18,12 +18,14 @@ namespace SalesManagement_SysDev
         readonly SyukkoDBConnection DB = new SyukkoDBConnection();
         readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
         readonly OrderDbConnection DB2 = new OrderDbConnection();
-        readonly SyukkoDateAccess SDA=new SyukkoDateAccess();
+        readonly ArrivalDbConnection DB3= new ArrivalDbConnection();
+        readonly SyukkoDateAccess SDA = new SyukkoDateAccess();
+        readonly ArrivalDataAccess ADA=new ArrivalDataAccess();
         readonly InputCheck ichk = new InputCheck();
         public F_出庫管理(LoginData LData)
         {
             InitializeComponent();
-            LoginData=LData;
+            LoginData = LData;
             this.LblEmName.Text = LData.EmName;
             this.LblSoName.Text = LData.SoName;
             this.LblLoginDate.Text = LData.LoginDatetime.ToString();
@@ -172,6 +174,14 @@ namespace SalesManagement_SysDev
 
         private void ButtonKakutei_Click(object sender, EventArgs e)
         {
+            if (!CheckDataAtConfirm())
+            {
+                return;
+            }
+
+            ConfirmSy();
+            var ConSy = GenereteDataAtUpdateFlg();
+            UpdSyFlag(ConSy);
 
         }
 
@@ -305,6 +315,75 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
+        //確定処理------------------------------------------------------------------------
+        private bool CheckDataAtConfirm()
+        {
+            if (String.IsNullOrEmpty(TextboxSyukkoID.Text.Trim()))
+            {
+                MessageBox.Show("確定を行うデータが選択されていません");
+                return false;
+            }
+            return true;
+        }
+        private void ConfirmSy()//注文テーブルにデータを登録する
+        {
+            DialogResult result = MessageBox.Show("注文情報を確定します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            T_Syukko selectCondition = new T_Syukko()
+            {
+                SyID = int.Parse(TextboxSyukkoID.Text),
+            };
+            List<GetSyukkoDataDTO> Data1 = DB.SetSyukkoData(selectCondition);
+
+            //形式変換(DispOrderListDTO→T_Chumon)
+            T_Arrival Nyuka = new T_Arrival
+            {
+                OrID = Data1[0].OrID,
+                SoID = Data1[0].SoID,
+                ClID = Data1[0].ClID,
+                ArDate = null,
+            };
+            //登録処理
+            ADA.AddArrivalData(Nyuka);
+            //詳細確定------------------------------------------------------------------------
+            //登録したChIDを取得
+            int ArID = DB3.GetArID();
+            T_ArrivalDetail NyukaDetail = new T_ArrivalDetail();
+            for (int i = 0; i < Data1.Count; i++)
+            {
+                //各データをchumonDetailに代入
+                NyukaDetail.ArID = ArID;
+                NyukaDetail.PrID = Data1[i].PrID;
+                NyukaDetail.ArQuantity = Data1[i].SyQuantity;
+                //chumonDetail登録
+                ADA.AddArrivalDetailData(NyukaDetail);
+            }
+            MessageBox.Show("データを確定しました");
+        }
+
+        private T_Syukko GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
+        {
+            return new T_Syukko
+            {
+                SyID = int.Parse(TextboxSyukkoID.Text),
+                SyStateFlag = 1,
+            };
+        }
+
+        private void UpdSyFlag(T_Syukko ConSy)　//フラグ更新処理
+        {
+            SDA.UpdSyukkoFlg(ConSy);
+
+            ClearInput();
+
+            GetDataGridView();
+        }
+
+        //戻るボタン
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -312,16 +391,24 @@ namespace SalesManagement_SysDev
             f_buturyuu.Show();
         }
 
+        //リセットボタン
         private void ButtonReset_Click(object sender, EventArgs e)
         {
-
+            ClearInput();
         }
 
-    
+        //入力リセット--------------------------------------------------------------------
+        private void ClearInput()
+        {
+            TextboxOrderID.Text = "";
+            TextboxSyukkoID.Text = "";
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+        }
 
-     
 
-    
+
+
     }
 }
 

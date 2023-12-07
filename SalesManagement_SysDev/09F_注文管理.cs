@@ -354,15 +354,17 @@ namespace SalesManagement_SysDev
             //登録したChIDを取得
             int SyID = DB3.GetSyID();
             T_SyukkoDetail SyukkoDetail = new T_SyukkoDetail();
+            T_Stock Stock  = new T_Stock();
             for (int i = 0; i < Data1.Count; i++)
             {
                 //各データをchumonDetailに代入
                 SyukkoDetail.SyID = SyID;
                 SyukkoDetail.PrID = Data1[i].PrID;
                 SyukkoDetail.SyQuantity = Data1[i].ChQuantity;
+                Stock.StQuantity= Data1[i].ChQuantity;
                 //chumonDetail登録
                 SDA.AddSyukkoDetailData(SyukkoDetail);
-                StDA.;
+                StDA.UpdateStockData(Stock);
             }
             MessageBox.Show("データを確定しました");
         }
@@ -371,7 +373,7 @@ namespace SalesManagement_SysDev
         {
             return new T_Chumon
             {
-                OrID = int.Parse(TextboxChumonID.Text),
+                ChID = int.Parse(TextboxChumonID.Text),
                 ChStateFlag = 1,
             };
         }
