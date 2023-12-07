@@ -306,4 +306,21 @@ namespace SalesManagement_SysDev
         public int SyQuantity { get; set; }
     }
 
+    class GetNyukaDataDTO
+    {
+        [DisplayName("入荷ID")]
+        public int ArID { get; set; }
+        [DisplayName("入荷詳細ID")]
+        public int ArDetailID { get; set; }
+        [DisplayName("受注ID")]
+        public int OrID { get; set; }
+        [DisplayName("営業所ID")]
+        public int SoID { get; set; }
+        [DisplayName("顧客ID")]
+        public int ClID { get; set; }
+        [DisplayName("商品ID")]
+        public int PrID { get; set; }
+        [DisplayName("数量")]
+        public int ArQuantity { get; set; }
+    }
 }

@@ -47,9 +47,9 @@
             this.ComboEigyousyoName = new System.Windows.Forms.ComboBox();
             this.LabelEigyoushomei = new System.Windows.Forms.Label();
             this.LabelNyuukaID = new System.Windows.Forms.Label();
-            this.TextBoxNyuukaID = new System.Windows.Forms.TextBox();
+            this.TextboxNyukaID = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButtonKakutei = new System.Windows.Forms.Button();
             this.ComboKokyakuName = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TextboxOrderID = new System.Windows.Forms.TextBox();
@@ -104,7 +104,6 @@
             this.RadioKensaku.TabIndex = 47;
             this.RadioKensaku.Text = "検索";
             this.RadioKensaku.UseVisualStyleBackColor = true;
-            this.RadioKensaku.CheckedChanged += new System.EventHandler(this.RadioKensaku_CheckedChanged);
             // 
             // ButtonBack
             // 
@@ -265,14 +264,14 @@
             this.LabelNyuukaID.TabIndex = 27;
             this.LabelNyuukaID.Text = "入荷ID";
             // 
-            // TextBoxNyuukaID
+            // TextboxNyukaID
             // 
-            this.TextBoxNyuukaID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextBoxNyuukaID.Location = new System.Drawing.Point(140, 266);
-            this.TextBoxNyuukaID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextBoxNyuukaID.Name = "TextBoxNyuukaID";
-            this.TextBoxNyuukaID.Size = new System.Drawing.Size(235, 32);
-            this.TextBoxNyuukaID.TabIndex = 26;
+            this.TextboxNyukaID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxNyukaID.Location = new System.Drawing.Point(140, 266);
+            this.TextboxNyukaID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxNyukaID.Name = "TextboxNyukaID";
+            this.TextboxNyukaID.Size = new System.Drawing.Size(235, 32);
+            this.TextboxNyukaID.TabIndex = 26;
             // 
             // dataGridView1
             // 
@@ -284,17 +283,19 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1308, 289);
             this.dataGridView1.TabIndex = 25;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // button1
+            // ButtonKakutei
             // 
-            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.button1.Location = new System.Drawing.Point(509, 798);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(324, 61);
-            this.button1.TabIndex = 56;
-            this.button1.Text = "確定";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ButtonKakutei.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ButtonKakutei.Location = new System.Drawing.Point(509, 798);
+            this.ButtonKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonKakutei.Name = "ButtonKakutei";
+            this.ButtonKakutei.Size = new System.Drawing.Size(324, 61);
+            this.ButtonKakutei.TabIndex = 56;
+            this.ButtonKakutei.Text = "確定";
+            this.ButtonKakutei.UseVisualStyleBackColor = true;
+            this.ButtonKakutei.Click += new System.EventHandler(this.ButtonKakutei_Click);
             // 
             // ComboKokyakuName
             // 
@@ -333,7 +334,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TextboxOrderID);
             this.Controls.Add(this.ComboKokyakuName);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ButtonKakutei);
             this.Controls.Add(this.ButtonReset);
             this.Controls.Add(this.ButtonExe);
             this.Controls.Add(this.RadioHihyouji);
@@ -345,7 +346,7 @@
             this.Controls.Add(this.ComboEigyousyoName);
             this.Controls.Add(this.LabelEigyoushomei);
             this.Controls.Add(this.LabelNyuukaID);
-            this.Controls.Add(this.TextBoxNyuukaID);
+            this.Controls.Add(this.TextboxNyukaID);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -375,9 +376,9 @@
         private System.Windows.Forms.ComboBox ComboEigyousyoName;
         private System.Windows.Forms.Label LabelEigyoushomei;
         private System.Windows.Forms.Label LabelNyuukaID;
-        private System.Windows.Forms.TextBox TextBoxNyuukaID;
+        private System.Windows.Forms.TextBox TextboxNyukaID;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonKakutei;
         private System.Windows.Forms.Label LblLoginDate;
         private System.Windows.Forms.Label LblSoName;
         private System.Windows.Forms.Label LblEmName;
