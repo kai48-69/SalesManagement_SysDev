@@ -25,5 +25,27 @@ namespace SalesManagement_SysDev
                 return false;
             }
         }
+
+        public bool UpdateStockData(T_Stock updSt)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Client = context.T_Stocks.First(x => x.StID == updSt.StID);
+                Client.StID = updSt.StID;
+                Client.StQuantity = updSt.StQuantity;
+
+                context.SaveChanges();
+                context.Dispose();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
     }
 }
