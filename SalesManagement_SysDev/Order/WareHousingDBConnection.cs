@@ -25,10 +25,10 @@ namespace SalesManagement_SysDev.WarHousing
 
                          select new DispWareHousingListDTO
                          {
-                             WaID = WareHousing.WaID.ToString(),
-                             WaDetailID = WareHousingDetails.WaDetailID.ToString(),
+                             WaID = WareHousing.WaID,
+                             WaDetailID = WareHousingDetails.WaDetailID,
                              PrName = Product.PrName,
-                             WaQuantity = WareHousingDetails.WaQuantity.ToString(),
+                             WaQuantity = WareHousingDetails.WaQuantity,
 
                          };
                 return tb.ToList();
