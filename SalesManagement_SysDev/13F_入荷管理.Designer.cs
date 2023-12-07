@@ -50,9 +50,9 @@
             this.TextBoxNyuukaID = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ComboKokyakuName = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextboxOrderID = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -296,15 +296,15 @@
             this.button1.Text = "確定";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // ComboKokyakuName
             // 
-            this.comboBox1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(528, 356);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(235, 33);
-            this.comboBox1.TabIndex = 57;
+            this.ComboKokyakuName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ComboKokyakuName.FormattingEnabled = true;
+            this.ComboKokyakuName.Location = new System.Drawing.Point(528, 356);
+            this.ComboKokyakuName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ComboKokyakuName.Name = "ComboKokyakuName";
+            this.ComboKokyakuName.Size = new System.Drawing.Size(235, 33);
+            this.ComboKokyakuName.TabIndex = 57;
             // 
             // label1
             // 
@@ -316,14 +316,14 @@
             this.label1.TabIndex = 59;
             this.label1.Text = "受注ID";
             // 
-            // textBox1
+            // TextboxOrderID
             // 
-            this.textBox1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox1.Location = new System.Drawing.Point(140, 364);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(235, 32);
-            this.textBox1.TabIndex = 58;
+            this.TextboxOrderID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxOrderID.Location = new System.Drawing.Point(140, 364);
+            this.TextboxOrderID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxOrderID.Name = "TextboxOrderID";
+            this.TextboxOrderID.Size = new System.Drawing.Size(235, 32);
+            this.TextboxOrderID.TabIndex = 58;
             // 
             // F_入荷管理
             // 
@@ -331,8 +331,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 884);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.TextboxOrderID);
+            this.Controls.Add(this.ComboKokyakuName);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ButtonReset);
             this.Controls.Add(this.ButtonExe);
@@ -384,8 +384,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox ComboKokyakuName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextboxOrderID;
     }
 }

@@ -227,16 +227,12 @@ namespace SalesManagement_SysDev
             {
                 SyukkaID = -1;
             }
-          
-
-
+      
 
             T_Shipment selectCondition = new T_Shipment()
             {
                 ShID = SyukkaID,
                 SoID = SoID,
-             
-
             };
 
             List<DispShipListDTO> tb = DB.GetShipData(selectCondition);

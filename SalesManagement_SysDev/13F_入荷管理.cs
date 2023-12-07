@@ -188,7 +188,6 @@ namespace SalesManagement_SysDev
 
                 HideAr(hidAr);
             }
-
         }
 
         private bool GetVaildDataAtSelect() //入力データチェック
@@ -209,6 +208,7 @@ namespace SalesManagement_SysDev
         {
 
             int SoID;
+            int ClID;
             if (ComboEigyousyoName.SelectedIndex == -1)
             {
                 SoID = -1;
@@ -217,23 +217,36 @@ namespace SalesManagement_SysDev
             {
                 SoID = int.Parse(ComboEigyousyoName.SelectedValue.ToString());
             }
+            if (ComboKokyakuName.SelectedIndex == -1)
+            {
+                ClID = -1;
+            }
+            else
+            {
+                ClID = int.Parse(ComboKokyakuName.SelectedValue.ToString());
+            }
             //整数型(int)に変換する準備
             //価格
            
             var ArID =TextBoxNyuukaID.Text.Trim();
-          
-
+            var OrID = TextboxOrderID.Text.Trim();
 
             //変換処理
             if (!int.TryParse(ArID,out int NyukaID))
             {
                 NyukaID = -1;
             }
+            if(!int.TryParse(OrID, out int JutyuID))
+            {
+                JutyuID= -1;    
+            }
 
             T_Arrival selectCondition = new T_Arrival()
             {
                 ArID = NyukaID,
+                OrID = JutyuID,
                 SoID = SoID,
+                ClID= ClID,
             };
 
             List<DispArrivalListDTO> tb = DB1.GetArrivalData(selectCondition);
