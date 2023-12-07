@@ -308,9 +308,14 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
+        private void TextboxOrderID_TextChanged(object sender, EventArgs e)
+        {
 
+        }
 
+        private void ComboKokyakuName_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

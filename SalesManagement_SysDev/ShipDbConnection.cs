@@ -123,6 +123,48 @@ namespace SalesManagement_SysDev
             }
         }
 
+        public List<GetSyukkaDataDTO> SetSyukkaData(T_Shipment selectCondition)
+        {
+            var context = new SalesManagement_DevContext();
+            try
+            {
+                var tb = from Ship in context.T_Shipments
+                         join SOffice in context.M_SalesOffices
+                         on Ship.SoID equals SOffice.SoID
+                         join Employee in context.M_Employees
+                         on Ship.EmID equals Employee.EmID
+                         join Client in context.M_Clients
+                         on Ship.ClID equals Client.ClID
+                         join ShDetail in context.T_ShipmentDetails
+                         on Ship.ShID equals ShDetail.ShID
+                         join Product in context.M_Products
+                         on ShDetail.PrID equals Product.PrID
+                         join Order in context.T_Orders
+                         on Ship.OrID equals Order.OrID
+                         where Ship.ShID.Equals(selectCondition.ShID) &&
+                         Ship.ShFlag.Equals(0) &&
+                         Ship.ShStateFlag.Equals(0)
+
+                         select new GetSyukkaDataDTO
+                         {
+                             ShID = Ship.ShID,
+                             SoID = SOffice.SoID,
+                             ClID = Client.ClID,
+                             ShDetailID = ShDetail.ShDetailID,
+                             PrID = Product.PrID,
+                             ShQuantity = ShDetail.ShQuantity,
+                             OrID = Ship.OrID,
+                         };
+
+                return tb.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return null;
+        }
+
 
     }
 }
