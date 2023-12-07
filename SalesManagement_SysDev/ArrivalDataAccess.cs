@@ -2,21 +2,35 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SalesManagement_SysDev
 {
-    internal class OrderDataAccess
+    internal class ArrivalDataAccess
     {
-        
-        public bool AddOrderData(T_Order regOr)
+        public bool AddArrivalData(T_Arrival Arrival)
         {
             try
             {
                 var context = new SalesManagement_DevContext();
-                context.T_Orders.Add(regOr);
+                context.T_Arrivals.Add(Arrival);
+                context.SaveChanges();
+                context.Dispose();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        public bool AddArrivalDetailData(T_ArrivalDetail ADetail)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                context.T_ArrivalDetails.Add(ADetail);
                 context.SaveChanges();
                 context.Dispose();
                 return true;
@@ -28,32 +42,14 @@ namespace SalesManagement_SysDev
             }
         }
 
-        public bool AddOrderDetailData(T_OrderDetail regOrD)
+        public bool HideArrivalData(T_Arrival hidAr)
         {
             try
             {
                 var context = new SalesManagement_DevContext();
-                context.T_OrderDetails.Add(regOrD);
-                context.SaveChanges();
-                context.Dispose();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-
-        public bool HideOrderData(T_Order hidOr)
-        {
-            try
-            {
-                var context = new SalesManagement_DevContext();
-                var Order = context.T_Orders.Single(x => x.OrID == hidOr.OrID);
-                Order.OrFlag = hidOr.OrFlag;
-                Order.OrHidden = hidOr.OrHidden;
+                var Arder = context.T_Arrivals.Single(x => x.ArID == hidAr.ArID);
+                Arder.ArFlag = hidAr.ArFlag;
+                Arder.ArHidden = hidAr.ArHidden;
 
                 context.SaveChanges();
                 context.Dispose();
@@ -66,34 +62,5 @@ namespace SalesManagement_SysDev
                 return false;
             }
         }
-
-        public bool UpdOrderFlg(T_Order UpdOrFlag)
-        {
-            try
-            {
-                var context = new SalesManagement_DevContext();
-                var Order = context.T_Orders.Single(x => x.OrID == UpdOrFlag.OrID);
-                Order.OrStateFlag = UpdOrFlag.OrStateFlag;
-
-                context.SaveChanges();
-                context.Dispose();
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-        public bool CheckCascadeOrderID(int OrID)
-        {
-            var context = new SalesManagement_DevContext();
-            bool flg = context.T_Chumons.Any(x => x.OrID == OrID);
-
-            return flg;
-        }
-
     }
 }

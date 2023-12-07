@@ -13,9 +13,9 @@ namespace SalesManagement_SysDev
     public partial class F_入荷管理 : Form
     {
         readonly OrderDbConnection DB = new OrderDbConnection();
-        readonly ArrivalDbConnection DB1= new ArrivalDbConnection();    
+        readonly ArrivalDbConnection DB1= new ArrivalDbConnection();  
+        readonly ArrivalDataAccess ADA =new ArrivalDataAccess();
         private static List<M_Client> ClNameDsp;
-        private static List<M_SalesOffice> SoNameDsp;
         readonly private InputCheck ichk = new InputCheck();
         readonly LoginData LoginData;
         readonly ArrivalDbConnection DB2 = new ArrivalDbConnection();
@@ -145,10 +145,7 @@ namespace SalesManagement_SysDev
         {
                 TextBoxNyuukaID.Text = "";
                 ComboEigyousyoName.SelectedIndex = -1;
-                TextBoxkokyakuID.Text="";
-                TextBoxkokyakuName.Text = "";
-                TextBoxSyainID.Text = "";
-                TextBoxSyainName.Text = "";
+
             
         }
 
@@ -191,7 +188,6 @@ namespace SalesManagement_SysDev
 
                 HideAr(hidAr);
             }
-
         }
 
         private bool GetVaildDataAtSelect() //入力データチェック
@@ -205,34 +201,14 @@ namespace SalesManagement_SysDev
                     return false;
                 }
             }
-
-            if (!String.IsNullOrEmpty(TextBoxkokyakuID.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextBoxkokyakuID.Text.Trim()))
-                {
-                    MessageBox.Show("顧客IDは半角数字で入力してください");
-                    TextBoxkokyakuID.Focus();
-                    return false;
-                }
-            }
-
-            if (!String.IsNullOrEmpty(TextBoxSyainID.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextBoxSyainID.Text.Trim()))
-                {
-                    MessageBox.Show("IDはすべて半角数字で入力してください。");
-                    TextBoxSyainID.Focus();
-                    return false;
-                }
-            }
             return true;
-
         }
 
         private bool GenerateDataAtSelect() //検索データ生成
         {
 
             int SoID;
+            int ClID;
             if (ComboEigyousyoName.SelectedIndex == -1)
             {
                 SoID = -1;
@@ -241,36 +217,36 @@ namespace SalesManagement_SysDev
             {
                 SoID = int.Parse(ComboEigyousyoName.SelectedValue.ToString());
             }
+            if (ComboKokyakuName.SelectedIndex == -1)
+            {
+                ClID = -1;
+            }
+            else
+            {
+                ClID = int.Parse(ComboKokyakuName.SelectedValue.ToString());
+            }
             //整数型(int)に変換する準備
             //価格
-            var EmID = TextBoxSyainID.Text.Trim();
+           
             var ArID =TextBoxNyuukaID.Text.Trim();
-            var ClID=TextBoxkokyakuID.Text.Trim();
-
+            var OrID = TextboxOrderID.Text.Trim();
 
             //変換処理
             if (!int.TryParse(ArID,out int NyukaID))
             {
                 NyukaID = -1;
             }
-
-            if (!int.TryParse(EmID, out int SyainID))
+            if(!int.TryParse(OrID, out int JutyuID))
             {
-                SyainID = -1;
+                JutyuID= -1;    
             }
-
-            if (!int.TryParse(ClID, out int KokyakuID))
-            {
-                KokyakuID = -1;
-            }
-
 
             T_Arrival selectCondition = new T_Arrival()
             {
                 ArID = NyukaID,
+                OrID = JutyuID,
                 SoID = SoID,
-                ClID = KokyakuID,
-                EmID = SyainID,
+                ClID= ClID,
             };
 
             List<DispArrivalListDTO> tb = DB1.GetArrivalData(selectCondition);
@@ -318,7 +294,7 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            bool flg = DB2.HideOrderData(hidAr);
+            bool flg = ADA.HideArrivalData(hidAr);
             if (flg == true)
             {
                 MessageBox.Show("データを非表示にしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -326,7 +302,6 @@ namespace SalesManagement_SysDev
             else
             {
                 MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TextBoxSyainName.Focus();
             }
             ClearInput();
 

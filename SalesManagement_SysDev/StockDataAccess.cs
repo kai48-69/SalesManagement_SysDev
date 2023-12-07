@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace SalesManagement_SysDev
+{
+    internal class StockDataAccess
+    {
+        public bool UpdateStockData(T_Stock updSt)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Stock = context.T_Stocks.First(x => x.PrID == updSt.PrID);
+                Stock.StQuantity = Stock.StQuantity + updSt.StQuantity;
+
+                context.SaveChanges();
+                context.Dispose();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+    }
+}

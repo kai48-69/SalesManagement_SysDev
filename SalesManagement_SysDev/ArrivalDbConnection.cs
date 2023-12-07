@@ -104,29 +104,11 @@ namespace SalesManagement_SysDev
             }
             return null;
         }
-
-        public bool HideOrderData(T_Arrival hidAr)
+        
+       public int GetArID()
         {
-            try
-            {
-                var context = new SalesManagement_DevContext();
-                var Arder = context.T_Arrivals.Single(x => x.ArID == hidAr.ArID);
-                Arder.ArFlag = hidAr.ArFlag;
-                Arder.ArHidden = hidAr.ArHidden;
-
-                context.SaveChanges();
-                context.Dispose();
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            var context = new SalesManagement_DevContext();
+            return context.T_Arrivals.Max(x => x.ArID);
         }
-
-
-
     }
 }
