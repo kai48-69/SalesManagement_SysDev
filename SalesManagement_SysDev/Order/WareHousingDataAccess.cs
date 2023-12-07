@@ -7,33 +7,20 @@ using System.Windows.Forms;
 
 namespace SalesManagement_SysDev.Order
 {
-    internal class WareHousingDataAccess
+    internal class WarehouseDataAccess
     {
-        public bool AddWareHousingData(T_Warehousing regWh)
+        public bool HideWarehouseData(T_Warehousing hidWa)
         {
             try
             {
                 var context = new SalesManagement_DevContext();
-                context.T_Warehousings.Add(regWh);
-                context.SaveChanges();
-                context.Dispose();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
+                var Warehouse = context.T_Warehousings.Single(x => x.WaID == hidWa.WaID);
+                Warehouse.WaFlag = hidWa.WaFlag;
+                Warehouse.WaHidden = hidWa.WaHidden;
 
-        public bool AddWareHousingDetailData(T_WarehousingDetail regWhD)
-        {
-            try
-            {
-                var context = new SalesManagement_DevContext();
-                context.T_WarehousingDetails.Add(regWhD);
                 context.SaveChanges();
                 context.Dispose();
+
                 return true;
             }
             catch (Exception ex)

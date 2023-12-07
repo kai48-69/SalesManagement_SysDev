@@ -17,7 +17,7 @@ namespace SalesManagement_SysDev
         readonly OrderDbConnection DB = new OrderDbConnection();
         readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
         readonly WareHousingDBConnection DB2 = new WareHousingDBConnection();
-        readonly WareHousingDataAccess WHA = new WareHousingDataAccess();
+        readonly WarehouseDataAccess WDA = new WarehouseDataAccess();
         private static List<M_Client> ClNameDsp;
         private static List<M_SalesOffice> SoNameDsp;
         readonly private InputCheck ichk = new InputCheck();
@@ -140,9 +140,9 @@ namespace SalesManagement_SysDev
                     return;
                 }
 
-                var hidOr = GenereteDataAtHidden();
+                var hidWa = GenereteDataAtHidden();
 
-                HideOr(hidOr);
+                HideWa(hidWa);
             }
         }
 
@@ -253,7 +253,29 @@ namespace SalesManagement_SysDev
                 WaHidden = TextboxHihyouji.Text,
             };
         }
+        private void HideWa(T_Warehousing hidWa)　//データ更新処理
+        {
+            DialogResult result = MessageBox.Show("受注データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            bool flg = WDA.HideWarehouseData(hidWa);
+            if (flg == true)
+            {
+                MessageBox.Show("データを非表示にしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TextboxSyainName.Focus();
+            }
+           // ClearInput();
+
+            GetDataGridView();
+        }
 
 
 
