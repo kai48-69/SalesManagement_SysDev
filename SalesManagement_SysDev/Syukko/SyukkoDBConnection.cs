@@ -111,5 +111,47 @@ namespace SalesManagement_SysDev
             return null;
         }
 
+        public List<GetSyukkoDataDTO> SetSyukkoData(T_Syukko selectCondition)
+        {
+            var context = new SalesManagement_DevContext();
+            try
+            {
+                var tb = from Syukko in context.T_Syukkos
+                         join Employee in context.M_Employees
+                         on Syukko.EmID equals Employee.EmID
+                         join SyukkoDetail in context.T_SyukkoDetails
+                         on Syukko.SyID equals SyukkoDetail.SyID
+                         join Client in context.M_Clients
+                         on Syukko.ClID equals Client.ClID
+                         join SOffice in context.M_SalesOffices
+                         on Syukko.SoID equals SOffice.SoID
+                         join Order in context.T_Orders
+                         on Syukko.OrID equals Order.OrID
+                         join Product in context.M_Products
+                         on SyukkoDetail.PrID equals Product.PrID
+                         where Syukko.SyID.Equals(selectCondition.SyID) &&
+                         Syukko.SyFlag.Equals(0) &&
+                         Syukko.SyStateFlag.Equals(0)
+
+                         select new GetSyukkoDataDTO
+                         {
+                             SyID = Syukko.SyID,
+                             SoID = SOffice.SoID,
+                             ClID = Client.ClID,
+                             SyDetailID = SyukkoDetail.SyDetailID,
+                             PrID = Product.PrID,
+                             SyQuantity = SyukkoDetail.SyQuantity,
+                             OrID = Syukko.OrID,
+                         };
+
+                return tb.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return null;
+        }
+
     }
 }

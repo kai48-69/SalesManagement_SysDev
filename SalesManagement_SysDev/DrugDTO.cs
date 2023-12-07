@@ -288,4 +288,22 @@ namespace SalesManagement_SysDev
         public int WaQuantity { get; set; }
     }
 
+    class GetSyukkoDataDTO
+    {
+        [DisplayName("出庫ID")]
+        public int SyID { get; set; }
+        [DisplayName("出庫詳細ID")]
+        public int SyDetailID { get; set; }
+        [DisplayName("受注ID")]
+        public int OrID { get; set; }
+        [DisplayName("営業所ID")]
+        public int SoID { get; set; }
+        [DisplayName("顧客ID")]
+        public int ClID { get; set; }
+        [DisplayName("商品ID")]
+        public int PrID { get; set; }
+        [DisplayName("数量")]
+        public int SyQuantity { get; set; }
+    }
+
 }

@@ -65,5 +65,24 @@ namespace SalesManagement_SysDev
             }
         }
 
+        public bool UpdSyukkoFlg(T_Syukko UpdSyFlag)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Syukko = context.T_Syukkos.Single(x => x.SyID == UpdSyFlag.SyID);
+                Syukko.SyStateFlag = UpdSyFlag.SyStateFlag;
+
+                context.SaveChanges();
+                context.Dispose();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }
