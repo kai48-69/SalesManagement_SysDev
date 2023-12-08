@@ -239,7 +239,7 @@
             // ButtonKakutei
             // 
             this.ButtonKakutei.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonKakutei.Location = new System.Drawing.Point(548, 795);
+            this.ButtonKakutei.Location = new System.Drawing.Point(533, 795);
             this.ButtonKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonKakutei.Name = "ButtonKakutei";
             this.ButtonKakutei.Size = new System.Drawing.Size(324, 61);
