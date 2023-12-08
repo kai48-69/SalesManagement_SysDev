@@ -121,6 +121,7 @@ namespace SalesManagement_SysDev
         public int PrQuantity { get; set; }
         [DisplayName("受注年月日")]
         public DateTime OrDate { get; set; }
+        public int EmID { get; set; }   
     }
     class DispArrivalListDTO
     {
@@ -190,6 +191,7 @@ namespace SalesManagement_SysDev
         public string PrID { get; set; }
         [DisplayName("数量")]
         public string HaQuantity { get; set; }
+        public string EmID { get; set; }
     }
 
     class DispShipListDTO
@@ -280,6 +282,8 @@ namespace SalesManagement_SysDev
         public int PrID { get; set; }
         [DisplayName("数量")]
         public int ChQuantity { get; set; }
+        public int EmID { get; set; }
+
     }
 
     class GetNyukoDataDTO
@@ -323,8 +327,6 @@ namespace SalesManagement_SysDev
         [DisplayName("数量")]
         public int ShQuantity { get; set; }
     }
-
-
 }
 
     class GetNyukaDataDTO
@@ -343,5 +345,5 @@ namespace SalesManagement_SysDev
         public int PrID { get; set; }
         [DisplayName("数量")]
         public int ArQuantity { get; set; }
+        public string EmID { get; set; }
     }
-}

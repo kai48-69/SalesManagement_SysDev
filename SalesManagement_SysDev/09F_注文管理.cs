@@ -342,10 +342,11 @@ namespace SalesManagement_SysDev
             //形式変換(DispOrderListDTO→T_Chumon)
             T_Syukko Syukko = new T_Syukko
             {
+                EmID=LoginData.EmID,
                 OrID = Data1[0].OrID,
                 SoID = Data1[0].SoID,
                 ClID = Data1[0].ClID,
-                SyDate = null,
+                SyDate = DateTime.Now,
 
             };
             //登録処理
@@ -374,7 +375,9 @@ namespace SalesManagement_SysDev
             return new T_Chumon
             {
                 ChID = int.Parse(TextboxChumonID.Text),
+                EmID=LoginData.EmID,    
                 ChStateFlag = 1,
+                ChDate = DateTime.Now,
             };
         }
 

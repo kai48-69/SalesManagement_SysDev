@@ -62,5 +62,23 @@ namespace SalesManagement_SysDev
                 return false;
             }
         }
+
+        public bool UpdArrivalFlg(T_Arrival UpdArFlag)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Arrival = context.T_Arrivals.Single(x => x.ArID == UpdArFlag.ArID);
+                Arrival.ArStateFlag = UpdArFlag.ArStateFlag;
+                context.SaveChanges();
+                context.Dispose();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }

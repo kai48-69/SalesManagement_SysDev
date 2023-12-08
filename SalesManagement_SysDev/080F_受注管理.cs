@@ -275,7 +275,7 @@ namespace SalesManagement_SysDev
 
         private void RegistrationOrder(T_Order regOr) //データ登録処理
         {
-            DialogResult result = MessageBox.Show("受注データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("受注データの登録を開始します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
             {
                 return;
@@ -283,7 +283,7 @@ namespace SalesManagement_SysDev
             bool flg = ODA.AddOrderData(regOr);
             if (flg == true)
             {
-                DialogResult result1 = MessageBox.Show("データを登録しました");
+                DialogResult result1 = MessageBox.Show("続けて商品の登録を行います");
                 if (result1 == DialogResult.OK)
                 {
                     this.Close();
@@ -294,7 +294,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("データの登録に失敗しました");
+                MessageBox.Show("データの登録を開始できませんでした");
                 TextboxSyainName.Focus();
             }
             ClearInput();
@@ -469,6 +469,7 @@ namespace SalesManagement_SysDev
             //形式変換(DispOrderListDTO→T_Chumon)
             T_Chumon chumon = new T_Chumon
             {
+                EmID=LoginData.EmID,
                 OrID = Data1[0].OrID,
                 SoID = Data1[0].SoID,
                 ClID = Data1[0].ClID,
@@ -490,25 +491,7 @@ namespace SalesManagement_SysDev
                 //chumonDetail登録
                 CDA.AddChumonDetailData(ChumonDetail);
             }
-            bool flg2 = true;
-
-
-            if (flg1 == true && flg2 == true)
-            {
-                DialogResult result1 = MessageBox.Show("データを確定しました");
-                if (result1 == DialogResult.OK)
-                {
-                    //this.Close();
-                    //F_受注詳細登録 f_JutyuSyousai = new F_受注詳細登録();
-                    //f_JutyuSyousai.Show();
-
-                }
-            }
-            //else
-            //{
-            //    MessageBox.Show("データの確定に失敗しました");
-            //    TextboxSyainName.Focus();
-            //}
+               MessageBox.Show("データを確定しました");
         } 
 
         private T_Order GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
@@ -659,21 +642,6 @@ namespace SalesManagement_SysDev
             {
                 TextboxSyainName.Text = "";
             }
-        }
-
-        private void TextboxHihyouji_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ComboKokyakuName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextboxJutyuID_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

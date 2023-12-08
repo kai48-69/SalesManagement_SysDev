@@ -85,7 +85,6 @@
             this.TextboxJutyuID.Name = "TextboxJutyuID";
             this.TextboxJutyuID.Size = new System.Drawing.Size(253, 32);
             this.TextboxJutyuID.TabIndex = 1;
-            this.TextboxJutyuID.TextChanged += new System.EventHandler(this.TextboxJutyuID_TextChanged);
             // 
             // label1
             // 
@@ -126,7 +125,6 @@
             this.ComboKokyakuName.Name = "ComboKokyakuName";
             this.ComboKokyakuName.Size = new System.Drawing.Size(249, 33);
             this.ComboKokyakuName.TabIndex = 2;
-            this.ComboKokyakuName.SelectedIndexChanged += new System.EventHandler(this.ComboKokyakuName_SelectedIndexChanged);
             // 
             // TextboxTantousyaName
             // 
@@ -367,7 +365,6 @@
             this.TextboxHihyouji.Size = new System.Drawing.Size(307, 158);
             this.TextboxHihyouji.TabIndex = 7;
             this.TextboxHihyouji.Text = "";
-            this.TextboxHihyouji.TextChanged += new System.EventHandler(this.TextboxHihyouji_TextChanged);
             // 
             // RadioKensaku
             // 
