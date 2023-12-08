@@ -10,7 +10,6 @@ namespace SalesManagement_SysDev
     internal class StockDataAccess
     {
        
-
         public bool UpdateStockData(T_Stock updSt)
         {
             try
