@@ -21,6 +21,7 @@ namespace SalesManagement_SysDev
         readonly SyukkoDBConnection DB3 = new SyukkoDBConnection();
         readonly ChumonDataAccess CDA = new ChumonDataAccess();
         readonly SyukkoDateAccess SDA = new SyukkoDateAccess();
+        readonly StockDataAccess StDA = new StockDataAccess();
         readonly private InputCheck ichk = new InputCheck();
         public F_注文管理(LoginData LData)
         {
@@ -147,7 +148,7 @@ namespace SalesManagement_SysDev
 
         private void ButtonExe_Click(object sender, EventArgs e)
         {
-            //検索処理---------------------------------------------------------------------
+                //検索処理---------------------------------------------------------------------
             if (RadioKensaku.Checked == true)
             {
                 {
@@ -191,7 +192,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxChumonID.Text.Trim()))
                 {
-                    MessageBox.Show("受注IDはすべて半角数字で入力してください。");
+                    MessageBox.Show("注文IDは半角数字で入力してください。");
                     TextboxChumonID.Focus();
                     return false;
                 }
@@ -353,14 +354,17 @@ namespace SalesManagement_SysDev
             //登録したChIDを取得
             int SyID = DB3.GetSyID();
             T_SyukkoDetail SyukkoDetail = new T_SyukkoDetail();
+            T_Stock Stock  = new T_Stock();
             for (int i = 0; i < Data1.Count; i++)
             {
                 //各データをchumonDetailに代入
                 SyukkoDetail.SyID = SyID;
                 SyukkoDetail.PrID = Data1[i].PrID;
                 SyukkoDetail.SyQuantity = Data1[i].ChQuantity;
+                Stock.StQuantity= Data1[i].ChQuantity;
                 //chumonDetail登録
                 SDA.AddSyukkoDetailData(SyukkoDetail);
+                StDA.UpdateStockData(Stock);
             }
             MessageBox.Show("データを確定しました");
         }
@@ -369,7 +373,7 @@ namespace SalesManagement_SysDev
         {
             return new T_Chumon
             {
-                OrID = int.Parse(TextboxChumonID.Text),
+                ChID = int.Parse(TextboxChumonID.Text),
                 ChStateFlag = 1,
             };
         }
@@ -438,6 +442,11 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = true;
             ButtonExe.Visible = false;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

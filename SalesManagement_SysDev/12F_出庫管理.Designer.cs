@@ -32,7 +32,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.ButtonReset = new System.Windows.Forms.Button();
             this.ButtonExe = new System.Windows.Forms.Button();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.RadioHihyouji = new System.Windows.Forms.RadioButton();
             this.RadioKensaku = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LblLoginDate = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
             this.TextboxSyukkoID = new System.Windows.Forms.TextBox();
             this.ButtonKakutei = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextboxOrderID = new System.Windows.Forms.TextBox();
             this.RadioKakutei = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -104,17 +104,17 @@
             this.ButtonExe.UseVisualStyleBackColor = true;
             this.ButtonExe.Click += new System.EventHandler(this.ButtonExe_Click);
             // 
-            // radioButton4
+            // RadioHihyouji
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.radioButton4.Location = new System.Drawing.Point(173, 178);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(124, 34);
-            this.radioButton4.TabIndex = 71;
-            this.radioButton4.Text = "非表示";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.RadioHihyouji.AutoSize = true;
+            this.RadioHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 18F);
+            this.RadioHihyouji.Location = new System.Drawing.Point(173, 178);
+            this.RadioHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RadioHihyouji.Name = "RadioHihyouji";
+            this.RadioHihyouji.Size = new System.Drawing.Size(124, 34);
+            this.RadioHihyouji.TabIndex = 71;
+            this.RadioHihyouji.Text = "非表示";
+            this.RadioHihyouji.UseVisualStyleBackColor = true;
             // 
             // RadioKensaku
             // 
@@ -213,7 +213,7 @@
             this.TextboxHihyouji.Location = new System.Drawing.Point(1031, 267);
             this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxHihyouji.Name = "TextboxHihyouji";
-            this.TextboxHihyouji.Size = new System.Drawing.Size(328, 128);
+            this.TextboxHihyouji.Size = new System.Drawing.Size(328, 129);
             this.TextboxHihyouji.TabIndex = 68;
             this.TextboxHihyouji.Text = "";
             // 
@@ -319,14 +319,14 @@
             this.label3.TabIndex = 98;
             this.label3.Text = "受注ID";
             // 
-            // textBox1
+            // TextboxOrderID
             // 
-            this.textBox1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.textBox1.Location = new System.Drawing.Point(173, 364);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(244, 32);
-            this.textBox1.TabIndex = 97;
+            this.TextboxOrderID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxOrderID.Location = new System.Drawing.Point(173, 364);
+            this.TextboxOrderID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxOrderID.Name = "TextboxOrderID";
+            this.TextboxOrderID.Size = new System.Drawing.Size(244, 32);
+            this.TextboxOrderID.TabIndex = 97;
             // 
             // RadioKakutei
             // 
@@ -347,7 +347,7 @@
             this.ClientSize = new System.Drawing.Size(1403, 884);
             this.Controls.Add(this.RadioKakutei);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TextboxOrderID);
             this.Controls.Add(this.ButtonKakutei);
             this.Controls.Add(this.ComboKokyakuName);
             this.Controls.Add(this.label4);
@@ -357,7 +357,7 @@
             this.Controls.Add(this.TextboxSyukkoID);
             this.Controls.Add(this.ButtonReset);
             this.Controls.Add(this.ButtonExe);
-            this.Controls.Add(this.radioButton4);
+            this.Controls.Add(this.RadioHihyouji);
             this.Controls.Add(this.RadioKensaku);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TextboxHihyouji);
@@ -381,7 +381,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button ButtonReset;
         private System.Windows.Forms.Button ButtonExe;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton RadioHihyouji;
         private System.Windows.Forms.RadioButton RadioKensaku;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox TextboxHihyouji;
@@ -401,7 +401,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextboxOrderID;
         private System.Windows.Forms.RadioButton RadioKakutei;
     }
 }

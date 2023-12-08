@@ -104,29 +104,54 @@ namespace SalesManagement_SysDev
             }
             return null;
         }
-
-        public bool HideOrderData(T_Arrival hidAr)
+        
+       public int GetArID()
         {
+            var context = new SalesManagement_DevContext();
+            return context.T_Arrivals.Max(x => x.ArID);
+        }
+
+        public List<GetNyukaDataDTO> SetNyukaData(T_Arrival selectCondition)
+        {
+            var context = new SalesManagement_DevContext();
             try
             {
-                var context = new SalesManagement_DevContext();
-                var Arder = context.T_Arrivals.Single(x => x.ArID == hidAr.ArID);
-                Arder.ArFlag = hidAr.ArFlag;
-                Arder.ArHidden = hidAr.ArHidden;
+                var tb = from Arrival in context.T_Arrivals
+                         join SOffice in context.M_SalesOffices
+                         on Arrival.SoID equals SOffice.SoID
+                         join Employee in context.M_Employees
+                         on Arrival.EmID equals Employee.EmID
+                         join Client in context.M_Clients
+                         on Arrival.ClID equals Client.ClID
+                         join ArDetail in context.T_ArrivalDetails
+                         on Arrival.ArID equals ArDetail.ArID
+                         join Product in context.M_Products
+                         on ArDetail.PrID equals Product.PrID
+                         join Order in context.T_Orders
+                         on Arrival.OrID equals Order.OrID
+                         where Arrival.ArID.Equals(selectCondition.ArID) &&
+                         Arrival.ArFlag.Equals(0) &&
+                         Arrival.ArStateFlag.Equals(0)
 
-                context.SaveChanges();
-                context.Dispose();
+                         select new GetNyukaDataDTO
+                         {
+                             ArID = Arrival.ArID,
+                             SoID = SOffice.SoID,
+                             ClID = Client.ClID,
+                             ArDetailID = ArDetail.ArDetailID,
+                             PrID = Product.PrID,
+                             ArQuantity = ArDetail.ArQuantity,
+                             OrID = Arrival.OrID,
+                         };
 
-                return true;
+                return tb.ToList();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
             }
+            return null;
         }
-
-
 
     }
 }
