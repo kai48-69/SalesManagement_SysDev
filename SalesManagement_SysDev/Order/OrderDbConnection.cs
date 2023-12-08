@@ -176,13 +176,13 @@ namespace SalesManagement_SysDev
 
                          select new GetOrderDataDTO
                          {
-                             OrID = Order.OrID.ToString(),
-                             SoID = SOffice.SoID.ToString(),
-                             EmID = Employee.EmID.ToString(),
-                             ClID = Client.ClID.ToString(),
-                             OrDetailID = OrDetail.OrDetailID.ToString(),
-                             PrID = Product.PrID.ToString(),
-                             PrQuantity = OrDetail.OrQuantity.ToString()
+                             OrID = Order.OrID,
+                             SoID = SOffice.SoID,
+                             ClID = Client.ClID,
+                             OrDetailID = OrDetail.OrDetailID,
+                             PrID = Product.PrID,
+                             PrQuantity = OrDetail.OrQuantity,
+                             OrDate = Order.OrDate,
                          };
 
                 return tb.ToList();

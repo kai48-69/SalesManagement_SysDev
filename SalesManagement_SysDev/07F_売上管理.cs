@@ -33,5 +33,10 @@ namespace SalesManagement_SysDev
         {
 
         }
+
+        private void ButtonExe_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

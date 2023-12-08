@@ -310,7 +310,7 @@ namespace SalesManagement_SysDev
                 modelBuilder.Entity<T_Sale>()
                     .HasRequired<T_Chumon>(x => x.T_Chumon)
                     .WithMany(x => x.T_Sale)
-                    .HasForeignKey(x => x.ChID)
+                    .HasForeignKey(x => x.OrID)
                     .WillCascadeOnDelete(false);
             }
             {

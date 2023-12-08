@@ -89,7 +89,6 @@ namespace SalesManagement_SysDev
         public string OrTotalPrice { get; set; }
         [DisplayName("受注年月日")]
         public string OrDate { get; set; }
-
     }
 
     class DispOrderDetailListDTO
@@ -109,19 +108,19 @@ namespace SalesManagement_SysDev
     class GetOrderDataDTO
     {
         [DisplayName("受注ID")]
-        public string OrID { get; set; }
+        public int OrID { get; set; }
         [DisplayName("受注詳細ID")]
-        public string OrDetailID { get; set; }
+        public int OrDetailID { get; set; }
         [DisplayName("営業所ID")]
-        public string SoID { get; set; }
-        [DisplayName("社員ID")]
-        public string EmID { get; set; }
+        public int SoID { get; set; }
         [DisplayName("顧客ID")]
-        public string ClID { get; set; }
+        public int ClID { get; set; }
         [DisplayName("商品ID")]
-        public string PrID { get; set; }
+        public int PrID { get; set; }
         [DisplayName("数量")]
-        public string PrQuantity { get; set; }
+        public int PrQuantity { get; set; }
+        [DisplayName("受注年月日")]
+        public DateTime OrDate { get; set; }
     }
     class DispArrivalListDTO
     {
@@ -214,9 +213,9 @@ namespace SalesManagement_SysDev
     class DispSyukkoListDTO
     {
         [DisplayName("出庫ID")]
-        public string SyID { get; set; }
+        public int SyID { get; set; }
         [DisplayName("出庫詳細ID")]
-        public string SyDetailID { get; set; }
+        public int SyDID { get; set; }
         [DisplayName("社員名")]
         public string EmName { get; set; }
         [DisplayName("顧客名")]
@@ -224,12 +223,125 @@ namespace SalesManagement_SysDev
         [DisplayName("営業所名")]
         public string SoName { get; set; }
         [DisplayName("受注ID")]
-        public string OrID { get; set; }
+        public int OrID { get; set; }
         [DisplayName("商品名")]
         public string PrName { get; set; }
         [DisplayName("数量")]
         public int SyQuantity { get; set; }
         [DisplayName("出庫年月日")]
-        public string SyDate { get; set; }
+        public String SyDate { get; set; }
+    }
+
+    class DispWarehousingListDTO
+    {
+        [DisplayName("入庫ID")]
+        public int WaID { get; set; }
+        [DisplayName("入庫詳細ID")]
+        public int WaDetailID { get; set; }
+        [DisplayName("発注ID")]
+        public int HaID { get; set; }
+        [DisplayName("商品名")]
+        public string PrName { get; set; }
+        [DisplayName("数量")]
+        public int WaQuantity { get; set; }
+    }
+
+    class DispChumonListDTO
+    {
+        [DisplayName("注文ID")]
+        public int ChID { get; set; }
+        [DisplayName("注文詳細ID")]
+        public int ChDID { get; set; }
+        [DisplayName("営業所名")]
+        public string SoName { get; set; }
+        [DisplayName("顧客名")]
+        public string ClName { get; set; }
+        [DisplayName("受注ID")]
+        public int OrID { get; set; }
+        [DisplayName("商品名")]
+        public string PrName { get; set; }
+        [DisplayName("数量")]
+        public int ChQuantity { get; set; }
+    }
+
+    class GetChumonDataDTO
+    {
+        [DisplayName("注文ID")]
+        public int ChID { get; set; }
+        [DisplayName("注文詳細ID")]
+        public int ChDetailID { get; set; }
+        [DisplayName("受注ID")]
+        public int OrID { get; set; }
+        [DisplayName("営業所ID")]
+        public int SoID { get; set; }
+        [DisplayName("顧客ID")]
+        public int ClID { get; set; }
+        [DisplayName("商品ID")]
+        public int PrID { get; set; }
+        [DisplayName("数量")]
+        public int ChQuantity { get; set; }
+    }
+
+    class GetNyukoDataDTO
+    {
+        public int PrID { get; set; }
+        public int WaQuantity { get; set; }
+    }
+
+    class GetSyukkoDataDTO
+    {
+        [DisplayName("出庫ID")]
+        public int SyID { get; set; }
+        [DisplayName("出庫詳細ID")]
+        public int SyDetailID { get; set; }
+        [DisplayName("受注ID")]
+        public int OrID { get; set; }
+        [DisplayName("営業所ID")]
+        public int SoID { get; set; }
+        [DisplayName("顧客ID")]
+        public int ClID { get; set; }
+        [DisplayName("商品ID")]
+        public int PrID { get; set; }
+        [DisplayName("数量")]
+        public int SyQuantity { get; set; }
+    }
+
+    class GetSyukkaDataDTO
+    {
+        [DisplayName("出荷ID")]
+        public int ShID { get; set; }
+        [DisplayName("出荷詳細ID")]
+        public int ShDetailID { get; set; }
+        [DisplayName("受注ID")]
+        public int OrID { get; set; }
+        [DisplayName("営業所ID")]
+        public int SoID { get; set; }
+        [DisplayName("顧客ID")]
+        public int ClID { get; set; }
+        [DisplayName("商品ID")]
+        public int PrID { get; set; }
+        [DisplayName("数量")]
+        public int ShQuantity { get; set; }
+    }
+
+
+}
+
+    class GetNyukaDataDTO
+    {
+        [DisplayName("入荷ID")]
+        public int ArID { get; set; }
+        [DisplayName("入荷詳細ID")]
+        public int ArDetailID { get; set; }
+        [DisplayName("受注ID")]
+        public int OrID { get; set; }
+        [DisplayName("営業所ID")]
+        public int SoID { get; set; }
+        [DisplayName("顧客ID")]
+        public int ClID { get; set; }
+        [DisplayName("商品ID")]
+        public int PrID { get; set; }
+        [DisplayName("数量")]
+        public int ArQuantity { get; set; }
     }
 }

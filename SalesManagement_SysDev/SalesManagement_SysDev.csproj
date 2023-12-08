@@ -77,9 +77,10 @@
     <Compile Include="101F_発注詳細登録.Designer.cs">
       <DependentUpon>101F_発注詳細登録.cs</DependentUpon>
     </Compile>
+    <Compile Include="ArrivalDataAccess.cs" />
     <Compile Include="ArrivalDbConnection.cs" />
-    <Compile Include="ChumonDataAccess.cs" />
-    <Compile Include="ChumonDbConnection.cs" />
+    <Compile Include="Chumon\ChumonDataAccess.cs" />
+    <Compile Include="Chumon\ChumonDbConnection.cs" />
     <Compile Include="Client\ClientDataAccess.cs" />
     <Compile Include="Client\ClientDbConnection.cs" />
     <Compile Include="DrugDTO.cs" />
@@ -219,12 +220,14 @@
     <Compile Include="Entity\T_SyukkoDetail.cs" />
     <Compile Include="Entity\T_Warehousing.cs" />
     <Compile Include="Entity\T_WarehousingDetail.cs" />
+    <Compile Include="SaleDataAccess.cs" />
     <Compile Include="SalesManagement_DevContext.cs" />
-    <Compile Include="SyukkoDateAccess.cs" />
-    <Compile Include="SyukkoDBConnection.cs" />
+    <Compile Include="StockDataAccess.cs" />
+    <Compile Include="Syukko\SyukkoDateAccess.cs" />
+    <Compile Include="Syukko\SyukkoDBConnection.cs" />
     <Compile Include="ShipDbConnection.cs" />
-    <Compile Include="WarehouseDataAccess.cs" />
-    <Compile Include="WarehouseDbConnection.cs" />
+    <Compile Include="Warehouse\WarehouseDataAccess.cs" />
+    <Compile Include="Warehouse\WarehouseDbConnection.cs" />
     <EmbeddedResource Include="01F_PW新規登録.resx">
       <DependentUpon>01F_PW新規登録.cs</DependentUpon>
     </EmbeddedResource>

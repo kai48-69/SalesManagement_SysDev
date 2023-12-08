@@ -400,6 +400,7 @@ namespace SalesManagement_SysDev
             T_Warehousing Warehouse = new T_Warehousing
             {
                 HaID = int.Parse(Data1[0].HaID),
+                WaDate=null,
                 WaShelfFlag = 0,
                 WaFlag = 0,
                
