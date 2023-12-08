@@ -170,6 +170,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(923, 295);
             this.dataGridView1.TabIndex = 57;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
             // 
             // TextboxShouhinID
             // 
@@ -213,7 +214,6 @@
             this.RadioKousin.TabIndex = 102;
             this.RadioKousin.Text = "更新";
             this.RadioKousin.UseVisualStyleBackColor = true;
-            this.RadioKousin.CheckedChanged += new System.EventHandler(this.RadioKousin_CheckedChanged);
             // 
             // ButtonReset
             // 
@@ -225,6 +225,7 @@
             this.ButtonReset.TabIndex = 101;
             this.ButtonReset.Text = "入力リセット";
             this.ButtonReset.UseVisualStyleBackColor = true;
+            this.ButtonReset.Click += new System.EventHandler(this.ButtonReset_Click);
             // 
             // RadioKensaku
             // 
@@ -250,6 +251,7 @@
             this.ButtonExe.TabIndex = 103;
             this.ButtonExe.Text = "実行";
             this.ButtonExe.UseVisualStyleBackColor = true;
+            this.ButtonExe.Click += new System.EventHandler(this.ButtonExe_Click);
             // 
             // TextboxSuryo
             // 
@@ -291,6 +293,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "F_在庫管理";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.F_在庫管理_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

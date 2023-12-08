@@ -221,6 +221,7 @@
     <Compile Include="Entity\T_WarehousingDetail.cs" />
     <Compile Include="SalesManagement_DevContext.cs" />
     <Compile Include="StockDataAccess.cs" />
+    <Compile Include="StockDbConnection.cs" />
     <Compile Include="Syukko\SyukkoDateAccess.cs" />
     <Compile Include="Syukko\SyukkoDBConnection.cs" />
     <Compile Include="ShipDbConnection.cs" />

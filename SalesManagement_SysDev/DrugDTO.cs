@@ -288,4 +288,13 @@ namespace SalesManagement_SysDev
         public int WaQuantity { get; set; }
     }
 
+    class DispStockListDTO
+    {
+        [DisplayName("在庫ID")]
+        public int StID { get; set; }
+        [DisplayName("商品名")]
+        public string PrName { get; set; }
+        [DisplayName("数量")]
+        public int StQuantity { get; set; }
+    }
 }

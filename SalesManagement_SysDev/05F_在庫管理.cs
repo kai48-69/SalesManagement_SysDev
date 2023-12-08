@@ -12,8 +12,7 @@ namespace SalesManagement_SysDev
 {
     public partial class F_在庫管理 : Form
     {
-        readonly WarehouseDbConnection DB2 = new WarehouseDbConnection();
-        readonly WarehouseDataAccess WDA = new WarehouseDataAccess();
+        readonly StockDbConnection DB = new StockDbConnection();
         readonly StockDataAccess SDA = new StockDataAccess();
         readonly private InputCheck ichk = new InputCheck();
         readonly LoginData LoginData;
@@ -26,14 +25,7 @@ namespace SalesManagement_SysDev
             this.LblLoginDate.Text = LData.LoginDatetime.ToString();
         }
 
-        private void ButtonBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            F_物流 f_buturyuu = new F_物流(LoginData);
-            f_buturyuu.Show();
-        }
-
-        private void F_入庫管理_Load(object sender, EventArgs e)
+        private void F_在庫管理_Load(object sender, EventArgs e)
         {
             if (!GetDataGridView())
             {
@@ -42,11 +34,13 @@ namespace SalesManagement_SysDev
             }
         }
 
+       
+
         //データ全件表示
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<DispWarehousingListDTO> tb = DB2.WareHousingGetData();
+            List<DispStockListDTO> tb = DB.StockGetData();
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -54,7 +48,7 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-        private void SetDataGridView(List<DispWarehousingListDTO> tb)
+        private void SetDataGridView(List<DispStockListDTO> tb)
         {
             dataGridView1.DataSource = tb;
             //列幅自動設定解除
@@ -79,37 +73,12 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[2].Width = 80;
-            //社員名
-            dataGridView1.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[3].Width = 80;
-            //顧客名
-            dataGridView1.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[4].Width = 80;
-            //顧客担当者名
-            dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[5].Width = 120;
-            //商品名
-            dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].Width = 70;
-            //数量
-            dataGridView1.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[7].Width = 70;
-            //合計金額
-            dataGridView1.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[8].Width = 80;
-            //受注年月日
-            dataGridView1.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].Width = 90;
+
 
             dataGridView1.Refresh();
         }
+
+        //データグリッドビューをクリックしたときの処理
 
         //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
@@ -159,7 +128,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxSuryo.Text.Trim()))
                 {
-                    MessageBox.Show("発注IDは半角数字で入力してください");
+                    MessageBox.Show("商品IDは半角数字で入力してください");
                     TextboxShouhinID.Focus();
                     return false;
                 }
@@ -175,10 +144,7 @@ namespace SalesManagement_SysDev
             //整数型(int)に変換する準備
 
             var PrID = TextboxShouhinID.Text.Trim();
-
-
-
-            var Suryo = TextboxSuryo.Text.Trim();
+            var Quantity = TextboxSuryo.Text.Trim();
 
             //変換処理
             if (!int.TryParse(PrID, out int ShouhinID))
@@ -186,22 +152,12 @@ namespace SalesManagement_SysDev
                 ShouhinID = -1;
             }
 
-
-
-            if (!int.TryParse(Suryo, out int Kazu))
+            T_Stock selectCondition = new T_Stock()
             {
-                Kazu = -1;
-            }
-
-
-            T_Warehousing selectCondition = new T_Warehousing()
-            {
-                WaID = ShouhinID,
-
-                HaID = Kazu
+                PrID = ShouhinID,
             };
 
-            List<DispWarehousingListDTO> tb = DB2.GetWareHousingData(selectCondition);
+            List<DispStockListDTO> tb = DB.GetStockData(selectCondition);
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -217,7 +173,7 @@ namespace SalesManagement_SysDev
                 MessageBox.Show("更新する在庫データを選択してください");
             }
 
-            if (String.IsNullOrEmpty(TextboxSuryo.Text.Trim()))
+            if (!String.IsNullOrEmpty(TextboxSuryo.Text.Trim()))
             {
                 MessageBox.Show("数量が入力されていません");
                 TextboxSuryo.Focus();
@@ -229,11 +185,11 @@ namespace SalesManagement_SysDev
         private T_Stock GenereteDataAtUpdate() //更新データ生成
         {
             string StID = TextboxShouhinID.ToString();
-            string StQuantity = TextboxSuryo.ToString();
+            string StQuantity= TextboxSuryo.ToString();
             return new T_Stock
             {
                 StID = int.Parse(StID),
-                StQuantity = int.Parse(StQuantity)
+                StQuantity = int.Parse(StID)
             };
         }
 
@@ -273,19 +229,24 @@ namespace SalesManagement_SysDev
             ClearInput();
         }
 
-
-
-
-
-
-
-
-
-
-
-        private void RadioKousin_CheckedChanged(object sender, EventArgs e)
+        private void ButtonBack_Click(object sender, EventArgs e)
         {
+            this.Close();
+            F_物流 f_buturyuu = new F_物流(LoginData);
+            f_buturyuu.Show();
+        }
 
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (RadioKensaku.Checked == true)
+            {
+
+            }
+            else if (RadioKousin.Checked == true)
+            {
+                TextboxShouhinID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+                TextboxSuryo.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+            }
         }
     }
 }
