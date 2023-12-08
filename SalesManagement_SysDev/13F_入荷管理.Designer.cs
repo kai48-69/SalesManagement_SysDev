@@ -96,12 +96,14 @@
             // RadioKensaku
             // 
             this.RadioKensaku.AutoSize = true;
+            this.RadioKensaku.Checked = true;
             this.RadioKensaku.Font = new System.Drawing.Font("MS UI Gothic", 18F);
             this.RadioKensaku.Location = new System.Drawing.Point(60, 171);
             this.RadioKensaku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioKensaku.Name = "RadioKensaku";
             this.RadioKensaku.Size = new System.Drawing.Size(94, 34);
             this.RadioKensaku.TabIndex = 47;
+            this.RadioKensaku.TabStop = true;
             this.RadioKensaku.Text = "検索";
             this.RadioKensaku.UseVisualStyleBackColor = true;
             // 
@@ -325,6 +327,18 @@
             this.TextboxOrderID.Name = "TextboxOrderID";
             this.TextboxOrderID.Size = new System.Drawing.Size(235, 32);
             this.TextboxOrderID.TabIndex = 58;
+            // 
+            // RadioKakutei
+            // 
+            this.RadioKakutei.AutoSize = true;
+            this.RadioKakutei.Font = new System.Drawing.Font("MS UI Gothic", 18F);
+            this.RadioKakutei.Location = new System.Drawing.Point(301, 171);
+            this.RadioKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RadioKakutei.Name = "RadioKakutei";
+            this.RadioKakutei.Size = new System.Drawing.Size(94, 34);
+            this.RadioKakutei.TabIndex = 78;
+            this.RadioKakutei.Text = "確定";
+            this.RadioKakutei.UseVisualStyleBackColor = true;
             // 
             // F_入荷管理
             // 

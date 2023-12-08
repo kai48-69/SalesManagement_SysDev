@@ -112,7 +112,6 @@ namespace SalesManagement_SysDev
             dataGridView1.Refresh();
         }
 
-
         //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
         { //検索処理----------------------------------------------------------------------
@@ -333,6 +332,11 @@ namespace SalesManagement_SysDev
         private void ButtonReset_Click(object sender, EventArgs e)
         {
             ClearInput();
+        }
+
+        private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

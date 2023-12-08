@@ -53,6 +53,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TextboxSyukkaID = new System.Windows.Forms.TextBox();
+            this.RadioKakutei = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -96,12 +97,14 @@
             // RadioKensaku
             // 
             this.RadioKensaku.AutoSize = true;
+            this.RadioKensaku.Checked = true;
             this.RadioKensaku.Font = new System.Drawing.Font("MS UI Gothic", 18F);
             this.RadioKensaku.Location = new System.Drawing.Point(44, 181);
             this.RadioKensaku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioKensaku.Name = "RadioKensaku";
             this.RadioKensaku.Size = new System.Drawing.Size(94, 34);
             this.RadioKensaku.TabIndex = 68;
+            this.RadioKensaku.TabStop = true;
             this.RadioKensaku.Text = "検索";
             this.RadioKensaku.UseVisualStyleBackColor = true;
             // 
@@ -326,6 +329,18 @@
             this.TextboxSyukkaID.Size = new System.Drawing.Size(244, 32);
             this.TextboxSyukkaID.TabIndex = 99;
             // 
+            // RadioKakutei
+            // 
+            this.RadioKakutei.AutoSize = true;
+            this.RadioKakutei.Font = new System.Drawing.Font("MS UI Gothic", 18F);
+            this.RadioKakutei.Location = new System.Drawing.Point(286, 181);
+            this.RadioKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RadioKakutei.Name = "RadioKakutei";
+            this.RadioKakutei.Size = new System.Drawing.Size(94, 34);
+            this.RadioKakutei.TabIndex = 107;
+            this.RadioKakutei.Text = "確定";
+            this.RadioKakutei.UseVisualStyleBackColor = true;
+            // 
             // F_出荷管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -389,5 +404,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TextboxSyukkaID;
+        private System.Windows.Forms.RadioButton RadioKakutei;
     }
 }

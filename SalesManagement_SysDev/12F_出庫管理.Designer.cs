@@ -119,12 +119,14 @@
             // RadioKensaku
             // 
             this.RadioKensaku.AutoSize = true;
+            this.RadioKensaku.Checked = true;
             this.RadioKensaku.Font = new System.Drawing.Font("MS UI Gothic", 18F);
             this.RadioKensaku.Location = new System.Drawing.Point(53, 176);
             this.RadioKensaku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioKensaku.Name = "RadioKensaku";
             this.RadioKensaku.Size = new System.Drawing.Size(94, 34);
             this.RadioKensaku.TabIndex = 70;
+            this.RadioKensaku.TabStop = true;
             this.RadioKensaku.Text = "検索";
             this.RadioKensaku.UseVisualStyleBackColor = true;
             // 
