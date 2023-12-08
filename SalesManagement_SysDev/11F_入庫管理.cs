@@ -179,13 +179,8 @@ namespace SalesManagement_SysDev
 
         private bool GenerateDataAtSelect() //検索データ生成
         {
-           
             //整数型(int)に変換する準備
-            
             var WaID = TextboxNyukoID.Text.Trim();
-            
-    
-
             var HaID=TextboxHattyuID.Text.Trim();    
 
             //変換処理
@@ -194,13 +189,10 @@ namespace SalesManagement_SysDev
                 JutyuID = -1;
             }
 
-        
-
             if(!int.TryParse(HaID,out int HattyuID))
             {
                 HattyuID = -1;   
             }
-
 
            T_Warehousing  selectCondition = new T_Warehousing()
             {
@@ -225,7 +217,6 @@ namespace SalesManagement_SysDev
                 MessageBox.Show("非表示にする入庫データを選択してください", "エラー");
                 return false;
             }
-
 
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
             {
@@ -316,6 +307,8 @@ namespace SalesManagement_SysDev
             return new T_Warehousing
             {
                 WaID = int.Parse(TextboxNyukoID.Text),
+                EmID=LoginData.EmID,
+                WaDate= DateTime.Now,
                 WaShelfFlag = 1,
             };
         }

@@ -126,14 +126,7 @@ namespace SalesManagement_SysDev
             ComboEigyousyoName.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-       
-
         private void ButtonExe_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ButtonExe_Click_1(object sender, EventArgs e)
         {
             //検索処理----------------------------------------------------------------------
             if (RadioKensaku.Checked == true)
@@ -205,6 +198,7 @@ namespace SalesManagement_SysDev
         {
 
             int SoID;
+            int ClID;
             if (ComboEigyousyoName.SelectedIndex == -1)
             {
                 SoID = -1;
@@ -216,11 +210,11 @@ namespace SalesManagement_SysDev
 
             if (ComboKokyakuName.SelectedIndex == -1)
             {
-               SoID = -1;
+               ClID = -1;
             }
             else
             {
-                SoID = int.Parse(ComboKokyakuName.SelectedValue.ToString());
+                ClID = int.Parse(ComboKokyakuName.SelectedValue.ToString());
             }
 
             //整数型(int)に変換する準備
@@ -331,7 +325,7 @@ namespace SalesManagement_SysDev
                 OrID = Data1[0].OrID,
                 SoID = Data1[0].SoID,
                 ClID = Data1[0].ClID,
-                SyDate = null,
+                SaDate = null,
 
             };
             //登録処理
@@ -389,17 +383,6 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Text = "";
 
         }
-
-        
-
-    
-
-
-
-
-
-       
-
     }
 }
 
