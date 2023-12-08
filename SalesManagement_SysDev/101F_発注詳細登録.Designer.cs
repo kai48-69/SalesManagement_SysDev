@@ -99,6 +99,7 @@
             this.TextboxSyohinName.Location = new System.Drawing.Point(165, 231);
             this.TextboxSyohinName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyohinName.Name = "TextboxSyohinName";
+            this.TextboxSyohinName.ReadOnly = true;
             this.TextboxSyohinName.Size = new System.Drawing.Size(185, 32);
             this.TextboxSyohinName.TabIndex = 70;
             // 

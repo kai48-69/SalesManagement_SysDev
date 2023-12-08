@@ -69,6 +69,7 @@
             this.RadioHihyouji.TabIndex = 48;
             this.RadioHihyouji.Text = "非表示";
             this.RadioHihyouji.UseVisualStyleBackColor = true;
+            this.RadioHihyouji.CheckedChanged += new System.EventHandler(this.RadioHihyouji_CheckedChanged);
             // 
             // RadioKensaku
             // 
@@ -83,6 +84,7 @@
             this.RadioKensaku.TabStop = true;
             this.RadioKensaku.Text = "検索";
             this.RadioKensaku.UseVisualStyleBackColor = true;
+            this.RadioKensaku.CheckedChanged += new System.EventHandler(this.RadioKensaku_CheckedChanged);
             // 
             // ButtonBack
             // 
@@ -264,6 +266,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1308, 316);
             this.dataGridView1.TabIndex = 24;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // label4
             // 
@@ -332,13 +335,14 @@
             // 
             this.RadioKakutei.AutoSize = true;
             this.RadioKakutei.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.RadioKakutei.Location = new System.Drawing.Point(328, 182);
+            this.RadioKakutei.Location = new System.Drawing.Point(327, 182);
             this.RadioKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioKakutei.Name = "RadioKakutei";
             this.RadioKakutei.Size = new System.Drawing.Size(94, 34);
             this.RadioKakutei.TabIndex = 77;
             this.RadioKakutei.Text = "確定";
             this.RadioKakutei.UseVisualStyleBackColor = true;
+            this.RadioKakutei.CheckedChanged += new System.EventHandler(this.RadioKakutei_CheckedChanged);
             // 
             // F_注文管理
             // 

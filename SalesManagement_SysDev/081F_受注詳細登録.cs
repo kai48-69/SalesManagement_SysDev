@@ -19,10 +19,12 @@ namespace SalesManagement_SysDev
        readonly OrderDataAccess ODA = new OrderDataAccess();
         readonly LoginData LoginData;
 
+
         public F_受注詳細登録(LoginData LData)
         {
             InitializeComponent();
             LoginData= LData;
+            
         }
 
         //データ全件表示
@@ -195,7 +197,7 @@ namespace SalesManagement_SysDev
             {
                 if (DB.CheckCascadeProduct(PrID) != -1)
                 {
-                    TextboxSyohinName.Text = DB.GetPrName(PrID);
+                    TextboxSyohinName.Text = DB.GetPrName(PrID,0);
                 }
                 else
                 {

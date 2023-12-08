@@ -469,9 +469,10 @@ namespace SalesManagement_SysDev
             //形式変換(DispOrderListDTO→T_Chumon)
             T_Chumon chumon = new T_Chumon
             {
-                OrID = int.Parse(Data1[0].OrID),
-                SoID = int.Parse(Data1[0].SoID),
-                ClID = int.Parse(Data1[0].ClID)
+                OrID = Data1[0].OrID,
+                SoID = Data1[0].SoID,
+                ClID = Data1[0].ClID,
+                ChDate = Data1[0].OrDate,
             };
             //登録処理
             bool flg1 = CDA.AddChumonData(chumon);
@@ -484,8 +485,8 @@ namespace SalesManagement_SysDev
 
                 //各データをchumonDetailに代入
                 ChumonDetail.ChID = chID;
-                ChumonDetail.PrID = int.Parse(Data1[i].PrID);
-                ChumonDetail.ChQuantity = int.Parse(Data1[i].PrQuantity);
+                ChumonDetail.PrID = Data1[i].PrID;
+                ChumonDetail.ChQuantity = Data1[i].PrQuantity;
                 //chumonDetail登録
                 CDA.AddChumonDetailData(ChumonDetail);
             }

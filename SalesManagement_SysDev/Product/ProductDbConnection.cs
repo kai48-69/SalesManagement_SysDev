@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -141,17 +143,36 @@ namespace SalesManagement_SysDev
             return Price;
         }
 
-        public string GetPrName(int PrID)
+        public string GetPrName(int PrID, int HaID)
         {
             var context = new SalesManagement_DevContext();
 
             var Pr = context.M_Products.Single(x => x.PrID == PrID);
-            string PrName = Pr.PrName;
-            if (Pr.PrFlag == 0)
+            if (HaID != 0)
             {
-                return PrName;
+                 var Ha = context.T_Hattyus.Single(x => x.HaID == HaID);
+                string PrName = Pr.PrName;
+                if (Pr.PrFlag == 0 && Pr.MaID == Ha.MaID)
+                {
+                    return PrName;
+                }
+                else
+                {
+                    return "";
+                }
             }
-            return "";
+            else
+            {
+                string PrName = Pr.PrName;
+                 if (Pr.PrFlag == 0 && HaID == 0)
+                {
+                    return PrName;
+                }
+                else
+                {
+                    return "";
+                }
+            }
         }
 
         public int CheckCascadeProduct(int PrID)

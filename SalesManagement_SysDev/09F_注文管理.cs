@@ -19,8 +19,8 @@ namespace SalesManagement_SysDev
         readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
         readonly ChumonDbConnection DB2 = new ChumonDbConnection();
         readonly SyukkoDBConnection DB3 = new SyukkoDBConnection();
-        readonly ChumonDataAccess CDA= new ChumonDataAccess();
-        readonly SyukkoDateAccess SDA= new SyukkoDateAccess();
+        readonly ChumonDataAccess CDA = new ChumonDataAccess();
+        readonly SyukkoDateAccess SDA = new SyukkoDateAccess();
         readonly private InputCheck ichk = new InputCheck();
         public F_注文管理(LoginData LData)
         {
@@ -33,7 +33,12 @@ namespace SalesManagement_SysDev
 
         private void F_注文管理_Load(object sender, EventArgs e)
         {
+            TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = false;
+
             SetFormComboBox();
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
 
             if (!GetDataGridView())
             {
@@ -124,6 +129,14 @@ namespace SalesManagement_SysDev
             dataGridView1.Refresh();
         }
 
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TextboxChumonID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+            ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+            ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
+            TextboxOrderID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
+        }
+
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -193,7 +206,7 @@ namespace SalesManagement_SysDev
                     return false;
                 }
             }
-            
+
             return true;
         }
 
@@ -227,9 +240,9 @@ namespace SalesManagement_SysDev
                 JutyuID = -1;
             }
 
-            if(!int.TryParse(ChID,out int ChumonID))
+            if (!int.TryParse(ChID, out int ChumonID))
             {
-                ChumonID= -1;
+                ChumonID = -1;
             }
 
 
@@ -238,7 +251,7 @@ namespace SalesManagement_SysDev
                 OrID = JutyuID,
                 SoID = SoID,
                 ClID = ClID,
-                ChID= ChumonID,
+                ChID = ChumonID,
             };
 
             List<DispChumonListDTO> tb = DB2.GetChumonData(selectCondition);
@@ -278,7 +291,7 @@ namespace SalesManagement_SysDev
 
         private void HideCh(T_Chumon hidCh)　//データ更新処理
         {
-            DialogResult result = MessageBox.Show("受注データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("注文データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (result == DialogResult.Cancel)
             {
@@ -331,11 +344,11 @@ namespace SalesManagement_SysDev
                 OrID = Data1[0].OrID,
                 SoID = Data1[0].SoID,
                 ClID = Data1[0].ClID,
-                SyDate=null,
-                
+                SyDate = null,
+
             };
             //登録処理
-            bool flg1 = SDA.AddSyukkoData(Syukko);
+            SDA.AddSyukkoData(Syukko);
             //詳細確定------------------------------------------------------------------------
             //登録したChIDを取得
             int SyID = DB3.GetSyID();
@@ -349,25 +362,7 @@ namespace SalesManagement_SysDev
                 //chumonDetail登録
                 SDA.AddSyukkoDetailData(SyukkoDetail);
             }
-            bool flg2 = true;
-
-
-            if (flg1 == true && flg2 == true)
-            {
-                DialogResult result1 = MessageBox.Show("データを確定しました");
-                if (result1 == DialogResult.OK)
-                {
-                    //this.Close();
-                    //F_受注詳細登録 f_JutyuSyousai = new F_受注詳細登録();
-                    //f_JutyuSyousai.Show();
-
-                }
-            }
-            //else
-            //{
-            //    MessageBox.Show("データの確定に失敗しました");
-            //    TextboxSyainName.Focus();
-            //}
+            MessageBox.Show("データを確定しました");
         }
 
         private T_Chumon GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
@@ -401,6 +396,48 @@ namespace SalesManagement_SysDev
         private void ButtonReset_Click(object sender, EventArgs e)
         {
             ClearInput();
+        }
+
+        private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxChumonID.Enabled = true;
+            TextboxOrderID.Enabled = true;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+            ComboEigyousyoName.Enabled = true;
+            ComboKokyakuName.Enabled = true;
+            TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = false;
+            ButtonExe.Visible = true;
+        }
+
+        private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxChumonID.Enabled = false;
+            TextboxOrderID.Enabled = false;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+            ComboEigyousyoName.Enabled = false;
+            ComboKokyakuName.Enabled = false;
+            TextboxHihyouji.Enabled = true;
+            ButtonKakutei.Enabled = false;
+            ButtonExe.Visible = true;
+        }
+
+        private void RadioKakutei_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxChumonID.Enabled = false;
+            TextboxOrderID.Enabled = false;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+            ComboEigyousyoName.Enabled = false;
+            ComboKokyakuName.Enabled = false;
+            TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = true;
+            ButtonExe.Visible = false;
         }
     }
 }

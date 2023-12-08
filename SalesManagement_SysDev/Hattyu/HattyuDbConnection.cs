@@ -23,18 +23,18 @@ namespace SalesManagement_SysDev.Order
                          on Hattyu.EmID equals Employee.EmID
                          join Product in context.M_Products
                          on HattyuDetail.PrID equals Product.PrID
-                         where Hattyu.HaFlag.Equals(0)&&
+                         where Hattyu.HaFlag.Equals(0) &&
                          Hattyu.WaWarehouseFlag.Equals(0)
 
                          select new DispHattyuListDTO
                          {
                              HaID = Hattyu.HaID.ToString(),
-                             HaDetailID=HattyuDetail.HaDetailID.ToString(),
+                             HaDetailID = HattyuDetail.HaDetailID.ToString(),
                              MaName = Maker.MaName.ToString(),
                              EmName = Employee.EmName,
-                             PrName= Product.PrName.ToString(),
-                             HaQuantity=HattyuDetail.HaQuantity.ToString(),
-                             HaDate=Hattyu.HaDate.ToString(),
+                             PrName = Product.PrName.ToString(),
+                             HaQuantity = HattyuDetail.HaQuantity.ToString(),
+                             HaDate = Hattyu.HaDate.ToString(),
                          };
                 return tb.ToList();
             }
@@ -51,7 +51,7 @@ namespace SalesManagement_SysDev.Order
             return context.T_Hattyus.Max(x => x.HaID);
         }
 
-        public List<DispHattyuDetailListDTO> HattyuDetailGetData(int OrID)
+        public List<DispHattyuDetailListDTO> HattyuDetailGetData(int HaID)
         {
             var context = new SalesManagement_DevContext();
             try
@@ -61,16 +61,16 @@ namespace SalesManagement_SysDev.Order
                          on HattyuDetail.HaID equals Hattyu.HaID
                          join Product in context.M_Products
                          on HattyuDetail.PrID equals Product.PrID
-                         where HattyuDetail.HaID == (Hattyu.HaID)
+                         where HattyuDetail.HaID == (HaID)
 
 
                          select new DispHattyuDetailListDTO
                          {
-                           HaDetailID=HattyuDetail.HaDetailID.ToString(),
-                           HaID=Hattyu.HaID.ToString(),
-                           PrName=Product.PrName,
-                           HaQuantity=HattyuDetail.HaQuantity.ToString(),   
-                           
+                             HaDetailID = HattyuDetail.HaDetailID.ToString(),
+                             HaID = Hattyu.HaID.ToString(),
+                             PrName = Product.PrName,
+                             HaQuantity = HattyuDetail.HaQuantity.ToString(),
+
                          };
                 return tb.ToList();
             }
@@ -95,7 +95,7 @@ namespace SalesManagement_SysDev.Order
                          on Hattyu.EmID equals Employee.EmID
                          join Product in context.M_Products
                          on HattyuDetail.PrID equals Product.PrID
-                         where  ((selectCondition.HaID == -1) ? true :
+                         where ((selectCondition.HaID == -1) ? true :
                          Hattyu.HaID == selectCondition.HaID) &&
                          ((selectCondition.EmID == -1) ? true :
                          Hattyu.EmID == selectCondition.EmID) &&
@@ -157,6 +157,13 @@ namespace SalesManagement_SysDev.Order
                 MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return null;
+        }
+
+        public int GetHattyuID()
+        {
+            var context = new SalesManagement_DevContext();
+            return context.T_Hattyus.Max(x => x.HaID);
+
         }
 
     }
