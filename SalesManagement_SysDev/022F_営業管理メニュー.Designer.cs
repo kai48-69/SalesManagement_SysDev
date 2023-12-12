@@ -49,7 +49,7 @@
             // ButtonSyukka
             // 
             this.ButtonSyukka.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonSyukka.Location = new System.Drawing.Point(117, 355);
+            this.ButtonSyukka.Location = new System.Drawing.Point(63, 355);
             this.ButtonSyukka.Name = "ButtonSyukka";
             this.ButtonSyukka.Size = new System.Drawing.Size(242, 111);
             this.ButtonSyukka.TabIndex = 3;
@@ -60,7 +60,7 @@
             // ButtonNyuka
             // 
             this.ButtonNyuka.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonNyuka.Location = new System.Drawing.Point(392, 355);
+            this.ButtonNyuka.Location = new System.Drawing.Point(338, 355);
             this.ButtonNyuka.Name = "ButtonNyuka";
             this.ButtonNyuka.Size = new System.Drawing.Size(238, 111);
             this.ButtonNyuka.TabIndex = 4;
@@ -169,7 +169,7 @@
             // ButtonTyumon
             // 
             this.ButtonTyumon.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonTyumon.Location = new System.Drawing.Point(392, 192);
+            this.ButtonTyumon.Location = new System.Drawing.Point(338, 192);
             this.ButtonTyumon.Name = "ButtonTyumon";
             this.ButtonTyumon.Size = new System.Drawing.Size(238, 111);
             this.ButtonTyumon.TabIndex = 2;
@@ -180,7 +180,7 @@
             // ButtonJutyuu
             // 
             this.ButtonJutyuu.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonJutyuu.Location = new System.Drawing.Point(117, 195);
+            this.ButtonJutyuu.Location = new System.Drawing.Point(63, 195);
             this.ButtonJutyuu.Name = "ButtonJutyuu";
             this.ButtonJutyuu.Size = new System.Drawing.Size(242, 111);
             this.ButtonJutyuu.TabIndex = 1;
@@ -191,7 +191,7 @@
             // ButtonKokyaku
             // 
             this.ButtonKokyaku.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonKokyaku.Location = new System.Drawing.Point(668, 192);
+            this.ButtonKokyaku.Location = new System.Drawing.Point(699, 192);
             this.ButtonKokyaku.Name = "ButtonKokyaku";
             this.ButtonKokyaku.Size = new System.Drawing.Size(238, 111);
             this.ButtonKokyaku.TabIndex = 5;
@@ -202,7 +202,7 @@
             // ButtonUriage
             // 
             this.ButtonUriage.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonUriage.Location = new System.Drawing.Point(668, 355);
+            this.ButtonUriage.Location = new System.Drawing.Point(699, 355);
             this.ButtonUriage.Name = "ButtonUriage";
             this.ButtonUriage.Size = new System.Drawing.Size(238, 111);
             this.ButtonUriage.TabIndex = 6;

@@ -146,7 +146,7 @@
             // ButtonZaiko
             // 
             this.ButtonZaiko.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonZaiko.Location = new System.Drawing.Point(670, 353);
+            this.ButtonZaiko.Location = new System.Drawing.Point(696, 353);
             this.ButtonZaiko.Name = "ButtonZaiko";
             this.ButtonZaiko.Size = new System.Drawing.Size(251, 111);
             this.ButtonZaiko.TabIndex = 5;
@@ -157,7 +157,7 @@
             // ButtonHattyu
             // 
             this.ButtonHattyu.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonHattyu.Location = new System.Drawing.Point(110, 184);
+            this.ButtonHattyu.Location = new System.Drawing.Point(55, 184);
             this.ButtonHattyu.Name = "ButtonHattyu";
             this.ButtonHattyu.Size = new System.Drawing.Size(249, 280);
             this.ButtonHattyu.TabIndex = 1;
@@ -168,7 +168,7 @@
             // ButtonNyuko
             // 
             this.ButtonNyuko.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonNyuko.Location = new System.Drawing.Point(398, 184);
+            this.ButtonNyuko.Location = new System.Drawing.Point(343, 184);
             this.ButtonNyuko.Name = "ButtonNyuko";
             this.ButtonNyuko.Size = new System.Drawing.Size(243, 111);
             this.ButtonNyuko.TabIndex = 2;
@@ -179,7 +179,7 @@
             // ButtonSyukko
             // 
             this.ButtonSyukko.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonSyukko.Location = new System.Drawing.Point(398, 353);
+            this.ButtonSyukko.Location = new System.Drawing.Point(343, 353);
             this.ButtonSyukko.Name = "ButtonSyukko";
             this.ButtonSyukko.Size = new System.Drawing.Size(243, 111);
             this.ButtonSyukko.TabIndex = 3;
@@ -190,7 +190,7 @@
             // ButtonSyouhin
             // 
             this.ButtonSyouhin.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonSyouhin.Location = new System.Drawing.Point(670, 184);
+            this.ButtonSyouhin.Location = new System.Drawing.Point(696, 184);
             this.ButtonSyouhin.Name = "ButtonSyouhin";
             this.ButtonSyouhin.Size = new System.Drawing.Size(243, 111);
             this.ButtonSyouhin.TabIndex = 4;

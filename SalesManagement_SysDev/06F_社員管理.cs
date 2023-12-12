@@ -572,6 +572,8 @@ namespace SalesManagement_SysDev
                 TextboxSyainID.Text = "";
                 TextboxSyainName.Text = "";
                 TextboxTelNo1.Text = "";
+                TextboxTelNo2.Text = "";
+                TextboxTelNo3.Text = "";
                 TextboxHihyoji.Text = "";
             }
             else   //上記以外の場合は表示する
@@ -581,7 +583,9 @@ namespace SalesManagement_SysDev
                 TextboxSyainID.Text = "";
                 TextboxSyainName.Text = "";
                 TextboxTelNo1.Text = "";
-                TextboxHihyoji.Text = "";
+                TextboxTelNo2.Text = "";
+                TextboxTelNo3.Text = "";
+;                TextboxHihyoji.Text = "";
             }
         }
 
