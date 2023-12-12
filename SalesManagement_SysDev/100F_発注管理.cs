@@ -15,12 +15,12 @@ namespace SalesManagement_SysDev
     public partial class F_発注管理 : Form
     {
         readonly HattyuDbConnection DB = new HattyuDbConnection();
-        readonly MakerDbConnection DB1=new MakerDbConnection();
-        readonly EmployeeDbConnection DB2=new EmployeeDbConnection();
-      readonly WarehouseDbConnection DB3=new WarehouseDbConnection();
+        readonly MakerDbConnection DB1 = new MakerDbConnection();
+        readonly EmployeeDbConnection DB2 = new EmployeeDbConnection();
+        readonly WarehouseDbConnection DB3 = new WarehouseDbConnection();
         readonly private InputCheck ichk = new InputCheck();
         readonly private HattyuDataAccess HDA = new HattyuDataAccess();
-        readonly private WarehouseDataAccess WDA=new WarehouseDataAccess();
+        readonly private WarehouseDataAccess WDA = new WarehouseDataAccess();
         private static List<M_Maker> MNameDsp;
         readonly LoginData LoginData;
         public F_発注管理(LoginData LData)
@@ -72,7 +72,7 @@ namespace SalesManagement_SysDev
 
             //読み込み専用に
             ComboMakerName.DropDownStyle = ComboBoxStyle.DropDownList;
-            
+
         }
         //データグリッドビューの表示設定
         private void SetDataGridView(List<DispHattyuListDTO> tb)
@@ -152,7 +152,6 @@ namespace SalesManagement_SysDev
                     }
                     GenerateDataAtSelect();
                 }
-
             }
             //非表示処理--------------------------------------------------------------------
             if (RadioHihyouji.Checked == true)
@@ -161,9 +160,7 @@ namespace SalesManagement_SysDev
                 {
                     return;
                 }
-
                 var hidOr = GenereteDataAtHidden();
-
                 HideOr(hidOr);
             }
         }
@@ -203,7 +200,6 @@ namespace SalesManagement_SysDev
                 MessageBox.Show("正しい社員ID を入力して下さい");
                 return false;
             }
-
             return true;
         }
 
@@ -215,7 +211,7 @@ namespace SalesManagement_SysDev
             {
                 MaID = MaID + 1,
                 EmID = int.Parse(TextboxSyainID.Text.Trim()),
-                HaDate=DateTime.Now,
+                HaDate = DateTime.Now,
                 WaWarehouseFlag = 0,
                 HaFlag = 0,
                 HaHidden = null
@@ -224,7 +220,7 @@ namespace SalesManagement_SysDev
 
         private void RegistrationHattyu(T_Hattyu regHa) //データ登録処理
         {
-            DialogResult result = MessageBox.Show("受注データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("発注データの登録を開始します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
             {
                 return;
@@ -232,18 +228,18 @@ namespace SalesManagement_SysDev
             bool flg = HDA.AddOrderData(regHa);
             if (flg == true)
             {
-                DialogResult result1 = MessageBox.Show("データを登録しました");
+                DialogResult result1 = MessageBox.Show("続けて商品の登録を行います");
                 if (result1 == DialogResult.OK)
                 {
                     this.Close();
-                    _101F_発注詳細登録  f_HattyuSyousai = new _101F_発注詳細登録(LoginData);
+                    _101F_発注詳細登録 f_HattyuSyousai = new _101F_発注詳細登録(LoginData);
                     f_HattyuSyousai.Show();
 
                 }
             }
             else
             {
-                MessageBox.Show("データの登録に失敗しました");
+                MessageBox.Show("データの登録を開始できませんでした");
                 TextboxSyainName.Focus();
             }
             ClearInput();
@@ -309,7 +305,7 @@ namespace SalesManagement_SysDev
             {
                 HaID = HattyuID,
                 EmID = SyainID,
-                MaID=MaID,
+                MaID = MaID,
             };
 
             List<DispHattyuListDTO> tb = DB.GetOrderData(selectCondition);
@@ -400,10 +396,8 @@ namespace SalesManagement_SysDev
             T_Warehousing Warehouse = new T_Warehousing
             {
                 HaID = int.Parse(Data1[0].HaID),
-                WaDate=null,
-                WaShelfFlag = 0,
-                WaFlag = 0,
-               
+                WaDate = DateTime.Now,
+                EmID=LoginData.EmID,
             };
             //登録処理
             bool flg1 = WDA.AddWarehouseData(Warehouse);
@@ -420,24 +414,7 @@ namespace SalesManagement_SysDev
                 //chumonDetail登録
                 WDA.AddChumonDetailData(WarehouseDetail);
             }
-            bool flg2 = true;
-
-            if (flg1 == true && flg2 == true)
-            {
-                DialogResult result1 = MessageBox.Show("データを確定しました");
-                if (result1 == DialogResult.OK)
-                {
-                    //this.Close();
-                    //F_受注詳細登録 f_JutyuSyousai = new F_受注詳細登録();
-                    //f_JutyuSyousai.Show();
-
-                }
-            }
-            //else
-            //{
-            //    MessageBox.Show("データの確定に失敗しました");
-            //    TextboxSyainName.Focus();
-            //}
+            MessageBox.Show("データを確定しました");
         }
 
         private T_Hattyu GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
@@ -445,8 +422,9 @@ namespace SalesManagement_SysDev
             return new T_Hattyu
             {
                 HaID = int.Parse(TextboxHattyuID.Text),
+                EmID = LoginData.EmID,
+                HaDate = DateTime.Now,
                 WaWarehouseFlag = 1,
-                
             };
         }
 
@@ -456,7 +434,6 @@ namespace SalesManagement_SysDev
             ClearInput();
             GetDataGridView();
         }
-
 
         //戻るボタン----------------------------------------------------------------------
         private void ButtonBack_Click(object sender, EventArgs e)
@@ -476,14 +453,13 @@ namespace SalesManagement_SysDev
                 ComboMakerName.SelectedIndex = 0;
                 TextboxHattyuID.Text = "";
             }
-           else
+            else
             {
                 TextboxSyainID.Text = "";
                 TextboxSyainName.Text = "";
                 ComboMakerName.SelectedIndex = -1;
                 TextboxHattyuID.Text = "";
             }
-
         }
 
         //リセットボタン------------------------------------------------------------------
@@ -525,10 +501,10 @@ namespace SalesManagement_SysDev
             ClearInput();
             TextboxHattyuID.Enabled = true;
             LblSyainID.Visible = false;
-            TextboxSyainID.Visible = false ;
+            TextboxSyainID.Visible = false;
             ComboMakerName.Enabled = true;
             TextboxHihyouji.Enabled = false;
-            ButtonKakutei.Enabled=false;
+            ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
         }
 
@@ -548,13 +524,13 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxHattyuID.Enabled = false;
-            LblSyainID.Visible=false;
+            LblSyainID.Visible = false;
             TextboxSyainID.Visible = false;
             ComboMakerName.Enabled = false;
             TextboxHihyouji.Enabled = false;
-            ButtonKakutei.Enabled=true;
+            ButtonKakutei.Enabled = true;
             ButtonExe.Visible = false;
         }
     }
 }
-    
+

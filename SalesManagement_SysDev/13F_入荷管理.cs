@@ -15,11 +15,13 @@ namespace SalesManagement_SysDev
     {
         readonly OrderDbConnection DB = new OrderDbConnection();
         readonly ArrivalDbConnection DB1 = new ArrivalDbConnection();
+        readonly ShipDbConnection DB2 = new ShipDbConnection();
         readonly ArrivalDataAccess ADA = new ArrivalDataAccess();
+        readonly ShipDataAccess SDA = new ShipDataAccess();
         private static List<M_Client> ClNameDsp;
         readonly private InputCheck ichk = new InputCheck();
         readonly LoginData LoginData;
-        readonly ArrivalDbConnection DB2 = new ArrivalDbConnection();
+        
 
 
         public F_入荷管理(LoginData LData)
@@ -35,8 +37,6 @@ namespace SalesManagement_SysDev
         {
             TextBoxHidden.Enabled = false;
             ButtonKakutei.Enabled = false;
-
-
             SetFormComboBox();
 
             if (!GetDataGridView())
@@ -58,6 +58,7 @@ namespace SalesManagement_SysDev
             return true;
         }
 
+        //コンボボックスの初期設定
         private void SetFormComboBox()
         {
             ClNameDsp = DB.GetClientNameDspData();
@@ -127,8 +128,15 @@ namespace SalesManagement_SysDev
             dataGridView1.Refresh();
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TextboxNyukaID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+            ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+            ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
+            TextboxOrderID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
+        }
 
-     
+        //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
         {
             //検索処理----------------------------------------------------------------------
@@ -154,6 +162,7 @@ namespace SalesManagement_SysDev
             }
         }
 
+        //確定ボタン
         private void ButtonKakutei_Click(object sender, EventArgs e)
         {
             if (!CheckDataAtConfirm())
@@ -162,10 +171,11 @@ namespace SalesManagement_SysDev
             }
 
             ConfirmAr();
-            var ConSh = GenereteDataAtUpdateFlg();
-            UpdFlag(ConSh);
+            var ConAr = GenereteDataAtUpdateFlg();
+            UpdArFlag(ConAr);
         }
 
+        //検索処理------------------------------------------------------------------------
         private bool GetVaildDataAtSelect() //入力データチェック
         {
             if (!String.IsNullOrEmpty(TextboxNyukaID.Text.Trim()))
@@ -294,7 +304,8 @@ namespace SalesManagement_SysDev
             }
             return true;
         }
-        private void ConfirmSh()//注文テーブルにデータを登録する
+
+        private void ConfirmAr()//注文テーブルにデータを登録する
         {
             DialogResult result = MessageBox.Show("入荷情報を確定します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
@@ -306,7 +317,7 @@ namespace SalesManagement_SysDev
             {
                 ArID = int.Parse(TextboxNyukaID.Text),
             };
-            List<GetNyukaDataDTO> Data1 = DB2.SetNyukaData(selectCondition);
+            List<GetNyukaDataDTO> Data1 = DB1.SetNyukaData(selectCondition);
 
             //形式変換(DispOrderListDTO→T_Chumon)
             T_Shipment Ship = new T_Shipment
@@ -314,48 +325,50 @@ namespace SalesManagement_SysDev
                 OrID = Data1[0].OrID,
                 SoID = Data1[0].SoID,
                 ClID = Data1[0].ClID,
-                ShFinishDate = null,
-
+                EmID=LoginData.EmID,
+                ShFinishDate = DateTime.Now,
             };
             //登録処理
-            SDA.AddSyukkoData(Syukko);
+            SDA.AddSyukkoData(Ship);
             //詳細確定------------------------------------------------------------------------
             //登録したChIDを取得
-            int SyID = DB3.GetSyID();
-            T_SyukkoDetail SyukkoDetail = new T_SyukkoDetail();
+            int SyID = DB2.GetShID();
+            T_ShipmentDetail SyukkoDetail = new T_ShipmentDetail();
             T_Stock Stock = new T_Stock();
             for (int i = 0; i < Data1.Count; i++)
             {
                 //各データをchumonDetailに代入
-                SyukkoDetail.SyID = SyID;
+                SyukkoDetail.ShID = SyID;
                 SyukkoDetail.PrID = Data1[i].PrID;
-                SyukkoDetail.SyQuantity = Data1[i].ChQuantity;
-                Stock.StQuantity = Data1[i].ChQuantity;
+                SyukkoDetail.ShQuantity = Data1[i].ArQuantity;
                 //chumonDetail登録
                 SDA.AddSyukkoDetailData(SyukkoDetail);
-                StDA.UpdateStockData(Stock);
             }
             MessageBox.Show("データを確定しました");
         }
 
-        private T_Chumon GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
+        private T_Arrival GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
         {
-            return new T_Chumon
+            return new T_Arrival
             {
-                ChID = int.Parse(TextboxChumonID.Text),
-                ChStateFlag = 1,
+                ArID = int.Parse(TextboxNyukaID.Text),
+                EmID=LoginData.EmID,
+                ArDate=DateTime.Now,
+                ArStateFlag = 1,
             };
         }
 
-        private void UpdChFlag(T_Chumon ConCh)　//フラグ更新処理
+        private void UpdArFlag(T_Arrival ConAr)　//フラグ更新処理
         {
-            CDA.UpdChumonFlg(ConCh);
+            ADA.UpdArrivalFlg(ConAr);
 
             ClearInput();
 
             GetDataGridView();
         }
 
+
+        //戻るボタン
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -363,6 +376,7 @@ namespace SalesManagement_SysDev
             f_eigyou.Show();
         }
 
+        //リセットボタン
         private void ButtonReset_Click(object sender, EventArgs e)
         {
             ClearInput();
@@ -375,14 +389,6 @@ namespace SalesManagement_SysDev
             TextboxOrderID.Text = "";
             ComboEigyousyoName.SelectedIndex = -1;
             ComboKokyakuName.SelectedIndex = -1;
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            TextboxNyukaID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
-            ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
-            ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
-            TextboxOrderID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
         }
     }
 }

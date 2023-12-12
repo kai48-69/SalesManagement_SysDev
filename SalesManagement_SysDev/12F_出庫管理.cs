@@ -345,7 +345,7 @@ namespace SalesManagement_SysDev
                 OrID = Data1[0].OrID,
                 SoID = Data1[0].SoID,
                 ClID = Data1[0].ClID,
-                ArDate = null,
+                ArDate = DateTime.Now,
             };
             //登録処理
             ADA.AddArrivalData(Nyuka);
@@ -370,6 +370,8 @@ namespace SalesManagement_SysDev
             return new T_Syukko
             {
                 SyID = int.Parse(TextboxSyukkoID.Text),
+                EmID=LoginData.EmID,
+                SyDate = DateTime.Now,
                 SyStateFlag = 1,
             };
         }

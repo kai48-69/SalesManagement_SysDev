@@ -7,30 +7,14 @@ using System.Windows.Forms;
 
 namespace SalesManagement_SysDev
 {
-    internal class ArrivalDataAccess
+    internal class ShipDataAccess
     {
-        public bool AddArrivalData(T_Arrival Arrival)
+        public bool AddSyukkoData(T_Shipment Syukko)
         {
             try
             {
                 var context = new SalesManagement_DevContext();
-                context.T_Arrivals.Add(Arrival);
-                context.SaveChanges();
-                context.Dispose();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-        public bool AddArrivalDetailData(T_ArrivalDetail ADetail)
-        {
-            try
-            {
-                var context = new SalesManagement_DevContext();
-                context.T_ArrivalDetails.Add(ADetail);
+                context.T_Shipments.Add(Syukko);
                 context.SaveChanges();
                 context.Dispose();
                 return true;
@@ -42,18 +26,14 @@ namespace SalesManagement_SysDev
             }
         }
 
-        public bool HideArrivalData(T_Arrival hidAr)
+        public bool AddSyukkoDetailData(T_ShipmentDetail SDetail)
         {
             try
             {
                 var context = new SalesManagement_DevContext();
-                var Arder = context.T_Arrivals.Single(x => x.ArID == hidAr.ArID);
-                Arder.ArFlag = hidAr.ArFlag;
-                Arder.ArHidden = hidAr.ArHidden;
-
+                context.T_ShipmentDetails.Add(SDetail);
                 context.SaveChanges();
                 context.Dispose();
-
                 return true;
             }
             catch (Exception ex)
@@ -63,13 +43,13 @@ namespace SalesManagement_SysDev
             }
         }
 
-        public bool UpdArrivalFlg(T_Arrival UpdArFlag)
+        public bool UpdShipFlg(T_Shipment UpdShFlag)
         {
             try
             {
                 var context = new SalesManagement_DevContext();
-                var Arrival = context.T_Arrivals.Single(x => x.ArID == UpdArFlag.ArID);
-                Arrival.ArStateFlag = UpdArFlag.ArStateFlag;
+                var Ship = context.T_Shipments.Single(x => x.ShID == UpdShFlag.ShID);
+                Ship.ShStateFlag = UpdShFlag.ShStateFlag;
                 context.SaveChanges();
                 context.Dispose();
                 return true;

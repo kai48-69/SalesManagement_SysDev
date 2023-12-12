@@ -165,6 +165,10 @@ namespace SalesManagement_SysDev
             return null;
         }
 
-
+        public int GetShID()
+        {
+            var context = new SalesManagement_DevContext();
+            return context.T_Shipments.Max(x => x.ShID);
+        }
     }
 }
