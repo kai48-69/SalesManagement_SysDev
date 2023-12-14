@@ -34,8 +34,8 @@ namespace SalesManagement_SysDev
             {
                 var context = new SalesManagement_DevContext();
                 var Employee = context.M_Employees.First(x => x.EmID == updEmp.EmID);
-                Employee.SoID = updEmp.SoID;
-                Employee.PoID = updEmp.PoID;
+                Employee.SoID = updEmp.SoID+1;
+                Employee.PoID = updEmp.PoID+1;
                 Employee.EmName = updEmp.EmName;
                 Employee.EmPhone = updEmp.EmPhone;
                 context.SaveChanges();
