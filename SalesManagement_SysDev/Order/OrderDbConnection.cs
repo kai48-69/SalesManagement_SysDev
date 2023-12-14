@@ -111,14 +111,19 @@ namespace SalesManagement_SysDev
                 var tb = from Order in context.T_Orders
                          join SOffice in context.M_SalesOffices
                          on Order.SoID equals SOffice.SoID
+
                          join Employee in context.M_Employees
                          on Order.EmID equals Employee.EmID
+
                          join Client in context.M_Clients
                          on Order.ClID equals Client.ClID
+
                          join OrDetail in context.T_OrderDetails
                          on Order.OrID equals OrDetail.OrID
+
                          join Product in context.M_Products
                          on OrDetail.PrID equals Product.PrID
+
                          where Order.ClCharge.Contains(selectCondition.ClCharge) &&
                          ((selectCondition.OrID == -1) ? true :
                          Order.OrID == selectCondition.OrID) &&

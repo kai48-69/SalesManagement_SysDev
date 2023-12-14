@@ -276,7 +276,7 @@ namespace SalesManagement_SysDev
         {
             return new T_Shipment
             {
-                OrID = int.Parse(TextboxSyukkaID.Text),
+                ShID = int.Parse(TextboxSyukkaID.Text),
 
                 ShFlag = 2,
                 ShHidden = TextboxHihyouji.Text,
@@ -292,7 +292,7 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            bool flg = DB2.HideOrderData(hidSh);
+            bool flg = ShDA.HideShipData(hidSh);
             if (flg == true)
             {
                 MessageBox.Show("データを非表示にしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
