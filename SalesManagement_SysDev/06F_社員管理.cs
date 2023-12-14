@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.Infrastructure;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -21,6 +22,7 @@ namespace SalesManagement_SysDev
         private static List<M_SalesOffice> SoNameDsp;
         private static List<M_Position> PoNameDsp;
         readonly LoginData LoginData;
+        readonly ConvertNo convertNo = new ConvertNo();
 
         public F_社員管理(LoginData LData)
         {
@@ -117,7 +119,7 @@ namespace SalesManagement_SysDev
             ////電話番号
             dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[5].Width = 80;
+            dataGridView1.Columns[5].Width = 90;
 
             dataGridView1.Refresh();
         }
@@ -132,7 +134,11 @@ namespace SalesManagement_SysDev
                 ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
                 ComboYakusyokuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
                 NyusyaDate.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
-                TextboxTelNo.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+                string TelNo = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+                string[] Tel = TelNo.Split('-');
+                TextboxTelNo1.Text = Tel[0];
+                TextboxTelNo2.Text= Tel[1];
+                TextboxTelNo3.Text= Tel[2];
             }
             else
             {
@@ -140,7 +146,11 @@ namespace SalesManagement_SysDev
                 TextboxSyainName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
                 ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
                 ComboYakusyokuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
-                TextboxTelNo.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+                string TelNo = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+                string[] Tel = TelNo.Split('-');
+                TextboxTelNo1.Text = Tel[0];
+                TextboxTelNo2.Text = Tel[1];
+                TextboxTelNo3.Text = Tel[2];
             }
         }
 
@@ -211,6 +221,12 @@ namespace SalesManagement_SysDev
                     TextboxSyainID.Focus();
                     return false;
                 }
+                if (int.Parse(TextboxSyainID.Text) <= 0)
+                {
+                    MessageBox.Show("入力された番号は登録できません");
+                    TextboxSyainID.Focus();
+                    return false;
+                }
             }
             else
             {
@@ -226,15 +242,25 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-            if (!String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
+            if (!String.IsNullOrEmpty(TextboxTelNo1.Text.Trim()) && (!String.IsNullOrEmpty(TextboxTelNo2.Text.Trim())) && (!String.IsNullOrEmpty(TextboxTelNo3.Text.Trim())))
             {
-                if (!ichk.IntegerCheck(TextboxTelNo.Text.Trim()))
+                if (!ichk.IntegerCheck(TextboxTelNo1.Text.Trim()) || !ichk.IntegerCheck(TextboxTelNo2.Text.Trim()) || !ichk.IntegerCheck(TextboxTelNo3.Text.Trim()))
                 {
                     MessageBox.Show("電話番号は半角数字で入力してください");
-                    TextboxTelNo.Focus();
+                    TextboxTelNo1.Focus();
                     return false;
                 }
-                if (TextboxTelNo.Text.Length < 10)
+                if (TextboxTelNo1.Text.Length < 2)
+                {
+                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    return false;
+                }
+                if (TextboxTelNo2.Text.Length < 2)
+                {
+                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    return false;
+                }
+                if (TextboxTelNo3.Text.Length <= 3)
                 {
                     MessageBox.Show("正しい形式で電話番号を入力してください");
                     return false;
@@ -243,7 +269,7 @@ namespace SalesManagement_SysDev
             else
             {
                 MessageBox.Show("電話番号が入力されていません");
-                TextboxTelNo.Focus();
+                TextboxTelNo1.Focus();
                 return false;
             }
 
@@ -252,7 +278,11 @@ namespace SalesManagement_SysDev
 
         private M_Employee GenerateDataAtRegistration() //登録データ生成
         {
-            string TelNo = SetPhoneFormat(TextboxTelNo.Text);
+            string[] TEL = new string[3];
+            TEL[0] = TextboxTelNo1.Text;
+            TEL[1] = TextboxTelNo2.Text;
+            TEL[2] = TextboxTelNo3.Text;
+            string TelNo = convertNo.SetPhoneOrFaxFormat(TEL);
             int SoID = ComboEigyousyoName.SelectedIndex;
             int PoID = ComboYakusyokuName.SelectedIndex;
             return new M_Employee
@@ -337,7 +367,7 @@ namespace SalesManagement_SysDev
 
             M_Employee selectCondition = new M_Employee()
             {
-                EmPhone = TextboxTelNo.Text.Trim(),
+                EmPhone = TextboxTelNo1.Text.Trim(),
                 EmID = SyainID,
                 SoID = SoID,
                 PoID = PoID,
@@ -362,32 +392,62 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-            if (String.IsNullOrEmpty(TextboxSyainName.Text.Trim()))
+            if (!String.IsNullOrEmpty(TextboxSyainName.Text.Trim()))
+            {
+                if (ichk.IntegerCheck(TextboxSyainName.Text))
+                {
+                    MessageBox.Show("使用できない文字が含まれています");
+                    TextboxSyainName.Focus();
+                    return false;
+                }
+            }
+            else
             {
                 MessageBox.Show("社員名が入力されていません");
                 TextboxSyainName.Focus();
                 return false;
             }
 
-            if (!String.IsNullOrEmpty(TextboxTelNo.Text.Trim()))
+            if (!String.IsNullOrEmpty(TextboxTelNo1.Text.Trim()) && (!String.IsNullOrEmpty(TextboxTelNo2.Text.Trim())) && (!String.IsNullOrEmpty(TextboxTelNo3.Text.Trim())))
             {
-                if (!ichk.IntegerCheck(TextboxTelNo.Text.Trim()))
+                if (!ichk.IntegerCheck(TextboxTelNo1.Text.Trim()))
                 {
                     MessageBox.Show("電話番号は半角数字で入力してください");
-                    TextboxTelNo.Focus();
+                    TextboxTelNo1.Focus();
                     return false;
                 }
-                if (TextboxTelNo.Text.Length < 10)
+                if (!ichk.IntegerCheck(TextboxTelNo2.Text.Trim()))
+                {
+                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    TextboxTelNo1.Focus();
+                    return false;
+                }
+                if (!ichk.IntegerCheck(TextboxTelNo3.Text.Trim()))
+                {
+                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    TextboxTelNo1.Focus();
+                    return false;
+                }
+                if (TextboxTelNo1.Text.Length < 2)
                 {
                     MessageBox.Show("正しい形式で電話番号を入力してください");
-                    TextboxTelNo.Focus();
+                    return false;
+                }
+                if (TextboxTelNo2.Text.Length < 2)
+                {
+                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    return false;
+                }
+                if (TextboxTelNo1.Text.Length < 3)
+                {
+                    MessageBox.Show("正しい形式で電話番号を入力してください");
                     return false;
                 }
             }
             else
             {
                 MessageBox.Show("電話番号が入力されていません");
-                TextboxTelNo.Focus();
+                TextboxTelNo1.Focus();
                 return false;
             }
 
@@ -396,7 +456,11 @@ namespace SalesManagement_SysDev
 
         private M_Employee GenereteDataAtUpdate()　//更新データ生成
         {
-            string TelNo = SetPhoneFormat(TextboxTelNo.Text);
+            string[] TEL = new string[3];
+            TEL[0] = TextboxTelNo1.Text;
+            TEL[1] = TextboxTelNo2.Text;
+            TEL[2] = TextboxTelNo3.Text;
+            string TelNo = convertNo.SetPhoneOrFaxFormat(TEL);
             int SoID = ComboEigyousyoName.SelectedIndex;
             int PoID = ComboYakusyokuName.SelectedIndex;
             return new M_Employee
@@ -467,10 +531,6 @@ namespace SalesManagement_SysDev
             return new M_Employee
             {
                 EmID = int.Parse(TextboxSyainID.Text.Trim()),
-                EmName = TextboxSyainName.Text.Trim(),
-                EmPhone = TextboxTelNo.Text.Trim(),
-                SoID = SoID + 1,
-                PoID = PoID,
                 EmFlag = 2,
                 EmHidden = TextboxHihyoji.Text.Trim(),
             };
@@ -511,7 +571,9 @@ namespace SalesManagement_SysDev
                 ComboYakusyokuName.SelectedIndex = -1;
                 TextboxSyainID.Text = "";
                 TextboxSyainName.Text = "";
-                TextboxTelNo.Text = "";
+                TextboxTelNo1.Text = "";
+                TextboxTelNo2.Text = "";
+                TextboxTelNo3.Text = "";
                 TextboxHihyoji.Text = "";
             }
             else   //上記以外の場合は表示する
@@ -520,8 +582,10 @@ namespace SalesManagement_SysDev
                 ComboYakusyokuName.SelectedIndex = 0;
                 TextboxSyainID.Text = "";
                 TextboxSyainName.Text = "";
-                TextboxTelNo.Text = "";
-                TextboxHihyoji.Text = "";
+                TextboxTelNo1.Text = "";
+                TextboxTelNo2.Text = "";
+                TextboxTelNo3.Text = "";
+;                TextboxHihyoji.Text = "";
             }
         }
 
@@ -546,7 +610,9 @@ namespace SalesManagement_SysDev
             ClearInput();
             TextboxSyainID.ReadOnly = false;
             TextboxSyainName.ReadOnly = false;
-            TextboxTelNo.ReadOnly = false;
+            TextboxTelNo1.ReadOnly = false;
+            TextboxTelNo2.ReadOnly = false;
+            TextboxTelNo3.ReadOnly = false;
             ComboEigyousyoName.SelectedIndex = 0;
             ComboYakusyokuName.SelectedIndex = 0;
             TextboxHihyoji.Enabled = false;
@@ -564,7 +630,9 @@ namespace SalesManagement_SysDev
             ClearInput();
             TextboxSyainID.ReadOnly = false;
             TextboxSyainName.ReadOnly = false;
-            TextboxTelNo.ReadOnly = false;
+            TextboxTelNo1.ReadOnly = false;
+            TextboxTelNo2.ReadOnly = false;
+            TextboxTelNo3.ReadOnly = false;
             ComboEigyousyoName.SelectedIndex = -1;
             ComboYakusyokuName.SelectedIndex = -1;
             TextboxHihyoji.Enabled = false;
@@ -581,7 +649,9 @@ namespace SalesManagement_SysDev
             ClearInput();
             TextboxSyainID.ReadOnly = true;
             TextboxSyainName.ReadOnly = false;
-            TextboxTelNo.ReadOnly = false;
+            TextboxTelNo1.ReadOnly = false;
+            TextboxTelNo2.ReadOnly = false;
+            TextboxTelNo3.ReadOnly = false;
             ComboEigyousyoName.SelectedIndex = 0;
             ComboYakusyokuName.SelectedIndex = 0;
             TextboxHihyoji.Enabled = false;
@@ -597,9 +667,12 @@ namespace SalesManagement_SysDev
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
+       
             TextboxSyainID.ReadOnly = true;
             TextboxSyainName.ReadOnly = true;
-            TextboxTelNo.ReadOnly = true;
+            TextboxTelNo1.ReadOnly = true;
+            TextboxTelNo2.ReadOnly = true;
+            TextboxTelNo3.ReadOnly = true;
             ComboEigyousyoName.SelectedIndex = -1;
             ComboYakusyokuName.SelectedIndex = -1;
             TextboxHihyoji.Enabled = true;
@@ -611,25 +684,7 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
-        private string SetPhoneFormat(string TelNo)
-        {
-            if (TelNo.Length == 10)
-            {
-                string D1 = TelNo.Substring(0, 2);
-                string D2 = TelNo.Substring(2, 4);
-                string D3 = TelNo.Substring(6, 4);
-                TelNo = string.Format(D1 + "-" + D2 + "-" + D3);
-            }
-            //000-0000-0000
-            else if (TelNo.Length == 11)
-            {
-                string D1 = TelNo.Substring(0, 3);
-                string D2 = TelNo.Substring(3, 4);
-                string D3 = TelNo.Substring(7, 4);
-                TelNo = string.Format(D1 + "-" + D2 + "-" + D3);
-            }
-            return TelNo;
-        }
+      
 
     }
 }

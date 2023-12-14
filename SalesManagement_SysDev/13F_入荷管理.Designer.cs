@@ -53,6 +53,7 @@
             this.ComboKokyakuName = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TextboxOrderID = new System.Windows.Forms.TextBox();
+            this.RadioKakutei = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,7 @@
             // ButtonReset
             // 
             this.ButtonReset.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonReset.Location = new System.Drawing.Point(311, 161);
+            this.ButtonReset.Location = new System.Drawing.Point(455, 161);
             this.ButtonReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonReset.Name = "ButtonReset";
             this.ButtonReset.Size = new System.Drawing.Size(165, 58);
@@ -270,7 +271,7 @@
             // 
             this.TextboxNyukaID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxNyukaID.Location = new System.Drawing.Point(140, 269);
-            this.TextboxNyukaID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextboxNyukaID.Margin = new System.Windows.Forms.Padding(2);
             this.TextboxNyukaID.Name = "TextboxNyukaID";
             this.TextboxNyukaID.Size = new System.Drawing.Size(235, 32);
             this.TextboxNyukaID.TabIndex = 26;
@@ -291,7 +292,7 @@
             // 
             this.ButtonKakutei.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ButtonKakutei.Location = new System.Drawing.Point(576, 783);
-            this.ButtonKakutei.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonKakutei.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonKakutei.Name = "ButtonKakutei";
             this.ButtonKakutei.Size = new System.Drawing.Size(259, 51);
             this.ButtonKakutei.TabIndex = 56;
@@ -327,13 +328,25 @@
             this.TextboxOrderID.Name = "TextboxOrderID";
             this.TextboxOrderID.Size = new System.Drawing.Size(235, 32);
             this.TextboxOrderID.TabIndex = 58;
-          
+            // 
+            // RadioKakutei
+            // 
+            this.RadioKakutei.AutoSize = true;
+            this.RadioKakutei.Font = new System.Drawing.Font("MS UI Gothic", 18F);
+            this.RadioKakutei.Location = new System.Drawing.Point(312, 171);
+            this.RadioKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RadioKakutei.Name = "RadioKakutei";
+            this.RadioKakutei.Size = new System.Drawing.Size(94, 34);
+            this.RadioKakutei.TabIndex = 60;
+            this.RadioKakutei.Text = "確定";
+            this.RadioKakutei.UseVisualStyleBackColor = true;
             // 
             // F_入荷管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 884);
+            this.Controls.Add(this.RadioKakutei);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TextboxOrderID);
             this.Controls.Add(this.ComboKokyakuName);
@@ -391,5 +404,6 @@
         private System.Windows.Forms.ComboBox ComboKokyakuName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TextboxOrderID;
+        private System.Windows.Forms.RadioButton RadioKakutei;
     }
 }

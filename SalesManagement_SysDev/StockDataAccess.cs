@@ -15,9 +15,8 @@ namespace SalesManagement_SysDev
             try
             {
                 var context = new SalesManagement_DevContext();
-                var Client = context.T_Stocks.First(x => x.StID == updSt.StID);
-                Client.StID = updSt.StID;
-                Client.StQuantity = updSt.StQuantity;
+                var Stock = context.T_Stocks.Single(x => x.PrID == updSt.PrID);
+                Stock.StQuantity = Stock.StQuantity+ updSt.StQuantity;
 
                 context.SaveChanges();
                 context.Dispose();

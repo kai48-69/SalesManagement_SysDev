@@ -16,10 +16,14 @@ namespace SalesManagement_SysDev
 
         readonly LoginData LoginData;
         private static List<M_SalesOffice> SoNameDsp;
-        readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
+     
         readonly private InputCheck ichk = new InputCheck();
         readonly ShipDbConnection DB = new ShipDbConnection();
+        readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
         readonly ShipDbConnection DB2 = new ShipDbConnection();
+        readonly SaleDbConnection DB3 = new SaleDbConnection();
+        readonly SaleDataAccess SDA = new SaleDataAccess();
+        readonly ShipDataAccess ShDA=new ShipDataAccess();
 
         public F_出荷管理(LoginData LData)
         {
@@ -155,6 +159,7 @@ namespace SalesManagement_SysDev
             }
         }
 
+        //確定ボタン
         private void ButtonKakutei_Click(object sender, EventArgs e)
         {
             if (!CheckDataAtConfirm())
@@ -167,18 +172,7 @@ namespace SalesManagement_SysDev
             UpdShFlag(ConSa);
         }
 
-        private T_Shipment GenereteDataAtHidden()　//非表示データ生成(フラグの更新データ生成)
-        {
-            return new T_Shipment
-            {
-                OrID = int.Parse(TextboxSyukkaID.Text),
-
-                ShFlag = 2,
-                ShHidden = TextboxHihyouji.Text,
-            };
-        }
-
-
+        //検索処理------------------------------------------------------------------------
         private bool GetVaildDataAtSelect() //入力データチェック
         {
             if (!String.IsNullOrEmpty(TextboxSyukkaID.Text.Trim()))
@@ -250,7 +244,7 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-
+        //非表示処理----------------------------------------------------------------------
         private bool GetVaildDataAtHide()//入力データチェック
         {
             if (String.IsNullOrEmpty(TextboxSyukkaID.Text.Trim()))
@@ -267,6 +261,17 @@ namespace SalesManagement_SysDev
                 return false;
             }
             return true;
+        }
+
+        private T_Shipment GenereteDataAtHidden()　//非表示データ生成(フラグの更新データ生成)
+        {
+            return new T_Shipment
+            {
+                OrID = int.Parse(TextboxSyukkaID.Text),
+
+                ShFlag = 2,
+                ShHidden = TextboxHihyouji.Text,
+            };
         }
 
         private void HideSh(T_Shipment hidSh)　//データ更新処理
@@ -304,7 +309,7 @@ namespace SalesManagement_SysDev
             }
             return true;
         }
-        private void ConfirmSa()//注文テーブルにデータを登録する
+        private void ConfirmSh()//注文テーブルにデータを登録する
         {
             DialogResult result = MessageBox.Show("出荷情報を確定します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
@@ -325,41 +330,40 @@ namespace SalesManagement_SysDev
                 OrID = Data1[0].OrID,
                 SoID = Data1[0].SoID,
                 ClID = Data1[0].ClID,
-                SaDate = null,
-
+                EmID=LoginData.EmID,
+                SaDate=DateTime.Now,
             };
             //登録処理
-            SDA.AddSyukkoData(Syukko);
+            SDA.AddSaleData(Sale);
             //詳細確定------------------------------------------------------------------------
             //登録したChIDを取得
-            int SyID = DB3.GetSyID();
-            T_SyukkoDetail SyukkoDetail = new T_SyukkoDetail();
+            int SaID = DB3.GetSaID();
+            T_SaleDetail SaleDetail = new T_SaleDetail();
             T_Stock Stock = new T_Stock();
             for (int i = 0; i < Data1.Count; i++)
             {
                 //各データをchumonDetailに代入
-                SyukkoDetail.SyID = SyID;
-                SyukkoDetail.PrID = Data1[i].PrID;
-                SyukkoDetail.SyQuantity = Data1[i].ChQuantity;
-                Stock.StQuantity = Data1[i].ChQuantity;
+                SaleDetail.SaID = SaID;
+                SaleDetail.PrID = Data1[i].PrID;
+                SaleDetail.SaQuantity = Data1[i].ShQuantity;
                 //chumonDetail登録
-                SDA.AddSyukkoDetailData(SyukkoDetail);
-                StDA.UpdateStockData(Stock);
+                SDA.AddSaleDetailData(SaleDetail);
+             
             }
             MessageBox.Show("データを確定しました");
         }
 
-        private T_Chumon GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
+        private T_Shipment GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
         {
-            return new T_Chumon
+            return new T_Shipment
             {
-                ChID = int.Parse(TextboxChumonID.Text),
-                ChStateFlag = 1,
+                ShID = int.Parse(TextboxSyukkaID.Text),
+                ShStateFlag = 1,
             };
         }
-        private void UpdChFlag(T_Chumon ConCh)　//フラグ更新処理
+        private void UpdShFlag(T_Shipment ConSh)　//フラグ更新処理
         {
-            CDA.UpdChumonFlg(ConCh);
+            ShDA.UpdShipFlg(ConSh);
 
             ClearInput();
 

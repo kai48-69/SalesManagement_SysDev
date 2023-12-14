@@ -124,5 +124,10 @@ namespace SalesManagement_SysDev
             }
             return null;
         }
+        public int GetSaID()
+        {
+            var context = new SalesManagement_DevContext();
+            return context.T_Sale.Max(x => x.SaID);
+        }
     }
 }
