@@ -60,5 +60,25 @@ namespace SalesManagement_SysDev
                 return false;
             }
         }
+        public bool HideShipData(T_Shipment hidSh)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Ship = context.T_Shipments.Single(x => x.ShID == hidSh.ShID);
+                Ship.ShFlag = hidSh.ShFlag;
+                Ship.ShHidden = hidSh.ShHidden;
+
+                context.SaveChanges();
+                context.Dispose();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }

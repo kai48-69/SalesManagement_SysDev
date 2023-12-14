@@ -292,17 +292,18 @@ namespace SalesManagement_SysDev
             }
 
 
-            T_Sale selectCondition = new T_Sale()
+            SaleselectCondition selectCondition = new SaleselectCondition()
             {
                 SaID = UriageID,
                 OrID = JutyuID,
                 SoID = SoID,
                 EmID = SyainID,
                 ClID = ClID,
+                PrID = PrID,
                
             };
 
-            List<DispSaleListDTO> tb = List<StockselectCondition>(selectCondition);
+            List<DispSaleListDTO> tb =DB.GetSaleData(selectCondition);
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -348,7 +349,7 @@ namespace SalesManagement_SysDev
             }
 
 
-            bool flg = DB.HideSaleData(hidSa);
+            bool flg = SDA.HideSaleData(hidSa);
             if (flg == true)
             {
                 MessageBox.Show("データを非表示にしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
