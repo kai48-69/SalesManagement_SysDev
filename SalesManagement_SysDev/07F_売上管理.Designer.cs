@@ -373,6 +373,7 @@
             this.TextboxTantousyaName.Location = new System.Drawing.Point(589, 419);
             this.TextboxTantousyaName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxTantousyaName.Name = "TextboxTantousyaName";
+            this.TextboxTantousyaName.ReadOnly = true;
             this.TextboxTantousyaName.Size = new System.Drawing.Size(239, 32);
             this.TextboxTantousyaName.TabIndex = 110;
             // 

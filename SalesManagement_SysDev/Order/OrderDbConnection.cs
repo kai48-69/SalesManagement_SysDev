@@ -9,7 +9,7 @@ namespace SalesManagement_SysDev
 {
     internal class OrderDbConnection
     {
-        public List<DispUriageListDTO> OrderGetData(string strClCharge)
+        public List<DispOrderListDTO> OrderGetData(string strClCharge)
         {
             var context = new SalesManagement_DevContext();
             try
@@ -29,7 +29,7 @@ namespace SalesManagement_SysDev
                          Order.OrFlag.Equals(0) &&
                          Order.OrStateFlag.Equals(0)
 
-                         select new DispUriageListDTO
+                         select new DispOrderListDTO
                          {
                              OrID = Order.OrID.ToString(),
                              OrDetailID=OrDetail.OrDetailID.ToString(),
@@ -103,7 +103,7 @@ namespace SalesManagement_SysDev
             return context.T_Orders.Max(x => x.OrID);
         }
 
-        public List<DispUriageListDTO> GetOrderData(T_Order selectCondition)
+        public List<DispOrderListDTO> GetOrderData(T_Order selectCondition)
         {
             var context = new SalesManagement_DevContext();
             try
@@ -136,7 +136,7 @@ namespace SalesManagement_SysDev
                          Order.OrFlag.Equals(0) &&
                          Order.OrStateFlag.Equals(0)
 
-                         select new DispUriageListDTO
+                         select new DispOrderListDTO
                          {
                              OrID = Order.OrID.ToString(),
                              OrDetailID=OrDetail.OrDetailID.ToString(),

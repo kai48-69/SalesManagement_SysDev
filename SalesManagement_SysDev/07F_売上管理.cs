@@ -13,12 +13,16 @@ namespace SalesManagement_SysDev
     public partial class F_売上管理 : Form
     {
         readonly LoginData LoginData;
+        private static List<M_Client> ClNameDsp;
         private static List<T_Sale> SaNameDsp;
+        private static List<M_Product> PrNameDsp;
         readonly SaleDbConnection DB = new SaleDbConnection();
-        readonly ClientDbConnection DB3 = new ClientDbConnection();
+        readonly ClientDbConnection DB1 = new ClientDbConnection();
+        readonly OrderDbConnection DB2 = new OrderDbConnection();
+        readonly EmployeeDbConnection DB3 = new EmployeeDbConnection();
+        readonly ProductDbConnection DB4=new ProductDbConnection();
         readonly SaleDataAccess SDA = new SaleDataAccess();
-        readonly EmployeeDbConnection DB2 = new EmployeeDbConnection();
-        private static List<T_Order> SoNameDsp;
+        private static List<M_SalesOffice> SoNameDsp;
         private static List<M_Employee> EmNameDsp;
         readonly private InputCheck ichk = new InputCheck();
 
@@ -61,11 +65,11 @@ namespace SalesManagement_SysDev
         //コンボボックスの設定
         private void SetFormComboBox()
         {
-            SaNameDsp = DB.GetSaleData();
-            ComboSyouhinName.Items.AddRange(SaNameDsp.ToArray());
-            ComboSyouhinName.DisplayMember = "PrName";
-            ComboSyouhinName.ValueMember = "PrID";
-            ComboSyouhinName.DataSource = SaNameDsp;
+            ClNameDsp = DB2.GetClientNameDspData();
+            ComboKokyakuName.Items.AddRange(ClNameDsp.ToArray());
+            ComboKokyakuName.DisplayMember = "ClName";
+            ComboKokyakuName.ValueMember = "ClID";
+            ComboKokyakuName.DataSource = ClNameDsp;
 
             SoNameDsp = DB3.GetSoNameDspData();
             ComboEigyousyoName.Items.AddRange(SoNameDsp.ToArray());
@@ -73,17 +77,25 @@ namespace SalesManagement_SysDev
             ComboEigyousyoName.ValueMember = "SoID";
             ComboEigyousyoName.DataSource = SoNameDsp;
 
+            PrNameDsp = DB4.GetPrNameDspData();
+            ComboEigyousyoName.Items.AddRange(PrNameDsp.ToArray());
+            ComboEigyousyoName.DisplayMember = "PrName";
+            ComboEigyousyoName.ValueMember = "PrID";
+            ComboEigyousyoName.DataSource = PrNameDsp;
+
             //初期値を０に
-            ComboEigyousyoName.SelectedIndex = 0;
-            ComboKokyakuName.SelectedIndex = 0;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+            ComboSyouhinName.SelectedIndex = -1; 
 
             //読み込み専用に
             ComboEigyousyoName.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboKokyakuName.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboSyouhinName.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         //データグリッドビューの表示設定
-        private void SetDataGridView(List<DispUriageListDTO> tb)
+        private void SetDataGridView(List<DispSaleListDTO> tb)
         {
             dataGridView1.DataSource = tb;
             //列幅自動設定解除
@@ -210,6 +222,15 @@ namespace SalesManagement_SysDev
                     return false;
                 }
             }
+            if (!String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxSyainID.Text.Trim()))
+                { 
+                    MessageBox.Show("社員IDは半角数字で入力してください");
+                    TextboxSyainID.Focus();
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -224,6 +245,8 @@ namespace SalesManagement_SysDev
             {
                 PrID = int.Parse(ComboKokyakuName.SelectedValue.ToString());
             }
+
+
             int SoID;
             if (ComboEigyousyoName.SelectedIndex == -1)
             {
@@ -233,12 +256,23 @@ namespace SalesManagement_SysDev
             {
                 SoID = int.Parse(ComboEigyousyoName.SelectedValue.ToString());
             }
+
+            int ClID;
+            if (ComboSyouhinName.SelectedIndex == -1)
+            {
+                ClID = -1;
+            }
+            else
+            {
+                ClID = int.Parse(ComboKokyakuName.SelectedValue.ToString());
+            }
+
             //整数型(int)に変換する準備
             //売上ID
             var SaID = TextboxUriageID.Text.Trim();
             //受注ID
             var OrID = TextboxJuchuID.Text.Trim();
-            //価格
+            //社員ID
             var EmID = TextboxSyainID.Text.Trim();
 
             //変換処理
@@ -264,9 +298,11 @@ namespace SalesManagement_SysDev
                 OrID = JutyuID,
                 SoID = SoID,
                 EmID = SyainID,
+                ClID = ClID,
+               
             };
 
-            List<DispUriageListDTO> tb = DB.DispSaleListDTO(selectCondition);
+            List<DispSaleListDTO> tb = List<StockselectCondition>(selectCondition);
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -283,12 +319,6 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-            if (DB.CheckCascadeUriageID(int.Parse(TextboxUriageID.Text.Trim())))
-            {
-                MessageBox.Show("選択された売上内容は他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-
-            }
 
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
             {

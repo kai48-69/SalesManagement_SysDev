@@ -63,28 +63,58 @@ namespace SalesManagement_SysDev
             return null;
         }
 
-        public List<DispSaleDetailListDTO> SaleDetailGetData(int SaID)
+
+
+
+        public List<DispSaleListDTO> GetSaleData(T_Sale selectCondition)
         {
             var context = new SalesManagement_DevContext();
             try
             {
-                var tb = from SaleDetail in context.T_SaleDetails
-                         join Sale in context.T_Sale
-                         on SaleDetail.SaID equals Sale.SaID
+                var tb = from Sale in context.T_Sale
+
+                         join Client in context.M_Clients
+                        on Sale.ClID equals Client.ClID
+
+                         join SOffice in context.M_SalesOffices
+                         on Sale.SoID equals SOffice.SoID
+
+                         join Employee in context.M_Employees
+                        on Sale.EmID equals Employee.EmID
+
+                         join Order in context.T_Orders
+                          on Sale.OrID equals Order.OrID
+
+                         join SaleDetail in context.T_SaleDetails
+                         on Sale.SaID equals SaleDetail.SaID
 
                          join Product in context.M_Products
-                         on SaleDetail.SaID equals Product.PrID
+                         on SaleDetail.PrID equals Product.PrID
 
-                         where SaleDetail.SaID == (SaID)
+                         join OrDetail in context.T_OrderDetails
+                         on Order.OrID equals OrDetail.OrID
+
+                         where ((selectCondition.SaID == -1) ? true :
+
+                         Sale.SaID == selectCondition.SaID) &&
+                         ((selectCondition.EmID == -1) ? true :
+                         Sale.EmID == selectCondition.EmID) &&
+                        ((selectCondition.OrID == -1) ? true :
+                        Sale.OrID == selectCondition.OrID) &&
+                       Sale.SaFlag.Equals(0)
 
 
-                         select new DispSaleDetailListDTO
+                         select new DispSaleListDTO
                          {
-                             SaDetailID = SaleDetail.SaDetailID,
                              SaID = Sale.SaID,
+                             SaDetailID = SaleDetail.SaDetailID,
+                             OrID = Order.OrID,
+                             SoName = SOffice.SoName,
+                             EmName = Employee.EmName,
+                             ClName = Client.ClName,
                              PrName = Product.PrName,
                              SaQuantity = SaleDetail.SaQuantity,
-                             SaTotalPrice = SaleDetail.SaTotalPrice.ToString(),
+                             SaTotalPrice = OrDetail.OrTotalPrice.ToString(),
                          };
                 return tb.ToList();
             }
@@ -93,14 +123,6 @@ namespace SalesManagement_SysDev
                 MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return null;
-
-
         }
-        public int GetSaID()
-        {
-            var context = new SalesManagement_DevContext();
-            return context.T_Sale.Max(x => x.SaID);
-        }
-
     }
 }
