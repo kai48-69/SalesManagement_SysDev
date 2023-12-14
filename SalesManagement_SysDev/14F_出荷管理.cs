@@ -16,12 +16,13 @@ namespace SalesManagement_SysDev
 
         readonly LoginData LoginData;
         private static List<M_SalesOffice> SoNameDsp;
-     
+        private static List<M_Client> ClNameDsp;
         readonly private InputCheck ichk = new InputCheck();
         readonly ShipDbConnection DB = new ShipDbConnection();
         readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
         readonly ShipDbConnection DB2 = new ShipDbConnection();
         readonly SaleDbConnection DB3 = new SaleDbConnection();
+        readonly OrderDbConnection DB4 = new OrderDbConnection();
         readonly SaleDataAccess SDA = new SaleDataAccess();
         readonly ShipDataAccess ShDA=new ShipDataAccess();
 
@@ -117,17 +118,25 @@ namespace SalesManagement_SysDev
 
         private void SetFormComboBox()
         {
+            ClNameDsp = DB4.GetClientNameDspData();
+            ComboKokyakuName.Items.AddRange(ClNameDsp.ToArray());
+            ComboKokyakuName.DisplayMember = "ClName";
+            ComboKokyakuName.ValueMember = "ClID";
+            ComboKokyakuName.DataSource = ClNameDsp;
+
             SoNameDsp = DB1.GetSoNameDspData();
             ComboEigyousyoName.Items.AddRange(SoNameDsp.ToArray());
             ComboEigyousyoName.DisplayMember = "SoName";
             ComboEigyousyoName.ValueMember = "SoID";
             ComboEigyousyoName.DataSource = SoNameDsp;
 
-            //初期値を０に
-            ComboEigyousyoName.SelectedIndex = 0;
+            //初期値を-1に
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
 
             //読み込み専用に
             ComboEigyousyoName.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboKokyakuName.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void ButtonExe_Click(object sender, EventArgs e)
@@ -386,6 +395,46 @@ namespace SalesManagement_SysDev
         {
             TextboxHihyouji.Text = "";
 
+        }
+
+        private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxSyukkaID.Enabled = true;
+            TextboxOrderID.Enabled = true;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+            ComboEigyousyoName.Enabled = true;
+            ComboKokyakuName.Enabled = true;
+            TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = false;
+            ButtonExe.Visible = true;
+        }
+
+        private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
+        {
+            TextboxSyukkaID.Enabled = false;
+            TextboxOrderID.Enabled = false;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+            ComboEigyousyoName.Enabled = false;
+            ComboKokyakuName.Enabled = false;
+            TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = true;
+            ButtonExe.Visible = false;
+        }
+
+        private void RadioKakutei_CheckedChanged(object sender, EventArgs e)
+        {
+            TextboxSyukkaID.Enabled = false;
+            TextboxOrderID.Enabled = false;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+            ComboEigyousyoName.Enabled = false;
+            ComboKokyakuName.Enabled = false;
+            TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = true;
+            ButtonExe.Visible = false;
         }
     }
 }

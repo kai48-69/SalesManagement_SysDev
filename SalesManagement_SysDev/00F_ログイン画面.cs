@@ -597,8 +597,32 @@ namespace SalesManagement_SysDev
                 });
                 st.Add(new T_Stock()
                 {
+                    M_Product = pr[6],
+                    StQuantity = 0,
+                    StFlag = 0,
+                });
+                st.Add(new T_Stock()
+                {
+                    M_Product = pr[7],
+                    StQuantity = 0,
+                    StFlag = 0,
+                });
+                st.Add(new T_Stock()
+                {
+                    M_Product = pr[8],
+                    StQuantity = 32,
+                    StFlag = 0,
+                });
+                st.Add(new T_Stock()
+                {
                     M_Product = pr[9],
                     StQuantity = 240,
+                    StFlag = 0,
+                });
+                st.Add(new T_Stock()
+                {
+                    M_Product = pr[10],
+                    StQuantity = 40,
                     StFlag = 0,
                 });
                 context.T_Stocks.AddRange(st);

@@ -36,13 +36,11 @@ namespace SalesManagement_SysDev
                          {
                              SyID = Syukko.SyID,
                              SyDID = SyukkoDetail.SyDetailID,
-                             EmName = Employee.EmName,
                              ClName = Client.ClName,
                              SoName = SOffice.SoName,
                              OrID = Order.OrID,
                              PrName = Product.PrName,
                              SyQuantity = SyukkoDetail.SyQuantity,
-                             SyDate = Syukko.SyDate.ToString()
                          };
                 return tb.ToList();
             }
@@ -93,13 +91,11 @@ namespace SalesManagement_SysDev
                          {
                              SyID = Syukko.SyID,
                              SyDID = SyukkoDetail.SyDetailID,
-                             EmName = Employee.EmName,
                              ClName = Client.ClName,
                              SoName = SOffice.SoName,
                              OrID = Order.OrID,
                              PrName = Product.PrName,
                              SyQuantity = SyukkoDetail.SyQuantity,
-                             SyDate = Syukko.SyDate.ToString()
                          };
 
                 return tb.ToList();
