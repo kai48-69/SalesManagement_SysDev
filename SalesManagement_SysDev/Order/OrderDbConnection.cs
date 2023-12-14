@@ -9,7 +9,7 @@ namespace SalesManagement_SysDev
 {
     internal class OrderDbConnection
     {
-        public List<DispOrderListDTO> OrderGetData(string strClCharge)
+        public List<DispUriageListDTO> OrderGetData(string strClCharge)
         {
             var context = new SalesManagement_DevContext();
             try
@@ -29,7 +29,7 @@ namespace SalesManagement_SysDev
                          Order.OrFlag.Equals(0) &&
                          Order.OrStateFlag.Equals(0)
 
-                         select new DispOrderListDTO
+                         select new DispUriageListDTO
                          {
                              OrID = Order.OrID.ToString(),
                              OrDetailID=OrDetail.OrDetailID.ToString(),
@@ -103,7 +103,7 @@ namespace SalesManagement_SysDev
             return context.T_Orders.Max(x => x.OrID);
         }
 
-        public List<DispOrderListDTO> GetOrderData(T_Order selectCondition)
+        public List<DispUriageListDTO> GetOrderData(T_Order selectCondition)
         {
             var context = new SalesManagement_DevContext();
             try
@@ -111,14 +111,19 @@ namespace SalesManagement_SysDev
                 var tb = from Order in context.T_Orders
                          join SOffice in context.M_SalesOffices
                          on Order.SoID equals SOffice.SoID
+
                          join Employee in context.M_Employees
                          on Order.EmID equals Employee.EmID
+
                          join Client in context.M_Clients
                          on Order.ClID equals Client.ClID
+
                          join OrDetail in context.T_OrderDetails
                          on Order.OrID equals OrDetail.OrID
+
                          join Product in context.M_Products
                          on OrDetail.PrID equals Product.PrID
+
                          where Order.ClCharge.Contains(selectCondition.ClCharge) &&
                          ((selectCondition.OrID == -1) ? true :
                          Order.OrID == selectCondition.OrID) &&
@@ -131,7 +136,7 @@ namespace SalesManagement_SysDev
                          Order.OrFlag.Equals(0) &&
                          Order.OrStateFlag.Equals(0)
 
-                         select new DispOrderListDTO
+                         select new DispUriageListDTO
                          {
                              OrID = Order.OrID.ToString(),
                              OrDetailID=OrDetail.OrDetailID.ToString(),

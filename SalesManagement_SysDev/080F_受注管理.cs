@@ -54,7 +54,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<DispOrderListDTO> tb = DB.OrderGetData("");
+            List<DispUriageListDTO> tb = DB.OrderGetData("");
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -87,7 +87,7 @@ namespace SalesManagement_SysDev
         }
 
         //データグリッドビューの表示設定
-        private void SetDataGridView(List<DispOrderListDTO> tb)
+        private void SetDataGridView(List<DispUriageListDTO> tb)
         {
             dataGridView1.DataSource = tb;
             //列幅自動設定解除
@@ -374,7 +374,7 @@ namespace SalesManagement_SysDev
                 ClCharge = TextboxTantousyaName.Text.Trim(),
             };
 
-            List<DispOrderListDTO> tb = DB.GetOrderData(selectCondition);
+            List<DispUriageListDTO> tb = DB.GetOrderData(selectCondition);
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
