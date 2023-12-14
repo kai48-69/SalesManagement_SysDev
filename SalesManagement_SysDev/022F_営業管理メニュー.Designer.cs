@@ -49,10 +49,10 @@
             // ButtonSyukka
             // 
             this.ButtonSyukka.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonSyukka.Location = new System.Drawing.Point(63, 355);
+            this.ButtonSyukka.Location = new System.Drawing.Point(338, 346);
             this.ButtonSyukka.Name = "ButtonSyukka";
             this.ButtonSyukka.Size = new System.Drawing.Size(242, 111);
-            this.ButtonSyukka.TabIndex = 3;
+            this.ButtonSyukka.TabIndex = 4;
             this.ButtonSyukka.Text = "出荷管理";
             this.ButtonSyukka.UseVisualStyleBackColor = true;
             this.ButtonSyukka.Click += new System.EventHandler(this.ButtonSyukka_Click);
@@ -60,10 +60,10 @@
             // ButtonNyuka
             // 
             this.ButtonNyuka.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonNyuka.Location = new System.Drawing.Point(338, 355);
+            this.ButtonNyuka.Location = new System.Drawing.Point(63, 346);
             this.ButtonNyuka.Name = "ButtonNyuka";
             this.ButtonNyuka.Size = new System.Drawing.Size(238, 111);
-            this.ButtonNyuka.TabIndex = 4;
+            this.ButtonNyuka.TabIndex = 3;
             this.ButtonNyuka.Text = "入荷管理";
             this.ButtonNyuka.UseVisualStyleBackColor = true;
             this.ButtonNyuka.Click += new System.EventHandler(this.ButtonNyuka_Click);

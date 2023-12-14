@@ -12,7 +12,7 @@ namespace SalesManagement_SysDev
 {
     internal class ArrivalDbConnection
     {
-        public List<DispArrivalListDTO> ArrivalGetData(string strClCharge)
+        public List<DispArrivalListDTO> ArrivalGetData()
         {
             var context = new SalesManagement_DevContext();
             try
@@ -20,8 +20,6 @@ namespace SalesManagement_SysDev
                 var tb = from Arrival in context.T_Arrivals
                          join SOffice in context.M_SalesOffices
                          on Arrival.SoID equals SOffice.SoID
-                         join Employee in context.M_Employees
-                         on Arrival.EmID equals Employee.EmID
                          join Client in context.M_Clients
                          on Arrival.ClID equals Client.ClID
                          join ArDetail in context.T_ArrivalDetails
@@ -30,21 +28,19 @@ namespace SalesManagement_SysDev
                          on ArDetail.PrID equals Product.PrID
                          join Order in context.T_Orders
                          on Arrival.OrID equals Order.OrID
-                         where Order.ClCharge.Contains(strClCharge) &&
+                         where
                          Arrival.ArFlag.Equals(0) &&
                          Arrival.ArStateFlag.Equals(0)
 
                          select new DispArrivalListDTO
                          {
-                          ArID=Arrival.ArID.ToString(),
-                          ArDetailID=ArDetail.ArDetailID.ToString(),
-                          SoName=SOffice.SoName,
-                          EmName=Employee.EmName,
-                          ClName=Client.ClName,
+                             ArID = Arrival.ArID.ToString(),
+                             ArDetailID = ArDetail.ArDetailID.ToString(),
+                             SoName = SOffice.SoName,
+                             ClName = Client.ClName,
+                             OrID = Order.OrID.ToString(),
                           PrName=Product.PrName,
                           ArQuantity=ArDetail.ArQuantity.ToString(),
-                          ArDate=Arrival.ArDate.ToString(), 
-
                          };
                 return tb.ToList();
             }
@@ -89,11 +85,9 @@ namespace SalesManagement_SysDev
                              ArID = Arrival.ArID.ToString(),
                              ArDetailID = ArDetail.ArDetailID.ToString(),
                              SoName = SOffice.SoName,
-                             EmName = Employee.EmName,
                              ClName = Client.ClName,
                              PrName = Product.PrName,
                              ArQuantity = ArDetail.ArQuantity.ToString(),
-                             ArDate = Arrival.ArDate.ToString(),
                          };
 
                 return tb.ToList();
@@ -119,8 +113,6 @@ namespace SalesManagement_SysDev
                 var tb = from Arrival in context.T_Arrivals
                          join SOffice in context.M_SalesOffices
                          on Arrival.SoID equals SOffice.SoID
-                         join Employee in context.M_Employees
-                         on Arrival.EmID equals Employee.EmID
                          join Client in context.M_Clients
                          on Arrival.ClID equals Client.ClID
                          join ArDetail in context.T_ArrivalDetails

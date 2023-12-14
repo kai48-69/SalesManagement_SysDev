@@ -313,6 +313,8 @@ namespace SalesManagement_SysDev
             if (String.IsNullOrEmpty(TextboxAdress.Text.Trim()))
             {
                 MessageBox.Show("住所が入力されていません");
+                TextboxAdress.Focus();
+                return false;
             }
 
             return true;

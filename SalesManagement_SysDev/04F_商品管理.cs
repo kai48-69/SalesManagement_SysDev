@@ -15,11 +15,12 @@ namespace SalesManagement_SysDev
     public partial class F_商品管理 : Form
     {
         private readonly InputCheck ichk = new InputCheck();
-        readonly ProductDataAccess ProductDataAccess = new ProductDataAccess();
+        readonly ProductDataAccess PDA = new ProductDataAccess();
         readonly  ProductDbConnection DB = new ProductDbConnection();
         private static List<M_Maker> MNameDsp;
         private static List<M_SmallClassification> ScDsp;
        readonly LoginData LoginData;
+        readonly StockDataAccess SDA=new StockDataAccess(); 
 
 
         public F_商品管理(LoginData LData)
@@ -177,9 +178,10 @@ namespace SalesManagement_SysDev
                 {
                     return;
                 }
-                var regPro = GenerateDataAtRegistration();
+                var regPro = GenerateProductDataAtRegistration();
+                var regSto =GenerateStockDataAtRegistration();
 
-                RegistrationProduct(regPro);
+                RegistrationProduct(regPro,regSto);
             }
 
             //検索処理----------------------------------------------------------------------
@@ -274,7 +276,7 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-        private M_Product GenerateDataAtRegistration() //登録データ生成
+        private M_Product GenerateProductDataAtRegistration() //登録データ生成
         {
             int ManuID = ComboMakerName.SelectedIndex;
             int Sc = ComboSyobunrui.SelectedIndex;
@@ -293,16 +295,26 @@ namespace SalesManagement_SysDev
                 PrHidden = null,
             };
         }
+        private T_Stock GenerateStockDataAtRegistration() //登録データ生成
+        {
+            int ManuID = ComboMakerName.SelectedIndex;
+            int Sc = ComboSyobunrui.SelectedIndex;
+            return new T_Stock
+            {
+             
+            };
+        }
 
-        private void RegistrationProduct(M_Product regPro) //データ登録処理
+        private void RegistrationProduct(M_Product regPro,T_Stock regSto) //データ登録処理
         {
             DialogResult result = MessageBox.Show("商品データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
             {
                 return;
             }
-            bool flg = ProductDataAccess.AddProductData(regPro);
-            if (flg == true)
+            bool flg1 = PDA.AddProductData(regPro);
+            //bool flg2 =SDA.AddStockData(regSto);
+            if (flg1 == true)
             {
                 MessageBox.Show("データを登録しました");
             }
@@ -502,7 +514,7 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            bool flg = ProductDataAccess.UpdateProductData(updPro);
+            bool flg = PDA.UpdateProductData(updPro);
             if (flg == true)
             {
                 MessageBox.Show("データを更新しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -564,7 +576,7 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            bool flg = ProductDataAccess.HideProductData(hidEmp);
+            bool flg = PDA.HideProductData(hidEmp);
             if (flg == true)
             {
                 MessageBox.Show("データを非表示にしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
