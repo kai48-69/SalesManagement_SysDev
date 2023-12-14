@@ -42,5 +42,26 @@ namespace SalesManagement_SysDev
                 return false;
             }
         }
+
+        public bool HideSaleData(T_Sale hidSa)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Sale = context.T_Sale.Single(x => x.SaID == hidSa.SaID);
+                Sale.SaFlag = hidSa.SaFlag;
+                Sale.SaHidden = hidSa.SaHidden;
+
+                context.SaveChanges();
+                context.Dispose();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }

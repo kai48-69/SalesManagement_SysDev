@@ -66,7 +66,7 @@ namespace SalesManagement_SysDev
 
 
 
-        public List<DispSaleListDTO> GetSaleData(T_Sale selectCondition)
+        public List<DispSaleListDTO> GetSaleData(SaleselectCondition selectCondition)
         {
             var context = new SalesManagement_DevContext();
             try
@@ -95,12 +95,17 @@ namespace SalesManagement_SysDev
                          on Order.OrID equals OrDetail.OrID
 
                          where ((selectCondition.SaID == -1) ? true :
-
                          Sale.SaID == selectCondition.SaID) &&
-                         ((selectCondition.EmID == -1) ? true :
-                         Sale.EmID == selectCondition.EmID) &&
-                        ((selectCondition.OrID == -1) ? true :
-                        Sale.OrID == selectCondition.OrID) &&
+                         ((selectCondition.OrID == -1) ? true :
+                         Sale.OrID == selectCondition.OrID) &&
+                        ((selectCondition.SoID == -1) ? true :
+                        Sale.SoID == selectCondition.SoID) &&
+                        ((selectCondition.EmID == -1) ? true :
+                        Sale.EmID == selectCondition.EmID) &&
+                        ((selectCondition.ClID == -1) ? true :
+                        Sale.ClID == selectCondition.ClID) &&
+                        ((selectCondition.PrID == -1) ? true :
+                        SaleDetail.PrID == selectCondition.PrID) &&
                        Sale.SaFlag.Equals(0)
 
 
@@ -124,6 +129,8 @@ namespace SalesManagement_SysDev
             }
             return null;
         }
+
+
         public int GetSaID()
         {
             var context = new SalesManagement_DevContext();
