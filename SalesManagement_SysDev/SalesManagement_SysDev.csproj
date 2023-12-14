@@ -83,6 +83,7 @@
     <Compile Include="Chumon\ChumonDbConnection.cs" />
     <Compile Include="Client\ClientDataAccess.cs" />
     <Compile Include="Client\ClientDbConnection.cs" />
+    <Compile Include="ConvertNo.cs" />
     <Compile Include="DrugDTO.cs" />
     <Compile Include="Employee\EmployeeDataAccess.cs" />
     <Compile Include="Employee\EmployeeDbConnection.cs" />

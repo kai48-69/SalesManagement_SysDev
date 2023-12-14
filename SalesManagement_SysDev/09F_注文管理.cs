@@ -362,6 +362,7 @@ namespace SalesManagement_SysDev
                 SyukkoDetail.SyID = SyID;
                 SyukkoDetail.PrID = Data1[i].PrID;
                 SyukkoDetail.SyQuantity = Data1[i].ChQuantity;
+                Stock.PrID = Data1[i].PrID;
                 Stock.StQuantity= Data1[i].ChQuantity;
                 //chumonDetail登録
                 SDA.AddSyukkoDetailData(SyukkoDetail);
