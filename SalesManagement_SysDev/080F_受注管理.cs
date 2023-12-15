@@ -391,12 +391,6 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-            if (ODA.CheckCascadeOrderID(int.Parse(TextboxJutyuID.Text.Trim())))
-            {
-                MessageBox.Show("選択された受注内容は他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-
-            }
 
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
             {
