@@ -10,7 +10,7 @@ namespace SalesManagement_SysDev
 {
     internal class ShipDbConnection
     {
-        public List<DispShipListDTO> ShipGetData(string strClCharge)
+        public List<DispShipListDTO> ShipGetData()
         {
             var context = new SalesManagement_DevContext();
             try
@@ -26,21 +26,22 @@ namespace SalesManagement_SysDev
                          on Ship.ShID equals ShDetail.ShID
                          join Product in context.M_Products
                          on ShDetail.PrID equals Product.PrID
-                         join Order in context.T_Orders 
+                         join Order in context.T_Orders
                          on Ship.OrID equals Order.OrID
-                         where Order.ClCharge.Contains(strClCharge) &&
-                         Ship.ShFlag.Equals(0) &&
+                         join OrderDetail in context.T_OrderDetails
+                         on Order.OrID equals OrderDetail.OrID
+                         where Ship.ShFlag.Equals(0) &&
                          Ship.ShStateFlag.Equals(0)
 
                          select new DispShipListDTO
                          {
-                            ShID = Ship.ShID.ToString(),
-                            ShDetailID = ShDetail.ShDetailID.ToString(),
-                            ClName = Client.ClName.ToString(),
-                            EmName = Employee.EmName.ToString(),
-                            SoName = SOffice.SoName.ToString(),
-                            OrID = Order.OrID.ToString(),
-                            ShFinishDate = Ship.ShFinishDate.ToString(),    
+                             ShID = Ship.ShID.ToString(),
+                             ShDetailID = ShDetail.ShDetailID.ToString(),
+                             ClName = Client.ClName.ToString(),
+                             SoName = SOffice.SoName.ToString(),
+                             OrID = Order.OrID.ToString(),
+                             PrName = Product.PrName,
+                             ShQuantity=OrderDetail.OrQuantity,
                          };
                 return tb.ToList();
             }
@@ -69,14 +70,16 @@ namespace SalesManagement_SysDev
                          on ShDetail.PrID equals Product.PrID
                          join Order in context.T_Orders
                          on Ship.OrID equals Order.OrID
+                         join OrderDetail in context.T_OrderDetails
+                         on Order.OrID equals OrderDetail.OrID
                          where ((selectCondition.ShID == -1) ? true :
                          Ship.ShID == selectCondition.ShID) &&
                          ((selectCondition.SoID == -1) ? true :
                          Ship.SoID == selectCondition.SoID) &&
                         ((selectCondition.ClID == -1) ? true :
                         Ship.ClID == selectCondition.ClID) &&
-                        ((selectCondition.EmID == -1) ? true :
-                        (Ship.EmID == selectCondition.EmID)) &&
+                        ((selectCondition.OrID == -1) ? true :
+                        (Ship.OrID == selectCondition.OrID)) &&
                         Ship.ShFlag.Equals(0) &&
                          Ship.ShStateFlag.Equals(0)
 
@@ -85,10 +88,11 @@ namespace SalesManagement_SysDev
                              ShID = Ship.ShID.ToString(),
                              ShDetailID = ShDetail.ShDetailID.ToString(),
                              ClName = Client.ClName.ToString(),
-                             EmName = Employee.EmName.ToString(),
                              SoName = SOffice.SoName.ToString(),
                              OrID = Order.OrID.ToString(),
-                             ShFinishDate = Ship.ShFinishDate.ToString(),
+                             PrName = Product.PrName,
+                             ShQuantity = OrderDetail.OrQuantity,
+
                          };
 
                 return tb.ToList();

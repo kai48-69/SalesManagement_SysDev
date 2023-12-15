@@ -568,12 +568,6 @@ namespace SalesManagement_SysDev
                 MessageBox.Show("非表示にする顧客データを選択してください");
             }
 
-            if (ClientDataAccess.CheckCascadeClient(int.Parse(TextboxKokyakuID.Text.Trim())))
-            {
-                MessageBox.Show("入力された顧客IDは他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
             {
                 MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
