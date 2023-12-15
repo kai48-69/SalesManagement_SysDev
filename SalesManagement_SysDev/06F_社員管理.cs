@@ -612,7 +612,7 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxSyainID.ReadOnly = false;
-            TextboxSyainName.ReadOnly = false;
+            TextboxSyainName.ReadOnly = true;
             TextboxTelNo1.ReadOnly = true;
             TextboxTelNo2.ReadOnly = true;
             TextboxTelNo3.ReadOnly = true;
