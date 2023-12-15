@@ -127,20 +127,7 @@ namespace SalesManagement_SysDev
         //データグリッドビューをクリックしたときの処理
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (RadioTouroku.Checked == true)
-            {
-                TextboxSyainID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
-                TextboxSyainName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
-                ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
-                ComboYakusyokuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
-                NyusyaDate.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
-                string TelNo = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
-                string[] Tel = TelNo.Split('-');
-                TextboxTelNo1.Text = Tel[0];
-                TextboxTelNo2.Text= Tel[1];
-                TextboxTelNo3.Text= Tel[2];
-            }
-            else
+            if (RadioKousin.Checked == true||RadioHihyouji.Checked==true)
             {
                 TextboxSyainID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
                 TextboxSyainName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
@@ -367,11 +354,9 @@ namespace SalesManagement_SysDev
 
             M_Employee selectCondition = new M_Employee()
             {
-                EmPhone = TextboxTelNo1.Text.Trim(),
                 EmID = SyainID,
                 SoID = SoID,
                 PoID = PoID,
-                //EmFlag = 0,
             };
 
             List<DispEmployeeListDTO> tb = DB.GetEmployeeData(selectCondition);
@@ -526,8 +511,6 @@ namespace SalesManagement_SysDev
 
         private M_Employee GenereteDataAtHidden()　//非表示データ生成(フラグの更新データ生成)
         {
-            int SoID = ComboEigyousyoName.SelectedIndex;
-            int PoID = ComboYakusyokuName.SelectedIndex;
             return new M_Employee
             {
                 EmID = int.Parse(TextboxSyainID.Text.Trim()),
@@ -629,10 +612,10 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxSyainID.ReadOnly = false;
-            TextboxSyainName.ReadOnly = false;
-            TextboxTelNo1.ReadOnly = false;
-            TextboxTelNo2.ReadOnly = false;
-            TextboxTelNo3.ReadOnly = false;
+            TextboxSyainName.ReadOnly = true;
+            TextboxTelNo1.ReadOnly = true;
+            TextboxTelNo2.ReadOnly = true;
+            TextboxTelNo3.ReadOnly = true;
             ComboEigyousyoName.SelectedIndex = -1;
             ComboYakusyokuName.SelectedIndex = -1;
             TextboxHihyoji.Enabled = false;
@@ -652,8 +635,8 @@ namespace SalesManagement_SysDev
             TextboxTelNo1.ReadOnly = false;
             TextboxTelNo2.ReadOnly = false;
             TextboxTelNo3.ReadOnly = false;
-            ComboEigyousyoName.SelectedIndex = 0;
-            ComboYakusyokuName.SelectedIndex = 0;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboYakusyokuName.SelectedIndex = -1;
             TextboxHihyoji.Enabled = false;
             NyusyaDate.Value = DateTime.Now;
             NyusyaDate.Visible = false;

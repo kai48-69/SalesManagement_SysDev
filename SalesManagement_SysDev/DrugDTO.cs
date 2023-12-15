@@ -89,6 +89,8 @@ namespace SalesManagement_SysDev
         public string OrTotalPrice { get; set; }
         [DisplayName("受注年月日")]
         public string OrDate { get; set; }
+        [DisplayName("社員ID")]
+        public int EmID { get; set; }
     }
 
     class DispOrderDetailListDTO
@@ -131,8 +133,6 @@ namespace SalesManagement_SysDev
         public string ArDetailID { get; set; }
         [DisplayName("営業所名")]
         public string SoName { get; set; }
-        [DisplayName("社員名")]
-        public string EmName { get; set; }
         [DisplayName("顧客名")]
         public string ClName { get; set; }
         [DisplayName("受注ID")]
@@ -141,8 +141,6 @@ namespace SalesManagement_SysDev
         public string PrName { get; set; }
         [DisplayName("数量")]
         public string ArQuantity { get; set; }
-        [DisplayName("入荷年月日")]
-        public string ArDate { get; set; }
     }
 
     class SetLoginDataDTO
@@ -218,8 +216,6 @@ namespace SalesManagement_SysDev
         public int SyID { get; set; }
         [DisplayName("出庫詳細ID")]
         public int SyDID { get; set; }
-        [DisplayName("社員名")]
-        public string EmName { get; set; }
         [DisplayName("顧客名")]
         public string ClName { get; set; }
         [DisplayName("営業所名")]
@@ -230,8 +226,7 @@ namespace SalesManagement_SysDev
         public string PrName { get; set; }
         [DisplayName("数量")]
         public int SyQuantity { get; set; }
-        [DisplayName("出庫年月日")]
-        public String SyDate { get; set; }
+       
     }
 
     class DispWarehousingListDTO

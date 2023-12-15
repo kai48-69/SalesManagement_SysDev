@@ -313,6 +313,8 @@ namespace SalesManagement_SysDev
             if (String.IsNullOrEmpty(TextboxAdress.Text.Trim()))
             {
                 MessageBox.Show("住所が入力されていません");
+                TextboxAdress.Focus();
+                return false;
             }
 
             return true;
@@ -394,8 +396,6 @@ namespace SalesManagement_SysDev
             //整数型(int)に変換する準備
             //顧客ID
             var ClID = TextboxKokyakuID.Text.Trim();
-
-
 
             //変換処理
             if (!int.TryParse(ClID, out int KokyakuID))

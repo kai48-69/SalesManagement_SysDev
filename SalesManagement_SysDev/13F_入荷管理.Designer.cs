@@ -41,7 +41,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.TextBoxHidden = new System.Windows.Forms.RichTextBox();
+            this.TextboxHihyouji = new System.Windows.Forms.RichTextBox();
             this.LabelHidden = new System.Windows.Forms.Label();
             this.LabelKokyakumei = new System.Windows.Forms.Label();
             this.ComboEigyousyoName = new System.Windows.Forms.ComboBox();
@@ -93,6 +93,7 @@
             this.RadioHihyouji.TabIndex = 49;
             this.RadioHihyouji.Text = "非表示";
             this.RadioHihyouji.UseVisualStyleBackColor = true;
+            this.RadioHihyouji.CheckedChanged += new System.EventHandler(this.RadioHihyouji_CheckedChanged);
             // 
             // RadioKensaku
             // 
@@ -107,6 +108,7 @@
             this.RadioKensaku.TabStop = true;
             this.RadioKensaku.Text = "検索";
             this.RadioKensaku.UseVisualStyleBackColor = true;
+            this.RadioKensaku.CheckedChanged += new System.EventHandler(this.RadioKensaku_CheckedChanged);
             // 
             // ButtonBack
             // 
@@ -144,7 +146,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1403, 142);
+            this.panel1.Size = new System.Drawing.Size(1442, 142);
             this.panel1.TabIndex = 45;
             // 
             // LblLoginDate
@@ -207,15 +209,15 @@
             this.label15.TabIndex = 107;
             this.label15.Text = "営業所";
             // 
-            // TextBoxHidden
+            // TextboxHihyouji
             // 
-            this.TextBoxHidden.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextBoxHidden.Location = new System.Drawing.Point(946, 269);
-            this.TextBoxHidden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextBoxHidden.Name = "TextBoxHidden";
-            this.TextBoxHidden.Size = new System.Drawing.Size(413, 120);
-            this.TextBoxHidden.TabIndex = 44;
-            this.TextBoxHidden.Text = "";
+            this.TextboxHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxHihyouji.Location = new System.Drawing.Point(946, 269);
+            this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxHihyouji.Name = "TextboxHihyouji";
+            this.TextboxHihyouji.Size = new System.Drawing.Size(413, 127);
+            this.TextboxHihyouji.TabIndex = 44;
+            this.TextboxHihyouji.Text = "";
             // 
             // LabelHidden
             // 
@@ -291,10 +293,10 @@
             // ButtonKakutei
             // 
             this.ButtonKakutei.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonKakutei.Location = new System.Drawing.Point(576, 783);
+            this.ButtonKakutei.Location = new System.Drawing.Point(568, 783);
             this.ButtonKakutei.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonKakutei.Name = "ButtonKakutei";
-            this.ButtonKakutei.Size = new System.Drawing.Size(259, 51);
+            this.ButtonKakutei.Size = new System.Drawing.Size(278, 60);
             this.ButtonKakutei.TabIndex = 56;
             this.ButtonKakutei.Text = "確定";
             this.ButtonKakutei.UseVisualStyleBackColor = true;
@@ -340,11 +342,13 @@
             this.RadioKakutei.TabIndex = 60;
             this.RadioKakutei.Text = "確定";
             this.RadioKakutei.UseVisualStyleBackColor = true;
+            this.RadioKakutei.CheckedChanged += new System.EventHandler(this.RadioKakutei_CheckedChanged);
             // 
             // F_入荷管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1403, 884);
             this.Controls.Add(this.RadioKakutei);
             this.Controls.Add(this.label1);
@@ -356,7 +360,7 @@
             this.Controls.Add(this.RadioHihyouji);
             this.Controls.Add(this.RadioKensaku);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.TextBoxHidden);
+            this.Controls.Add(this.TextboxHihyouji);
             this.Controls.Add(this.LabelHidden);
             this.Controls.Add(this.LabelKokyakumei);
             this.Controls.Add(this.ComboEigyousyoName);
@@ -367,6 +371,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "F_入荷管理";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_入荷";
             this.Load += new System.EventHandler(this.F_入荷管理_Load);
             this.panel1.ResumeLayout(false);
@@ -386,7 +391,7 @@
         private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.Label LabelTitle;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RichTextBox TextBoxHidden;
+        private System.Windows.Forms.RichTextBox TextboxHihyouji;
         private System.Windows.Forms.Label LabelHidden;
         private System.Windows.Forms.Label LabelKokyakumei;
         private System.Windows.Forms.ComboBox ComboEigyousyoName;
