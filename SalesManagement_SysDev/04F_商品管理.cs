@@ -181,7 +181,7 @@ namespace SalesManagement_SysDev
                 var regPro = GenerateProductDataAtRegistration();
                 var regSto =GenerateStockDataAtRegistration();
 
-                RegistrationProduct(regPro,regSto);
+                RegistrationProduct(regPro);
             }
 
             //検索処理----------------------------------------------------------------------
@@ -295,17 +295,9 @@ namespace SalesManagement_SysDev
                 PrHidden = null,
             };
         }
-        private T_Stock GenerateStockDataAtRegistration() //登録データ生成
-        {
-            int ManuID = ComboMakerName.SelectedIndex;
-            int Sc = ComboSyobunrui.SelectedIndex;
-            return new T_Stock
-            {
-             
-            };
-        }
+      
 
-        private void RegistrationProduct(M_Product regPro,T_Stock regSto) //データ登録処理
+        private void RegistrationProduct(M_Product regPro) //データ登録処理
         {
             DialogResult result = MessageBox.Show("商品データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
@@ -313,7 +305,6 @@ namespace SalesManagement_SysDev
                 return;
             }
             bool flg1 = PDA.AddProductData(regPro);
-            //bool flg2 =SDA.AddStockData(regSto);
             if (flg1 == true)
             {
                 MessageBox.Show("データを登録しました");
@@ -321,6 +312,31 @@ namespace SalesManagement_SysDev
             else
             {
                 MessageBox.Show("データの登録に失敗しました");
+                TextboxSyouhinID.Focus();
+            }
+            ClearInput();
+            GetDataGridView();
+        }
+        //在庫登録処理-------------------------------------------------------------------
+        private T_Stock GenerateStockDataAtRegistration() //登録データ生成
+        {
+            return new T_Stock
+            {
+                PrID = DB.GetPrID(),
+                StQuantity=0,
+                
+            };
+        }
+        private void RegistrationStock(T_Stock regSto) //データ登録処理
+        {
+            bool flg1 = SDA.AddStockData(regSto);
+            if (flg1 == true)
+            {
+                MessageBox.Show("データを登録しました");
+            }
+            else
+            {
+                MessageBox.Show("在庫データの登録に失敗しました");
                 TextboxSyouhinID.Focus();
             }
             ClearInput();

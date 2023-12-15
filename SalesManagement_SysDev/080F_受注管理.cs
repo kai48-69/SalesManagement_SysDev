@@ -217,8 +217,11 @@ namespace SalesManagement_SysDev
             {
                 return;
             }
-               
-            ConfirmOr();
+
+            if (ConfirmOr() == false)
+            {
+                return;
+            }
             var ConOr = GenereteDataAtUpdateFlg();
             UpdOrFlag(ConOr);
         }
@@ -452,12 +455,12 @@ namespace SalesManagement_SysDev
             return true;
         }
         
-        private void ConfirmOr()//注文テーブルにデータを登録する
+        private bool ConfirmOr()//注文テーブルにデータを登録する
         {
             DialogResult result = MessageBox.Show("受注情報を確定します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
             {
-                return;
+                return false;
             }
 
             T_Order selectCondition = new T_Order()
@@ -492,6 +495,7 @@ namespace SalesManagement_SysDev
                 CDA.AddChumonDetailData(ChumonDetail);
             }
                MessageBox.Show("データを確定しました");
+            return true;
         } 
 
         private T_Order GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)

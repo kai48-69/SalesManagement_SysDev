@@ -208,6 +208,11 @@ namespace SalesManagement_SysDev
                 return -1;
             }
         }
+        public int GetPrID()
+        {
+            var context = new SalesManagement_DevContext();
+            return context.M_Products.Max(x => x.PrID);
+        }
 
     }
 }
