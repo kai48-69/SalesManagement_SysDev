@@ -77,8 +77,8 @@ namespace SalesManagement_SysDev
 
 
             //初期値を０に
-            ComboEigyousyoName.SelectedIndex = 0;
-            ComboKokyakuName.SelectedIndex = 0;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
 
             //読み込み専用に
             ComboEigyousyoName.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -410,13 +410,13 @@ namespace SalesManagement_SysDev
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxNyukaID.Enabled = true;
-            TextboxOrderID.Enabled = true;
+            TextboxNyukaID.Enabled = false;
+            TextboxOrderID.Enabled = false;
             ComboEigyousyoName.SelectedIndex = -1;
             ComboKokyakuName.SelectedIndex = -1;
-            ComboEigyousyoName.Enabled = true;
-            ComboKokyakuName.Enabled = true;
-            TextboxHihyouji.Enabled = false;
+            ComboEigyousyoName.Enabled = false;
+            ComboKokyakuName.Enabled = false;
+            TextboxHihyouji.Enabled = true;
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
         }
