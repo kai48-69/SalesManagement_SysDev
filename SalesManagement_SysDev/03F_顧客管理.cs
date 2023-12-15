@@ -397,8 +397,6 @@ namespace SalesManagement_SysDev
             //顧客ID
             var ClID = TextboxKokyakuID.Text.Trim();
 
-
-
             //変換処理
             if (!int.TryParse(ClID, out int KokyakuID))
             {

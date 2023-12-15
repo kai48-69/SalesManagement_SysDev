@@ -55,7 +55,7 @@
             this.ComboKokyakuName = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TextboxSyainID = new System.Windows.Forms.TextBox();
-            this.ComboSyouhinName = new System.Windows.Forms.ComboBox();
+            this.ComboSyohinName = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.TextboxTantousyaName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
@@ -347,15 +347,15 @@
             this.TextboxSyainID.Size = new System.Drawing.Size(239, 32);
             this.TextboxSyainID.TabIndex = 99;
             // 
-            // ComboSyouhinName
+            // ComboSyohinName
             // 
-            this.ComboSyouhinName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ComboSyouhinName.FormattingEnabled = true;
-            this.ComboSyouhinName.Location = new System.Drawing.Point(174, 396);
-            this.ComboSyouhinName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ComboSyouhinName.Name = "ComboSyouhinName";
-            this.ComboSyouhinName.Size = new System.Drawing.Size(221, 33);
-            this.ComboSyouhinName.TabIndex = 106;
+            this.ComboSyohinName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ComboSyohinName.FormattingEnabled = true;
+            this.ComboSyohinName.Location = new System.Drawing.Point(174, 396);
+            this.ComboSyohinName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ComboSyohinName.Name = "ComboSyohinName";
+            this.ComboSyohinName.Size = new System.Drawing.Size(221, 33);
+            this.ComboSyohinName.TabIndex = 106;
             // 
             // label11
             // 
@@ -383,7 +383,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 884);
             this.Controls.Add(this.TextboxTantousyaName);
-            this.Controls.Add(this.ComboSyouhinName);
+            this.Controls.Add(this.ComboSyohinName);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TextboxSyainID);
@@ -440,7 +440,7 @@
         private System.Windows.Forms.ComboBox ComboKokyakuName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TextboxSyainID;
-        private System.Windows.Forms.ComboBox ComboSyouhinName;
+        private System.Windows.Forms.ComboBox ComboSyohinName;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox TextboxTantousyaName;
         private System.Windows.Forms.Label LblLoginDate;

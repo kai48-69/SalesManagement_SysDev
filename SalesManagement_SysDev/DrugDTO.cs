@@ -89,6 +89,8 @@ namespace SalesManagement_SysDev
         public string OrTotalPrice { get; set; }
         [DisplayName("受注年月日")]
         public string OrDate { get; set; }
+        [DisplayName("社員ID")]
+        public int EmID { get; set; }
     }
 
     class DispOrderDetailListDTO

@@ -14,7 +14,6 @@ namespace SalesManagement_SysDev
     {
         readonly LoginData LoginData;
         private static List<M_Client> ClNameDsp;
-        private static List<T_Sale> SaNameDsp;
         private static List<M_Product> PrNameDsp;
         readonly SaleDbConnection DB = new SaleDbConnection();
         readonly ClientDbConnection DB1 = new ClientDbConnection();
@@ -23,7 +22,6 @@ namespace SalesManagement_SysDev
         readonly ProductDbConnection DB4=new ProductDbConnection();
         readonly SaleDataAccess SDA = new SaleDataAccess();
         private static List<M_SalesOffice> SoNameDsp;
-        private static List<M_Employee> EmNameDsp;
         readonly private InputCheck ichk = new InputCheck();
 
         public F_売上管理(LoginData LData)
@@ -78,20 +76,20 @@ namespace SalesManagement_SysDev
             ComboEigyousyoName.DataSource = SoNameDsp;
 
             PrNameDsp = DB4.GetPrNameDspData();
-            ComboEigyousyoName.Items.AddRange(PrNameDsp.ToArray());
-            ComboEigyousyoName.DisplayMember = "PrName";
-            ComboEigyousyoName.ValueMember = "PrID";
-            ComboEigyousyoName.DataSource = PrNameDsp;
+            ComboSyohinName.Items.AddRange(PrNameDsp.ToArray());
+            ComboSyohinName.DisplayMember = "PrName";
+            ComboSyohinName.ValueMember = "PrID";
+            ComboSyohinName.DataSource = PrNameDsp;
 
             //初期値を０に
             ComboEigyousyoName.SelectedIndex = -1;
             ComboKokyakuName.SelectedIndex = -1;
-            ComboSyouhinName.SelectedIndex = -1; 
+            ComboSyohinName.SelectedIndex = -1; 
 
             //読み込み専用に
             ComboEigyousyoName.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboKokyakuName.DropDownStyle = ComboBoxStyle.DropDownList;
-            ComboSyouhinName.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboSyohinName.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         //データグリッドビューの表示設定
@@ -144,10 +142,6 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[8].Width = 80;
-            //受注年月日
-            dataGridView1.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].Width = 90;
 
             dataGridView1.Refresh();
         }
@@ -237,7 +231,7 @@ namespace SalesManagement_SysDev
         private bool GenerateDataAtSelect() //検索データ生成
         {
             int PrID;
-            if (ComboSyouhinName.SelectedIndex == -1)
+            if (ComboSyohinName.SelectedIndex == -1)
             {
                 PrID = -1;
             }
@@ -258,7 +252,7 @@ namespace SalesManagement_SysDev
             }
 
             int ClID;
-            if (ComboSyouhinName.SelectedIndex == -1)
+            if (ComboSyohinName.SelectedIndex == -1)
             {
                 ClID = -1;
             }
