@@ -566,11 +566,6 @@ namespace SalesManagement_SysDev
             if (String.IsNullOrEmpty(TextboxKokyakuID.Text.Trim()))
             {
                 MessageBox.Show("非表示にする顧客データを選択してください");
-            }
-
-            if (ClientDataAccess.CheckCascadeClient(int.Parse(TextboxKokyakuID.Text.Trim())))
-            {
-                MessageBox.Show("入力された顧客IDは他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 

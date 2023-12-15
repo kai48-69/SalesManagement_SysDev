@@ -493,12 +493,6 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-            if (EmployeeDataAccess.CheckCascadeEmployee(int.Parse(TextboxSyainID.Text.Trim())))
-            {
-                MessageBox.Show("選択された社員IDは他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
             if (String.IsNullOrEmpty(TextboxHihyoji.Text.Trim()))
             {
                 MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -668,6 +662,7 @@ namespace SalesManagement_SysDev
         }
 
       
+
 
     }
 }
