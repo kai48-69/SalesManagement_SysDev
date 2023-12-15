@@ -78,10 +78,10 @@ namespace SalesManagement_SysDev
             ComboEigyousyoName.DataSource = SoNameDsp;
 
             PrNameDsp = DB4.GetPrNameDspData();
-            ComboEigyousyoName.Items.AddRange(PrNameDsp.ToArray());
-            ComboEigyousyoName.DisplayMember = "PrName";
-            ComboEigyousyoName.ValueMember = "PrID";
-            ComboEigyousyoName.DataSource = PrNameDsp;
+            ComboSyouhinName.Items.AddRange(PrNameDsp.ToArray());
+            ComboSyouhinName.DisplayMember = "PrName";
+            ComboSyouhinName.ValueMember = "PrID";
+            ComboSyouhinName.DataSource = PrNameDsp;
 
             //初期値を０に
             ComboEigyousyoName.SelectedIndex = -1;
@@ -144,10 +144,6 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[8].Width = 80;
-            //受注年月日
-            dataGridView1.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].Width = 90;
 
             dataGridView1.Refresh();
         }
