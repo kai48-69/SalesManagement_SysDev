@@ -238,7 +238,7 @@ namespace SalesManagement_SysDev
 
         private void HideWa(T_Warehousing hidWa)　//データ更新処理
         {
-            DialogResult result = MessageBox.Show("受注データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("入庫データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (result == DialogResult.Cancel)
             {

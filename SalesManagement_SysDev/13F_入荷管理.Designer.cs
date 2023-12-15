@@ -146,7 +146,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1403, 142);
+            this.panel1.Size = new System.Drawing.Size(1442, 142);
             this.panel1.TabIndex = 45;
             // 
             // LblLoginDate
@@ -293,10 +293,10 @@
             // ButtonKakutei
             // 
             this.ButtonKakutei.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonKakutei.Location = new System.Drawing.Point(576, 783);
+            this.ButtonKakutei.Location = new System.Drawing.Point(568, 783);
             this.ButtonKakutei.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonKakutei.Name = "ButtonKakutei";
-            this.ButtonKakutei.Size = new System.Drawing.Size(259, 51);
+            this.ButtonKakutei.Size = new System.Drawing.Size(278, 60);
             this.ButtonKakutei.TabIndex = 56;
             this.ButtonKakutei.Text = "確定";
             this.ButtonKakutei.UseVisualStyleBackColor = true;
@@ -371,6 +371,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "F_入荷管理";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_入荷";
             this.Load += new System.EventHandler(this.F_入荷管理_Load);
             this.panel1.ResumeLayout(false);

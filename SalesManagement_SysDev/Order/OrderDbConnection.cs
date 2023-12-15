@@ -41,6 +41,7 @@ namespace SalesManagement_SysDev
                              PrQuantity=OrDetail.OrQuantity.ToString(),
                              OrTotalPrice=OrDetail.OrTotalPrice.ToString(),
                              OrDate=Order.OrDate.ToString(),
+                             EmID=Employee.EmID,
                          };
                 return tb.ToList();
             }

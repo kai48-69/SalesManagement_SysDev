@@ -40,9 +40,7 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
 
-
             SetFormComboBox();
-
             if (!GetDataGridView())
             {
                 MessageBox.Show("商品情報を取得することができません。", "商品確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -53,7 +51,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<DispShipListDTO> tb = DB.ShipGetData("");
+            List<DispShipListDTO> tb = DB.ShipGetData();
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -162,9 +160,7 @@ namespace SalesManagement_SysDev
                 }
 
                 var hidSh = GenereteDataAtHidden();
-
                 HideSh(hidSh);
-
             }
         }
 
@@ -194,14 +190,13 @@ namespace SalesManagement_SysDev
                 }
             }
             return true;
-
         }
 
         private bool GenerateDataAtSelect() //検索データ生成
         {
-
             int SoID;
             int ClID;
+           
             if (ComboEigyousyoName.SelectedIndex == -1)
             {
                 SoID = -1;
@@ -221,19 +216,16 @@ namespace SalesManagement_SysDev
             }
 
             //整数型(int)に変換する準備
-
-
             var ShID = TextboxSyukkaID.Text;
-           
-
+            var OrID = TextboxOrderID.Text;
             //変換処理
-        
+
             if (!int.TryParse(ShID, out int SyukkaID))
             {
                 SyukkaID = -1;
             }
 
-            if (!int.TryParse(ShID, out int JutyuID))
+            if (!int.TryParse(OrID, out int JutyuID))
             {
                 JutyuID = -1;
             }
@@ -243,6 +235,8 @@ namespace SalesManagement_SysDev
             {
                 ShID = SyukkaID,
                 SoID = SoID,
+                ClID = ClID,
+                OrID= JutyuID,  
             };
 
             List<DispShipListDTO> tb = DB.GetShipData(selectCondition);
@@ -261,8 +255,6 @@ namespace SalesManagement_SysDev
                 MessageBox.Show("非表示にする受注データを選択してください", "エラー");
                 return false;
             }
-
-           
 
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
             {
@@ -413,19 +405,21 @@ namespace SalesManagement_SysDev
 
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
+            ClearInput();
             TextboxSyukkaID.Enabled = false;
             TextboxOrderID.Enabled = false;
             ComboEigyousyoName.SelectedIndex = -1;
             ComboKokyakuName.SelectedIndex = -1;
             ComboEigyousyoName.Enabled = false;
             ComboKokyakuName.Enabled = false;
-            TextboxHihyouji.Enabled = false;
-            ButtonKakutei.Enabled = true;
+            TextboxHihyouji.Enabled = true;
+            ButtonKakutei.Enabled = false;
             ButtonExe.Visible = false;
         }
 
         private void RadioKakutei_CheckedChanged(object sender, EventArgs e)
         {
+            ClearInput();
             TextboxSyukkaID.Enabled = false;
             TextboxOrderID.Enabled = false;
             ComboEigyousyoName.SelectedIndex = -1;
