@@ -566,6 +566,7 @@ namespace SalesManagement_SysDev
             if (String.IsNullOrEmpty(TextboxKokyakuID.Text.Trim()))
             {
                 MessageBox.Show("非表示にする顧客データを選択してください");
+                return false;
             }
 
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
