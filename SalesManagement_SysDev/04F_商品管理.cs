@@ -179,9 +179,12 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 var regPro = GenerateProductDataAtRegistration();
-                var regSto =GenerateStockDataAtRegistration();
-
                 RegistrationProduct(regPro);
+
+                var regSto =GenerateStockDataAtRegistration();
+                RegistrationStock(regSto);
+
+            
             }
 
             //検索処理----------------------------------------------------------------------
@@ -219,16 +222,18 @@ namespace SalesManagement_SysDev
                 {
                     return;
                 }
-
+                //商品非表示処理
                 var hidProduct = GenereteDataAtHidden();
-
                 HideProduct(hidProduct);
+                //在庫非表示処理
+                var hidStock = GenerateDataAtHideStock();
+                HideStock(hidStock);
+
             }
         }
 
-
         //以下モジュール
-        //登録処理--------------------------------------------------------------------------
+        //商品登録処理--------------------------------------------------------------------------
         private bool GetVaildDataAtRegistration() //入力データチェック
         {
             if (String.IsNullOrEmpty(TextboxSyohinName.Text.Trim()))
@@ -296,7 +301,6 @@ namespace SalesManagement_SysDev
             };
         }
       
-
         private void RegistrationProduct(M_Product regPro) //データ登録処理
         {
             DialogResult result = MessageBox.Show("商品データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -311,12 +315,11 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("データの登録に失敗しました");
+                MessageBox.Show("商品データの登録に失敗しました");
                 TextboxSyouhinID.Focus();
             }
-            ClearInput();
-            GetDataGridView();
         }
+
         //在庫登録処理-------------------------------------------------------------------
         private T_Stock GenerateStockDataAtRegistration() //登録データ生成
         {
@@ -327,14 +330,11 @@ namespace SalesManagement_SysDev
                 
             };
         }
+
         private void RegistrationStock(T_Stock regSto) //データ登録処理
         {
             bool flg1 = SDA.AddStockData(regSto);
-            if (flg1 == true)
-            {
-                MessageBox.Show("データを登録しました");
-            }
-            else
+            if (flg1 != true)
             {
                 MessageBox.Show("在庫データの登録に失敗しました");
                 TextboxSyouhinID.Focus();
@@ -545,18 +545,12 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
-        //非表示処理---------------------------------------------------------------------
+        //商品非表示処理---------------------------------------------------------------------
         private bool GetVaildDataAtHide()//入力データチェック
         {
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
             {
                 MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if (DB.CheckCascadeProduct(int.Parse(TextboxSyouhinID.Text.Trim()))==-1)
-            {
-                MessageBox.Show("選択された商品は他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -599,13 +593,31 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("商品データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        //在庫非表示処理
+        private T_Stock GenerateDataAtHideStock()　//非表示データ生成(フラグの更新データ生成)
+        {
+            T_Stock retStock = new T_Stock
+            {
+                PrID = int.Parse(TextboxSyouhinID.Text),
+                StQuantity=0,
+                StFlag = 2
+            };
+            return retStock;
+        }
+        private void HideStock( T_Stock hidSto)　//データ非表示処理
+        {
+            bool flg = SDA.HideStockData(hidSto);
+            if (flg != true)
+            {
+                MessageBox.Show("在庫データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             ClearInput();
             GetDataGridView();
         }
-
-
         //入力クリア----------------------------------------------------------------------
         private void ClearInput()
         {
@@ -701,10 +713,10 @@ namespace SalesManagement_SysDev
             ClearInput();
             TextboxSyouhinID.ReadOnly = true;
             TextboxSyohinName.ReadOnly = false;
-            ComboMakerName.SelectedIndex = 0;
+            ComboMakerName.SelectedIndex = -1;
             TextboxKakaku.ReadOnly = false;
             TextboxStock.ReadOnly = false;
-            ComboSyobunrui.SelectedIndex = 0;
+            ComboSyobunrui.SelectedIndex = -1;
             TextboxKataban.ReadOnly = false;
             TextboxColor.ReadOnly = false;
             LblHatubaiDate.Visible = true;
@@ -727,6 +739,7 @@ namespace SalesManagement_SysDev
             TextboxKataban.ReadOnly = true;
             TextboxColor.ReadOnly = true;
             LblHatubaiDate.Visible = true;
+            HatubaiDate.Visible = true; 
             TextboxHihyouji.Enabled = true;
             HatubaiDate.Visible = false;
             ComboMakerName.Enabled =false;

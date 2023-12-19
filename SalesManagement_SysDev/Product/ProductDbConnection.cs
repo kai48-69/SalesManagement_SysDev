@@ -190,7 +190,7 @@ namespace SalesManagement_SysDev
             }
         }
 
-        public int CheckCascadeProduct(int PrID)
+        public int CheckCascadeProduct(int PrID)//非表示か確認する
         {
             try
             {
@@ -208,6 +208,18 @@ namespace SalesManagement_SysDev
                 return -1;
             }
         }
+
+        public bool HideCheckProduct(int PrID)//在庫数が０か確認する
+        {
+            var context = new SalesManagement_DevContext();
+            var Stock=context.T_Stocks.Single( x => x.PrID ==PrID);
+            if(Stock.StQuantity != 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public int GetPrID()
         {
             var context = new SalesManagement_DevContext();
