@@ -242,24 +242,24 @@ namespace SalesManagement_SysDev
                     MessageBox.Show("正しい形式で電話番号を入力してください");
                     return false;
                 }
-                if (TextboxTelNo2.Text.Length < 2)
+                if (TextboxTelNo3.Text.Length < 3)
                 {
                     MessageBox.Show("正しい形式で電話番号を入力してください");
                     return false;
                 }
-                if (TextboxTelNo3.Text.Length <= 3)
+                if (TextboxTelNo1.TextLength + TextboxTelNo2.TextLength + TextboxTelNo3.TextLength >= 12)
                 {
                     MessageBox.Show("正しい形式で電話番号を入力してください");
                     return false;
                 }
             }
+          
             else
             {
                 MessageBox.Show("電話番号が入力されていません");
                 TextboxTelNo1.Focus();
                 return false;
             }
-
             return true;
         }
 

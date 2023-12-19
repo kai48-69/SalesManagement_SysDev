@@ -216,19 +216,6 @@ namespace SalesManagement_SysDev
                     HideClient(hidClient);
                 }
             }
-
-            //非表示処理--------------------------------------------------------------------
-            if (RadioHihyouji.Checked == true)
-            {
-                if (!GetVaildDataAtHide())
-                {
-                    return;
-                }
-
-                var hidProduct = GenereteDataAtHidden();
-
-                HideClient(hidProduct);
-            }
         }
 
         //登録処理--------------------------------------------------------------------------

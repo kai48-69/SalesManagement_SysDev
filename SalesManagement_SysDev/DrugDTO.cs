@@ -154,9 +154,9 @@ namespace SalesManagement_SysDev
     class DispHattyuListDTO
     {
         [DisplayName("発注ID")]
-        public string HaID { get; set; }
+        public int HaID { get; set; }
         [DisplayName("発注詳細ID")]
-        public string HaDetailID { get; set; }
+        public int HaDetailID { get; set; }
         [DisplayName("メーカー名")]
         public string MaName { get; set; }
         [DisplayName("社員名")]
@@ -164,9 +164,11 @@ namespace SalesManagement_SysDev
         [DisplayName("商品名")]
         public string PrName { get; set; }
         [DisplayName("数量")]
-        public string HaQuantity { get; set; }
+        public int HaQuantity { get; set; }
         [DisplayName("発注年月日")]
         public string HaDate { get; set; }
+        [DisplayName("社員ID")]
+        public int EmID { get; set; }
     }
 
     class DispHattyuDetailListDTO
