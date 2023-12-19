@@ -146,7 +146,7 @@
             // ButtonZaiko
             // 
             this.ButtonZaiko.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonZaiko.Location = new System.Drawing.Point(670, 353);
+            this.ButtonZaiko.Location = new System.Drawing.Point(712, 353);
             this.ButtonZaiko.Name = "ButtonZaiko";
             this.ButtonZaiko.Size = new System.Drawing.Size(251, 111);
             this.ButtonZaiko.TabIndex = 5;
@@ -157,9 +157,9 @@
             // ButtonHattyu
             // 
             this.ButtonHattyu.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonHattyu.Location = new System.Drawing.Point(110, 184);
+            this.ButtonHattyu.Location = new System.Drawing.Point(390, 182);
             this.ButtonHattyu.Name = "ButtonHattyu";
-            this.ButtonHattyu.Size = new System.Drawing.Size(249, 280);
+            this.ButtonHattyu.Size = new System.Drawing.Size(249, 115);
             this.ButtonHattyu.TabIndex = 1;
             this.ButtonHattyu.Text = "発注管理";
             this.ButtonHattyu.UseVisualStyleBackColor = true;
@@ -168,9 +168,9 @@
             // ButtonNyuko
             // 
             this.ButtonNyuko.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonNyuko.Location = new System.Drawing.Point(398, 184);
+            this.ButtonNyuko.Location = new System.Drawing.Point(390, 353);
             this.ButtonNyuko.Name = "ButtonNyuko";
-            this.ButtonNyuko.Size = new System.Drawing.Size(243, 111);
+            this.ButtonNyuko.Size = new System.Drawing.Size(249, 111);
             this.ButtonNyuko.TabIndex = 2;
             this.ButtonNyuko.Text = "入庫管理";
             this.ButtonNyuko.UseVisualStyleBackColor = true;
@@ -179,9 +179,9 @@
             // ButtonSyukko
             // 
             this.ButtonSyukko.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonSyukko.Location = new System.Drawing.Point(398, 353);
+            this.ButtonSyukko.Location = new System.Drawing.Point(57, 184);
             this.ButtonSyukko.Name = "ButtonSyukko";
-            this.ButtonSyukko.Size = new System.Drawing.Size(243, 111);
+            this.ButtonSyukko.Size = new System.Drawing.Size(243, 282);
             this.ButtonSyukko.TabIndex = 3;
             this.ButtonSyukko.Text = "出庫管理";
             this.ButtonSyukko.UseVisualStyleBackColor = true;
@@ -190,7 +190,7 @@
             // ButtonSyouhin
             // 
             this.ButtonSyouhin.Font = new System.Drawing.Font("MS UI Gothic", 23F);
-            this.ButtonSyouhin.Location = new System.Drawing.Point(670, 184);
+            this.ButtonSyouhin.Location = new System.Drawing.Point(712, 184);
             this.ButtonSyouhin.Name = "ButtonSyouhin";
             this.ButtonSyouhin.Size = new System.Drawing.Size(243, 111);
             this.ButtonSyouhin.TabIndex = 4;

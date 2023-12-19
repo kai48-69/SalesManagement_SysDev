@@ -64,6 +64,21 @@ namespace SalesManagement_SysDev
             return Mname;
         }
 
+        public List<M_Product> GetPrNameDspData()
+        {
+            List<M_Product> PrName = new List<M_Product>();
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                PrName = context.M_Products.Where(x => x.PrName != null).ToList();
+                context.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return PrName;
+        }
         public List<M_SmallClassification> GetScDspData()
         {
             List<M_SmallClassification> ScName = new List<M_SmallClassification>();
@@ -175,7 +190,7 @@ namespace SalesManagement_SysDev
             }
         }
 
-        public int CheckCascadeProduct(int PrID)
+        public int CheckCascadeProduct(int PrID)//非表示か確認する
         {
             try
             {
@@ -192,6 +207,23 @@ namespace SalesManagement_SysDev
             {
                 return -1;
             }
+        }
+
+        public bool HideCheckProduct(int PrID)//在庫数が０か確認する
+        {
+            var context = new SalesManagement_DevContext();
+            var Stock=context.T_Stocks.Single( x => x.PrID ==PrID);
+            if(Stock.StQuantity != 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public int GetPrID()
+        {
+            var context = new SalesManagement_DevContext();
+            return context.M_Products.Max(x => x.PrID);
         }
 
     }

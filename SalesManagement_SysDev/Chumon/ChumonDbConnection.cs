@@ -32,8 +32,7 @@ namespace SalesManagement_SysDev
                          join Product in context.M_Products
                          on ChumonDetail.PrID equals Product.PrID
                          where Chumon.ChFlag.Equals(0) &&
-                         Chumon.ChStateFlag.Equals(0) &&
-                         Chumon.EmID==null
+                         Chumon.ChStateFlag.Equals(0) 
 
                          select new DispChumonListDTO
                          {

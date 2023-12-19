@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +36,7 @@ namespace SalesManagement_SysDev
         private void F_出庫管理_Load(object sender, EventArgs e)
         {
             TextboxHihyouji.Enabled = false;
-            ButtonExe.Enabled = false;
+            ButtonKakutei.Enabled = false;
             SetFormComboBox();
 
             if (!GetDataGridView())
@@ -73,8 +74,8 @@ namespace SalesManagement_SysDev
             ComboEigyousyoName.DataSource = SoNameDsp;
 
             //初期値を０に
-            ComboEigyousyoName.SelectedIndex = 0;
-            ComboKokyakuName.SelectedIndex = 0;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
 
             //読み込み専用に
             ComboEigyousyoName.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -130,17 +131,12 @@ namespace SalesManagement_SysDev
         //データグリッドビューをクリックしたときの処理
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (RadioKensaku.Checked == true)
+            if (!RadioKensaku.Checked)
             {
                 TextboxSyukkoID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
                 ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
                 ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
-            }
-            else
-            {
-                TextboxSyukkoID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
-                ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
-                ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
+                TextboxOrderID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[6].Value.ToString();
             }
         }
 
@@ -292,7 +288,7 @@ namespace SalesManagement_SysDev
 
         private void HideSy(T_Syukko hidSy)　//データ更新処理
         {
-            DialogResult result = MessageBox.Show("注文データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("出庫データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (result == DialogResult.Cancel)
             {
@@ -327,7 +323,7 @@ namespace SalesManagement_SysDev
         }
         private void ConfirmSy()//注文テーブルにデータを登録する
         {
-            DialogResult result = MessageBox.Show("注文情報を確定します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("出庫情報を確定します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
             {
                 return;
@@ -408,9 +404,48 @@ namespace SalesManagement_SysDev
             ComboKokyakuName.SelectedIndex = -1;
         }
 
+        private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxSyukkoID.Enabled = true;
+            TextboxOrderID.Enabled = true;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+            ComboEigyousyoName.Enabled = true;
+            ComboKokyakuName.Enabled = true;
+            TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = false;
+            ButtonExe.Visible = true;
 
+        }
 
+        private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxSyukkoID.Enabled = false;
+            TextboxOrderID.Enabled = false;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+            ComboEigyousyoName.Enabled = false;
+            ComboKokyakuName.Enabled = false;
+            TextboxHihyouji.Enabled = true;
+            ButtonKakutei.Enabled = false;
+            ButtonExe.Visible = true;
+        }
 
+        private void RadioKakutei_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxSyukkoID.Enabled = false;
+            TextboxOrderID.Enabled = false;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+            ComboEigyousyoName.Enabled = false;
+            ComboKokyakuName.Enabled = false;
+            TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = true;
+            ButtonExe.Visible = false;
+        }
     }
 }
 

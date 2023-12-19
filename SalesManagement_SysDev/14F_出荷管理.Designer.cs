@@ -61,7 +61,7 @@
             // ButtonReset
             // 
             this.ButtonReset.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonReset.Location = new System.Drawing.Point(300, 171);
+            this.ButtonReset.Location = new System.Drawing.Point(388, 178);
             this.ButtonReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonReset.Name = "ButtonReset";
             this.ButtonReset.Size = new System.Drawing.Size(165, 44);
@@ -93,6 +93,7 @@
             this.RadioHihyouji.TabIndex = 69;
             this.RadioHihyouji.Text = "非表示";
             this.RadioHihyouji.UseVisualStyleBackColor = true;
+            this.RadioHihyouji.CheckedChanged += new System.EventHandler(this.RadioHihyouji_CheckedChanged);
             // 
             // RadioKensaku
             // 
@@ -107,6 +108,7 @@
             this.RadioKensaku.TabStop = true;
             this.RadioKensaku.Text = "検索";
             this.RadioKensaku.UseVisualStyleBackColor = true;
+            this.RadioKensaku.CheckedChanged += new System.EventHandler(this.RadioKensaku_CheckedChanged);
             // 
             // panel1
             // 
@@ -333,13 +335,14 @@
             // 
             this.RadioKakutei.AutoSize = true;
             this.RadioKakutei.Font = new System.Drawing.Font("MS UI Gothic", 18F);
-            this.RadioKakutei.Location = new System.Drawing.Point(286, 181);
+            this.RadioKakutei.Location = new System.Drawing.Point(283, 183);
             this.RadioKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RadioKakutei.Name = "RadioKakutei";
             this.RadioKakutei.Size = new System.Drawing.Size(94, 34);
             this.RadioKakutei.TabIndex = 107;
             this.RadioKakutei.Text = "確定";
             this.RadioKakutei.UseVisualStyleBackColor = true;
+            this.RadioKakutei.CheckedChanged += new System.EventHandler(this.RadioKakutei_CheckedChanged);
             // 
             // F_出荷管理
             // 
@@ -347,6 +350,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1403, 884);
+            this.Controls.Add(this.RadioKakutei);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TextboxOrderID);
             this.Controls.Add(this.ComboKokyakuName);
@@ -367,6 +371,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "F_出荷管理";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.F_出荷管理_Load);
             this.panel1.ResumeLayout(false);

@@ -81,9 +81,9 @@ namespace SalesManagement_SysDev
                          on Employee.SoID equals SOffice.SoID
                          join Position in context.M_Positions
                          on Employee.PoID equals Position.PoID
-                         where Employee.EmPhone.Contains(selectCondition.EmPhone) &&
-                         ((selectCondition.EmID == -1) ? true :
-                         Employee.EmID == selectCondition.EmID) &&
+                         where 
+                         (selectCondition.EmID == -1 ? true:
+                         Employee.EmID.ToString().Contains(selectCondition.EmID.ToString()) )&&
                         ((selectCondition.SoID == -1) ? true :
                         Employee.SoID == selectCondition.SoID) &&
                         ((selectCondition.PoID == -1) ? true :

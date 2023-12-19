@@ -311,6 +311,7 @@
             this.TextboxHattyuID.Name = "TextboxHattyuID";
             this.TextboxHattyuID.Size = new System.Drawing.Size(245, 32);
             this.TextboxHattyuID.TabIndex = 26;
+            this.TextboxHattyuID.Text = "※入力不要です";
             // 
             // dataGridView1
             // 
@@ -363,6 +364,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1403, 884);
             this.Controls.Add(this.RadioKakutei);
             this.Controls.Add(this.ButtonKakutei);
@@ -386,6 +388,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "F_発注管理";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.F_発注管理_Load);
             this.panel1.ResumeLayout(false);

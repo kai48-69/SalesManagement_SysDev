@@ -39,8 +39,12 @@ namespace SalesManagement_SysDev
         {
             TextboxHihyouji.Enabled = false;
             TextboxJutyuID.ReadOnly = true;
-            TextboxSyainName.ReadOnly = true;
+            TextboxSyainName.ReadOnly =true;
             ButtonKakutei.Enabled = false;
+            TextboxSyainID.Text = LoginData.EmID.ToString();
+            TextboxSyainID.ReadOnly = true;
+            ComboEigyousyoName.SelectedValue = LoginData.SoName;
+            ComboEigyousyoName.Enabled = false;
             SetFormComboBox();
 
             if (!GetDataGridView())
@@ -48,6 +52,8 @@ namespace SalesManagement_SysDev
                 MessageBox.Show("商品情報を取得することができません。", "商品確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            TextboxTantousyaName.Focus();
         }
 
         //データ全件表示
@@ -78,8 +84,7 @@ namespace SalesManagement_SysDev
             ComboEigyousyoName.DataSource = SoNameDsp;
 
             //初期値を０に
-            ComboEigyousyoName.SelectedIndex = 0;
-            ComboKokyakuName.SelectedIndex = 0;
+            ComboKokyakuName.Text = "選択してください";
 
             //読み込み専用に
             ComboEigyousyoName.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -140,6 +145,12 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[9].Width = 90;
+            //受注年月日
+            dataGridView1.Columns[10].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[10].Width = 90;
+            dataGridView1.Columns[10].Visible = false;
+
 
             dataGridView1.Refresh();
         }
@@ -147,25 +158,14 @@ namespace SalesManagement_SysDev
         //データグリッドビューをクリックしたときの処理
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (RadioTouroku.Checked == true)
+            if (RadioHihyouji.Checked == true|| RadioKakutei.Checked==true)
             {
-
+                TextboxJutyuID.Text = TextboxJutyuID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
                 ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
                 TextboxSyainName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
                 ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
                 TextboxTantousyaName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
-            }
-            else if (RadioKensaku.Checked == true)
-            {
-
-            }
-            else
-            {
-                TextboxJutyuID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
-                ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
-                TextboxSyainName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
-                ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
-                TextboxTantousyaName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+                TextboxSyainID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[10].Value.ToString();
             }
         }
 
@@ -217,8 +217,11 @@ namespace SalesManagement_SysDev
             {
                 return;
             }
-               
-            ConfirmOr();
+
+            if (ConfirmOr() == false)
+            {
+                return;
+            }
             var ConOr = GenereteDataAtUpdateFlg();
             UpdOrFlag(ConOr);
         }
@@ -452,12 +455,12 @@ namespace SalesManagement_SysDev
             return true;
         }
         
-        private void ConfirmOr()//注文テーブルにデータを登録する
+        private bool ConfirmOr()//注文テーブルにデータを登録する
         {
             DialogResult result = MessageBox.Show("受注情報を確定します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
             {
-                return;
+                return false;
             }
 
             T_Order selectCondition = new T_Order()
@@ -492,6 +495,7 @@ namespace SalesManagement_SysDev
                 CDA.AddChumonDetailData(ChumonDetail);
             }
                MessageBox.Show("データを確定しました");
+            return true;
         } 
 
         private T_Order GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
@@ -527,11 +531,11 @@ namespace SalesManagement_SysDev
             if (RadioTouroku.Checked == true)//登録時はコンボボックスに値を表示する
             {
                 TextboxJutyuID.Text = "";
-                ComboEigyousyoName.SelectedIndex = 0;
+                ComboEigyousyoName.SelectedValue = LoginData.SoName;
                 ComboKokyakuName.SelectedIndex = 0;
                 TextboxTantousyaName.Text = "";
-                TextboxSyainID.Text = "";
-                TextboxSyainName.Text = "";
+                TextboxSyainID.Text = LoginData.EmID.ToString();
+                TextboxSyainName.Text = LoginData.EmName;
 
             }
             else   //検索時、非表示時はコンボボックスの値を空にする
@@ -557,17 +561,19 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxJutyuID.ReadOnly = true;
+            TextboxJutyuID.Text = "入力不要です";
             ComboKokyakuName.SelectedIndex = 0;
             TextboxTantousyaName.ReadOnly = false;
             ComboEigyousyoName.SelectedIndex = 0;
-            TextboxSyainID.Visible = true;
-            LblSyainID.Visible = true;
             TextboxSyainName.ReadOnly = true;
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
-            ComboEigyousyoName.Enabled = true;
+            ComboEigyousyoName.Enabled = false;
             ComboKokyakuName.Enabled = true;
+            TextboxSyainID.Text = LoginData.EmID.ToString();
+            TextboxSyainID.ReadOnly = true;
+            TextboxTantousyaName.Focus();
             GetDataGridView();
         }
 
@@ -576,17 +582,18 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxJutyuID.ReadOnly = false;
+            TextboxJutyuID.Text = "";
             ComboKokyakuName.SelectedIndex = -1;
             TextboxTantousyaName.ReadOnly = false;
             ComboEigyousyoName.SelectedIndex = -1;
-            TextboxSyainID.Visible =true;
-            LblSyainID.Visible = true;
             TextboxSyainName.ReadOnly = true;
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
             ComboEigyousyoName.Enabled = true;
             ComboKokyakuName.Enabled = true;
+            TextboxSyainID.ReadOnly = false;
+            TextboxJutyuID.Focus();
             GetDataGridView();
         }
 
@@ -595,17 +602,15 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxJutyuID.ReadOnly = true;
-            ComboKokyakuName.SelectedIndex = -1;
+            TextboxJutyuID.Text = "";
             TextboxTantousyaName.ReadOnly = true;
-            ComboEigyousyoName.SelectedIndex = -1;
-            TextboxSyainID.Visible = false;
-            LblSyainID.Visible=false;
+            TextboxSyainID.ReadOnly = true;
             TextboxSyainName.ReadOnly = true;
             TextboxHihyouji.Enabled = true;
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
-            ComboEigyousyoName.Enabled = true;
-            ComboKokyakuName.Enabled = true;
+            ComboEigyousyoName.Enabled = false;
+            ComboKokyakuName.Enabled = false;
             GetDataGridView();
         }
 
@@ -614,11 +619,9 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxJutyuID.ReadOnly = true;
-            ComboKokyakuName.SelectedIndex = -1;
+            TextboxJutyuID.Text = "";
             TextboxTantousyaName.ReadOnly = true;
-            ComboEigyousyoName.SelectedIndex = -1;
-            TextboxSyainID.Visible = false;
-            LblSyainID.Visible = false;
+            TextboxSyainID.ReadOnly = true;
             TextboxSyainName.ReadOnly = true;
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = true;

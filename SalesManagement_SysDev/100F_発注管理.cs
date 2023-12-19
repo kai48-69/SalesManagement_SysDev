@@ -37,6 +37,8 @@ namespace SalesManagement_SysDev
             TextboxHattyuID.Enabled = false;
             ButtonKakutei.Enabled = false;
             TextboxHihyouji.Enabled = false;
+            TextboxSyainID.Text=LoginData.EmID.ToString();
+            TextboxSyainID.ReadOnly = true;
             SetFormComboBox();
 
             if (!GetDataGridView())
@@ -448,7 +450,7 @@ namespace SalesManagement_SysDev
         {
             if (RadioTouroku.Checked == true)
             {
-                TextboxSyainID.Text = "";
+                TextboxSyainID.Text = LoginData.EmID.ToString() ;
                 TextboxSyainName.Text = "";
                 ComboMakerName.SelectedIndex = 0;
                 TextboxHattyuID.Text = "";
@@ -494,19 +496,22 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = true;
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
+          
         }
 
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
             TextboxHattyuID.Enabled = true;
-            LblSyainID.Visible = false;
-            TextboxSyainID.Visible = false;
+            LblSyainID.Visible = true;
+            TextboxSyainID.Visible = true;
+            TextboxSyainID.ReadOnly = false;
             ComboMakerName.Enabled = true;
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
         }
+        
 
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {

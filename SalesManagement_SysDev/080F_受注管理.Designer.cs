@@ -79,12 +79,15 @@
             // 
             // TextboxJutyuID
             // 
+            this.TextboxJutyuID.Enabled = false;
             this.TextboxJutyuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxJutyuID.Location = new System.Drawing.Point(151, 292);
             this.TextboxJutyuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxJutyuID.Name = "TextboxJutyuID";
+            this.TextboxJutyuID.ReadOnly = true;
             this.TextboxJutyuID.Size = new System.Drawing.Size(253, 32);
             this.TextboxJutyuID.TabIndex = 1;
+            this.TextboxJutyuID.Text = "※入力不要です";
             // 
             // label1
             // 
@@ -301,6 +304,7 @@
             this.TextboxSyainName.Location = new System.Drawing.Point(151, 413);
             this.TextboxSyainName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainName.Name = "TextboxSyainName";
+            this.TextboxSyainName.ReadOnly = true;
             this.TextboxSyainName.Size = new System.Drawing.Size(253, 32);
             this.TextboxSyainName.TabIndex = 6;
             // 
@@ -320,6 +324,7 @@
             this.TextboxSyainID.Location = new System.Drawing.Point(151, 354);
             this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainID.Name = "TextboxSyainID";
+            this.TextboxSyainID.ReadOnly = true;
             this.TextboxSyainID.Size = new System.Drawing.Size(253, 32);
             this.TextboxSyainID.TabIndex = 5;
             this.TextboxSyainID.TextChanged += new System.EventHandler(this.TextboxSyainID_TextChanged);
@@ -338,6 +343,7 @@
             // 
             // ComboEigyousyoName
             // 
+            this.ComboEigyousyoName.Enabled = false;
             this.ComboEigyousyoName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ComboEigyousyoName.FormattingEnabled = true;
             this.ComboEigyousyoName.Location = new System.Drawing.Point(625, 289);

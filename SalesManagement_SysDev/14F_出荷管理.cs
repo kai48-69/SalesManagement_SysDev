@@ -16,12 +16,13 @@ namespace SalesManagement_SysDev
 
         readonly LoginData LoginData;
         private static List<M_SalesOffice> SoNameDsp;
-     
+        private static List<M_Client> ClNameDsp;
         readonly private InputCheck ichk = new InputCheck();
         readonly ShipDbConnection DB = new ShipDbConnection();
         readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
         readonly ShipDbConnection DB2 = new ShipDbConnection();
         readonly SaleDbConnection DB3 = new SaleDbConnection();
+        readonly OrderDbConnection DB4 = new OrderDbConnection();
         readonly SaleDataAccess SDA = new SaleDataAccess();
         readonly ShipDataAccess ShDA=new ShipDataAccess();
 
@@ -39,9 +40,7 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
 
-
             SetFormComboBox();
-
             if (!GetDataGridView())
             {
                 MessageBox.Show("商品情報を取得することができません。", "商品確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -52,7 +51,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<DispShipListDTO> tb = DB.ShipGetData("");
+            List<DispShipListDTO> tb = DB.ShipGetData();
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -117,17 +116,25 @@ namespace SalesManagement_SysDev
 
         private void SetFormComboBox()
         {
+            ClNameDsp = DB4.GetClientNameDspData();
+            ComboKokyakuName.Items.AddRange(ClNameDsp.ToArray());
+            ComboKokyakuName.DisplayMember = "ClName";
+            ComboKokyakuName.ValueMember = "ClID";
+            ComboKokyakuName.DataSource = ClNameDsp;
+
             SoNameDsp = DB1.GetSoNameDspData();
             ComboEigyousyoName.Items.AddRange(SoNameDsp.ToArray());
             ComboEigyousyoName.DisplayMember = "SoName";
             ComboEigyousyoName.ValueMember = "SoID";
             ComboEigyousyoName.DataSource = SoNameDsp;
 
-            //初期値を０に
-            ComboEigyousyoName.SelectedIndex = 0;
+            //初期値を-1に
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
 
             //読み込み専用に
             ComboEigyousyoName.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboKokyakuName.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void ButtonExe_Click(object sender, EventArgs e)
@@ -153,9 +160,7 @@ namespace SalesManagement_SysDev
                 }
 
                 var hidSh = GenereteDataAtHidden();
-
                 HideSh(hidSh);
-
             }
         }
 
@@ -185,14 +190,13 @@ namespace SalesManagement_SysDev
                 }
             }
             return true;
-
         }
 
         private bool GenerateDataAtSelect() //検索データ生成
         {
-
             int SoID;
             int ClID;
+           
             if (ComboEigyousyoName.SelectedIndex == -1)
             {
                 SoID = -1;
@@ -212,19 +216,16 @@ namespace SalesManagement_SysDev
             }
 
             //整数型(int)に変換する準備
-
-
             var ShID = TextboxSyukkaID.Text;
-           
-
+            var OrID = TextboxOrderID.Text;
             //変換処理
-        
+
             if (!int.TryParse(ShID, out int SyukkaID))
             {
                 SyukkaID = -1;
             }
 
-            if (!int.TryParse(ShID, out int JutyuID))
+            if (!int.TryParse(OrID, out int JutyuID))
             {
                 JutyuID = -1;
             }
@@ -234,6 +235,8 @@ namespace SalesManagement_SysDev
             {
                 ShID = SyukkaID,
                 SoID = SoID,
+                ClID = ClID,
+                OrID= JutyuID,  
             };
 
             List<DispShipListDTO> tb = DB.GetShipData(selectCondition);
@@ -253,8 +256,6 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-           
-
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
             {
                 MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -267,7 +268,7 @@ namespace SalesManagement_SysDev
         {
             return new T_Shipment
             {
-                OrID = int.Parse(TextboxSyukkaID.Text),
+                ShID = int.Parse(TextboxSyukkaID.Text),
 
                 ShFlag = 2,
                 ShHidden = TextboxHihyouji.Text,
@@ -283,7 +284,7 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            bool flg = DB2.HideOrderData(hidSh);
+            bool flg = ShDA.HideShipData(hidSh);
             if (flg == true)
             {
                 MessageBox.Show("データを非表示にしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -386,6 +387,48 @@ namespace SalesManagement_SysDev
         {
             TextboxHihyouji.Text = "";
 
+        }
+
+        private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxSyukkaID.Enabled = true;
+            TextboxOrderID.Enabled = true;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+            ComboEigyousyoName.Enabled = true;
+            ComboKokyakuName.Enabled = true;
+            TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = false;
+            ButtonExe.Visible = true;
+        }
+
+        private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxSyukkaID.Enabled = false;
+            TextboxOrderID.Enabled = false;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+            ComboEigyousyoName.Enabled = false;
+            ComboKokyakuName.Enabled = false;
+            TextboxHihyouji.Enabled = true;
+            ButtonKakutei.Enabled = false;
+            ButtonExe.Visible = false;
+        }
+
+        private void RadioKakutei_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxSyukkaID.Enabled = false;
+            TextboxOrderID.Enabled = false;
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+            ComboEigyousyoName.Enabled = false;
+            ComboKokyakuName.Enabled = false;
+            TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = true;
+            ButtonExe.Visible = false;
         }
     }
 }
