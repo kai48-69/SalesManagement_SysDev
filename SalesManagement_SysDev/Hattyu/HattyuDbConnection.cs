@@ -28,13 +28,14 @@ namespace SalesManagement_SysDev.Order
 
                          select new DispHattyuListDTO
                          {
-                             HaID = Hattyu.HaID.ToString(),
-                             HaDetailID = HattyuDetail.HaDetailID.ToString(),
+                             HaID = Hattyu.HaID,
+                             HaDetailID = HattyuDetail.HaDetailID,
                              MaName = Maker.MaName.ToString(),
                              EmName = Employee.EmName,
                              PrName = Product.PrName.ToString(),
-                             HaQuantity = HattyuDetail.HaQuantity.ToString(),
+                             HaQuantity = HattyuDetail.HaQuantity,
                              HaDate = Hattyu.HaDate.ToString(),
+                             EmID= Employee.EmID,
                          };
                 return tb.ToList();
             }
@@ -107,13 +108,14 @@ namespace SalesManagement_SysDev.Order
 
                          select new DispHattyuListDTO
                          {
-                             HaID = Hattyu.HaID.ToString(),
-                             HaDetailID = HattyuDetail.HaDetailID.ToString(),
+                             HaID = Hattyu.HaID,
+                             HaDetailID = HattyuDetail.HaDetailID,
                              MaName = Maker.MaName.ToString(),
                              EmName = Employee.EmName,
                              PrName = Product.PrName.ToString(),
-                             HaQuantity = HattyuDetail.HaQuantity.ToString(),
+                             HaQuantity = HattyuDetail.HaQuantity,
                              HaDate = Hattyu.HaDate.ToString(),
+                             EmID = Employee.EmID,
                          };
 
                 return tb.ToList();

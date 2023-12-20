@@ -80,7 +80,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label5.Location = new System.Drawing.Point(514, 352);
+            this.label5.Location = new System.Drawing.Point(526, 352);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 25);
             this.label5.TabIndex = 94;
@@ -93,7 +93,7 @@
             this.TextboxSyainName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainName.MaxLength = 40;
             this.TextboxSyainName.Name = "TextboxSyainName";
-            this.TextboxSyainName.Size = new System.Drawing.Size(263, 32);
+            this.TextboxSyainName.Size = new System.Drawing.Size(289, 32);
             this.TextboxSyainName.TabIndex = 2;
             // 
             // label9
@@ -120,7 +120,7 @@
             // 
             this.ComboEigyousyoName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ComboEigyousyoName.FormattingEnabled = true;
-            this.ComboEigyousyoName.Location = new System.Drawing.Point(612, 285);
+            this.ComboEigyousyoName.Location = new System.Drawing.Point(624, 285);
             this.ComboEigyousyoName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboEigyousyoName.Name = "ComboEigyousyoName";
             this.ComboEigyousyoName.Size = new System.Drawing.Size(247, 33);
@@ -130,7 +130,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label2.Location = new System.Drawing.Point(489, 289);
+            this.label2.Location = new System.Drawing.Point(501, 288);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 25);
             this.label2.TabIndex = 85;
@@ -153,7 +153,7 @@
             this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainID.MaxLength = 4;
             this.TextboxSyainID.Name = "TextboxSyainID";
-            this.TextboxSyainID.Size = new System.Drawing.Size(264, 32);
+            this.TextboxSyainID.Size = new System.Drawing.Size(290, 32);
             this.TextboxSyainID.TabIndex = 1;
             // 
             // ButtonBack
@@ -174,16 +174,16 @@
             this.TextboxTelNo1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxTelNo1.Location = new System.Drawing.Point(179, 416);
             this.TextboxTelNo1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextboxTelNo1.MaxLength = 4;
+            this.TextboxTelNo1.MaxLength = 5;
             this.TextboxTelNo1.Name = "TextboxTelNo1";
-            this.TextboxTelNo1.Size = new System.Drawing.Size(59, 32);
+            this.TextboxTelNo1.Size = new System.Drawing.Size(75, 32);
             this.TextboxTelNo1.TabIndex = 3;
             // 
             // LblNyusyaDate
             // 
             this.LblNyusyaDate.AutoSize = true;
             this.LblNyusyaDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.LblNyusyaDate.Location = new System.Drawing.Point(464, 418);
+            this.LblNyusyaDate.Location = new System.Drawing.Point(476, 418);
             this.LblNyusyaDate.Name = "LblNyusyaDate";
             this.LblNyusyaDate.Size = new System.Drawing.Size(137, 25);
             this.LblNyusyaDate.TabIndex = 88;
@@ -251,6 +251,7 @@
             this.RadioTouroku.Name = "RadioTouroku";
             this.RadioTouroku.Size = new System.Drawing.Size(94, 34);
             this.RadioTouroku.TabIndex = 78;
+            this.RadioTouroku.TabStop = true;
             this.RadioTouroku.Text = "登録";
             this.RadioTouroku.UseVisualStyleBackColor = true;
             this.RadioTouroku.CheckedChanged += new System.EventHandler(this.RadioTouroku_CheckedChanged);
@@ -371,7 +372,7 @@
             // 
             this.ComboYakusyokuName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ComboYakusyokuName.FormattingEnabled = true;
-            this.ComboYakusyokuName.Location = new System.Drawing.Point(609, 349);
+            this.ComboYakusyokuName.Location = new System.Drawing.Point(621, 349);
             this.ComboYakusyokuName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboYakusyokuName.Name = "ComboYakusyokuName";
             this.ComboYakusyokuName.Size = new System.Drawing.Size(247, 33);
@@ -380,7 +381,7 @@
             // NyusyaDate
             // 
             this.NyusyaDate.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.NyusyaDate.Location = new System.Drawing.Point(612, 412);
+            this.NyusyaDate.Location = new System.Drawing.Point(624, 412);
             this.NyusyaDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NyusyaDate.Name = "NyusyaDate";
             this.NyusyaDate.Size = new System.Drawing.Size(247, 32);
@@ -401,7 +402,7 @@
             // TextboxTelNo2
             // 
             this.TextboxTelNo2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxTelNo2.Location = new System.Drawing.Point(279, 416);
+            this.TextboxTelNo2.Location = new System.Drawing.Point(294, 416);
             this.TextboxTelNo2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxTelNo2.MaxLength = 4;
             this.TextboxTelNo2.Name = "TextboxTelNo2";
@@ -411,7 +412,7 @@
             // TextboxTelNo3
             // 
             this.TextboxTelNo3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxTelNo3.Location = new System.Drawing.Point(380, 416);
+            this.TextboxTelNo3.Location = new System.Drawing.Point(395, 416);
             this.TextboxTelNo3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxTelNo3.MaxLength = 4;
             this.TextboxTelNo3.Name = "TextboxTelNo3";
@@ -422,7 +423,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label3.Location = new System.Drawing.Point(242, 420);
+            this.label3.Location = new System.Drawing.Point(257, 420);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 25);
             this.label3.TabIndex = 103;
@@ -432,7 +433,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label4.Location = new System.Drawing.Point(344, 420);
+            this.label4.Location = new System.Drawing.Point(359, 420);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 25);
             this.label4.TabIndex = 104;

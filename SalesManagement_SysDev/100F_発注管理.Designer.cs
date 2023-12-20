@@ -311,6 +311,7 @@
             this.TextboxHattyuID.Name = "TextboxHattyuID";
             this.TextboxHattyuID.Size = new System.Drawing.Size(245, 32);
             this.TextboxHattyuID.TabIndex = 26;
+            this.TextboxHattyuID.Text = "※入力不要です";
             // 
             // dataGridView1
             // 

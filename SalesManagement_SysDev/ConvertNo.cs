@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SalesManagement_SysDev
 {
@@ -11,7 +12,6 @@ namespace SalesManagement_SysDev
         public string SetPhoneOrFaxFormat(string[] D )
         {
             string No = string.Format(D[0] + "-" + D[1] + "-" + D[2]);
-            
             return No;
         }
     }
