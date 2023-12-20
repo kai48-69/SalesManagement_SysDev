@@ -42,17 +42,18 @@
             this.panel1.Controls.Add(this.ButtonBack);
             this.panel1.Controls.Add(this.Lbl_tag);
             this.panel1.Location = new System.Drawing.Point(-1, -1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(564, 72);
+            this.panel1.Size = new System.Drawing.Size(752, 90);
             this.panel1.TabIndex = 14;
             // 
             // ButtonBack
             // 
             this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonBack.Location = new System.Drawing.Point(422, 18);
+            this.ButtonBack.Location = new System.Drawing.Point(605, 22);
+            this.ButtonBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ButtonBack.Name = "ButtonBack";
-            this.ButtonBack.Size = new System.Drawing.Size(76, 37);
+            this.ButtonBack.Size = new System.Drawing.Size(101, 46);
             this.ButtonBack.TabIndex = 4;
             this.ButtonBack.Text = "戻る";
             this.ButtonBack.UseVisualStyleBackColor = true;
@@ -62,19 +63,20 @@
             // 
             this.Lbl_tag.AutoSize = true;
             this.Lbl_tag.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.Lbl_tag.Location = new System.Drawing.Point(20, 18);
+            this.Lbl_tag.Location = new System.Drawing.Point(27, 22);
+            this.Lbl_tag.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_tag.Name = "Lbl_tag";
-            this.Lbl_tag.Size = new System.Drawing.Size(288, 40);
+            this.Lbl_tag.Size = new System.Drawing.Size(359, 50);
             this.Lbl_tag.TabIndex = 1;
             this.Lbl_tag.Text = "データベース生成";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.button1.Location = new System.Drawing.Point(26, 103);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(35, 129);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(214, 229);
+            this.button1.Size = new System.Drawing.Size(312, 286);
             this.button1.TabIndex = 15;
             this.button1.Text = "データベース生成";
             this.button1.UseVisualStyleBackColor = true;
@@ -82,10 +84,10 @@
             // Btn_InsertSampleData
             // 
             this.Btn_InsertSampleData.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.Btn_InsertSampleData.Location = new System.Drawing.Point(283, 103);
-            this.Btn_InsertSampleData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btn_InsertSampleData.Location = new System.Drawing.Point(407, 129);
+            this.Btn_InsertSampleData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_InsertSampleData.Name = "Btn_InsertSampleData";
-            this.Btn_InsertSampleData.Size = new System.Drawing.Size(214, 229);
+            this.Btn_InsertSampleData.Size = new System.Drawing.Size(298, 286);
             this.Btn_InsertSampleData.TabIndex = 16;
             this.Btn_InsertSampleData.Text = "サンプルデータ登録";
             this.Btn_InsertSampleData.UseVisualStyleBackColor = true;
@@ -93,14 +95,14 @@
             // 
             // _99F_データベース生成
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 360);
+            this.ClientSize = new System.Drawing.Size(735, 450);
             this.Controls.Add(this.Btn_InsertSampleData);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "_99F_データベース生成";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "_99F_データベース生成";

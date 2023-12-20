@@ -210,7 +210,7 @@
             this.TextboxHihyouji.Location = new System.Drawing.Point(1072, 268);
             this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxHihyouji.Name = "TextboxHihyouji";
-            this.TextboxHihyouji.Size = new System.Drawing.Size(353, 125);
+            this.TextboxHihyouji.Size = new System.Drawing.Size(279, 125);
             this.TextboxHihyouji.TabIndex = 68;
             this.TextboxHihyouji.Text = "";
             // 
@@ -320,6 +320,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "F_入庫管理";
             this.Text = "F_入庫管理";
+            this.Load += new System.EventHandler(this.F_入庫管理_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

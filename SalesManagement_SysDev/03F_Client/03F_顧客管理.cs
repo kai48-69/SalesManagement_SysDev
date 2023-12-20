@@ -161,7 +161,6 @@ namespace SalesManagement_SysDev
                 TextboxFAX2.Text = Fax[1];
                 TextboxFAX3.Text = Fax[2];
             }
-
         }
 
         //実行ボタン

@@ -118,6 +118,11 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].Width = 70;
+            //発注年月日
+            dataGridView1.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[7].Width = 70;
+            dataGridView1.Columns[7].Visible = false;
 
 
             dataGridView1.Refresh();
@@ -127,7 +132,8 @@ namespace SalesManagement_SysDev
         {
             TextboxHattyuID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
             ComboMakerName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
-            TextboxSyainName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
+           // TextboxSyainName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
+            TextboxSyainID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[7].Value.ToString();
         }
         //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
@@ -451,9 +457,8 @@ namespace SalesManagement_SysDev
             if (RadioTouroku.Checked == true)
             {
                 TextboxSyainID.Text = LoginData.EmID.ToString() ;
-                TextboxSyainName.Text = "";
                 ComboMakerName.SelectedIndex = 0;
-                TextboxHattyuID.Text = "";
+                TextboxHattyuID.Text = "※入力不要です";
             }
             else
             {
@@ -490,8 +495,7 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxHattyuID.Enabled = false;
-            LblSyainID.Visible = true;
-            TextboxSyainID.Visible = true;
+            TextboxSyainID.ReadOnly = true;
             ComboMakerName.Enabled = true;
             TextboxHihyouji.Enabled = true;
             ButtonKakutei.Enabled = false;
@@ -503,8 +507,6 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxHattyuID.Enabled = true;
-            LblSyainID.Visible = true;
-            TextboxSyainID.Visible = true;
             TextboxSyainID.ReadOnly = false;
             ComboMakerName.Enabled = true;
             TextboxHihyouji.Enabled = false;
@@ -517,8 +519,7 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxHattyuID.Enabled = false;
-            LblSyainID.Visible = false;
-            TextboxSyainID.Visible = false;
+            TextboxSyainID.ReadOnly = true;
             ComboMakerName.Enabled = false;
             TextboxHihyouji.Enabled = true;
             ButtonKakutei.Enabled = false;
@@ -529,13 +530,13 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxHattyuID.Enabled = false;
-            LblSyainID.Visible = false;
-            TextboxSyainID.Visible = false;
+            TextboxSyainID.ReadOnly = true;
             ComboMakerName.Enabled = false;
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = true;
             ButtonExe.Visible = false;
         }
+
     }
 }
 
