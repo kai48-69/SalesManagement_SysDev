@@ -291,6 +291,7 @@ namespace SalesManagement_SysDev
             T_Stock Stock = new T_Stock();
             for (int i = 0; i < Data1.Count; i++)
             {
+                Stock.PrID = Data1[i].PrID;
                 Stock.StQuantity =Data1[i].WaQuantity;
                 SDA.UpdateStockData(Stock);
             }
