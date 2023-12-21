@@ -34,7 +34,7 @@ namespace SalesManagement_SysDev
             }
         }
 
-       
+
 
         //データ全件表示
         private bool GetDataGridView()
@@ -68,11 +68,15 @@ namespace SalesManagement_SysDev
             ////受注詳細ID
             dataGridView1.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[1].Width = 50;
+            dataGridView1.Columns[1].Width = 200;
             //営業所名
             dataGridView1.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[2].Width = 80;
+            //営業所名
+            dataGridView1.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[3].Width = 80;
 
 
             dataGridView1.Refresh();
@@ -80,8 +84,8 @@ namespace SalesManagement_SysDev
 
         //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
-        { 
-            
+        {
+
             //検索処理----------------------------------------------------------------------
             if (RadioKensaku.Checked == true)
             {
@@ -94,37 +98,13 @@ namespace SalesManagement_SysDev
                 }
 
             }
-            //更新処理----------------------------------------------------------------------
-            if (RadioKousin.Checked == true)
-            {
-                if (!GetVaildDataAtUpdate())
-                {
-                    return;
-                }
-
-                var updProduct = GenereteDataAtUpdate();
-
-                UpdateStock(updProduct);
-            }
-
-
         }
         //検索処理------------------------------------------------------------------------
         private bool GetVaildDataAtSelect() //入力データチェック
         {
             if (!String.IsNullOrEmpty(TextboxShouhinID.Text.Trim()))
             {
-                if (!ichk.IntegerCheck(TextboxSuryo.Text.Trim()))
-                {
-                    MessageBox.Show("数量は半角数字で入力してください。");
-                    TextboxSuryo.Focus();
-                    return false;
-                }
-            }
-
-            if (!String.IsNullOrEmpty(TextboxShouhinID.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxSuryo.Text.Trim()))
+                if (!ichk.IntegerCheck(TextboxShouhinID.Text.Trim()))
                 {
                     MessageBox.Show("商品IDは半角数字で入力してください");
                     TextboxShouhinID.Focus();
@@ -134,16 +114,11 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-
-
         private bool GenerateDataAtSelect() //検索データ生成
         {
-
             //整数型(int)に変換する準備
-
             var PrID = TextboxShouhinID.Text.Trim();
-            var Quantity = TextboxSuryo.Text.Trim();
-
+         
             //変換処理
             if (!int.TryParse(PrID, out int ShouhinID))
             {
@@ -163,57 +138,7 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-        //更新処理-----------------------------------------------------------------------
-        private bool GetVaildDataAtUpdate()//入力データチェック
-        {
-            if (String.IsNullOrEmpty(TextboxShouhinID.Text.Trim()))
-            {
-                MessageBox.Show("更新する在庫データを選択してください");
-            }
-
-            if (!String.IsNullOrEmpty(TextboxSuryo.Text.Trim()))
-            {
-                MessageBox.Show("数量が入力されていません");
-                TextboxSuryo.Focus();
-                return false;
-            }
-            return true;
-        }
-
-        private T_Stock GenereteDataAtUpdate() //更新データ生成
-        {
-            string StID = TextboxShouhinID.ToString();
-            string StQuantity= TextboxSuryo.ToString();
-            return new T_Stock
-            {
-                StID = int.Parse(StID),
-                StQuantity = int.Parse(StID)
-            };
-        }
-
-        private void UpdateStock(T_Stock updSt) //データ更新処理
-        {
-            DialogResult result = MessageBox.Show("在庫データを更新します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-
-            if (result == DialogResult.Cancel)
-            {
-                return;
-            }
-
-            bool flg = SDA.UpdateStockData(updSt);
-            if (flg == true)
-            {
-                MessageBox.Show("データを更新しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("データの更新に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TextboxShouhinID.Focus();
-            }
-            ClearInput();
-
-            GetDataGridView();
-        }
+     
 
         //入力リセット--------------------------------------------------------------------
         private void ClearInput()
@@ -234,17 +159,27 @@ namespace SalesManagement_SysDev
             f_buturyuu.Show();
         }
 
-        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void  checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (RadioKensaku.Checked == true)
+            if (checkBox1.Checked == true)
             {
-
+                GetDataGridViewNegative();
             }
-            else if (RadioKousin.Checked == true)
+            else
             {
-                TextboxShouhinID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
-                TextboxSuryo.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+                GetDataGridView();
+                
             }
+        }
+        private bool GetDataGridViewNegative()
+        {
+            //商品情報の全件取得
+            List<DispStockListDTO> tb = DB.StockGetMinusData();
+            if (tb == null)
+                return false;
+            //データグリッドビューへの設定
+            SetDataGridView(tb);
+            return true;
         }
     }
 }

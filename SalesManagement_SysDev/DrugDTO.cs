@@ -352,6 +352,8 @@ namespace SalesManagement_SysDev
         public string PrName { get; set; }
         [DisplayName("数量")]
         public int StQuantity { get; set; }
+        [DisplayName("安全在庫数")]
+        public int SStock { get; set; }
     }
 
     class DispSaleListDTO

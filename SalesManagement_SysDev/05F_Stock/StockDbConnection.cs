@@ -26,6 +26,36 @@ namespace SalesManagement_SysDev
                              StID = Stock.StID,
                              PrName = Product.PrName,
                              StQuantity = Stock.StQuantity,
+                             SStock=Product.PrSafetyStock,
+
+                         };
+                return tb.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return null;
+        }
+
+        public List<DispStockListDTO> StockGetMinusData()
+        {
+            var context = new SalesManagement_DevContext();
+            try
+            {
+                var tb = from Stock in context.T_Stocks
+                         join Product in context.M_Products
+                         on Stock.PrID equals Product.PrID
+                         where Stock.StFlag.Equals(0) &&
+                         Stock.StQuantity - Product.PrSafetyStock < 0
+
+
+                         select new DispStockListDTO
+                         {
+                             StID = Stock.StID,
+                             PrName = Product.PrName,
+                             StQuantity = Stock.StQuantity,
+                             SStock = Product.PrSafetyStock,
 
                          };
                 return tb.ToList();
@@ -47,15 +77,15 @@ namespace SalesManagement_SysDev
                          join Product in context.M_Products
                          on Stock.PrID equals Product.PrID
                          where Stock.StFlag.Equals(0)&&
-                         ((selectCondition.StID == -1) ? true :
-                         Stock.PrID == selectCondition.PrID) &&
-                         Stock.PrID.Equals(0)
+                         ((selectCondition.PrID==-1)?true:
+                         Stock.PrID==selectCondition.PrID)
 
                          select new DispStockListDTO
                          {
                              StID = Stock.StID,
                              PrName = Product.PrName,
                              StQuantity = Stock.StQuantity,
+                             SStock = Product.PrSafetyStock,
                          };
 
                 return tb.ToList();
@@ -66,7 +96,7 @@ namespace SalesManagement_SysDev
             }
             return null;  
         }
-
+        
 
 
     }
