@@ -83,7 +83,7 @@ namespace SalesManagement_SysDev
             return null;
         }
 
-        public List<GetNyukoDataDTO> SetNyukoData(T_WarehousingDetail selectCondition)
+        public List<GetNyukoDataDTO> SetNyukoData(T_Warehousing selectCondition)
         {
             var context = new SalesManagement_DevContext();
             try
@@ -91,7 +91,7 @@ namespace SalesManagement_SysDev
                 var tb = from Warehouse in context.T_Warehousings
                          join WarehouseD in context.T_WarehousingDetails
                          on Warehouse.WaID equals WarehouseD.WaID
-                         where WarehouseD.PrID.Equals(selectCondition.PrID)
+                         where WarehouseD.WaID.Equals(selectCondition.WaID)
                        
 
                          select new GetNyukoDataDTO

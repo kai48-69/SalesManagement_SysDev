@@ -285,6 +285,7 @@ namespace SalesManagement_SysDev
 
     class GetNyukoDataDTO
     {
+        public int WaID { get; set; }
         public int PrID { get; set; }
         public int WaQuantity { get; set; }
     }

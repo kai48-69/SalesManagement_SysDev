@@ -72,7 +72,7 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[0].Width = 40;
-            ////受注詳細ID
+            //受注詳細ID
             dataGridView1.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[1].Width = 50;
@@ -282,9 +282,9 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            T_WarehousingDetail selectCondition = new T_WarehousingDetail()
+            T_Warehousing selectCondition = new T_Warehousing()
             {
-                PrID = int.Parse(TextboxNyukoID.Text),
+                WaID = int.Parse(TextboxNyukoID.Text),
             };
             List<GetNyukoDataDTO> Data1 = DB2.SetNyukoData(selectCondition);
            
