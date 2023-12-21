@@ -209,18 +209,18 @@ namespace SalesManagement_SysDev
 
                 UpdateClient(updProduct);
 
-                //非表示処理----------------------------------------------------------------------
-                if (RadioHihyouji.Checked == true)
+            }
+            //非表示処理----------------------------------------------------------------------
+            if (RadioHihyouji.Checked == true)
+            {
+                if (!GetVaildDataAtHide())
                 {
-                    if (!GetVaildDataAtHide())
-                    {
-                        return;
-                    }
-
-                    var hidClient = GenereteDataAtHidden();
-
-                    HideClient(hidClient);
+                    return;
                 }
+
+                var hidClient = GenereteDataAtHidden();
+
+                HideClient(hidClient);
             }
         }
 
