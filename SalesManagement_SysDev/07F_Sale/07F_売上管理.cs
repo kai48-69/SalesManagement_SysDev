@@ -149,18 +149,22 @@ namespace SalesManagement_SysDev
         //データグリッドビューをクリックしたときの処理
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (RadioKensaku.Checked == true)
+            try
             {
-
+                if (RadioKensaku.Checked != true)
+                {
+                    TextboxUriageID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+                    ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+                    TextboxSyainID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
+                    ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
+                    TextboxTantousyaName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+                }
             }
-            else
+            catch
             {
-                TextboxUriageID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
-                ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
-                TextboxSyainID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
-                ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
-                TextboxTantousyaName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+                //何も処理を行わない
             }
+           
         }
 
 

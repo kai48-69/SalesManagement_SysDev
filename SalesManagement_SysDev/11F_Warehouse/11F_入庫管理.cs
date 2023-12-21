@@ -88,28 +88,24 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[4].Width = 80;
-            //顧客担当者名
-            dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[5].Width = 120;
-            //商品名
-            dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].Width = 70;
-            //数量
-            dataGridView1.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[7].Width = 70;
-            //合計金額
-            dataGridView1.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[8].Width = 80;
-            //受注年月日
-            dataGridView1.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].Width = 90;
 
             dataGridView1.Refresh();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (RadioHihyouji.Checked == true || RadioKakutei.Checked == true)
+                {
+                    TextboxNyukoID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+                    TextboxHattyuID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+                }
+            }
+            catch
+            {
+                //何も処理を行わない
+            }
         }
 
         //実行ボタン
@@ -286,9 +282,9 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            T_Warehousing selectCondition = new T_Warehousing()
+            T_WarehousingDetail selectCondition = new T_WarehousingDetail()
             {
-                WaID = int.Parse(TextboxNyukoID.Text),
+                PrID = int.Parse(TextboxNyukoID.Text),
             };
             List<GetNyukoDataDTO> Data1 = DB2.SetNyukoData(selectCondition);
            
@@ -336,7 +332,34 @@ namespace SalesManagement_SysDev
 
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
-
+            ClearInput();
+            TextboxHattyuID.Enabled = true;
+            TextboxNyukoID.Enabled = true;
+            TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = false;
+            ButtonExe.Visible = true;
         }
+
+        private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxHattyuID.Enabled = false;
+            TextboxNyukoID.Enabled = false;
+            TextboxHihyouji.Enabled = true;
+            ButtonKakutei.Enabled = false;
+            ButtonExe.Visible = true;
+        }
+
+        private void RadioKakutei_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxHattyuID.Enabled = false;
+            TextboxNyukoID.Enabled = false;
+            TextboxHihyouji.Enabled = false ;
+            ButtonKakutei.Enabled = true;
+            ButtonExe.Visible = false;
+        }
+
+      
     }
 }

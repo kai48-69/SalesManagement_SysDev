@@ -127,17 +127,24 @@ namespace SalesManagement_SysDev
         //データグリッドビューをクリックしたときの処理
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (RadioKousin.Checked == true||RadioHihyouji.Checked==true)
+            try
             {
-                TextboxSyainID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
-                TextboxSyainName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
-                ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
-                ComboYakusyokuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
-                string TelNo = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
-                string[] Tel = TelNo.Split('-');
-                TextboxTelNo1.Text = Tel[0];
-                TextboxTelNo2.Text = Tel[1];
-                TextboxTelNo3.Text = Tel[2];
+                if (RadioKousin.Checked == true || RadioHihyouji.Checked == true)
+                {
+                    TextboxSyainID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+                    TextboxSyainName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
+                    ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+                    ComboYakusyokuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
+                    string TelNo = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+                    string[] Tel = TelNo.Split('-');
+                    TextboxTelNo1.Text = Tel[0];
+                    TextboxTelNo2.Text = Tel[1];
+                    TextboxTelNo3.Text = Tel[2];
+                }
+            }
+            catch
+            {
+                //何も処理を行わない
             }
         }
 

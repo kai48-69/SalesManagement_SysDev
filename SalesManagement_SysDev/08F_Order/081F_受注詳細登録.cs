@@ -1,5 +1,4 @@
-﻿using SalesManagement_SysDev.Order;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,23 +10,28 @@ using System.Windows.Forms;
 
 namespace SalesManagement_SysDev
 {
-    public partial class _101F_発注詳細登録 : Form
+    
+    public partial class F_受注詳細登録 : Form
     {
+       readonly InputCheck ichk = new InputCheck();
+       readonly ProductDbConnection DB = new ProductDbConnection();
+       readonly OrderDbConnection DB1 = new OrderDbConnection();
+       readonly OrderDataAccess ODA = new OrderDataAccess();
         readonly LoginData LoginData;
-        readonly InputCheck ichk = new InputCheck();
-        readonly HattyuDataAccess HDA=new HattyuDataAccess();
-        readonly ProductDbConnection DB = new ProductDbConnection();
-        readonly HattyuDbConnection DB1 = new HattyuDbConnection();
-        public _101F_発注詳細登録(LoginData LData)
+
+
+        public F_受注詳細登録(LoginData LData)
         {
             InitializeComponent();
-            LoginData = LData;
+            LoginData= LData;
+            
         }
 
+        //データ全件表示
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<DispHattyuDetailListDTO> tb = DB1.HattyuDetailGetData(DB1.GetHaID());
+            List<DispOrderDetailListDTO> tb = DB1.OrderDetailGetData(DB1.GetOrID());
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -36,7 +40,7 @@ namespace SalesManagement_SysDev
         }
 
         //データグリッドビューの表示設定
-        private void SetDataGridView(List<DispHattyuDetailListDTO> tb)
+        private void SetDataGridView(List<DispOrderDetailListDTO> tb)
         {
             dataGridView1.DataSource = tb;
             //列幅自動設定解除
@@ -65,11 +69,16 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridView1.Columns[3].Width = 80;
+            ////安全在庫数
+            dataGridView1.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[4].Width = 40;
 
 
             dataGridView1.Refresh();
         }
 
+        //登録ボタン-------------------------------------------------------------------------------
         private void ButtonTouroku_Click(object sender, EventArgs e)
         {
             if (!GetVaildDataAtRegistration())
@@ -77,9 +86,11 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            var regHaD = GenerateDataAtRegistration();
+            var regOrD = GenerateDataAtRegistration();
 
-            RegistrationHattyuDetail(regHaD);
+            RegistrationOrderDetail(regOrD);
+
+         
         }
 
         //登録処理----------------------------------------------------------------------------------
@@ -123,40 +134,43 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-        private T_HattyuDetail GenerateDataAtRegistration() //登録データ生成
+        private T_OrderDetail GenerateDataAtRegistration() //登録データ生成
         {
             int Quantity = int.Parse(TextboxSuryou.Text);
             int PrID = int.Parse(TextboxSyohinID.Text);
             decimal Price = DB.GetPrice(PrID);
-            return new T_HattyuDetail
+            return new T_OrderDetail
             {
-                HaID = DB1.GetHaID(),
-                PrID = PrID,
-                HaQuantity = Quantity,
+                OrID=DB1.GetOrID(),
+                PrID=PrID,
+                OrQuantity=Quantity,
+                OrTotalPrice=Quantity*Price,
             };
         }
 
-        private void RegistrationHattyuDetail(T_HattyuDetail regHaD) //データ登録処理
+        private void RegistrationOrderDetail(T_OrderDetail regOrD) //データ登録処理
         {
             DialogResult result = MessageBox.Show("受注詳細データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
             {
                 return;
             }
-            bool flg = HDA.AddHattyuDetailData(regHaD);
+            bool flg = ODA.AddOrderDetailData(regOrD);
             if (flg == true)
             {
                 GetDataGridView();
-                DialogResult result1 = MessageBox.Show("データを登録しました\n続けて登録しますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                ButtonBack.Visible = true;
+                DialogResult result1= MessageBox.Show("データを登録しました\n続けて登録しますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result1 == DialogResult.Yes)
                 {
+                    
                     return;
                 }
                 else
                 {
                     this.Close();
-                    F_発注管理 f_hattyu = new F_発注管理(LoginData);
-                    f_hattyu.Visible = true;
+                    F_受注管理 f_jutyu = new F_受注管理(LoginData);
+                    f_jutyu.Visible=true;
                 }
             }
             else
@@ -165,7 +179,16 @@ namespace SalesManagement_SysDev
                 TextboxSyohinName.Focus();
                 return;
             }
+            //ClearInput();
+            //GetDataGridView();
+        }
 
+        //戻るボタン--------------------------------------------------------------------------------
+        private void ButtonBack_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            F_受注管理 f_jutyuu = new F_受注管理(LoginData);
+            f_jutyuu.Show();
         }
 
         private void TextboxSyohinID_TextChanged(object sender, EventArgs e)
@@ -174,8 +197,7 @@ namespace SalesManagement_SysDev
             {
                 if (DB.CheckCascadeProduct(PrID) != -1)
                 {
-                    int HaID = DB1.GetHaID();
-                    TextboxSyohinName.Text = DB.GetPrName(PrID,HaID);
+                    TextboxSyohinName.Text = DB.GetPrName(PrID,0);
                 }
                 else
                 {
@@ -186,6 +208,7 @@ namespace SalesManagement_SysDev
             {
                 TextboxSyohinName.Text = "";
             }
+            
         }
     }
 }

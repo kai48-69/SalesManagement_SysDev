@@ -38,6 +38,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TextboxSyohinName = new System.Windows.Forms.TextBox();
+            this.ButtonBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -76,6 +77,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.ButtonBack);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Location = new System.Drawing.Point(-131, -28);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -144,6 +146,19 @@
             this.TextboxSyohinName.Size = new System.Drawing.Size(185, 32);
             this.TextboxSyohinName.TabIndex = 61;
             // 
+            // ButtonBack
+            // 
+            this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ButtonBack.Location = new System.Drawing.Point(815, 65);
+            this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonBack.Name = "ButtonBack";
+            this.ButtonBack.Size = new System.Drawing.Size(124, 58);
+            this.ButtonBack.TabIndex = 62;
+            this.ButtonBack.Text = "戻る";
+            this.ButtonBack.UseVisualStyleBackColor = true;
+            this.ButtonBack.Visible = false;
+            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
+            // 
             // F_受注詳細登録
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -182,5 +197,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox TextboxSyohinName;
+        private System.Windows.Forms.Button ButtonBack;
     }
 }

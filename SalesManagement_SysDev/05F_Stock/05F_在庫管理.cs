@@ -78,8 +78,6 @@ namespace SalesManagement_SysDev
             dataGridView1.Refresh();
         }
 
-        //データグリッドビューをクリックしたときの処理
-
         //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
         { 

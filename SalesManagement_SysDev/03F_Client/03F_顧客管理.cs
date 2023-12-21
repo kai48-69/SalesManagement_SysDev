@@ -126,42 +126,48 @@ namespace SalesManagement_SysDev
         //データグリッドビューをクリックしたときの処理
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (RadioTouroku.Checked == true)
+            try
             {
-                ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
-                TextboxKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
-                TextboxAdress.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
-                string TelNo = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
-                string[] Tel = TelNo.Split('-');
-                TextboxTelNo1.Text = Tel[0];
-                TextboxTelNo2.Text = Tel[1];
-                TextboxTelNo3.Text = Tel[2];
-                TextboxPostCD.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
-                string FAX = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[6].Value.ToString();
-                string[] Fax = FAX.Split('-');
-                TextboxFAX1.Text = Fax[0];
-                TextboxFAX2.Text = Fax[1];
-                TextboxFAX3.Text = Fax[2];
+                if (RadioTouroku.Checked == true)
+                {
+                    ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
+                    TextboxKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+                    TextboxAdress.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
+                    string TelNo = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
+                    string[] Tel = TelNo.Split('-');
+                    TextboxTelNo1.Text = Tel[0];
+                    TextboxTelNo2.Text = Tel[1];
+                    TextboxTelNo3.Text = Tel[2];
+                    TextboxPostCD.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+                    string FAX = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[6].Value.ToString();
+                    string[] Fax = FAX.Split('-');
+                    TextboxFAX1.Text = Fax[0];
+                    TextboxFAX2.Text = Fax[1];
+                    TextboxFAX3.Text = Fax[2];
+                }
+                else
+                {
+                    TextboxKokyakuID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+                    ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
+                    TextboxKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+                    TextboxAdress.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
+                    string TelNo = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
+                    string[] Tel = TelNo.Split('-');
+                    TextboxTelNo1.Text = Tel[0];
+                    TextboxTelNo2.Text = Tel[1];
+                    TextboxTelNo3.Text = Tel[2];
+                    TextboxPostCD.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+                    string FAX = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[6].Value.ToString();
+                    string[] Fax = FAX.Split('-');
+                    TextboxFAX1.Text = Fax[0];
+                    TextboxFAX2.Text = Fax[1];
+                    TextboxFAX3.Text = Fax[2];
+                }
             }
-            else
+            catch
             {
-                TextboxKokyakuID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
-                ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
-                TextboxKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
-                TextboxAdress.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
-                string TelNo = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
-                string[] Tel = TelNo.Split('-');
-                TextboxTelNo1.Text = Tel[0];
-                TextboxTelNo2.Text = Tel[1];
-                TextboxTelNo3.Text = Tel[2];
-                TextboxPostCD.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
-                string FAX = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[6].Value.ToString();
-                string[] Fax = FAX.Split('-');
-                TextboxFAX1.Text = Fax[0];
-                TextboxFAX2.Text = Fax[1];
-                TextboxFAX3.Text = Fax[2];
+                //何も処理を行わない
             }
-
         }
 
         //実行ボタン

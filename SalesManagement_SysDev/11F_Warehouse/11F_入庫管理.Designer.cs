@@ -111,6 +111,7 @@
             this.RadioHihyouji.TabIndex = 71;
             this.RadioHihyouji.Text = "非表示";
             this.RadioHihyouji.UseVisualStyleBackColor = true;
+            this.RadioHihyouji.CheckedChanged += new System.EventHandler(this.RadioHihyouji_CheckedChanged);
             // 
             // RadioKensaku
             // 
@@ -210,7 +211,7 @@
             this.TextboxHihyouji.Location = new System.Drawing.Point(1072, 268);
             this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxHihyouji.Name = "TextboxHihyouji";
-            this.TextboxHihyouji.Size = new System.Drawing.Size(353, 125);
+            this.TextboxHihyouji.Size = new System.Drawing.Size(279, 125);
             this.TextboxHihyouji.TabIndex = 68;
             this.TextboxHihyouji.Text = "";
             // 
@@ -243,6 +244,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1308, 333);
             this.dataGridView1.TabIndex = 53;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // label2
             // 
@@ -296,6 +298,7 @@
             this.RadioKakutei.TabIndex = 98;
             this.RadioKakutei.Text = "確定";
             this.RadioKakutei.UseVisualStyleBackColor = true;
+            this.RadioKakutei.CheckedChanged += new System.EventHandler(this.RadioKakutei_CheckedChanged);
             // 
             // F_入庫管理
             // 
@@ -320,6 +323,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "F_入庫管理";
             this.Text = "F_入庫管理";
+            this.Load += new System.EventHandler(this.F_入庫管理_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
