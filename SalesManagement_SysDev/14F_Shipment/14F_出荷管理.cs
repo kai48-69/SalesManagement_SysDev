@@ -397,8 +397,11 @@ namespace SalesManagement_SysDev
 
         private void ClearInput()
         {
+            TextboxSyukkaID.Text = "";
+            TextboxOrderID.Text = "";
             TextboxHihyouji.Text = "";
-
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
         }
 
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)

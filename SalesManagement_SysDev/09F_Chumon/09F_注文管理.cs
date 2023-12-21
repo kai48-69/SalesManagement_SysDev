@@ -413,6 +413,7 @@ namespace SalesManagement_SysDev
             TextboxChumonID.Text = "";
             ComboEigyousyoName.SelectedIndex = -1;
             ComboKokyakuName.SelectedIndex = -1;
+            TextboxHihyouji.Text = "";
         }
 
         //リセットボタン------------------------------------------------------------------

@@ -229,7 +229,7 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxKokyakuName.Text.Trim()))
             {
-                MessageBox.Show("顧客名が入力されていません");
+                MessageBox.Show("顧客名を入力してください");
                 TextboxKokyakuName.Focus();
                 return false;
             }
@@ -260,7 +260,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("電話番号が入力されていません");
+                MessageBox.Show("電話番号を入力してください");
                 TextboxTelNo1.Focus();
                 return false;
             }
@@ -292,20 +292,20 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("FAX番号が入力されていません");
+                MessageBox.Show("FAX番号を入力してください");
                 TextboxTelNo1.Focus();
                 return false;
             }
 
             if (String.IsNullOrEmpty(TextboxPostCD.Text.Trim()))
             {
-                MessageBox.Show("郵便番号が入力されていません");
+                MessageBox.Show("郵便番号を入力してください");
                 TextboxPostCD.Focus();
                 return false;
             }
             if (String.IsNullOrEmpty(TextboxAdress.Text.Trim()))
             {
-                MessageBox.Show("住所が入力されていません");
+                MessageBox.Show("住所が入力してください");
                 TextboxAdress.Focus();
                 return false;
             }

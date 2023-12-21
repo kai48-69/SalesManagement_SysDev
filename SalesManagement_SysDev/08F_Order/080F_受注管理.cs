@@ -554,6 +554,7 @@ namespace SalesManagement_SysDev
                 TextboxTantousyaName.Text = "";
                 TextboxSyainID.Text = "";
                 TextboxSyainName.Text = "";
+                TextboxHihyouji.Text = "";
             }
         }
 

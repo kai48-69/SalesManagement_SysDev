@@ -475,6 +475,7 @@ namespace SalesManagement_SysDev
                 TextboxSyainName.Text = "";
                 ComboMakerName.SelectedIndex = -1;
                 TextboxHattyuID.Text = "";
+                TextboxHihyouji.Text = "";
             }
         }
 

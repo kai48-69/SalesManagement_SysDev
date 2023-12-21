@@ -324,6 +324,7 @@ namespace SalesManagement_SysDev
         {
             TextboxHattyuID.Text = "";
             TextboxNyukoID.Text = "";
+            TextboxHihyouji.Text = "";
         }
         //リセットボタン------------------------------------------------------------------
         private void ButtonReset_Click(object sender, EventArgs e)

@@ -400,6 +400,7 @@ namespace SalesManagement_SysDev
         {
             TextboxNyukaID.Text = "";
             TextboxOrderID.Text = "";
+            TextboxHihyouji.Text = "";
             ComboEigyousyoName.SelectedIndex = -1;
             ComboKokyakuName.SelectedIndex = -1;
         }
