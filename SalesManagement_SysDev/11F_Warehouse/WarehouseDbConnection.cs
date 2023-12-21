@@ -31,6 +31,7 @@ namespace SalesManagement_SysDev
 
                          select new DispWarehousingListDTO
                          {
+                             HaID = WareHousing.HaID,
                              WaID = WareHousing.WaID,
                              WaDetailID = WareHousingDetails.WaDetailID,
                              PrName = Product.PrName,
@@ -82,7 +83,7 @@ namespace SalesManagement_SysDev
             return null;
         }
 
-        public List<GetNyukoDataDTO> SetNyukoData(T_Warehousing selectCondition)
+        public List<GetNyukoDataDTO> SetNyukoData(T_WarehousingDetail selectCondition)
         {
             var context = new SalesManagement_DevContext();
             try
@@ -90,7 +91,7 @@ namespace SalesManagement_SysDev
                 var tb = from Warehouse in context.T_Warehousings
                          join WarehouseD in context.T_WarehousingDetails
                          on Warehouse.WaID equals WarehouseD.WaID
-                         where Warehouse.WaID.Equals(selectCondition.WaID)
+                         where WarehouseD.PrID.Equals(selectCondition.PrID)
                        
 
                          select new GetNyukoDataDTO

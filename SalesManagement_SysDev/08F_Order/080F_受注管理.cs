@@ -538,8 +538,8 @@ namespace SalesManagement_SysDev
         {
             if (RadioTouroku.Checked == true)//登録時はコンボボックスに値を表示する
             {
-                TextboxJutyuID.Text = "";
-                ComboEigyousyoName.SelectedValue = LoginData.SoName;
+                TextboxJutyuID.Text = "※入力不要です";
+                ComboEigyousyoName.Text = LoginData.SoName;
                 ComboKokyakuName.SelectedIndex = 0;
                 TextboxTantousyaName.Text = "";
                 TextboxSyainID.Text = LoginData.EmID.ToString();
@@ -569,7 +569,7 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxJutyuID.ReadOnly = true;
-            TextboxJutyuID.Text = "入力不要です";
+            TextboxJutyuID.Text = "※入力不要です";
             ComboKokyakuName.SelectedIndex = 0;
             TextboxTantousyaName.ReadOnly = false;
             ComboEigyousyoName.SelectedIndex = 0;

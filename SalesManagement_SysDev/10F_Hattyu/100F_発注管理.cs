@@ -132,7 +132,7 @@ namespace SalesManagement_SysDev
         {
             try
             {
-                if (RadioHihyouji.Checked == true && RadioKakutei.Checked == true)
+                if (RadioHihyouji.Checked == true || RadioKakutei.Checked == true)
                 {
                     TextboxHattyuID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
                     ComboMakerName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
@@ -413,14 +413,13 @@ namespace SalesManagement_SysDev
             //形式変換(DispOrderListDTO→T_Chumon)
             T_Warehousing Warehouse = new T_Warehousing
             {
-                HaID = int.Parse(Data1[0].HaID),
+                HaID = int.Parse(TextboxHattyuID.Text),
                 WaDate = DateTime.Now,
                 EmID=LoginData.EmID,
             };
             //登録処理
             bool flg1 = WDA.AddWarehouseData(Warehouse);
             //詳細確定------------------------------------------------------------------------
-            //登録したChIDを取得
             int WaID = DB3.GetWaID();
             T_WarehousingDetail WarehouseDetail = new T_WarehousingDetail();
             for (int i = 0; i < Data1.Count; i++)

@@ -92,6 +92,22 @@ namespace SalesManagement_SysDev
             dataGridView1.Refresh();
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (RadioHihyouji.Checked == true || RadioKakutei.Checked == true)
+                {
+                    TextboxNyukoID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+                    TextboxHattyuID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+                }
+            }
+            catch
+            {
+                //何も処理を行わない
+            }
+        }
+
         //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
         { //検索処理----------------------------------------------------------------------
@@ -266,9 +282,9 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            T_Warehousing selectCondition = new T_Warehousing()
+            T_WarehousingDetail selectCondition = new T_WarehousingDetail()
             {
-                WaID = int.Parse(TextboxNyukoID.Text),
+                PrID = int.Parse(TextboxNyukoID.Text),
             };
             List<GetNyukoDataDTO> Data1 = DB2.SetNyukoData(selectCondition);
            
@@ -316,7 +332,34 @@ namespace SalesManagement_SysDev
 
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
-
+            ClearInput();
+            TextboxHattyuID.Enabled = true;
+            TextboxNyukoID.Enabled = true;
+            TextboxHihyouji.Enabled = false;
+            ButtonKakutei.Enabled = false;
+            ButtonExe.Visible = true;
         }
+
+        private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxHattyuID.Enabled = false;
+            TextboxNyukoID.Enabled = false;
+            TextboxHihyouji.Enabled = true;
+            ButtonKakutei.Enabled = false;
+            ButtonExe.Visible = true;
+        }
+
+        private void RadioKakutei_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            TextboxHattyuID.Enabled = false;
+            TextboxNyukoID.Enabled = false;
+            TextboxHihyouji.Enabled = false ;
+            ButtonKakutei.Enabled = true;
+            ButtonExe.Visible = false;
+        }
+
+      
     }
 }
