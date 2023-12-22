@@ -422,22 +422,22 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label3.Location = new System.Drawing.Point(257, 420);
+            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.label3.Location = new System.Drawing.Point(258, 416);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 25);
+            this.label3.Size = new System.Drawing.Size(32, 34);
             this.label3.TabIndex = 103;
-            this.label3.Text = "ー";
+            this.label3.Text = "-";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label4.Location = new System.Drawing.Point(359, 420);
+            this.label4.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.label4.Location = new System.Drawing.Point(359, 416);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 25);
+            this.label4.Size = new System.Drawing.Size(32, 34);
             this.label4.TabIndex = 104;
-            this.label4.Text = "ー";
+            this.label4.Text = "-";
             // 
             // F_社員管理
             // 

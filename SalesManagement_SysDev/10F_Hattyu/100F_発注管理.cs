@@ -37,7 +37,7 @@ namespace SalesManagement_SysDev
             TextboxHattyuID.Enabled = false;
             ButtonKakutei.Enabled = false;
             TextboxHihyouji.Enabled = false;
-            TextboxSyainID.Text=LoginData.EmID.ToString();
+            TextboxSyainID.Text = LoginData.EmID.ToString();
             TextboxSyainID.ReadOnly = true;
             SetFormComboBox();
 
@@ -143,7 +143,7 @@ namespace SalesManagement_SysDev
             {
                 //何も処理を行わない
             }
-       
+
         }
         //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
@@ -151,11 +151,6 @@ namespace SalesManagement_SysDev
             //登録処理----------------------------------------------------------------------
             if (RadioTouroku.Checked == true)
             {
-                if (!GetVaildDataAtRegistration())
-                {
-                    return;
-                }
-
                 var regHa = GenerateDataAtRegistration();
 
                 RegistrationHattyu(regHa);
@@ -197,30 +192,6 @@ namespace SalesManagement_SysDev
         }
 
         //登録処理--------------------------------------------------------------------------
-        private bool GetVaildDataAtRegistration() //入力データチェック
-        {
-            if (!String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxSyainID.Text.Trim()))
-                {
-                    MessageBox.Show("社員IDは半角数字で入力してください");
-                    return false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("社員IDが入力されていません");
-                return false;
-            }
-
-            if (String.IsNullOrEmpty(TextboxSyainName.Text))
-            {
-                MessageBox.Show("正しい社員ID を入力して下さい");
-                return false;
-            }
-            return true;
-        }
-
         private T_Hattyu GenerateDataAtRegistration() //登録データ生成
         {
             int MaID = ComboMakerName.SelectedIndex;
@@ -238,7 +209,7 @@ namespace SalesManagement_SysDev
 
         private void RegistrationHattyu(T_Hattyu regHa) //データ登録処理
         {
-            DialogResult result = MessageBox.Show("発注データの登録を開始します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("発注商品の登録を開始します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
             {
                 return;
@@ -246,18 +217,13 @@ namespace SalesManagement_SysDev
             bool flg = HDA.AddOrderData(regHa);
             if (flg == true)
             {
-                DialogResult result1 = MessageBox.Show("続けて商品の登録を行います");
-                if (result1 == DialogResult.OK)
-                {
-                    this.Close();
-                    _101F_発注詳細登録 f_HattyuSyousai = new _101F_発注詳細登録(LoginData);
-                    f_HattyuSyousai.Show();
-
-                }
+                this.Close();
+                _101F_発注詳細登録 f_HattyuSyousai = new _101F_発注詳細登録(LoginData);
+                f_HattyuSyousai.Show();
             }
             else
             {
-                MessageBox.Show("データの登録を開始できませんでした");
+                MessageBox.Show("データの登録を開始できませんでした", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxSyainName.Focus();
             }
             ClearInput();
@@ -271,7 +237,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxHattyuID.Text.Trim()))
                 {
-                    MessageBox.Show("受注IDはすべて半角数字で入力してください。");
+                    MessageBox.Show("受注IDはすべて半角数字で入力してください。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxHattyuID.Focus();
                     return false;
                 }
@@ -281,7 +247,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxSyainID.Text.Trim()))
                 {
-                    MessageBox.Show("社員IDは半角数字で入力してください");
+                    MessageBox.Show("社員IDは半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxSyainID.Focus();
                     return false;
                 }
@@ -338,7 +304,7 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxHattyuID.Text.Trim()))
             {
-                MessageBox.Show("非表示にする受注データを選択してください", "エラー");
+                MessageBox.Show("非表示にする受注データを選択してください",  "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -377,7 +343,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("データの非表示に失敗しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxSyainName.Focus();
             }
             ClearInput();
@@ -390,7 +356,7 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxHattyuID.Text.Trim()))
             {
-                MessageBox.Show("確定を行うデータが選択されていません");
+                MessageBox.Show("確定を行うデータが選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -415,7 +381,7 @@ namespace SalesManagement_SysDev
             {
                 HaID = int.Parse(TextboxHattyuID.Text),
                 WaDate = DateTime.Now,
-                EmID=LoginData.EmID,
+                EmID = LoginData.EmID,
             };
             //登録処理
             bool flg1 = WDA.AddWarehouseData(Warehouse);
@@ -431,7 +397,7 @@ namespace SalesManagement_SysDev
                 //chumonDetail登録
                 WDA.AddChumonDetailData(WarehouseDetail);
             }
-            MessageBox.Show("データを確定しました");
+            MessageBox.Show("データを確定しました","確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
         }
 
         private T_Hattyu GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
@@ -465,7 +431,7 @@ namespace SalesManagement_SysDev
         {
             if (RadioTouroku.Checked == true)
             {
-                TextboxSyainID.Text = LoginData.EmID.ToString() ;
+                TextboxSyainID.Text = LoginData.EmID.ToString();
                 ComboMakerName.SelectedIndex = 0;
                 TextboxHattyuID.Text = "※入力不要です";
             }
@@ -510,7 +476,7 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = true;
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
-          
+
         }
 
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
@@ -523,7 +489,7 @@ namespace SalesManagement_SysDev
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
         }
-        
+
 
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {

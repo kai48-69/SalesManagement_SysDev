@@ -426,7 +426,7 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxJutyuID.Text.Trim()))
             {
-                MessageBox.Show("確定を行うデータが選択されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("確定を行うデータが選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;

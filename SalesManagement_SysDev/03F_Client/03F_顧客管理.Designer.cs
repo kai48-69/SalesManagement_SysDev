@@ -414,22 +414,22 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label11.Location = new System.Drawing.Point(340, 369);
+            this.label11.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.label11.Location = new System.Drawing.Point(340, 365);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(32, 25);
+            this.label11.Size = new System.Drawing.Size(32, 34);
             this.label11.TabIndex = 109;
-            this.label11.Text = "ー";
+            this.label11.Text = "-";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label12.Location = new System.Drawing.Point(238, 369);
+            this.label12.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.label12.Location = new System.Drawing.Point(238, 366);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(32, 25);
+            this.label12.Size = new System.Drawing.Size(32, 34);
             this.label12.TabIndex = 108;
-            this.label12.Text = "ー";
+            this.label12.Text = "-";
             // 
             // TextboxTelNo3
             // 
@@ -464,22 +464,22 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label13.Location = new System.Drawing.Point(340, 427);
+            this.label13.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.label13.Location = new System.Drawing.Point(340, 423);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(32, 25);
+            this.label13.Size = new System.Drawing.Size(32, 34);
             this.label13.TabIndex = 114;
-            this.label13.Text = "ー";
+            this.label13.Text = "-";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label16.Location = new System.Drawing.Point(238, 427);
+            this.label16.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.label16.Location = new System.Drawing.Point(238, 421);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(32, 25);
+            this.label16.Size = new System.Drawing.Size(32, 34);
             this.label16.TabIndex = 113;
-            this.label16.Text = "ー";
+            this.label16.Text = "-";
             // 
             // TextboxFAX3
             // 
