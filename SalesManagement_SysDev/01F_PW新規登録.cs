@@ -19,7 +19,8 @@ namespace SalesManagement_SysDev
         public F_PW新規登録(LoginData LData)
         {
             InitializeComponent();
-            this.TextboxSyainID.Text = LData.EmID.ToString();
+            this.LblSyainID.Text = LData.EmID.ToString();
+            this.LblSyainName.Text = LData.EmName.ToString();
             LoginData = LData;
         }
         private void F_PW新規登録_Load(object sender, EventArgs e)
@@ -36,7 +37,10 @@ namespace SalesManagement_SysDev
 
             var RegPW = GenereteDataAtRegPW();
 
-            RegistrationPW(RegPW);
+            if (!RegistrationPW(RegPW))
+            {
+                return;
+            }
 
             FormShow();
         }
@@ -86,31 +90,32 @@ namespace SalesManagement_SysDev
         {
             return new M_Employee
             {
-                EmID = int.Parse(TextboxSyainID.Text.Trim()),
+                EmID = int.Parse(LblSyainID.Text.Trim()),
                 EmPassword = TextboxPW.Text.Trim(),
             };
         }
 
-        private void RegistrationPW(M_Employee RegPW)　//データ更新処理
+        private bool RegistrationPW(M_Employee RegPW)　//データ更新処理
         {
             DialogResult result = MessageBox.Show("パスワードを登録します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (result == DialogResult.Cancel)
             {
-                return;
+                return false;
             }
 
             bool flg = EmployeeDataAccess.RegistrationPW(RegPW);
             if (flg == true)
             {
                 MessageBox.Show("パスワードを登録しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                return true;
 
             }
             else
             {
                 MessageBox.Show("パスワードの登録に失敗しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxPW.Focus();
+                return false;
             }
         }
 
