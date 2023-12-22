@@ -49,7 +49,7 @@ namespace SalesManagement_SysDev
 
             if (!GetDataGridView())
             {
-                MessageBox.Show("商品情報を取得することができません。", "商品確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("受注情報を取得することができません。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -420,7 +420,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("データの非表示に失敗しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxSyainName.Focus();
             }
             ClearInput();
@@ -433,7 +433,7 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxJutyuID.Text.Trim()))
             {
-                MessageBox.Show("確定を行うデータが選択されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error;
+                MessageBox.Show("確定を行うデータが選択されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -478,7 +478,7 @@ namespace SalesManagement_SysDev
                 //chumonDetail登録
                 CDA.AddChumonDetailData(ChumonDetail);
             }
-            MessageBox.Show("データを確定しました");
+            MessageBox.Show("データを確定しました", "確認", MessageBoxButtons.OK,MessageBoxIcon.Information);
             return true;
         }
 

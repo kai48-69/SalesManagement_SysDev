@@ -211,31 +211,33 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxSyainID.Text))
                 {
-                    MessageBox.Show("社員IDは半角数字で入力してください")
+                    MessageBox.Show("社員IDは半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxSyainID.Focus();
+                    return false;
                 }
                 if (DB.CheckCascadeEmployeesID(int.Parse(TextboxSyainID.Text)) != -1)
                 {
-                    MessageBox.Show("その社員IDは既に使われているため、登録できません");
+                    MessageBox.Show("その社員IDは既に使われているため、登録できません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxSyainID.Focus();
                     return false;
                 }
                 if (int.Parse(TextboxSyainID.Text) <= 0)
                 {
-                    MessageBox.Show("入力された番号は登録できません");
+                    MessageBox.Show("入力された社員番号は登録できません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxSyainID.Focus();
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("社員IDが入力されていません");
+                MessageBox.Show("社員IDを入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxSyainID.Focus();
                 return false;
             }
 
             if (String.IsNullOrEmpty(TextboxSyainName.Text.Trim()))
             {
-                MessageBox.Show("社員名が入力されていません");
+                MessageBox.Show("社員名を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxSyainName.Focus();
                 return false;
             }
@@ -244,30 +246,32 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxTelNo1.Text.Trim()) || !ichk.IntegerCheck(TextboxTelNo2.Text.Trim()) || !ichk.IntegerCheck(TextboxTelNo3.Text.Trim()))
                 {
-                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    MessageBox.Show("電話番号は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxTelNo1.Focus();
                     return false;
                 }
                 if (TextboxTelNo1.Text.Length < 2)
                 {
-                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxTelNo1.Focus();
                     return false;
                 }
                 if (TextboxTelNo3.Text.Length < 3)
                 {
-                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxTelNo1.Focus();
                     return false;
                 }
                 if (TextboxTelNo1.TextLength + TextboxTelNo2.TextLength + TextboxTelNo3.TextLength >= 12)
                 {
-                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxTelNo1.Focus();
                     return false;
                 }
             }
-          
             else
             {
-                MessageBox.Show("電話番号が入力されていません");
+                MessageBox.Show("電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxTelNo1.Focus();
                 return false;
             }
@@ -307,11 +311,11 @@ namespace SalesManagement_SysDev
             bool flg = EmployeeDataAccess.AddEmployeeData(regEmp);
             if (flg == true)
             {
-                MessageBox.Show("データを登録しました");
+                MessageBox.Show("データを登録しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("データの登録に失敗しました");
+                MessageBox.Show("データの登録に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxSyainID.Focus();
             }
             ClearInput();
@@ -384,7 +388,7 @@ namespace SalesManagement_SysDev
 
             if (String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
             {
-                MessageBox.Show("更新する社員データを選択してください");
+                MessageBox.Show("更新する社員データを選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -392,14 +396,14 @@ namespace SalesManagement_SysDev
             {
                 if (ichk.IntegerCheck(TextboxSyainName.Text))
                 {
-                    MessageBox.Show("使用できない文字が含まれています");
+                    MessageBox.Show("使用できない文字が含まれています", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxSyainName.Focus();
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("社員名が入力されていません");
+                MessageBox.Show("社員名を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxSyainName.Focus();
                 return false;
             }
@@ -408,41 +412,41 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxTelNo1.Text.Trim()))
                 {
-                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    MessageBox.Show("電話番号は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxTelNo1.Focus();
                     return false;
                 }
                 if (!ichk.IntegerCheck(TextboxTelNo2.Text.Trim()))
                 {
-                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    MessageBox.Show("電話番号は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxTelNo1.Focus();
                     return false;
                 }
                 if (!ichk.IntegerCheck(TextboxTelNo3.Text.Trim()))
                 {
-                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    MessageBox.Show("電話番号は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxTelNo1.Focus();
                     return false;
                 }
                 if (TextboxTelNo1.Text.Length < 2)
                 {
-                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 if (TextboxTelNo2.Text.Length < 2)
                 {
-                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 if (TextboxTelNo1.Text.Length < 3)
                 {
-                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("電話番号が入力されていません");
+                MessageBox.Show("電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxTelNo1.Focus();
                 return false;
             }
@@ -500,13 +504,13 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
             {
-                MessageBox.Show("非表示にするする社員データを選択してください");
+                MessageBox.Show("非表示にするする社員データを選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (String.IsNullOrEmpty(TextboxHihyoji.Text.Trim()))
             {
-                MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("非表示理由を記入してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -540,7 +544,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("データの非表示に失敗しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxSyainName.Focus();
             }
             ClearInput();

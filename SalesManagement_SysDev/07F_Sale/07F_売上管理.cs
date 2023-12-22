@@ -37,8 +37,6 @@ namespace SalesManagement_SysDev
         private void F_売上管理_Load(object sender, EventArgs e)
         {
             TextboxHihyouji.Enabled = false;
-            TextboxUriageID.ReadOnly = true;
-            TextboxJuchuID.ReadOnly = true;
             SetFormComboBox();
 
             if (!GetDataGridView())
@@ -241,7 +239,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                PrID = int.Parse(ComboKokyakuName.SelectedValue.ToString());
+                PrID = int.Parse(ComboSyohinName.SelectedIndex.ToString()+1);
             }
 
 
@@ -252,17 +250,17 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                SoID = int.Parse(ComboEigyousyoName.SelectedValue.ToString());
+                SoID = int.Parse(ComboEigyousyoName.SelectedIndex.ToString()+1);
             }
 
             int ClID;
-            if (ComboSyohinName.SelectedIndex == -1)
+            if (ComboKokyakuName.SelectedIndex == -1)
             {
                 ClID = -1;
             }
             else
             {
-                ClID = int.Parse(ComboKokyakuName.SelectedValue.ToString());
+                ClID = int.Parse(ComboKokyakuName.SelectedIndex.ToString()+1);
             }
 
             //整数型(int)に変換する準備
