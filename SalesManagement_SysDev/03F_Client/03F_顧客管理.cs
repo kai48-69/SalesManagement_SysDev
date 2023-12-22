@@ -245,16 +245,19 @@ namespace SalesManagement_SysDev
                 if (TextboxTelNo1.Text.Length < 2)
                 {
                     MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxTelNo1.Focus();
                     return false;
                 }
                 if (TextboxTelNo2.Text.Length < 2)
                 {
                     MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxTelNo1.Focus();
                     return false;
                 }
                 if (TextboxTelNo3.Text.Length <= 3)
                 {
                     MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxTelNo1.Focus();
                     return false;
                 }
             }
@@ -271,22 +274,25 @@ namespace SalesManagement_SysDev
                 if (!ichk.IntegerCheck(TextboxFAX1.Text.Trim()) || !ichk.IntegerCheck(TextboxFAX2.Text.Trim()) || !ichk.IntegerCheck(TextboxFAX3.Text.Trim()))
                 {
                     MessageBox.Show("FAX番号は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    TextboxTelNo1.Focus();
+                    TextboxFAX1.Focus();
                     return false;
                 }
                 if (TextboxFAX1.Text.Length < 2)
                 {
                     MessageBox.Show("正しい形式でFAX番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxFAX1.Focus();
                     return false;
                 }
                 if (TextboxFAX2.Text.Length < 2)
                 {
                     MessageBox.Show("正しい形式でFAX番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxFAX1.Focus();
                     return false;
                 }
                 if (TextboxFAX3.Text.Length <= 3)
                 {
                     MessageBox.Show("正しい形式でFAX番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxFAX1.Focus();
                     return false;
                 }
             }
@@ -438,16 +444,19 @@ namespace SalesManagement_SysDev
                 if (TextboxTelNo1.Text.Length < 2)
                 {
                     MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxTelNo1.Focus();
                     return false;
                 }
                 if (TextboxTelNo2.Text.Length < 2)
                 {
                     MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxTelNo1.Focus();
                     return false;
                 }
                 if (TextboxTelNo3.Text.Length <= 3)
                 {
                     MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxTelNo1.Focus();
                     return false;
                 }
             }
@@ -464,22 +473,25 @@ namespace SalesManagement_SysDev
                 if (!ichk.IntegerCheck(TextboxFAX1.Text.Trim()) || !ichk.IntegerCheck(TextboxFAX2.Text.Trim()) || !ichk.IntegerCheck(TextboxFAX3.Text.Trim()))
                 {
                     MessageBox.Show("FAX番号は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    TextboxTelNo1.Focus();
+                    TextboxFAX1.Focus();
                     return false;
                 }
                 if (TextboxFAX1.Text.Length < 2)
                 {
                     MessageBox.Show("正しい形式でFAX番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxFAX1.Focus();
                     return false;
                 }
                 if (TextboxFAX2.Text.Length < 2)
                 {
                     MessageBox.Show("正しい形式でFAX番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxFAX1.Focus();
                     return false;
                 }
                 if (TextboxFAX3.Text.Length <= 2)
                 {
                     MessageBox.Show("正しい形式でFAX番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxFAX1.Focus();
                     return false;
                 }
             }
@@ -499,6 +511,8 @@ namespace SalesManagement_SysDev
             if (String.IsNullOrEmpty(TextboxAdress.Text.Trim()))
             {
                 MessageBox.Show("住所が入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TextboxAdress.Focus();
+                return false;
             }
             return true;
         }
@@ -565,6 +579,7 @@ namespace SalesManagement_SysDev
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
             {
                 MessageBox.Show("非表示理由を記入してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TextboxHihyouji.Focus();
                 return false;
             }
 

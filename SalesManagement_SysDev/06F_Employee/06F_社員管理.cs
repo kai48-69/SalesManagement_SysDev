@@ -209,6 +209,10 @@ namespace SalesManagement_SysDev
         {
             if (!String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
             {
+                if (!ichk.IntegerCheck(TextboxSyainID.Text))
+                {
+                    MessageBox.Show("社員IDは半角数字で入力してください")
+                }
                 if (DB.CheckCascadeEmployeesID(int.Parse(TextboxSyainID.Text)) != -1)
                 {
                     MessageBox.Show("その社員IDは既に使われているため、登録できません");
