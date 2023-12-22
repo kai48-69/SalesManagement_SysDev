@@ -19,6 +19,7 @@ namespace SalesManagement_SysDev
         readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
         readonly ChumonDbConnection DB2 = new ChumonDbConnection();
         readonly SyukkoDBConnection DB3 = new SyukkoDBConnection();
+        readonly StockDbConnection DB4 = new StockDbConnection();
         readonly ChumonDataAccess CDA = new ChumonDataAccess();
         readonly SyukkoDateAccess SDA = new SyukkoDateAccess();
         readonly StockDataAccess StDA = new StockDataAccess();
@@ -126,6 +127,11 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].Width = 70;
+            //商品名
+            dataGridView1.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[7].Width = 70;
+
 
             dataGridView1.Refresh();
         }
@@ -368,6 +374,7 @@ namespace SalesManagement_SysDev
             //詳細確定------------------------------------------------------------------------
             //登録したChIDを取得
             int SyID = DB3.GetSyID();
+          
             T_SyukkoDetail SyukkoDetail = new T_SyukkoDetail();
             T_Stock Stock  = new T_Stock();
             for (int i = 0; i < Data1.Count; i++)
@@ -377,7 +384,14 @@ namespace SalesManagement_SysDev
                 SyukkoDetail.PrID = Data1[i].PrID;
                 SyukkoDetail.SyQuantity = Data1[i].ChQuantity;
                 Stock.PrID = Data1[i].PrID;
-                Stock.StQuantity= Data1[i].ChQuantity;
+                int Quant = DB4.GetStQuantity(Data1[i].PrID) - Data1[i].ChQuantity;
+                if (Quant <=-1 )
+                {
+                    MessageBox.Show("商品の注文数が在庫数を上回る商品が存在するため、\n確定できませんでした。","エラー",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return false;
+                }
+                Stock.StQuantity = Quant;
+                
                 //chumonDetail登録
                 SDA.AddSyukkoDetailData(SyukkoDetail);
                 StDA.UpdateStockData(Stock);

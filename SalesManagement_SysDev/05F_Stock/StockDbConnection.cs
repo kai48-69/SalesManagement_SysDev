@@ -96,11 +96,15 @@ namespace SalesManagement_SysDev
             }
             return null;  
         }
-        
 
+        public int GetStQuantity(int PrID)
+        {
+            var context = new SalesManagement_DevContext();
+            var Stock= context.T_Stocks.Single(x => x.PrID==PrID);
+            int StQuantity = Stock.StQuantity;
+            return StQuantity;
+        }
 
     }
-
-
 }
     

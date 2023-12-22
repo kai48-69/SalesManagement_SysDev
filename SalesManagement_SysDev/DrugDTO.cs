@@ -261,6 +261,8 @@ namespace SalesManagement_SysDev
         public string PrName { get; set; }
         [DisplayName("数量")]
         public int ChQuantity { get; set; }
+        [DisplayName("在庫数")]
+        public int StQuantity { get; set; }
     }
 
     class GetChumonDataDTO

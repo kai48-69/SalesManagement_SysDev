@@ -13,7 +13,8 @@ namespace SalesManagement_SysDev
 {
     public partial class F_入庫管理 : Form
     {
-        readonly WarehouseDbConnection DB2 = new WarehouseDbConnection();
+        readonly StockDbConnection DB = new StockDbConnection();
+        readonly WarehouseDbConnection DB1 = new WarehouseDbConnection();
         readonly WarehouseDataAccess WDA = new WarehouseDataAccess();
         readonly StockDataAccess SDA = new StockDataAccess();
         readonly private InputCheck ichk = new InputCheck();
@@ -46,7 +47,7 @@ namespace SalesManagement_SysDev
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<DispWarehousingListDTO> tb = DB2.WareHousingGetData();
+            List<DispWarehousingListDTO> tb = DB1.WareHousingGetData();
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -197,7 +198,7 @@ namespace SalesManagement_SysDev
                 HaID= HattyuID
             };
 
-            List<DispWarehousingListDTO> tb = DB2.GetWareHousingData(selectCondition);
+            List<DispWarehousingListDTO> tb = DB1.GetWareHousingData(selectCondition);
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -286,14 +287,16 @@ namespace SalesManagement_SysDev
             {
                 WaID = int.Parse(TextboxNyukoID.Text),
             };
-            List<GetNyukoDataDTO> Data1 = DB2.SetNyukoData(selectCondition);
+            List<GetNyukoDataDTO> Data1 = DB1.SetNyukoData(selectCondition);
            
             T_Stock Stock = new T_Stock();
             for (int i = 0; i < Data1.Count; i++)
             {
                 Stock.PrID = Data1[i].PrID;
-                Stock.StQuantity =Data1[i].WaQuantity;
+                int Quant = DB.GetStQuantity(Data1[i].PrID) + Data1[i].WaQuantity;
+                Stock.StQuantity = Quant;
                 SDA.UpdateStockData(Stock);
+               
             }
       
              MessageBox.Show("データを確定しました");

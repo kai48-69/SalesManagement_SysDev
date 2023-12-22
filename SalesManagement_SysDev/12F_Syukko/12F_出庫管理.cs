@@ -145,7 +145,6 @@ namespace SalesManagement_SysDev
             {
                 //何も処理を行わない
             }
-           
         }
 
         //実行ボタン

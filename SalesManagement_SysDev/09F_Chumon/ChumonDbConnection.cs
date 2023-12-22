@@ -31,6 +31,8 @@ namespace SalesManagement_SysDev
                          on Chumon.OrID equals Order.OrID
                          join Product in context.M_Products
                          on ChumonDetail.PrID equals Product.PrID
+                         join Stock in context.T_Stocks
+                         on Product.PrID equals Stock.PrID
                          where Chumon.ChFlag.Equals(0) &&
                          Chumon.ChStateFlag.Equals(0) 
 
@@ -43,6 +45,7 @@ namespace SalesManagement_SysDev
                              OrID = Order.OrID,
                              PrName = Product.PrName,
                              ChQuantity = ChumonDetail.ChQuantity,
+                             StQuantity=Stock.StQuantity,
                          
                          };
                 return tb.ToList();
