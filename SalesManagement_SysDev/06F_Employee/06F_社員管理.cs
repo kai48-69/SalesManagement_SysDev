@@ -280,6 +280,7 @@ namespace SalesManagement_SysDev
 
         private M_Employee GenerateDataAtRegistration() //登録データ生成
         {
+            int EmID =int.Parse(TextboxSyainID.Text.PadLeft(4,'0'));
             string[] TEL = new string[3];
             TEL[0] = TextboxTelNo1.Text;
             TEL[1] = TextboxTelNo2.Text;
@@ -289,7 +290,7 @@ namespace SalesManagement_SysDev
             int PoID = ComboYakusyokuName.SelectedIndex;
             return new M_Employee
             {
-                EmID = int.Parse(TextboxSyainID.Text.Trim()),
+                EmID = EmID,
                 EmName = TextboxSyainName.Text.Trim(),
                 EmPhone = TelNo,
                 SoID = SoID + 1,

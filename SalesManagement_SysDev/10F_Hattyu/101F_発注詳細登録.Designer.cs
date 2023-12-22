@@ -32,13 +32,13 @@
             this.label10 = new System.Windows.Forms.Label();
             this.ButtonTouroku = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ButtonBack = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.TextboxSyohinName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TextboxSyohinID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ButtonBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -85,15 +85,28 @@
             this.panel1.Size = new System.Drawing.Size(1000, 142);
             this.panel1.TabIndex = 67;
             // 
+            // ButtonBack
+            // 
+            this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.ButtonBack.Location = new System.Drawing.Point(824, 64);
+            this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonBack.Name = "ButtonBack";
+            this.ButtonBack.Size = new System.Drawing.Size(124, 58);
+            this.ButtonBack.TabIndex = 6;
+            this.ButtonBack.Text = "戻る";
+            this.ButtonBack.UseVisualStyleBackColor = true;
+            this.ButtonBack.Visible = false;
+            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label9.Location = new System.Drawing.Point(428, 64);
+            this.label9.Location = new System.Drawing.Point(405, 64);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(322, 50);
             this.label9.TabIndex = 4;
-            this.label9.Text = "発注詳細登録";
+            this.label9.Text = "発注商品登録";
             // 
             // TextboxSyohinName
             // 
@@ -145,19 +158,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(768, 294);
             this.dataGridView1.TabIndex = 62;
-            // 
-            // ButtonBack
-            // 
-            this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonBack.Location = new System.Drawing.Point(824, 64);
-            this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonBack.Name = "ButtonBack";
-            this.ButtonBack.Size = new System.Drawing.Size(124, 58);
-            this.ButtonBack.TabIndex = 6;
-            this.ButtonBack.Text = "戻る";
-            this.ButtonBack.UseVisualStyleBackColor = true;
-            this.ButtonBack.Visible = false;
-            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
             // 
             // _101F_発注詳細登録
             // 

@@ -151,7 +151,7 @@
             this.TextboxSyainID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxSyainID.Location = new System.Drawing.Point(175, 282);
             this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextboxSyainID.MaxLength = 4;
+            this.TextboxSyainID.MaxLength = 6;
             this.TextboxSyainID.Name = "TextboxSyainID";
             this.TextboxSyainID.Size = new System.Drawing.Size(290, 32);
             this.TextboxSyainID.TabIndex = 1;

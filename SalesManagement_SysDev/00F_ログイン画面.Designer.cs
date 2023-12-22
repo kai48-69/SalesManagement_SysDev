@@ -54,7 +54,7 @@
             // 
             this.ButtonExit.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ButtonExit.Location = new System.Drawing.Point(472, 26);
-            this.ButtonExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonExit.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonExit.Name = "ButtonExit";
             this.ButtonExit.Size = new System.Drawing.Size(101, 46);
             this.ButtonExit.TabIndex = 4;
@@ -78,7 +78,7 @@
             // 
             this.ButtonLogin.Font = new System.Drawing.Font("MS UI Gothic", 30F);
             this.ButtonLogin.Location = new System.Drawing.Point(96, 305);
-            this.ButtonLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(437, 61);
             this.ButtonLogin.TabIndex = 10;
@@ -111,7 +111,7 @@
             this.TextboxPW.Font = new System.Drawing.Font("MS UI Gothic", 25F);
             this.TextboxPW.Location = new System.Drawing.Point(243, 218);
             this.TextboxPW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextboxPW.MaxLength = 10;
+            this.TextboxPW.MaxLength = 20;
             this.TextboxPW.Name = "TextboxPW";
             this.TextboxPW.PasswordChar = '*';
             this.TextboxPW.Size = new System.Drawing.Size(329, 49);
