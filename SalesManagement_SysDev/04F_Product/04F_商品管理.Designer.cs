@@ -177,6 +177,7 @@
             this.TextboxSyouhinID.Name = "TextboxSyouhinID";
             this.TextboxSyouhinID.Size = new System.Drawing.Size(244, 32);
             this.TextboxSyouhinID.TabIndex = 110;
+            this.TextboxSyouhinID.Text = "※入力不要です";
             // 
             // TextboxSyohinName
             // 

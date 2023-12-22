@@ -20,9 +20,6 @@ namespace SalesManagement_SysDev
         {
             InitializeComponent();
             LoginData = LData;
-            this.LblEmName.Text = LData.EmName;
-            this.LblSoName.Text = LData.SoName;
-            this.LblLoginDate.Text = LData.LoginDatetime.ToString();
         }
 
         private void F_在庫管理_Load(object sender, EventArgs e)
@@ -33,8 +30,6 @@ namespace SalesManagement_SysDev
                 return;
             }
         }
-
-
 
         //データ全件表示
         private bool GetDataGridView()
@@ -106,7 +101,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxShouhinID.Text.Trim()))
                 {
-                    MessageBox.Show("商品IDは半角数字で入力してください");
+                    MessageBox.Show("商品IDは半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxShouhinID.Focus();
                     return false;
                 }
@@ -138,13 +133,10 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-     
-
         //入力リセット--------------------------------------------------------------------
         private void ClearInput()
         {
             TextboxShouhinID.Text = "";
-            TextboxSuryo.Text = "";
         }
         //リセットボタン------------------------------------------------------------------
         private void ButtonReset_Click(object sender, EventArgs e)

@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LblLoginDate = new System.Windows.Forms.Label();
-            this.LblSoName = new System.Windows.Forms.Label();
-            this.LblEmName = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.ButtonBack = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,8 +39,6 @@
             this.ButtonReset = new System.Windows.Forms.Button();
             this.RadioKensaku = new System.Windows.Forms.RadioButton();
             this.ButtonExe = new System.Windows.Forms.Button();
-            this.TextboxSuryo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -54,84 +46,18 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.LblLoginDate);
-            this.panel1.Controls.Add(this.LblSoName);
-            this.panel1.Controls.Add(this.LblEmName);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.ButtonBack);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(961, 142);
+            this.panel1.Size = new System.Drawing.Size(782, 142);
             this.panel1.TabIndex = 58;
-            // 
-            // LblLoginDate
-            // 
-            this.LblLoginDate.AutoSize = true;
-            this.LblLoginDate.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.LblLoginDate.Location = new System.Drawing.Point(182, 97);
-            this.LblLoginDate.Name = "LblLoginDate";
-            this.LblLoginDate.Size = new System.Drawing.Size(153, 19);
-            this.LblLoginDate.TabIndex = 110;
-            this.LblLoginDate.Text = "23/10/30 11:15";
-            // 
-            // LblSoName
-            // 
-            this.LblSoName.AutoSize = true;
-            this.LblSoName.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.LblSoName.Location = new System.Drawing.Point(182, 66);
-            this.LblSoName.Name = "LblSoName";
-            this.LblSoName.Size = new System.Drawing.Size(129, 19);
-            this.LblSoName.TabIndex = 109;
-            this.LblSoName.Text = "◯◯◯営業所";
-            // 
-            // LblEmName
-            // 
-            this.LblEmName.AutoSize = true;
-            this.LblEmName.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.LblEmName.Location = new System.Drawing.Point(182, 34);
-            this.LblEmName.Name = "LblEmName";
-            this.LblEmName.Size = new System.Drawing.Size(109, 19);
-            this.LblEmName.TabIndex = 108;
-            this.LblEmName.Text = "江戸川乱歩";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(47, 34);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(130, 19);
-            this.label14.TabIndex = 105;
-            this.label14.Text = "ログイン社員名";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(67, 97);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(110, 19);
-            this.label17.TabIndex = 106;
-            this.label17.Text = "ログイン日時";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(107, 66);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(69, 19);
-            this.label15.TabIndex = 107;
-            this.label15.Text = "営業所";
             // 
             // ButtonBack
             // 
             this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonBack.Location = new System.Drawing.Point(733, 49);
+            this.ButtonBack.Location = new System.Drawing.Point(520, 41);
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(165, 58);
@@ -144,7 +70,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label6.Location = new System.Drawing.Point(393, 49);
+            this.label6.Location = new System.Drawing.Point(234, 49);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(222, 50);
             this.label6.TabIndex = 4;
@@ -162,12 +88,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(51, 392);
+            this.dataGridView1.Location = new System.Drawing.Point(53, 353);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(847, 295);
+            this.dataGridView1.Size = new System.Drawing.Size(631, 295);
             this.dataGridView1.TabIndex = 57;
             // 
             // TextboxShouhinID
@@ -193,7 +119,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.checkBox1.Location = new System.Drawing.Point(645, 289);
+            this.checkBox1.Location = new System.Drawing.Point(462, 289);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(222, 29);
@@ -231,7 +157,7 @@
             // ButtonExe
             // 
             this.ButtonExe.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonExe.Location = new System.Drawing.Point(733, 167);
+            this.ButtonExe.Location = new System.Drawing.Point(519, 167);
             this.ButtonExe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonExe.Name = "ButtonExe";
             this.ButtonExe.Size = new System.Drawing.Size(165, 58);
@@ -240,32 +166,11 @@
             this.ButtonExe.UseVisualStyleBackColor = true;
             this.ButtonExe.Click += new System.EventHandler(this.ButtonExe_Click);
             // 
-            // TextboxSuryo
-            // 
-            this.TextboxSuryo.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxSuryo.Location = new System.Drawing.Point(431, 282);
-            this.TextboxSuryo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextboxSuryo.Name = "TextboxSuryo";
-            this.TextboxSuryo.Size = new System.Drawing.Size(156, 32);
-            this.TextboxSuryo.TabIndex = 105;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label1.Location = new System.Drawing.Point(341, 287);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 25);
-            this.label1.TabIndex = 104;
-            this.label1.Text = "数量";
-            // 
             // F_在庫管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 718);
-            this.Controls.Add(this.TextboxSuryo);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(738, 688);
             this.Controls.Add(this.ButtonExe);
             this.Controls.Add(this.ButtonReset);
             this.Controls.Add(this.RadioKensaku);
@@ -299,16 +204,8 @@
         private System.Windows.Forms.TextBox TextboxShouhinID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label LblLoginDate;
-        private System.Windows.Forms.Label LblSoName;
-        private System.Windows.Forms.Label LblEmName;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button ButtonReset;
         private System.Windows.Forms.RadioButton RadioKensaku;
         private System.Windows.Forms.Button ButtonExe;
-        private System.Windows.Forms.TextBox TextboxSuryo;
-        private System.Windows.Forms.Label label1;
     }
 }

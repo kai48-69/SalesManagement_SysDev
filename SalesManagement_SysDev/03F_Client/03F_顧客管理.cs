@@ -238,29 +238,29 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxTelNo1.Text.Trim()) || !ichk.IntegerCheck(TextboxTelNo2.Text.Trim()) || !ichk.IntegerCheck(TextboxTelNo3.Text.Trim()))
                 {
-                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    MessageBox.Show("電話番号は半角数字で入力してください","エラー",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     TextboxTelNo1.Focus();
                     return false;
                 }
                 if (TextboxTelNo1.Text.Length < 2)
                 {
-                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 if (TextboxTelNo2.Text.Length < 2)
                 {
-                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 if (TextboxTelNo3.Text.Length <= 3)
                 {
-                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("電話番号を入力してください");
+                MessageBox.Show("電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxTelNo1.Focus();
                 return false;
             }
@@ -270,42 +270,42 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxFAX1.Text.Trim()) || !ichk.IntegerCheck(TextboxFAX2.Text.Trim()) || !ichk.IntegerCheck(TextboxFAX3.Text.Trim()))
                 {
-                    MessageBox.Show("FAX番号は半角数字で入力してください");
+                    MessageBox.Show("FAX番号は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxTelNo1.Focus();
                     return false;
                 }
                 if (TextboxFAX1.Text.Length < 2)
                 {
-                    MessageBox.Show("正しい形式でFAX番号を入力してください");
+                    MessageBox.Show("正しい形式でFAX番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 if (TextboxFAX2.Text.Length < 2)
                 {
-                    MessageBox.Show("正しい形式でFAX番号を入力してください");
+                    MessageBox.Show("正しい形式でFAX番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 if (TextboxFAX3.Text.Length <= 3)
                 {
-                    MessageBox.Show("正しい形式でFAX番号を入力してください");
+                    MessageBox.Show("正しい形式でFAX番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("FAX番号を入力してください");
+                MessageBox.Show("FAX番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxTelNo1.Focus();
                 return false;
             }
 
             if (String.IsNullOrEmpty(TextboxPostCD.Text.Trim()))
             {
-                MessageBox.Show("郵便番号を入力してください");
+                MessageBox.Show("郵便番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxPostCD.Focus();
                 return false;
             }
             if (String.IsNullOrEmpty(TextboxAdress.Text.Trim()))
             {
-                MessageBox.Show("住所が入力してください");
+                MessageBox.Show("住所が入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxAdress.Focus();
                 return false;
             }
@@ -347,11 +347,11 @@ namespace SalesManagement_SysDev
             bool flg = ClientDataAccess.AddClientData(regCl);
             if (flg == true)
             {
-                MessageBox.Show("データを登録しました");
+                MessageBox.Show("データを登録しました","確認",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("データの登録に失敗しました");
+                MessageBox.Show("データの登録に失敗しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxKokyakuID.Focus();
             }
             ClearInput();
@@ -365,7 +365,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxKokyakuID.Text.Trim()))
                 {
-                    MessageBox.Show("顧客IDはすべて半角数字で入力してください。");
+                    MessageBox.Show("顧客IDはすべて半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxKokyakuID.Focus();
                     return false;
                 }
@@ -417,12 +417,12 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxKokyakuID.Text.Trim()))
             {
-                MessageBox.Show("更新する顧客データを選択してください");
+                MessageBox.Show("更新する顧客データを選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (String.IsNullOrEmpty(TextboxKokyakuName.Text.Trim()))
             {
-                MessageBox.Show("顧客名が入力されていません");
+                MessageBox.Show("顧客名を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxKokyakuName.Focus();
                 return false;
             }
@@ -431,29 +431,29 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxTelNo1.Text.Trim()) || !ichk.IntegerCheck(TextboxTelNo2.Text.Trim()) || !ichk.IntegerCheck(TextboxTelNo3.Text.Trim()))
                 {
-                    MessageBox.Show("電話番号は半角数字で入力してください");
+                    MessageBox.Show("電話番号は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxTelNo1.Focus();
                     return false;
                 }
                 if (TextboxTelNo1.Text.Length < 2)
                 {
-                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 if (TextboxTelNo2.Text.Length < 2)
                 {
-                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 if (TextboxTelNo3.Text.Length <= 3)
                 {
-                    MessageBox.Show("正しい形式で電話番号を入力してください");
+                    MessageBox.Show("正しい形式で電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("電話番号が入力されていません");
+                MessageBox.Show("電話番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxTelNo1.Focus();
                 return false;
             }
@@ -463,42 +463,42 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxFAX1.Text.Trim()) || !ichk.IntegerCheck(TextboxFAX2.Text.Trim()) || !ichk.IntegerCheck(TextboxFAX3.Text.Trim()))
                 {
-                    MessageBox.Show("FAX番号は半角数字で入力してください");
+                    MessageBox.Show("FAX番号は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxTelNo1.Focus();
                     return false;
                 }
                 if (TextboxFAX1.Text.Length < 2)
                 {
-                    MessageBox.Show("正しい形式でFAX番号を入力してください");
+                    MessageBox.Show("正しい形式でFAX番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 if (TextboxFAX2.Text.Length < 2)
                 {
-                    MessageBox.Show("正しい形式でFAX番号を入力してください");
+                    MessageBox.Show("正しい形式でFAX番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 if (TextboxFAX3.Text.Length <= 2)
                 {
-                    MessageBox.Show("正しい形式でFAX番号を入力してください");
+                    MessageBox.Show("正しい形式でFAX番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("FAX番号が入力されていません");
+                MessageBox.Show("FAX番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxTelNo1.Focus();
                 return false;
             }
 
             if (String.IsNullOrEmpty(TextboxPostCD.Text.Trim()))
             {
-                MessageBox.Show("郵便番号が入力されていません");
+                MessageBox.Show("郵便番号を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxPostCD.Focus();
                 return false;
             }
             if (String.IsNullOrEmpty(TextboxAdress.Text.Trim()))
             {
-                MessageBox.Show("住所が入力されていません");
+                MessageBox.Show("住所が入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return true;
         }
@@ -558,13 +558,13 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxKokyakuID.Text.Trim()))
             {
-                MessageBox.Show("非表示にする顧客データを選択してください");
+                MessageBox.Show("非表示にする顧客データを選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
             {
-                MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("非表示理由を記入してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -598,7 +598,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("データの非表示に失敗しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             ClearInput();
             GetDataGridView();

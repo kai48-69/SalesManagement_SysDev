@@ -42,7 +42,7 @@ namespace SalesManagement_SysDev
 
             if (!GetDataGridView())
             {
-                MessageBox.Show("商品情報を取得することができません。", "商品確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("商品情報を取得することができません。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -245,7 +245,7 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxSyohinName.Text.Trim()))
             {
-                MessageBox.Show("商品名が入力されていません");
+                MessageBox.Show("商品名を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxSyohinName.Focus();
                 return false;
             }
@@ -261,7 +261,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("安全在庫数が入力されていません");
+                MessageBox.Show("安全在庫数を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxStock.Focus();
                 return false;
             }
@@ -269,20 +269,20 @@ namespace SalesManagement_SysDev
 
             if (String.IsNullOrEmpty(TextboxKakaku.Text.Trim()))
             {
-                MessageBox.Show("価格が入力されていません");
+                MessageBox.Show("価格を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxKakaku.Focus();
                 return false;
             }
 
             if (String.IsNullOrEmpty(TextboxColor.Text.Trim()))
             {
-                MessageBox.Show("色が入力されていません");
+                MessageBox.Show("色を入力してください","エラー",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 TextboxColor.Focus();
                 return false;
             }
             if (String.IsNullOrEmpty(TextboxKataban.Text.Trim()))
             {
-                MessageBox.Show("型番が入力されていません");
+                MessageBox.Show("型番を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return true;
@@ -318,11 +318,11 @@ namespace SalesManagement_SysDev
             bool flg1 = PDA.AddProductData(regPro);
             if (flg1 == true)
             {
-                MessageBox.Show("データを登録しました");
+                MessageBox.Show("データを登録しました","確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("商品データの登録に失敗しました");
+                MessageBox.Show("商品データの登録に失敗しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxSyouhinID.Focus();
             }
         }
@@ -343,7 +343,7 @@ namespace SalesManagement_SysDev
             bool flg1 = SDA.AddStockData(regSto);
             if (flg1 != true)
             {
-                MessageBox.Show("在庫データの登録に失敗しました");
+                MessageBox.Show("在庫データの登録に失敗しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxSyouhinID.Focus();
             }
             ClearInput();
@@ -357,7 +357,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxSyouhinID.Text.Trim()))
                 {
-                    MessageBox.Show("商品コードはすべて半角数字で入力してください。");
+                    MessageBox.Show("商品コードはすべて半角数字で入力してください。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxSyouhinID.Focus();
                     return false;
                 }
@@ -367,7 +367,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxStock.Text.Trim()))
                 {
-                    MessageBox.Show("安全在庫数は半角数字で入力してください");
+                    MessageBox.Show("安全在庫数は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxStock.Focus();
                     return false;
                 }
@@ -377,7 +377,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxKakaku.Text.Trim()))
                 {
-                    MessageBox.Show("価格は半角数字で入力してください");
+                    MessageBox.Show("価格は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxKakaku.Focus();
                     return false;
                 }
@@ -386,7 +386,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxKataban.Text.Trim()))
                 {
-                    MessageBox.Show("型番は半角数字で入力してください");
+                    MessageBox.Show("型番は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxKakaku.Focus();
                     return false;
                 }
@@ -465,7 +465,7 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxSyohinName.Text.Trim()))
             {
-                MessageBox.Show("商品名が入力されていません");
+                MessageBox.Show("商品名を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxSyohinName.Focus();
                 return false;
             }
@@ -474,21 +474,21 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxStock.Text.Trim()))
                 {
-                    MessageBox.Show("安全在庫数は半角数字で入力してください");
+                    MessageBox.Show("安全在庫数は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxStock.Focus();
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("安全在庫数が入力されていません");
+                MessageBox.Show("安全在庫数を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxStock.Focus();
                 return false;
             }
 
             if (String.IsNullOrEmpty(TextboxKakaku.Text.Trim()))
             {
-                MessageBox.Show("価格が入力されていません");
+                MessageBox.Show("価格を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxKakaku.Focus();
                 return false;
             }
@@ -496,14 +496,14 @@ namespace SalesManagement_SysDev
 
             if (String.IsNullOrEmpty(TextboxColor.Text.Trim()))
             {
-                MessageBox.Show("色が入力されていません");
+                MessageBox.Show("色を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxColor.Focus();
                 return false;
             }
 
             if (String.IsNullOrEmpty(TextboxKataban.Text.Trim()))
             {
-                MessageBox.Show("型番が入力されていません");
+                MessageBox.Show("型番を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return true;
         }
@@ -555,6 +555,12 @@ namespace SalesManagement_SysDev
         //商品非表示処理---------------------------------------------------------------------
         private bool GetVaildDataAtHide()//入力データチェック
         {
+            if (String.IsNullOrEmpty(TextboxSyouhinID.Text.Trim()))
+            {
+                MessageBox.Show("非表示にする商品データを選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
             {
                 MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -681,6 +687,7 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxSyouhinID.ReadOnly = true;
+            TextboxSyouhinID.Text = "※入力不要です";
             TextboxSyohinName.ReadOnly = false;
             ComboMakerName.SelectedIndex = 0;
             TextboxKakaku.ReadOnly = false;
@@ -700,6 +707,7 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxSyouhinID.ReadOnly = false;
+            TextboxSyouhinID.Text = "";
             TextboxSyohinName.ReadOnly = false;
             ComboMakerName.SelectedIndex = -1;
             TextboxKakaku.ReadOnly = false;
@@ -719,6 +727,7 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxSyouhinID.ReadOnly = true;
+            TextboxSyouhinID.Text = "";
             TextboxSyohinName.ReadOnly = false;
             ComboMakerName.SelectedIndex = -1;
             TextboxKakaku.ReadOnly = false;
@@ -738,6 +747,7 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxSyouhinID.ReadOnly = true;
+            TextboxSyouhinID.Text = "";
             TextboxSyohinName.ReadOnly = true;
             ComboMakerName.SelectedIndex = -1;
             TextboxKakaku.ReadOnly = true;
