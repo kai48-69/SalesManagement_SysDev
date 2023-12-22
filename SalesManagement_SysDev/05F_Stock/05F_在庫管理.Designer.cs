@@ -70,7 +70,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("MS UI Gothic", 30F);
-            this.label6.Location = new System.Drawing.Point(234, 49);
+            this.label6.Location = new System.Drawing.Point(241, 49);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(222, 50);
             this.label6.TabIndex = 4;
