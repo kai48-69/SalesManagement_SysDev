@@ -212,7 +212,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxChumonID.Text.Trim()))
                 {
-                    MessageBox.Show("注文IDは半角数字で入力してください。");
+                    MessageBox.Show("注文IDは半角数字で入力してください","エラー",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     TextboxChumonID.Focus();
                     return false;
                 }
@@ -222,7 +222,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxOrderID.Text.Trim()))
                 {
-                    MessageBox.Show("受注IDは半角数字で入力してください");
+                    MessageBox.Show("受注IDは半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxOrderID.Focus();
                     return false;
                 }
@@ -288,7 +288,7 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxChumonID.Text.Trim()))
             {
-                MessageBox.Show("非表示にする注文データを選択してください", "エラー");
+                MessageBox.Show("非表示にする注文データを選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -327,7 +327,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("データの非表示に失敗しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxChumonID.Focus();
             }
             ClearInput();
@@ -340,7 +340,7 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxChumonID.Text.Trim()))
             {
-                MessageBox.Show("確定を行うデータが選択されていません");
+                MessageBox.Show("確定を行うデータが選択されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -396,7 +396,7 @@ namespace SalesManagement_SysDev
                 SDA.AddSyukkoDetailData(SyukkoDetail);
                 StDA.UpdateStockData(Stock);
             }
-            MessageBox.Show("データを確定しました");
+            MessageBox.Show("データを確定しました","確認",MessageBoxButtons.OK,MessageBoxIcon.Error);
             return true;
         }
 
