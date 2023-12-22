@@ -122,9 +122,7 @@ namespace SalesManagement_SysDev
             {
                 //何も処理を行わない
             }
-           
         }
-
 
         private void SetFormComboBox()
         {
@@ -196,7 +194,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxSyukkaID.Text.Trim()))
                 {
-                    MessageBox.Show("出荷IDはすべて半角数字で入力してください。");
+                    MessageBox.Show("出荷IDはすべて半角数字で入力してください", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                     TextboxSyukkaID.Focus();
                     return false;
                 }
@@ -264,7 +262,7 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxSyukkaID.Text.Trim()))
             {
-                MessageBox.Show("非表示にする受注データを選択してください", "エラー");
+                MessageBox.Show("非表示にする受注データを選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -303,7 +301,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("データの非表示に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("データの非表示に失敗しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxSyukkaID.Focus();
             }
             ClearInput();
@@ -311,13 +309,12 @@ namespace SalesManagement_SysDev
             GetDataGridView();
         }
 
-
         //確定処理------------------------------------------------------------------------
         private bool CheckDataAtConfirm()
         {
             if (String.IsNullOrEmpty(TextboxSyukkaID.Text.Trim()))
             {
-                MessageBox.Show("確定を行うデータが選択されていません");
+                MessageBox.Show("確定を行うデータが選択されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -363,7 +360,7 @@ namespace SalesManagement_SysDev
                 SDA.AddSaleDetailData(SaleDetail);
              
             }
-            MessageBox.Show("データを確定しました");
+            MessageBox.Show("データを確定しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private T_Shipment GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)

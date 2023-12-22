@@ -47,14 +47,14 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxPW.Text))
                 {
-                    MessageBox.Show("新パスワードは半角数字で入力してください");
+                    MessageBox.Show("新パスワードは半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxPW.Focus();
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("新パスワードを入力してください");
+                MessageBox.Show("新パスワードを入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxPW.Focus();
                 return false;
             }
@@ -62,20 +62,20 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxConPW.Text))
                 {
-                    MessageBox.Show("新パスワード(確認)は半角数字で入力してください");
+                    MessageBox.Show("新パスワード(確認)は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxPW.Focus();
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("新パスワード(確認)を入力してください");
+                MessageBox.Show("新パスワード(確認)を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxPW.Focus();
                 return false;
             }
             if (TextboxPW.Text != TextboxConPW.Text)
             {
-                MessageBox.Show("入力されたパスワードが一致していません。\n再度入力してください。");
+                MessageBox.Show("入力されたパスワードが一致していません\n再度入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxPW.Focus();
                 return false;
             }
@@ -109,7 +109,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("パスワードの登録に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("パスワードの登録に失敗しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxPW.Focus();
             }
         }

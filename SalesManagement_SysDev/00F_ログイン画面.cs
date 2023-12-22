@@ -42,13 +42,13 @@ namespace SalesManagement_SysDev
         {
             if (!int.TryParse(TextboxShainID.Text.Trim(), out int SyainID))
             {
-                MessageBox.Show("空欄または使用できない文字が入力されました。");
+                MessageBox.Show("空欄または使用できない文字が入力されました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxShainID.Focus();
                 return -1;
             }
             if (String.IsNullOrEmpty(TextboxPW.Text.Trim()))
             {
-                MessageBox.Show("パスワードを入力してください");
+                MessageBox.Show("パスワードを入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxPW.Focus();
                 return -1;
             }
@@ -65,7 +65,7 @@ namespace SalesManagement_SysDev
             {
                 if (!DB.CheckEmployeesPW(TextboxPW.Text.Trim(), SyainID))
                 {
-                    MessageBox.Show("IDまたはパスワードが違います");
+                    MessageBox.Show("IDまたはパスワードが違います", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxShainID.Focus();
                     return false;
                 }
@@ -76,7 +76,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("IDまたはパスワードが違います");
+                MessageBox.Show("IDまたはパスワードが違います", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxShainID.Focus();
                 return false;
             }
