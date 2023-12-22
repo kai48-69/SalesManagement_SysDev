@@ -43,7 +43,7 @@ namespace SalesManagement_SysDev
 
             if (!GetDataGridView())
             {
-                MessageBox.Show("売上情報を取得することができません。", "商品確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("売上情報を取得することができません。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -204,7 +204,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxUriageID.Text.Trim()))
                 {
-                    MessageBox.Show("売上IDはすべて半角数字で入力してください。");
+                    MessageBox.Show("売上IDはすべて半角数字で入力してください。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxUriageID.Focus();
                     return false;
                 }
@@ -215,7 +215,7 @@ namespace SalesManagement_SysDev
 
                 if (!ichk.IntegerCheck(TextboxJuchuID.Text.Trim()))
                 {
-                    MessageBox.Show("受注IDは半角数字で入力してください");
+                    MessageBox.Show("受注IDは半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxJuchuID.Focus();
                     return false;
                 }
@@ -224,7 +224,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxSyainID.Text.Trim()))
                 { 
-                    MessageBox.Show("社員IDは半角数字で入力してください");
+                    MessageBox.Show("社員IDは半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxSyainID.Focus();
                     return false;
                 }
@@ -314,14 +314,14 @@ namespace SalesManagement_SysDev
         {
             if (String.IsNullOrEmpty(TextboxUriageID.Text.Trim()))
             {
-                MessageBox.Show("非表示にする売上データを選択してください", "エラー");
+                MessageBox.Show("非表示にする売上データを選択してください",  "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
 
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
             {
-                MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("非表示理由を記入してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;

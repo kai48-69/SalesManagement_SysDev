@@ -39,7 +39,7 @@ namespace SalesManagement_SysDev
         {
             TextboxHihyouji.Enabled = false;
             TextboxJutyuID.ReadOnly = true;
-            TextboxSyainName.ReadOnly =true;
+            TextboxSyainName.ReadOnly = true;
             ButtonKakutei.Enabled = false;
             TextboxSyainID.Text = LoginData.EmID.ToString();
             TextboxSyainID.ReadOnly = true;
@@ -174,7 +174,7 @@ namespace SalesManagement_SysDev
             {
                 //何も処理を行わない
             }
-          
+
         }
 
         //実行ボタン
@@ -240,30 +240,9 @@ namespace SalesManagement_SysDev
 
             if (String.IsNullOrEmpty(TextboxTantousyaName.Text.Trim()))
             {
-                MessageBox.Show("顧客担当者名が入力されていません");
+                MessageBox.Show("顧客担当者名を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
-            if (!String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
-            {
-                if (!ichk.IntegerCheck(TextboxSyainID.Text.Trim()))
-                {
-                    MessageBox.Show("社員IDは半角数字で入力してください");
-                    return false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("社員IDが入力されていません");
-                return false;
-            }
-
-            if (String.IsNullOrEmpty(TextboxSyainName.Text))
-            {
-                MessageBox.Show("正しい社員ID を入力して下さい");
-                return false;
-            }
-
             return true;
         }
 
@@ -286,7 +265,7 @@ namespace SalesManagement_SysDev
 
         private void RegistrationOrder(T_Order regOr) //データ登録処理
         {
-            DialogResult result = MessageBox.Show("受注データの登録を開始します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("受注商品の登録を開始します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
             {
                 return;
@@ -294,18 +273,16 @@ namespace SalesManagement_SysDev
             bool flg = ODA.AddOrderData(regOr);
             if (flg == true)
             {
-                DialogResult result1 = MessageBox.Show("続けて商品の登録を行います");
-                if (result1 == DialogResult.OK)
-                {
-                    this.Close();
-                    F_受注詳細登録 f_JutyuSyousai = new F_受注詳細登録(LoginData);
-                    f_JutyuSyousai.Show();
 
-                }
+                this.Close();
+                F_受注詳細登録 f_JutyuSyousai = new F_受注詳細登録(LoginData);
+                f_JutyuSyousai.Show();
+
+
             }
             else
             {
-                MessageBox.Show("データの登録を開始できませんでした");
+                MessageBox.Show("データの登録を開始できませんでした", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextboxSyainName.Focus();
             }
             ClearInput();
@@ -319,7 +296,7 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxJutyuID.Text.Trim()))
                 {
-                    MessageBox.Show("受注IDはすべて半角数字で入力してください。");
+                    MessageBox.Show("受注IDはすべて半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxJutyuID.Focus();
                     return false;
                 }
@@ -327,10 +304,9 @@ namespace SalesManagement_SysDev
 
             if (!String.IsNullOrEmpty(TextboxSyainID.Text.Trim()))
             {
-
                 if (!ichk.IntegerCheck(TextboxSyainID.Text.Trim()))
                 {
-                    MessageBox.Show("社員IDは半角数字で入力してください");
+                    MessageBox.Show("社員IDは半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextboxSyainID.Focus();
                     return false;
                 }
@@ -404,14 +380,14 @@ namespace SalesManagement_SysDev
 
             if (ODA.CheckCascadeOrderID(int.Parse(TextboxJutyuID.Text.Trim())))
             {
-                MessageBox.Show("選択された受注内容は他で使用されているため非表示にできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("選択された受注内容は他で使用されているため非表示にできません。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
 
             }
 
             if (String.IsNullOrEmpty(TextboxHihyouji.Text.Trim()))
             {
-                MessageBox.Show("非表示理由を記入してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("非表示理由を記入してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -453,16 +429,16 @@ namespace SalesManagement_SysDev
         }
 
         //確定処理------------------------------------------------------------------------
-      private bool CheckDataAtConfirm()
+        private bool CheckDataAtConfirm()
         {
             if (String.IsNullOrEmpty(TextboxJutyuID.Text.Trim()))
             {
-                MessageBox.Show("確定を行うデータが選択されていません");
+                MessageBox.Show("確定を行うデータが選択されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error;
                 return false;
             }
             return true;
         }
-        
+
         private bool ConfirmOr()//注文テーブルにデータを登録する
         {
             DialogResult result = MessageBox.Show("受注情報を確定します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -480,7 +456,7 @@ namespace SalesManagement_SysDev
             //形式変換(DispOrderListDTO→T_Chumon)
             T_Chumon chumon = new T_Chumon
             {
-                EmID=LoginData.EmID,
+                EmID = LoginData.EmID,
                 OrID = Data1[0].OrID,
                 SoID = Data1[0].SoID,
                 ClID = Data1[0].ClID,
@@ -502,9 +478,9 @@ namespace SalesManagement_SysDev
                 //chumonDetail登録
                 CDA.AddChumonDetailData(ChumonDetail);
             }
-               MessageBox.Show("データを確定しました");
+            MessageBox.Show("データを確定しました");
             return true;
-        } 
+        }
 
         private T_Order GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
         {
@@ -518,7 +494,7 @@ namespace SalesManagement_SysDev
         private void UpdOrFlag(T_Order ConOr)　//フラグ更新処理
         {
             ODA.UpdOrderFlg(ConOr);
-          
+
             ClearInput();
 
             GetDataGridView();
@@ -643,7 +619,7 @@ namespace SalesManagement_SysDev
         //社員名自動入力
         private void TextboxSyainID_TextChanged(object sender, EventArgs e)
         {
-            if (int.TryParse(TextboxSyainID.Text.Trim(),out int EmID))
+            if (int.TryParse(TextboxSyainID.Text.Trim(), out int EmID))
             {
                 if (DB1.CheckCascadeEmployeesID(EmID) != -1)
                 {
