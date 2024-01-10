@@ -35,7 +35,7 @@ namespace SalesManagement_SysDev
         //画面ロード時処理
         private void F_商品管理_Load(object sender, EventArgs e)
         {
-            TextboxSyouhinID.ReadOnly = true;
+            TextboxSyouhinID.Enabled=false;
             TextboxHihyouji.Enabled = false;
 
             SetFormComboBox();
@@ -686,15 +686,16 @@ namespace SalesManagement_SysDev
         private void RadioTouroku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxSyouhinID.ReadOnly = true;
+            RadioTouroku.TabStop = false;
+            TextboxSyouhinID.Enabled = false;
             TextboxSyouhinID.Text = "※入力不要です";
-            TextboxSyohinName.ReadOnly = false;
+            TextboxSyohinName.Enabled = true;
             ComboMakerName.SelectedIndex = 0;
-            TextboxKakaku.ReadOnly = false;
-            TextboxStock.ReadOnly = false;
+            TextboxKakaku.Enabled = true;
+            TextboxStock.Enabled = true;
             ComboSyobunrui.SelectedIndex = 0;
-            TextboxKataban.ReadOnly = false;
-            TextboxColor.ReadOnly = false;
+            TextboxKataban.Enabled = true;
+            TextboxColor.Enabled = true;
             LblHatubaiDate.Visible = true;
             TextboxHihyouji.Enabled = false;
             HatubaiDate.Visible = true;
@@ -706,15 +707,16 @@ namespace SalesManagement_SysDev
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxSyouhinID.ReadOnly = false;
+            RadioKensaku.TabStop = false;
+            TextboxSyouhinID.Enabled = true;
             TextboxSyouhinID.Text = "";
-            TextboxSyohinName.ReadOnly = false;
+            TextboxSyohinName.Enabled = true;
             ComboMakerName.SelectedIndex = -1;
-            TextboxKakaku.ReadOnly = false;
-            TextboxStock.ReadOnly = false;
+            TextboxKakaku.Enabled = true;
+            TextboxStock.Enabled = true;
             ComboSyobunrui.SelectedIndex = -1;
-            TextboxKataban.ReadOnly = false;
-            TextboxColor.ReadOnly = false;
+            TextboxKataban.Enabled = true;
+            TextboxColor.Enabled = true;
             LblHatubaiDate.Visible = false;
             TextboxHihyouji.Enabled = false;
             HatubaiDate.Visible = false;
@@ -726,15 +728,16 @@ namespace SalesManagement_SysDev
         private void RadioKousin_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxSyouhinID.ReadOnly = true;
+            RadioKousin.TabStop = false;
+            TextboxSyouhinID.Enabled = false;
             TextboxSyouhinID.Text = "";
-            TextboxSyohinName.ReadOnly = false;
+            TextboxSyohinName.Enabled = true;
             ComboMakerName.SelectedIndex = -1;
-            TextboxKakaku.ReadOnly = false;
-            TextboxStock.ReadOnly = false;
+            TextboxKakaku.Enabled = true;
+            TextboxStock.Enabled = true;
             ComboSyobunrui.SelectedIndex = -1;
-            TextboxKataban.ReadOnly = false;
-            TextboxColor.ReadOnly = false;
+            TextboxKataban.Enabled = true;
+            TextboxColor.Enabled = true;
             LblHatubaiDate.Visible = true;
             HatubaiDate.Visible = true;
             TextboxHihyouji.Enabled = false;
@@ -746,15 +749,16 @@ namespace SalesManagement_SysDev
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxSyouhinID.ReadOnly = true;
+            RadioHihyouji.TabStop = false;
+            TextboxSyouhinID.Enabled = false;
             TextboxSyouhinID.Text = "";
-            TextboxSyohinName.ReadOnly = true;
+            TextboxSyohinName.Enabled = false;
             ComboMakerName.SelectedIndex = -1;
-            TextboxKakaku.ReadOnly = true;
-            TextboxStock.ReadOnly = true;
+            TextboxKakaku.Enabled = false;
+            TextboxStock.Enabled = false;
             ComboSyobunrui.SelectedIndex = -1;
-            TextboxKataban.ReadOnly = true;
-            TextboxColor.ReadOnly = true;
+            TextboxKataban.Enabled = false;
+            TextboxColor.Enabled = false;
             LblHatubaiDate.Visible = true;
             HatubaiDate.Visible = true; 
             TextboxHihyouji.Enabled = true;

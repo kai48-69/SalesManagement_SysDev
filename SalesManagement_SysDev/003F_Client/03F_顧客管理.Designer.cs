@@ -257,6 +257,7 @@
             this.TextboxHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxHihyouji.Location = new System.Drawing.Point(1033, 264);
             this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxHihyouji.MaxLength = 2000;
             this.TextboxHihyouji.Name = "TextboxHihyouji";
             this.TextboxHihyouji.Size = new System.Drawing.Size(307, 173);
             this.TextboxHihyouji.TabIndex = 12;
@@ -321,6 +322,7 @@
             this.TextboxAdress.Font = new System.Drawing.Font("MS UI Gothic", 13F);
             this.TextboxAdress.Location = new System.Drawing.Point(605, 420);
             this.TextboxAdress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxAdress.MaxLength = 50;
             this.TextboxAdress.Name = "TextboxAdress";
             this.TextboxAdress.Size = new System.Drawing.Size(251, 29);
             this.TextboxAdress.TabIndex = 11;
@@ -370,6 +372,7 @@
             this.TextboxKokyakuName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxKokyakuName.Location = new System.Drawing.Point(175, 314);
             this.TextboxKokyakuName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxKokyakuName.MaxLength = 50;
             this.TextboxKokyakuName.Name = "TextboxKokyakuName";
             this.TextboxKokyakuName.Size = new System.Drawing.Size(260, 32);
             this.TextboxKokyakuName.TabIndex = 2;
