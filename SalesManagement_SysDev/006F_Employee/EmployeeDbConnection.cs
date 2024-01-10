@@ -121,7 +121,7 @@ namespace SalesManagement_SysDev
                 {
                     return SyainID;
                 }
-                return -1;
+                return 1;
             }
             else
             { 
