@@ -81,9 +81,9 @@ namespace SalesManagement_SysDev
                          on Employee.SoID equals SOffice.SoID
                          join Position in context.M_Positions
                          on Employee.PoID equals Position.PoID
-                         where 
-                         (selectCondition.EmID == -1 ? true:
-                         Employee.EmID.ToString().Contains(selectCondition.EmID.ToString()) )&&
+                         where
+                         (selectCondition.EmID == -1 ? true :
+                         Employee.EmID.ToString().Contains(selectCondition.EmID.ToString())) &&
                         ((selectCondition.SoID == -1) ? true :
                         Employee.SoID == selectCondition.SoID) &&
                         ((selectCondition.PoID == -1) ? true :
@@ -112,10 +112,10 @@ namespace SalesManagement_SysDev
         //IDの存在チェック
         public int CheckCascadeEmployeesID(int EmID)
         {
-            try
+            var context = new SalesManagement_DevContext();
+            var Syain = context.M_Employees.SingleOrDefault(x => x.EmID == EmID);
+            if (Syain != null)
             {
-                var context = new SalesManagement_DevContext();
-                var Syain = context.M_Employees.Single(x => x.EmID == EmID);
                 int SyainID = Syain.EmID;
                 if (Syain.EmFlag == 0)
                 {
@@ -123,10 +123,11 @@ namespace SalesManagement_SysDev
                 }
                 return -1;
             }
-            catch
-            {
-                return -1;
+            else
+            { 
+                return -1; 
             }
+
         }
 
         //PWチェック
@@ -161,7 +162,7 @@ namespace SalesManagement_SysDev
         public string GetEmName(int EmID)
         {
             var context = new SalesManagement_DevContext();
-           
+
             var Emp = context.M_Employees.Single(x => x.EmID == EmID);
             string EmName = Emp.EmName;
             if (Emp.EmFlag == 0)
@@ -169,7 +170,7 @@ namespace SalesManagement_SysDev
                 return EmName;
             }
             return "";
-           
+
         }
 
         public List<SetLoginDataDTO> SetLoginData(M_Employee selectCondition)

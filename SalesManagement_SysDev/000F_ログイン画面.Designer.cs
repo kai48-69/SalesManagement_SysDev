@@ -81,7 +81,7 @@
             this.ButtonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(437, 61);
-            this.ButtonLogin.TabIndex = 10;
+            this.ButtonLogin.TabIndex = 3;
             this.ButtonLogin.Text = "ログイン";
             this.ButtonLogin.UseVisualStyleBackColor = true;
             this.ButtonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
@@ -109,22 +109,25 @@
             // TextboxPW
             // 
             this.TextboxPW.Font = new System.Drawing.Font("MS UI Gothic", 25F);
+            this.TextboxPW.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxPW.Location = new System.Drawing.Point(243, 218);
             this.TextboxPW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxPW.MaxLength = 20;
             this.TextboxPW.Name = "TextboxPW";
             this.TextboxPW.PasswordChar = '*';
             this.TextboxPW.Size = new System.Drawing.Size(329, 49);
-            this.TextboxPW.TabIndex = 9;
+            this.TextboxPW.TabIndex = 2;
             // 
             // TextboxShainID
             // 
             this.TextboxShainID.Font = new System.Drawing.Font("MS UI Gothic", 25F);
+            this.TextboxShainID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxShainID.Location = new System.Drawing.Point(243, 131);
             this.TextboxShainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxShainID.MaxLength = 20;
             this.TextboxShainID.Name = "TextboxShainID";
             this.TextboxShainID.Size = new System.Drawing.Size(329, 49);
-            this.TextboxShainID.TabIndex = 8;
+            this.TextboxShainID.TabIndex = 1;
             // 
             // F_ログイン画面
             // 

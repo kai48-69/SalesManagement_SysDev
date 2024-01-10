@@ -19,8 +19,9 @@ namespace SalesManagement_SysDev
         public F_PW新規登録(LoginData LData)
         {
             InitializeComponent();
-            this.LblSyainID.Text = LData.EmID.ToString();
-            this.LblSyainName.Text = LData.EmName.ToString();
+            this.LblLoginID.Text = LData.EmID.ToString();
+            this.LblEmName.Text = LData.EmName.ToString();
+            this.LblSoName.Text = LData.SoName.ToString();
             LoginData = LData;
         }
         private void F_PW新規登録_Load(object sender, EventArgs e)
@@ -90,7 +91,7 @@ namespace SalesManagement_SysDev
         {
             return new M_Employee
             {
-                EmID = int.Parse(LblSyainID.Text.Trim()),
+                EmID = int.Parse(LblLoginID.Text.Trim()),
                 EmPassword = TextboxPW.Text.Trim(),
             };
         }
@@ -160,5 +161,9 @@ namespace SalesManagement_SysDev
             f_login.Show();
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

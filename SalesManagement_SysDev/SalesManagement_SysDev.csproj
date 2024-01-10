@@ -59,72 +59,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="01F_PW新規登録.cs">
+    <Compile Include="001F_PW新規登録.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="01F_PW新規登録.Designer.cs">
-      <DependentUpon>01F_PW新規登録.cs</DependentUpon>
+    <Compile Include="001F_PW新規登録.Designer.cs">
+      <DependentUpon>001F_PW新規登録.cs</DependentUpon>
     </Compile>
-    <Compile Include="06F_Employee\06F_社員管理.cs">
+    <Compile Include="006F_Employee\06F_社員管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="06F_Employee\06F_社員管理.Designer.cs">
+    <Compile Include="006F_Employee\06F_社員管理.Designer.cs">
       <DependentUpon>06F_社員管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="10F_Hattyu\101F_発注詳細登録.cs">
+    <Compile Include="010F_Hattyu\101F_発注詳細登録.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="10F_Hattyu\101F_発注詳細登録.Designer.cs">
+    <Compile Include="010F_Hattyu\101F_発注詳細登録.Designer.cs">
       <DependentUpon>101F_発注詳細登録.cs</DependentUpon>
     </Compile>
-    <Compile Include="99F_データベース生成.cs">
+    <Compile Include="099F_データベース生成.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="99F_データベース生成.Designer.cs">
-      <DependentUpon>99F_データベース生成.cs</DependentUpon>
+    <Compile Include="099F_データベース生成.Designer.cs">
+      <DependentUpon>099F_データベース生成.cs</DependentUpon>
     </Compile>
-    <Compile Include="13F_Arrival\ArrivalDataAccess.cs" />
-    <Compile Include="13F_Arrival\ArrivalDbConnection.cs" />
-    <Compile Include="09F_Chumon\ChumonDataAccess.cs" />
-    <Compile Include="09F_Chumon\ChumonDbConnection.cs" />
-    <Compile Include="03F_Client\ClientDataAccess.cs" />
-    <Compile Include="03F_Client\ClientDbConnection.cs" />
+    <Compile Include="013F_Arrival\ArrivalDataAccess.cs" />
+    <Compile Include="013F_Arrival\ArrivalDbConnection.cs" />
+    <Compile Include="009F_Chumon\ChumonDataAccess.cs" />
+    <Compile Include="009F_Chumon\ChumonDbConnection.cs" />
+    <Compile Include="003F_Client\ClientDataAccess.cs" />
+    <Compile Include="003F_Client\ClientDbConnection.cs" />
     <Compile Include="ConvertNo.cs" />
     <Compile Include="DrugDTO.cs" />
-    <Compile Include="06F_Employee\EmployeeDataAccess.cs" />
-    <Compile Include="06F_Employee\EmployeeDbConnection.cs" />
-    <Compile Include="00F_ログイン画面.cs">
+    <Compile Include="006F_Employee\EmployeeDataAccess.cs" />
+    <Compile Include="006F_Employee\EmployeeDbConnection.cs" />
+    <Compile Include="000F_ログイン画面.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="00F_ログイン画面.Designer.cs">
-      <DependentUpon>00F_ログイン画面.cs</DependentUpon>
+    <Compile Include="000F_ログイン画面.Designer.cs">
+      <DependentUpon>000F_ログイン画面.cs</DependentUpon>
     </Compile>
-    <Compile Include="10F_Hattyu\HattyuDataAccess.cs" />
+    <Compile Include="010F_Hattyu\HattyuDataAccess.cs" />
     <Compile Include="MakerDbConnection.cs" />
     <Compile Include="Entity\M_MajorClassification.cs" />
     <Compile Include="Entity\M_Product.cs" />
-    <Compile Include="05F_Stock\05F_在庫管理.cs">
+    <Compile Include="005F_Stock\05F_在庫管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="05F_Stock\05F_在庫管理.Designer.cs">
+    <Compile Include="005F_Stock\05F_在庫管理.Designer.cs">
       <DependentUpon>05F_在庫管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="10F_Hattyu\100F_発注管理.cs">
+    <Compile Include="010F_Hattyu\100F_発注管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="10F_Hattyu\100F_発注管理.Designer.cs">
+    <Compile Include="010F_Hattyu\100F_発注管理.Designer.cs">
       <DependentUpon>100F_発注管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="11F_Warehouse\11F_入庫管理.cs">
+    <Compile Include="011F_Warehouse\11F_入庫管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="11F_Warehouse\11F_入庫管理.Designer.cs">
+    <Compile Include="011F_Warehouse\11F_入庫管理.Designer.cs">
       <DependentUpon>11F_入庫管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="12F_Syukko\12F_出庫管理.cs">
+    <Compile Include="012F_Syukko\12F_出庫管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="12F_Syukko\12F_出庫管理.Designer.cs">
+    <Compile Include="012F_Syukko\12F_出庫管理.Designer.cs">
       <DependentUpon>12F_出庫管理.cs</DependentUpon>
     </Compile>
     <Compile Include="14F_Shipment\14F_出荷管理.cs">
@@ -133,34 +133,34 @@
     <Compile Include="14F_Shipment\14F_出荷管理.Designer.cs">
       <DependentUpon>14F_出荷管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="13F_Arrival\13F_入荷管理.cs">
+    <Compile Include="013F_Arrival\13F_入荷管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="13F_Arrival\13F_入荷管理.Designer.cs">
+    <Compile Include="013F_Arrival\13F_入荷管理.Designer.cs">
       <DependentUpon>13F_入荷管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="07F_Sale\07F_売上管理.cs">
+    <Compile Include="007F_Sale\07F_売上管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="07F_Sale\07F_売上管理.Designer.cs">
+    <Compile Include="007F_Sale\07F_売上管理.Designer.cs">
       <DependentUpon>07F_売上管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="04F_Product\04F_商品管理.cs">
+    <Compile Include="004F_Product\04F_商品管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="04F_Product\04F_商品管理.Designer.cs">
+    <Compile Include="004F_Product\04F_商品管理.Designer.cs">
       <DependentUpon>04F_商品管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="03F_Client\03F_顧客管理.cs">
+    <Compile Include="003F_Client\03F_顧客管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="03F_Client\03F_顧客管理.Designer.cs">
+    <Compile Include="003F_Client\03F_顧客管理.Designer.cs">
       <DependentUpon>03F_顧客管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="09F_Chumon\09F_注文管理.cs">
+    <Compile Include="009F_Chumon\09F_注文管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="09F_Chumon\09F_注文管理.Designer.cs">
+    <Compile Include="009F_Chumon\09F_注文管理.Designer.cs">
       <DependentUpon>09F_注文管理.cs</DependentUpon>
     </Compile>
     <Compile Include="022F_営業管理メニュー.cs">
@@ -175,10 +175,10 @@
     <Compile Include="023F_物流管理メニュー.Designer.cs">
       <DependentUpon>023F_物流管理メニュー.cs</DependentUpon>
     </Compile>
-    <Compile Include="08F_Order\080F_受注管理.cs">
+    <Compile Include="008F_Order\080F_受注管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="08F_Order\080F_受注管理.Designer.cs">
+    <Compile Include="008F_Order\080F_受注管理.Designer.cs">
       <DependentUpon>080F_受注管理.cs</DependentUpon>
     </Compile>
     <Compile Include="021F_管理者メニュー.cs">
@@ -193,19 +193,19 @@
     <Compile Include="Entity\M_Position.cs" />
     <Compile Include="Entity\M_SalesOffice.cs" />
     <Compile Include="Entity\M_SmallClassification.cs" />
-    <Compile Include="08F_Order\081F_受注詳細登録.cs">
+    <Compile Include="008F_Order\081F_受注詳細登録.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="08F_Order\081F_受注詳細登録.Designer.cs">
+    <Compile Include="008F_Order\081F_受注詳細登録.Designer.cs">
       <DependentUpon>081F_受注詳細登録.cs</DependentUpon>
     </Compile>
     <Compile Include="InputCheck.cs" />
     <Compile Include="LoginData.cs" />
-    <Compile Include="10F_Hattyu\HattyuDbConnection.cs" />
-    <Compile Include="08F_Order\OrderDataAccess.cs" />
-    <Compile Include="08F_Order\OrderDbConnection.cs" />
-    <Compile Include="04F_Product\ProductDataAccess.cs" />
-    <Compile Include="04F_Product\ProductDbConnection.cs" />
+    <Compile Include="010F_Hattyu\HattyuDbConnection.cs" />
+    <Compile Include="008F_Order\OrderDataAccess.cs" />
+    <Compile Include="008F_Order\OrderDbConnection.cs" />
+    <Compile Include="004F_Product\ProductDataAccess.cs" />
+    <Compile Include="004F_Product\ProductDbConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entity\T_Arrival.cs" />
@@ -227,54 +227,54 @@
     <Compile Include="Entity\T_SyukkoDetail.cs" />
     <Compile Include="Entity\T_Warehousing.cs" />
     <Compile Include="Entity\T_WarehousingDetail.cs" />
-    <Compile Include="07F_Sale\SaleDataAccess.cs" />
-    <Compile Include="07F_Sale\SaleDbConnection.cs" />
+    <Compile Include="007F_Sale\SaleDataAccess.cs" />
+    <Compile Include="007F_Sale\SaleDbConnection.cs" />
     <Compile Include="SalesManagement_DevContext.cs" />
     <Compile Include="14F_Shipment\ShipDataAccess.cs" />
-    <Compile Include="05F_Stock\StockDataAccess.cs" />
-    <Compile Include="05F_Stock\StockDbConnection.cs" />
-    <Compile Include="12F_Syukko\SyukkoDateAccess.cs" />
-    <Compile Include="12F_Syukko\SyukkoDBConnection.cs" />
+    <Compile Include="005F_Stock\StockDataAccess.cs" />
+    <Compile Include="005F_Stock\StockDbConnection.cs" />
+    <Compile Include="012F_Syukko\SyukkoDateAccess.cs" />
+    <Compile Include="012F_Syukko\SyukkoDBConnection.cs" />
     <Compile Include="14F_Shipment\ShipDbConnection.cs" />
-    <Compile Include="11F_Warehouse\WarehouseDataAccess.cs" />
-    <Compile Include="11F_Warehouse\WarehouseDbConnection.cs" />
-    <EmbeddedResource Include="01F_PW新規登録.resx">
-      <DependentUpon>01F_PW新規登録.cs</DependentUpon>
+    <Compile Include="011F_Warehouse\WarehouseDataAccess.cs" />
+    <Compile Include="011F_Warehouse\WarehouseDbConnection.cs" />
+    <EmbeddedResource Include="001F_PW新規登録.resx">
+      <DependentUpon>001F_PW新規登録.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="05F_Stock\05F_在庫管理.resx">
+    <EmbeddedResource Include="005F_Stock\05F_在庫管理.resx">
       <DependentUpon>05F_在庫管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="06F_Employee\06F_社員管理.resx">
+    <EmbeddedResource Include="006F_Employee\06F_社員管理.resx">
       <DependentUpon>06F_社員管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="10F_Hattyu\100F_発注管理.resx">
+    <EmbeddedResource Include="010F_Hattyu\100F_発注管理.resx">
       <DependentUpon>100F_発注管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="10F_Hattyu\101F_発注詳細登録.resx">
+    <EmbeddedResource Include="010F_Hattyu\101F_発注詳細登録.resx">
       <DependentUpon>101F_発注詳細登録.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="11F_Warehouse\11F_入庫管理.resx">
+    <EmbeddedResource Include="011F_Warehouse\11F_入庫管理.resx">
       <DependentUpon>11F_入庫管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="12F_Syukko\12F_出庫管理.resx">
+    <EmbeddedResource Include="012F_Syukko\12F_出庫管理.resx">
       <DependentUpon>12F_出庫管理.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="14F_Shipment\14F_出荷管理.resx">
       <DependentUpon>14F_出荷管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="13F_Arrival\13F_入荷管理.resx">
+    <EmbeddedResource Include="013F_Arrival\13F_入荷管理.resx">
       <DependentUpon>13F_入荷管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="07F_Sale\07F_売上管理.resx">
+    <EmbeddedResource Include="007F_Sale\07F_売上管理.resx">
       <DependentUpon>07F_売上管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="04F_Product\04F_商品管理.resx">
+    <EmbeddedResource Include="004F_Product\04F_商品管理.resx">
       <DependentUpon>04F_商品管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="03F_Client\03F_顧客管理.resx">
+    <EmbeddedResource Include="003F_Client\03F_顧客管理.resx">
       <DependentUpon>03F_顧客管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="09F_Chumon\09F_注文管理.resx">
+    <EmbeddedResource Include="009F_Chumon\09F_注文管理.resx">
       <DependentUpon>09F_注文管理.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="022F_営業管理メニュー.resx">
@@ -283,20 +283,20 @@
     <EmbeddedResource Include="023F_物流管理メニュー.resx">
       <DependentUpon>023F_物流管理メニュー.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="08F_Order\080F_受注管理.resx">
+    <EmbeddedResource Include="008F_Order\080F_受注管理.resx">
       <DependentUpon>080F_受注管理.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="021F_管理者メニュー.resx">
       <DependentUpon>021F_管理者メニュー.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="08F_Order\081F_受注詳細登録.resx">
+    <EmbeddedResource Include="008F_Order\081F_受注詳細登録.resx">
       <DependentUpon>081F_受注詳細登録.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="00F_ログイン画面.resx">
-      <DependentUpon>00F_ログイン画面.cs</DependentUpon>
+    <EmbeddedResource Include="000F_ログイン画面.resx">
+      <DependentUpon>000F_ログイン画面.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="99F_データベース生成.resx">
-      <DependentUpon>99F_データベース生成.cs</DependentUpon>
+    <EmbeddedResource Include="099F_データベース生成.resx">
+      <DependentUpon>099F_データベース生成.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -412,7 +412,7 @@
             // TextboxTelNo3
             // 
             this.TextboxTelNo3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxTelNo3.Location = new System.Drawing.Point(395, 416);
+            this.TextboxTelNo3.Location = new System.Drawing.Point(406, 416);
             this.TextboxTelNo3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxTelNo3.MaxLength = 4;
             this.TextboxTelNo3.Name = "TextboxTelNo3";
@@ -433,7 +433,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.label4.Location = new System.Drawing.Point(359, 416);
+            this.label4.Location = new System.Drawing.Point(364, 416);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 34);
             this.label4.TabIndex = 104;

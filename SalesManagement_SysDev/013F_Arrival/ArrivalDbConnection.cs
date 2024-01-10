@@ -34,13 +34,13 @@ namespace SalesManagement_SysDev
 
                          select new DispArrivalListDTO
                          {
-                             ArID = Arrival.ArID.ToString(),
-                             ArDetailID = ArDetail.ArDetailID.ToString(),
+                             ArID = Arrival.ArID,
+                             ArDetailID = ArDetail.ArDetailID,
                              SoName = SOffice.SoName,
                              ClName = Client.ClName,
-                             OrID = Order.OrID.ToString(),
+                             OrID = Order.OrID,
                           PrName=Product.PrName,
-                          ArQuantity=ArDetail.ArQuantity.ToString(),
+                          ArQuantity=ArDetail.ArQuantity,
                          };
                 return tb.ToList();
             }
@@ -59,8 +59,6 @@ namespace SalesManagement_SysDev
                 var tb = from Arrival in context.T_Arrivals
                          join SOffice in context.M_SalesOffices
                          on Arrival.SoID equals SOffice.SoID
-                         join Employee in context.M_Employees
-                         on Arrival.EmID equals Employee.EmID
                          join Client in context.M_Clients
                          on Arrival.ClID equals Client.ClID
                          join ArDetail in context.T_ArrivalDetails
@@ -71,8 +69,8 @@ namespace SalesManagement_SysDev
                          on Arrival.OrID equals Order.OrID
                          where((selectCondition.ArID == -1) ? true :
                          Arrival.ArID == selectCondition.ArID) &&
-                         ((selectCondition.EmID == -1) ? true :
-                         Arrival.EmID == selectCondition.EmID) &&
+                         ((selectCondition.OrID == -1) ? true :
+                         Arrival.OrID == selectCondition.OrID) &&
                         ((selectCondition.SoID == -1) ? true :
                         Arrival.SoID == selectCondition.SoID) &&
                         ((selectCondition.ClID == -1) ? true :
@@ -82,12 +80,13 @@ namespace SalesManagement_SysDev
 
                          select new DispArrivalListDTO
                          {
-                             ArID = Arrival.ArID.ToString(),
-                             ArDetailID = ArDetail.ArDetailID.ToString(),
+                             ArID = Arrival.ArID,
+                             ArDetailID = ArDetail.ArDetailID,
                              SoName = SOffice.SoName,
+                             OrID=Arrival.OrID,
                              ClName = Client.ClName,
                              PrName = Product.PrName,
-                             ArQuantity = ArDetail.ArQuantity.ToString(),
+                             ArQuantity = ArDetail.ArQuantity,
                          };
 
                 return tb.ToList();

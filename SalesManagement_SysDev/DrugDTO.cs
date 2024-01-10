@@ -128,19 +128,19 @@ namespace SalesManagement_SysDev
     class DispArrivalListDTO
     {
         [DisplayName("入荷ID")]
-        public string ArID { get; set; }
+        public int ArID { get; set; }
         [DisplayName("入荷詳細ID")]
-        public string ArDetailID { get; set; }
+        public int ArDetailID { get; set; }
         [DisplayName("営業所名")]
         public string SoName { get; set; }
         [DisplayName("顧客名")]
         public string ClName { get; set; }
         [DisplayName("受注ID")]
-        public string OrID { get; set; }
+        public int OrID { get; set; }
         [DisplayName("商品名")]
         public string PrName { get; set; }
         [DisplayName("数量")]
-        public string ArQuantity { get; set; }
+        public int ArQuantity { get; set; }
     }
 
     class SetLoginDataDTO

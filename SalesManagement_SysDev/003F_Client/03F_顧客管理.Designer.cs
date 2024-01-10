@@ -81,6 +81,7 @@
             this.ButtonReset.Name = "ButtonReset";
             this.ButtonReset.Size = new System.Drawing.Size(165, 44);
             this.ButtonReset.TabIndex = 50;
+            this.ButtonReset.TabStop = false;
             this.ButtonReset.Text = "入力リセット";
             this.ButtonReset.UseVisualStyleBackColor = true;
             this.ButtonReset.Click += new System.EventHandler(this.ButtonReset_Click);
@@ -92,7 +93,7 @@
             this.ButtonExe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonExe.Name = "ButtonExe";
             this.ButtonExe.Size = new System.Drawing.Size(165, 58);
-            this.ButtonExe.TabIndex = 31;
+            this.ButtonExe.TabIndex = 13;
             this.ButtonExe.Text = "実行";
             this.ButtonExe.UseVisualStyleBackColor = true;
             this.ButtonExe.Click += new System.EventHandler(this.ButtonExe_Click);
@@ -153,12 +154,13 @@
             // 
             // ButtonBack
             // 
+            this.ButtonBack.AutoSize = true;
             this.ButtonBack.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.ButtonBack.Location = new System.Drawing.Point(1171, 36);
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(165, 58);
-            this.ButtonBack.TabIndex = 5;
+            this.ButtonBack.TabIndex = 14;
             this.ButtonBack.Text = "戻る";
             this.ButtonBack.UseVisualStyleBackColor = true;
             this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
@@ -257,7 +259,7 @@
             this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxHihyouji.Name = "TextboxHihyouji";
             this.TextboxHihyouji.Size = new System.Drawing.Size(307, 173);
-            this.TextboxHihyouji.TabIndex = 44;
+            this.TextboxHihyouji.TabIndex = 12;
             this.TextboxHihyouji.Text = "";
             // 
             // label8
@@ -321,7 +323,7 @@
             this.TextboxAdress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxAdress.Name = "TextboxAdress";
             this.TextboxAdress.Size = new System.Drawing.Size(251, 29);
-            this.TextboxAdress.TabIndex = 55;
+            this.TextboxAdress.TabIndex = 11;
             // 
             // ComboEigyousyoName
             // 
@@ -331,7 +333,7 @@
             this.ComboEigyousyoName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboEigyousyoName.Name = "ComboEigyousyoName";
             this.ComboEigyousyoName.Size = new System.Drawing.Size(251, 33);
-            this.ComboEigyousyoName.TabIndex = 54;
+            this.ComboEigyousyoName.TabIndex = 9;
             // 
             // label2
             // 
@@ -360,7 +362,8 @@
             this.TextboxKokyakuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxKokyakuID.Name = "TextboxKokyakuID";
             this.TextboxKokyakuID.Size = new System.Drawing.Size(260, 32);
-            this.TextboxKokyakuID.TabIndex = 51;
+            this.TextboxKokyakuID.TabIndex = 1;
+            this.TextboxKokyakuID.Text = "※入力不要です";
             // 
             // TextboxKokyakuName
             // 
@@ -369,7 +372,7 @@
             this.TextboxKokyakuName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxKokyakuName.Name = "TextboxKokyakuName";
             this.TextboxKokyakuName.Size = new System.Drawing.Size(260, 32);
-            this.TextboxKokyakuName.TabIndex = 65;
+            this.TextboxKokyakuName.TabIndex = 2;
             // 
             // label5
             // 
@@ -389,7 +392,7 @@
             this.TextboxPostCD.MaxLength = 7;
             this.TextboxPostCD.Name = "TextboxPostCD";
             this.TextboxPostCD.Size = new System.Drawing.Size(251, 32);
-            this.TextboxPostCD.TabIndex = 66;
+            this.TextboxPostCD.TabIndex = 10;
             // 
             // label6
             // 
@@ -439,7 +442,7 @@
             this.TextboxTelNo3.MaxLength = 4;
             this.TextboxTelNo3.Name = "TextboxTelNo3";
             this.TextboxTelNo3.Size = new System.Drawing.Size(59, 32);
-            this.TextboxTelNo3.TabIndex = 107;
+            this.TextboxTelNo3.TabIndex = 5;
             // 
             // TextboxTelNo2
             // 
@@ -449,7 +452,7 @@
             this.TextboxTelNo2.MaxLength = 4;
             this.TextboxTelNo2.Name = "TextboxTelNo2";
             this.TextboxTelNo2.Size = new System.Drawing.Size(59, 32);
-            this.TextboxTelNo2.TabIndex = 106;
+            this.TextboxTelNo2.TabIndex = 4;
             // 
             // TextboxTelNo1
             // 
@@ -459,7 +462,7 @@
             this.TextboxTelNo1.MaxLength = 4;
             this.TextboxTelNo1.Name = "TextboxTelNo1";
             this.TextboxTelNo1.Size = new System.Drawing.Size(59, 32);
-            this.TextboxTelNo1.TabIndex = 105;
+            this.TextboxTelNo1.TabIndex = 3;
             // 
             // label13
             // 
@@ -489,7 +492,7 @@
             this.TextboxFAX3.MaxLength = 4;
             this.TextboxFAX3.Name = "TextboxFAX3";
             this.TextboxFAX3.Size = new System.Drawing.Size(59, 32);
-            this.TextboxFAX3.TabIndex = 112;
+            this.TextboxFAX3.TabIndex = 8;
             // 
             // TextboxFAX2
             // 
@@ -499,7 +502,7 @@
             this.TextboxFAX2.MaxLength = 4;
             this.TextboxFAX2.Name = "TextboxFAX2";
             this.TextboxFAX2.Size = new System.Drawing.Size(59, 32);
-            this.TextboxFAX2.TabIndex = 111;
+            this.TextboxFAX2.TabIndex = 7;
             // 
             // TextboxFAX1
             // 
@@ -509,7 +512,7 @@
             this.TextboxFAX1.MaxLength = 4;
             this.TextboxFAX1.Name = "TextboxFAX1";
             this.TextboxFAX1.Size = new System.Drawing.Size(59, 32);
-            this.TextboxFAX1.TabIndex = 110;
+            this.TextboxFAX1.TabIndex = 6;
             // 
             // F_顧客管理
             // 

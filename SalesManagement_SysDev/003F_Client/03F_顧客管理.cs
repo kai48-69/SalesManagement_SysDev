@@ -36,8 +36,9 @@ namespace SalesManagement_SysDev
         {
             SetFormComboBox();
 
-            TextboxKokyakuID.ReadOnly = true;
+            TextboxKokyakuID.Enabled = false;
             TextboxHihyouji.Enabled = false;
+            RadioTouroku.TabStop = false;
 
             if (!GetDataGridView())
             {
@@ -674,17 +675,18 @@ namespace SalesManagement_SysDev
         private void RadioTouroku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxKokyakuID.ReadOnly = true;
-            ComboEigyousyoName.SelectedIndex = 0;
-            TextboxKokyakuName.ReadOnly = false;
-            TextboxAdress.ReadOnly = false;
-            TextboxPostCD.ReadOnly = false;
-            TextboxTelNo1.ReadOnly = false;
-            TextboxTelNo2.ReadOnly = false;
-            TextboxTelNo3.ReadOnly = false;
-            TextboxFAX1.ReadOnly = false;
-            TextboxFAX2.ReadOnly = false;
-            TextboxFAX3.ReadOnly = false;
+            RadioTouroku.TabStop = false;
+            TextboxKokyakuID.Enabled = false;
+            TextboxKokyakuID.Text = "※入力不要です";
+            TextboxKokyakuName.Enabled = true;
+            TextboxAdress.Enabled = true;
+            TextboxPostCD.Enabled = true;
+            TextboxTelNo1.Enabled = true;
+            TextboxTelNo2.Enabled = true;
+            TextboxTelNo3.Enabled = true;
+            TextboxFAX1.Enabled = true;
+            TextboxFAX2.Enabled = true;
+            TextboxFAX3.Enabled = true;
             TextboxHihyouji.Enabled = false;
             ComboEigyousyoName.Enabled = true;
 
@@ -695,17 +697,17 @@ namespace SalesManagement_SysDev
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxKokyakuID.ReadOnly = false;
-            ComboEigyousyoName.SelectedIndex = -1;
-            TextboxKokyakuName.ReadOnly = true;
-            TextboxAdress.ReadOnly = false;
-            TextboxPostCD.ReadOnly = false;
-            TextboxTelNo1.ReadOnly = false;
-            TextboxTelNo2.ReadOnly = false;
-            TextboxTelNo3.ReadOnly = false;
-            TextboxFAX1.ReadOnly = false;
-            TextboxFAX2.ReadOnly = false;
-            TextboxFAX3.ReadOnly = false;
+            RadioKensaku.TabStop = false;
+            TextboxKokyakuID.Enabled = true;
+            TextboxKokyakuName.Enabled=false;
+            TextboxAdress.Enabled = true;
+            TextboxPostCD.Enabled = true;
+            TextboxTelNo1.Enabled = false;
+            TextboxTelNo2.Enabled = false;
+            TextboxTelNo3.Enabled = false;
+            TextboxFAX1.Enabled = false;
+            TextboxFAX2.Enabled = false;
+            TextboxFAX3.Enabled = false;
             TextboxHihyouji.Enabled = false;
             ComboEigyousyoName.Enabled = true;
             GetDataGridView();
@@ -715,17 +717,17 @@ namespace SalesManagement_SysDev
         private void RadioKousin_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxKokyakuID.ReadOnly = true;
-            ComboEigyousyoName.SelectedIndex = 0;
-            TextboxKokyakuName.ReadOnly = false;
-            TextboxAdress.ReadOnly = false;
-            TextboxPostCD.ReadOnly = false;
-            TextboxTelNo1.ReadOnly = false;
-            TextboxTelNo2.ReadOnly = false;
-            TextboxTelNo3.ReadOnly = false;
-            TextboxFAX1.ReadOnly = false;
-            TextboxFAX2.ReadOnly = false;
-            TextboxFAX3.ReadOnly = false;
+            RadioKousin.TabStop = false;
+            TextboxKokyakuID.Enabled = false;
+            TextboxKokyakuName.Enabled = true;
+            TextboxAdress.Enabled = true;
+            TextboxPostCD.Enabled = true;
+            TextboxTelNo1.Enabled = true;
+            TextboxTelNo2.Enabled = true;
+            TextboxTelNo3.Enabled = true;
+            TextboxFAX1.Enabled = true;
+            TextboxFAX2.Enabled = true;
+            TextboxFAX3.Enabled = true;
             TextboxHihyouji.Enabled = false; ;
             ComboEigyousyoName.Enabled = true;
             GetDataGridView();
@@ -735,20 +737,25 @@ namespace SalesManagement_SysDev
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxKokyakuID.ReadOnly = true;
-            ComboEigyousyoName.SelectedIndex = -1;
-            TextboxKokyakuName.ReadOnly = true;
-            TextboxAdress.ReadOnly = true;
-            TextboxPostCD.ReadOnly = true;
-            TextboxTelNo1.ReadOnly = true;
-            TextboxTelNo2.ReadOnly = true;
-            TextboxTelNo3.ReadOnly = true;
-            TextboxFAX1.ReadOnly = true;
-            TextboxFAX2.ReadOnly = true;
-            TextboxFAX3.ReadOnly = true;
+            RadioHihyouji.TabStop = false;
+            TextboxKokyakuID.Enabled = false;
+            RBtnCC();
             TextboxHihyouji.Enabled = true;
             ComboEigyousyoName.Enabled = false;
             GetDataGridView();
+        }
+
+        private void RBtnCC()
+        {
+            TextboxKokyakuName.Enabled = false;
+            TextboxAdress.Enabled = false;
+            TextboxPostCD.Enabled = false;
+            TextboxTelNo1.Enabled = false;
+            TextboxTelNo2.Enabled = false;
+            TextboxTelNo3.Enabled = false;
+            TextboxFAX1.Enabled = false ;
+            TextboxFAX2.Enabled = false;
+            TextboxFAX3.Enabled = false;
         }
     }
 }
