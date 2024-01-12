@@ -360,8 +360,10 @@
             // TextboxKokyakuID
             // 
             this.TextboxKokyakuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxKokyakuID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxKokyakuID.Location = new System.Drawing.Point(175, 265);
             this.TextboxKokyakuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxKokyakuID.MaxLength = 6;
             this.TextboxKokyakuID.Name = "TextboxKokyakuID";
             this.TextboxKokyakuID.Size = new System.Drawing.Size(260, 32);
             this.TextboxKokyakuID.TabIndex = 1;
@@ -370,6 +372,7 @@
             // TextboxKokyakuName
             // 
             this.TextboxKokyakuName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxKokyakuName.ImeMode = System.Windows.Forms.ImeMode.On;
             this.TextboxKokyakuName.Location = new System.Drawing.Point(175, 314);
             this.TextboxKokyakuName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxKokyakuName.MaxLength = 50;
@@ -390,6 +393,7 @@
             // TextboxPostCD
             // 
             this.TextboxPostCD.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxPostCD.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxPostCD.Location = new System.Drawing.Point(605, 346);
             this.TextboxPostCD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxPostCD.MaxLength = 7;
@@ -440,6 +444,7 @@
             // TextboxTelNo3
             // 
             this.TextboxTelNo3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxTelNo3.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxTelNo3.Location = new System.Drawing.Point(376, 365);
             this.TextboxTelNo3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxTelNo3.MaxLength = 4;
@@ -450,6 +455,7 @@
             // TextboxTelNo2
             // 
             this.TextboxTelNo2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxTelNo2.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxTelNo2.Location = new System.Drawing.Point(275, 365);
             this.TextboxTelNo2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxTelNo2.MaxLength = 4;
@@ -460,6 +466,7 @@
             // TextboxTelNo1
             // 
             this.TextboxTelNo1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxTelNo1.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxTelNo1.Location = new System.Drawing.Point(175, 365);
             this.TextboxTelNo1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxTelNo1.MaxLength = 4;
@@ -490,6 +497,7 @@
             // TextboxFAX3
             // 
             this.TextboxFAX3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxFAX3.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxFAX3.Location = new System.Drawing.Point(376, 423);
             this.TextboxFAX3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxFAX3.MaxLength = 4;
@@ -500,6 +508,7 @@
             // TextboxFAX2
             // 
             this.TextboxFAX2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxFAX2.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxFAX2.Location = new System.Drawing.Point(275, 423);
             this.TextboxFAX2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxFAX2.MaxLength = 4;
@@ -510,6 +519,7 @@
             // TextboxFAX1
             // 
             this.TextboxFAX1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxFAX1.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxFAX1.Location = new System.Drawing.Point(175, 423);
             this.TextboxFAX1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxFAX1.MaxLength = 4;

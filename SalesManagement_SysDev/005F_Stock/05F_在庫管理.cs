@@ -24,6 +24,7 @@ namespace SalesManagement_SysDev
 
         private void F_在庫管理_Load(object sender, EventArgs e)
         {
+            RadioKensaku.TabStop = false;
             if (!GetDataGridView())
             {
                 MessageBox.Show("在庫情報を取得することができません。", "在庫確認", MessageBoxButtons.OK, MessageBoxIcon.Error);

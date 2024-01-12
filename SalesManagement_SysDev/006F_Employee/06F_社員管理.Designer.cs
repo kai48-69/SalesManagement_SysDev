@@ -91,7 +91,7 @@
             this.TextboxSyainName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxSyainName.Location = new System.Drawing.Point(176, 349);
             this.TextboxSyainName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextboxSyainName.MaxLength = 40;
+            this.TextboxSyainName.MaxLength = 50;
             this.TextboxSyainName.Name = "TextboxSyainName";
             this.TextboxSyainName.Size = new System.Drawing.Size(289, 32);
             this.TextboxSyainName.TabIndex = 2;
@@ -149,6 +149,7 @@
             // TextboxSyainID
             // 
             this.TextboxSyainID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxSyainID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxSyainID.Location = new System.Drawing.Point(175, 282);
             this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainID.MaxLength = 6;
@@ -172,6 +173,7 @@
             // TextboxTelNo1
             // 
             this.TextboxTelNo1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxTelNo1.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxTelNo1.Location = new System.Drawing.Point(179, 416);
             this.TextboxTelNo1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxTelNo1.MaxLength = 5;
@@ -402,6 +404,7 @@
             // TextboxTelNo2
             // 
             this.TextboxTelNo2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxTelNo2.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxTelNo2.Location = new System.Drawing.Point(294, 416);
             this.TextboxTelNo2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxTelNo2.MaxLength = 4;
@@ -412,6 +415,7 @@
             // TextboxTelNo3
             // 
             this.TextboxTelNo3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxTelNo3.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxTelNo3.Location = new System.Drawing.Point(406, 416);
             this.TextboxTelNo3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxTelNo3.MaxLength = 4;

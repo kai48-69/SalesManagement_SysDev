@@ -113,6 +113,7 @@
             // TextboxKakaku
             // 
             this.TextboxKakaku.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxKakaku.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxKakaku.Location = new System.Drawing.Point(189, 408);
             this.TextboxKakaku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxKakaku.MaxLength = 9;
@@ -453,6 +454,7 @@
             // TextboxStock
             // 
             this.TextboxStock.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxStock.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxStock.Location = new System.Drawing.Point(610, 264);
             this.TextboxStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxStock.MaxLength = 4;

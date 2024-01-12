@@ -61,7 +61,7 @@
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(145, 58);
-            this.ButtonBack.TabIndex = 5;
+            this.ButtonBack.TabIndex = 3;
             this.ButtonBack.Text = "戻る";
             this.ButtonBack.UseVisualStyleBackColor = true;
             this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
@@ -95,15 +95,18 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(668, 295);
             this.dataGridView1.TabIndex = 57;
+            this.dataGridView1.TabStop = false;
             // 
             // TextboxShouhinID
             // 
             this.TextboxShouhinID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxShouhinID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxShouhinID.Location = new System.Drawing.Point(120, 257);
             this.TextboxShouhinID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxShouhinID.MaxLength = 5;
             this.TextboxShouhinID.Name = "TextboxShouhinID";
             this.TextboxShouhinID.Size = new System.Drawing.Size(156, 32);
-            this.TextboxShouhinID.TabIndex = 56;
+            this.TextboxShouhinID.TabIndex = 1;
             // 
             // label3
             // 
@@ -124,6 +127,7 @@
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(222, 29);
             this.checkBox1.TabIndex = 60;
+            this.checkBox1.TabStop = false;
             this.checkBox1.Text = "不足状態絞り込み";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -131,11 +135,12 @@
             // ButtonReset
             // 
             this.ButtonReset.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonReset.Location = new System.Drawing.Point(179, 141);
+            this.ButtonReset.Location = new System.Drawing.Point(173, 141);
             this.ButtonReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonReset.Name = "ButtonReset";
             this.ButtonReset.Size = new System.Drawing.Size(165, 58);
             this.ButtonReset.TabIndex = 101;
+            this.ButtonReset.TabStop = false;
             this.ButtonReset.Text = "入力リセット";
             this.ButtonReset.UseVisualStyleBackColor = true;
             this.ButtonReset.Click += new System.EventHandler(this.ButtonReset_Click);
@@ -157,11 +162,11 @@
             // ButtonExe
             // 
             this.ButtonExe.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.ButtonExe.Location = new System.Drawing.Point(558, 141);
+            this.ButtonExe.Location = new System.Drawing.Point(547, 141);
             this.ButtonExe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonExe.Name = "ButtonExe";
             this.ButtonExe.Size = new System.Drawing.Size(145, 58);
-            this.ButtonExe.TabIndex = 103;
+            this.ButtonExe.TabIndex = 2;
             this.ButtonExe.Text = "実行";
             this.ButtonExe.UseVisualStyleBackColor = true;
             this.ButtonExe.Click += new System.EventHandler(this.ButtonExe_Click);

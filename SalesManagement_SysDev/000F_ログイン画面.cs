@@ -61,7 +61,7 @@ namespace SalesManagement_SysDev
         //ログイン機能
         private bool CheckIDPW(int SyainID)
         {
-            if (DB.CheckCascadeEmployeesID(SyainID) != 1)
+            if (DB.CheckCascadeEmployeesID(SyainID) ==SyainID)
             {
                 if (!DB.CheckEmployeesPW(TextboxPW.Text.Trim(), SyainID))
                 {

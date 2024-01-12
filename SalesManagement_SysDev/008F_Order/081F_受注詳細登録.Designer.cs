@@ -46,11 +46,13 @@
             // TextboxSuryou
             // 
             this.TextboxSuryou.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxSuryou.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxSuryou.Location = new System.Drawing.Point(424, 154);
             this.TextboxSuryou.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxSuryou.MaxLength = 4;
             this.TextboxSuryou.Name = "TextboxSuryou";
             this.TextboxSuryou.Size = new System.Drawing.Size(188, 32);
-            this.TextboxSuryou.TabIndex = 60;
+            this.TextboxSuryou.TabIndex = 2;
             // 
             // label10
             // 
@@ -69,7 +71,7 @@
             this.ButtonTouroku.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonTouroku.Name = "ButtonTouroku";
             this.ButtonTouroku.Size = new System.Drawing.Size(160, 104);
-            this.ButtonTouroku.TabIndex = 45;
+            this.ButtonTouroku.TabIndex = 3;
             this.ButtonTouroku.Text = "登録";
             this.ButtonTouroku.UseVisualStyleBackColor = true;
             this.ButtonTouroku.Click += new System.EventHandler(this.ButtonTouroku_Click);
@@ -93,6 +95,7 @@
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(124, 58);
             this.ButtonBack.TabIndex = 62;
+            this.ButtonBack.TabStop = false;
             this.ButtonBack.Text = "戻る";
             this.ButtonBack.UseVisualStyleBackColor = true;
             this.ButtonBack.Visible = false;
@@ -121,11 +124,13 @@
             // TextboxSyohinID
             // 
             this.TextboxSyohinID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxSyohinID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxSyohinID.Location = new System.Drawing.Point(149, 158);
             this.TextboxSyohinID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxSyohinID.MaxLength = 5;
             this.TextboxSyohinID.Name = "TextboxSyohinID";
             this.TextboxSyohinID.Size = new System.Drawing.Size(185, 32);
-            this.TextboxSyohinID.TabIndex = 48;
+            this.TextboxSyohinID.TabIndex = 1;
             this.TextboxSyohinID.TextChanged += new System.EventHandler(this.TextboxSyohinID_TextChanged);
             // 
             // label5
@@ -148,16 +153,18 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(759, 294);
             this.dataGridView1.TabIndex = 41;
+            this.dataGridView1.TabStop = false;
             // 
             // TextboxSyohinName
             // 
+            this.TextboxSyohinName.Enabled = false;
             this.TextboxSyohinName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxSyohinName.Location = new System.Drawing.Point(149, 226);
             this.TextboxSyohinName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyohinName.Name = "TextboxSyohinName";
-            this.TextboxSyohinName.ReadOnly = true;
             this.TextboxSyohinName.Size = new System.Drawing.Size(185, 32);
-            this.TextboxSyohinName.TabIndex = 61;
+            this.TextboxSyohinName.TabIndex = 0;
+            this.TextboxSyohinName.TabStop = false;
             // 
             // F_受注詳細登録
             // 
