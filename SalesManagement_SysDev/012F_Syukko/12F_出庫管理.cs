@@ -3,31 +3,27 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SalesManagement_SysDev
 {
-    public partial class F_出荷管理 : Form
+    public partial class F_出庫管理 : Form
     {
-
         readonly LoginData LoginData;
-        private static List<M_SalesOffice> SoNameDsp;
         private static List<M_Client> ClNameDsp;
-        readonly private InputCheck ichk = new InputCheck();
-        readonly ShipDbConnection DB = new ShipDbConnection();
+        private static List<M_SalesOffice> SoNameDsp;
+        readonly SyukkoDBConnection DB = new SyukkoDBConnection();
         readonly EmployeeDbConnection DB1 = new EmployeeDbConnection();
-        readonly ShipDbConnection DB2 = new ShipDbConnection();
-        readonly SaleDbConnection DB3 = new SaleDbConnection();
-        readonly OrderDbConnection DB4 = new OrderDbConnection();
-        readonly SaleDataAccess SDA = new SaleDataAccess();
-        readonly ShipDataAccess ShDA=new ShipDataAccess();
-
-        public F_出荷管理(LoginData LData)
+        readonly OrderDbConnection DB2 = new OrderDbConnection();
+        readonly ArrivalDbConnection DB3= new ArrivalDbConnection();
+        readonly SyukkoDateAccess SDA = new SyukkoDateAccess();
+        readonly ArrivalDataAccess ADA=new ArrivalDataAccess();
+        readonly InputCheck ichk = new InputCheck();
+        public F_出庫管理(LoginData LData)
         {
             InitializeComponent();
             LoginData = LData;
@@ -36,23 +32,25 @@ namespace SalesManagement_SysDev
             this.LblLoginDate.Text = LData.LoginDatetime.ToString();
         }
 
-        private void F_出荷管理_Load(object sender, EventArgs e)
+        //画面ロード時処理
+        private void F_出庫管理_Load(object sender, EventArgs e)
         {
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
-
             SetFormComboBox();
+
             if (!GetDataGridView())
             {
-                MessageBox.Show("商品情報を取得することができません。", "商品確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("出庫情報を取得することができません。", "出庫確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
 
+        //データ全件表示
         private bool GetDataGridView()
         {
             //商品情報の全件取得
-            List<DispShipListDTO> tb = DB.ShipGetData();
+            List<DispSyukkoListDTO> tb = DB.SyukoGetData();
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -60,7 +58,32 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-        private void SetDataGridView(List<DispShipListDTO> tb)
+        //コンボボックスの設定
+        private void SetFormComboBox()
+        {
+            ClNameDsp = DB2.GetClientNameDspData();
+            ComboKokyakuName.Items.AddRange(ClNameDsp.ToArray());
+            ComboKokyakuName.DisplayMember = "ClName";
+            ComboKokyakuName.ValueMember = "ClID";
+            ComboKokyakuName.DataSource = ClNameDsp;
+
+            SoNameDsp = DB1.GetSoNameDspData();
+            ComboEigyousyoName.Items.AddRange(SoNameDsp.ToArray());
+            ComboEigyousyoName.DisplayMember = "SoName";
+            ComboEigyousyoName.ValueMember = "SoID";
+            ComboEigyousyoName.DataSource = SoNameDsp;
+
+            //初期値を０に
+            ComboEigyousyoName.SelectedIndex = -1;
+            ComboKokyakuName.SelectedIndex = -1;
+
+            //読み込み専用に
+            ComboEigyousyoName.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboKokyakuName.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        //データグリッドビューの表示設定
+        private void SetDataGridView(List<DispSyukkoListDTO> tb)
         {
             dataGridView1.DataSource = tb;
             //列幅自動設定解除
@@ -73,49 +96,49 @@ namespace SalesManagement_SysDev
             //行単位選択     
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //ヘッダー文字位置、セル文字位置、列幅の設定
-            //受注ID
+            //出庫ID
             dataGridView1.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridView1.Columns[0].Width = 40;
-            ////受注詳細ID
+            //顧客ID
             dataGridView1.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[1].Width = 50;
-            //営業所名
-            dataGridView1.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[2].Width = 80;
-            //社員名
-            dataGridView1.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[3].Width = 80;
+            dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[1].Width = 40;
             //顧客名
+            dataGridView1.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[2].Width = 80;
+            //営業所名
+            dataGridView1.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[3].Width = 80;
+            //社員ID
             dataGridView1.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[4].Width = 80;
-            //顧客担当者名
+            dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[4].Width = 40;
+            ////入社年月日
             dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[5].Width = 120;
-            //商品名
+            dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[5].Width = 70;
+            //社員名
             dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].Width = 70;
-
+            dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[6].Width = 80;
 
             dataGridView1.Refresh();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        //データグリッドビューをクリックしたときの処理
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 if (RadioKensaku.Checked != true)
                 {
-                    TextboxSyukkaID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
-                    ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
-                    ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
-                    TextboxOrderID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
+                    TextboxSyukkoID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+                    ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+                    ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
+                    TextboxOrderID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[6].Value.ToString();
                 }
             }
             catch
@@ -124,29 +147,7 @@ namespace SalesManagement_SysDev
             }
         }
 
-        private void SetFormComboBox()
-        {
-            ClNameDsp = DB4.GetClientNameDspData();
-            ComboKokyakuName.Items.AddRange(ClNameDsp.ToArray());
-            ComboKokyakuName.DisplayMember = "ClName";
-            ComboKokyakuName.ValueMember = "ClID";
-            ComboKokyakuName.DataSource = ClNameDsp;
-
-            SoNameDsp = DB1.GetSoNameDspData();
-            ComboEigyousyoName.Items.AddRange(SoNameDsp.ToArray());
-            ComboEigyousyoName.DisplayMember = "SoName";
-            ComboEigyousyoName.ValueMember = "SoID";
-            ComboEigyousyoName.DataSource = SoNameDsp;
-
-            //初期値を-1に
-            ComboEigyousyoName.SelectedIndex = -1;
-            ComboKokyakuName.SelectedIndex = -1;
-
-            //読み込み専用に
-            ComboEigyousyoName.DropDownStyle = ComboBoxStyle.DropDownList;
-            ComboKokyakuName.DropDownStyle = ComboBoxStyle.DropDownList;
-        }
-
+        //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)
         {
             //検索処理----------------------------------------------------------------------
@@ -157,56 +158,77 @@ namespace SalesManagement_SysDev
                     {
                         return;
                     }
+
                     GenerateDataAtSelect();
                 }
             }
-
-            //非表示処理--------------------------------------------------------------------
+            //非表示処理-----------------------------------------------------------------
             if (RadioHihyouji.Checked == true)
             {
                 if (!GetVaildDataAtHide())
                 {
                     return;
                 }
+                var hidSy = GenereteDataAtHidden();
 
-                var hidSh = GenereteDataAtHidden();
-                HideSh(hidSh);
+                HideSy(hidSy);
             }
         }
 
-        //確定ボタン
         private void ButtonKakutei_Click(object sender, EventArgs e)
         {
             if (!CheckDataAtConfirm())
             {
                 return;
             }
+            if (!ConfirmSy())
+            {
+                return;
+            }
+         
+            var ConSy = GenereteDataAtUpdateFlg();
+            UpdSyFlag(ConSy);
 
-            ConfirmSh();
-            var ConSa = GenereteDataAtUpdateFlg();
-            UpdShFlag(ConSa);
         }
 
-        //検索処理------------------------------------------------------------------------
+        //検索処理----------------------------------------------------------------------
         private bool GetVaildDataAtSelect() //入力データチェック
         {
-            if (!String.IsNullOrEmpty(TextboxSyukkaID.Text.Trim()))
+            if (!String.IsNullOrEmpty(TextboxSyukkoID.Text.Trim()))
             {
-                if (!ichk.IntegerCheck(TextboxSyukkaID.Text.Trim()))
+                if (!ichk.IntegerCheck(TextboxSyukkoID.Text.Trim()))
                 {
-                    MessageBox.Show("出荷IDはすべて半角数字で入力してください", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                    TextboxSyukkaID.Focus();
+                    MessageBox.Show("出庫IDはすべて半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxSyukkoID.Focus();
                     return false;
                 }
             }
+
+            if (!String.IsNullOrEmpty(TextboxOrderID.Text.Trim()))
+            {
+                if (!ichk.IntegerCheck(TextboxOrderID.Text.Trim()))
+                {
+                    MessageBox.Show("受注IDは半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TextboxOrderID.Focus();
+                    return false;
+                }
+            }
+
             return true;
         }
 
         private bool GenerateDataAtSelect() //検索データ生成
         {
-            int SoID;
             int ClID;
-           
+            if (ComboKokyakuName.SelectedIndex == -1)
+            {
+                ClID = -1;
+            }
+            else
+            {
+                ClID = int.Parse(ComboKokyakuName.SelectedValue.ToString());
+            }
+            int SoID;
             if (ComboEigyousyoName.SelectedIndex == -1)
             {
                 SoID = -1;
@@ -215,41 +237,31 @@ namespace SalesManagement_SysDev
             {
                 SoID = int.Parse(ComboEigyousyoName.SelectedValue.ToString());
             }
-
-            if (ComboKokyakuName.SelectedIndex == -1)
-            {
-               ClID = -1;
-            }
-            else
-            {
-                ClID = int.Parse(ComboKokyakuName.SelectedValue.ToString());
-            }
-
             //整数型(int)に変換する準備
-            var ShID = TextboxSyukkaID.Text;
-            var OrID = TextboxOrderID.Text;
+            var OrID = TextboxOrderID.Text.Trim();
+            var SyID = TextboxSyukkoID.Text.Trim();
+
             //変換処理
-
-            if (!int.TryParse(ShID, out int SyukkaID))
-            {
-                SyukkaID = -1;
-            }
-
             if (!int.TryParse(OrID, out int JutyuID))
             {
                 JutyuID = -1;
             }
 
-
-            T_Shipment selectCondition = new T_Shipment()
+            if (!int.TryParse(SyID, out int SyukkoID))
             {
-                ShID = SyukkaID,
+                SyukkoID = -1;
+            }
+
+
+            T_Syukko selectCondition = new T_Syukko()
+            {
+                OrID = JutyuID,
                 SoID = SoID,
                 ClID = ClID,
-                OrID= JutyuID,  
+                SyID = SyukkoID,
             };
 
-            List<DispShipListDTO> tb = DB.GetShipData(selectCondition);
+            List<DispSyukkoListDTO> tb = DB.GetSyukkoData(selectCondition);
             if (tb == null)
                 return false;
             //データグリッドビューへの設定
@@ -260,9 +272,9 @@ namespace SalesManagement_SysDev
         //非表示処理----------------------------------------------------------------------
         private bool GetVaildDataAtHide()//入力データチェック
         {
-            if (String.IsNullOrEmpty(TextboxSyukkaID.Text.Trim()))
+            if (String.IsNullOrEmpty(TextboxSyukkoID.Text.Trim()))
             {
-                MessageBox.Show("非表示にする受注データを選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("非表示にする注文データを選択してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -274,27 +286,27 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-        private T_Shipment GenereteDataAtHidden()　//非表示データ生成(フラグの更新データ生成)
+        private T_Syukko GenereteDataAtHidden()　//非表示データ生成(フラグの更新データ生成)
         {
-            return new T_Shipment
+            return new T_Syukko
             {
-                ShID = int.Parse(TextboxSyukkaID.Text),
-
-                ShFlag = 2,
-                ShHidden = TextboxHihyouji.Text,
+                SyID = int.Parse(TextboxSyukkoID.Text),
+                SyFlag = 2,
+                SyHidden = TextboxHihyouji.Text,
             };
         }
 
-        private void HideSh(T_Shipment hidSh)　//データ更新処理
+        private void HideSy(T_Syukko hidSy)　//データ更新処理
         {
-            DialogResult result = MessageBox.Show("受注データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("出庫データを非表示にします。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (result == DialogResult.Cancel)
             {
                 return;
             }
 
-            bool flg = ShDA.HideShipData(hidSh);
+
+            bool flg = SDA.HideSyukkoData(hidSy);
             if (flg == true)
             {
                 MessageBox.Show("データを非表示にしました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -302,7 +314,7 @@ namespace SalesManagement_SysDev
             else
             {
                 MessageBox.Show("データの非表示に失敗しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TextboxSyukkaID.Focus();
+                TextboxSyukkoID.Focus();
             }
             ClearInput();
 
@@ -312,90 +324,93 @@ namespace SalesManagement_SysDev
         //確定処理------------------------------------------------------------------------
         private bool CheckDataAtConfirm()
         {
-            if (String.IsNullOrEmpty(TextboxSyukkaID.Text.Trim()))
+            if (String.IsNullOrEmpty(TextboxSyukkoID.Text.Trim()))
             {
                 MessageBox.Show("確定を行うデータが選択されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
         }
-        private void ConfirmSh()//注文テーブルにデータを登録する
+        private bool ConfirmSy()
         {
-            DialogResult result = MessageBox.Show("出荷情報を確定します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("出庫情報を確定します。よろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
             {
-                return;
+                return false;
             }
 
-            T_Shipment selectCondition = new T_Shipment ()
+            T_Syukko selectCondition = new T_Syukko()
             {
-
-                ShID = int.Parse(TextboxSyukkaID.Text),
+                SyID = int.Parse(TextboxSyukkoID.Text),
             };
-            List<GetSyukkaDataDTO> Data1 = DB2.SetSyukkaData(selectCondition);
+            List<GetSyukkoDataDTO> Data1 = DB.SetSyukkoData(selectCondition);
 
             //形式変換(DispOrderListDTO→T_Chumon)
-            T_Sale Sale = new T_Sale
+            T_Arrival Nyuka = new T_Arrival
             {
                 OrID = Data1[0].OrID,
                 SoID = Data1[0].SoID,
                 ClID = Data1[0].ClID,
-                EmID=LoginData.EmID,
-                SaDate=DateTime.Now,
+                ArDate = DateTime.Now,
             };
             //登録処理
-            SDA.AddSaleData(Sale);
+            ADA.AddArrivalData(Nyuka);
             //詳細確定------------------------------------------------------------------------
             //登録したChIDを取得
-            int SaID = DB3.GetSaID();
-            T_SaleDetail SaleDetail = new T_SaleDetail();
-            T_Stock Stock = new T_Stock();
+            int ArID = DB3.GetArID();
+            T_ArrivalDetail NyukaDetail = new T_ArrivalDetail();
             for (int i = 0; i < Data1.Count; i++)
             {
                 //各データをchumonDetailに代入
-                SaleDetail.SaID = SaID;
-                SaleDetail.PrID = Data1[i].PrID;
-                SaleDetail.SaQuantity = Data1[i].ShQuantity;
+                NyukaDetail.ArID = ArID;
+                NyukaDetail.PrID = Data1[i].PrID;
+                NyukaDetail.ArQuantity = Data1[i].SyQuantity;
                 //chumonDetail登録
-                SDA.AddSaleDetailData(SaleDetail);
-             
+                ADA.AddArrivalDetailData(NyukaDetail);
             }
-            MessageBox.Show("データを確定しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("データを確定しました", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            return true;
         }
 
-        private T_Shipment GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
+        private T_Syukko GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)
         {
-            return new T_Shipment
+            return new T_Syukko
             {
-                ShID = int.Parse(TextboxSyukkaID.Text),
-                ShStateFlag = 1,
+                SyID = int.Parse(TextboxSyukkoID.Text),
+                EmID=LoginData.EmID,
+                SyDate = DateTime.Now,
+                SyStateFlag = 1,
             };
         }
-        private void UpdShFlag(T_Shipment ConSh)　//フラグ更新処理
+
+        private void UpdSyFlag(T_Syukko ConSy)　//フラグ更新処理
         {
-            ShDA.UpdShipFlg(ConSh);
+            SDA.UpdSyukkoFlg(ConSy);
 
             ClearInput();
 
             GetDataGridView();
         }
 
+        //戻るボタン
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            F_営業 f_eigyou = new F_営業(LoginData);
-            f_eigyou.Show();
+            F_物流 f_buturyuu = new F_物流(LoginData);
+            f_buturyuu.Show();
         }
 
+        //リセットボタン
         private void ButtonReset_Click(object sender, EventArgs e)
         {
             ClearInput();
         }
 
+        //入力リセット--------------------------------------------------------------------
         private void ClearInput()
         {
-            TextboxSyukkaID.Text = "";
             TextboxOrderID.Text = "";
+            TextboxSyukkoID.Text = "";
             TextboxHihyouji.Text = "";
             ComboEigyousyoName.SelectedIndex = -1;
             ComboKokyakuName.SelectedIndex = -1;
@@ -404,7 +419,7 @@ namespace SalesManagement_SysDev
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxSyukkaID.Enabled = true;
+            TextboxSyukkoID.Enabled = true;
             TextboxOrderID.Enabled = true;
             ComboEigyousyoName.SelectedIndex = -1;
             ComboKokyakuName.SelectedIndex = -1;
@@ -413,12 +428,13 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
+
         }
 
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxSyukkaID.Enabled = false;
+            TextboxSyukkoID.Enabled = false;
             TextboxOrderID.Enabled = false;
             ComboEigyousyoName.SelectedIndex = -1;
             ComboKokyakuName.SelectedIndex = -1;
@@ -426,13 +442,13 @@ namespace SalesManagement_SysDev
             ComboKokyakuName.Enabled = false;
             TextboxHihyouji.Enabled = true;
             ButtonKakutei.Enabled = false;
-            ButtonExe.Visible = false;
+            ButtonExe.Visible = true;
         }
 
         private void RadioKakutei_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxSyukkaID.Enabled = false;
+            TextboxSyukkoID.Enabled = false;
             TextboxOrderID.Enabled = false;
             ComboEigyousyoName.SelectedIndex = -1;
             ComboKokyakuName.SelectedIndex = -1;
@@ -444,6 +460,4 @@ namespace SalesManagement_SysDev
         }
     }
 }
-
-
 

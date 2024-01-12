@@ -128,19 +128,19 @@ namespace SalesManagement_SysDev
     class DispArrivalListDTO
     {
         [DisplayName("入荷ID")]
-        public string ArID { get; set; }
+        public int ArID { get; set; }
         [DisplayName("入荷詳細ID")]
-        public string ArDetailID { get; set; }
+        public int ArDetailID { get; set; }
         [DisplayName("営業所名")]
         public string SoName { get; set; }
         [DisplayName("顧客名")]
         public string ClName { get; set; }
         [DisplayName("受注ID")]
-        public string OrID { get; set; }
+        public int OrID { get; set; }
         [DisplayName("商品名")]
         public string PrName { get; set; }
         [DisplayName("数量")]
-        public string ArQuantity { get; set; }
+        public int ArQuantity { get; set; }
     }
 
     class SetLoginDataDTO
@@ -261,6 +261,8 @@ namespace SalesManagement_SysDev
         public string PrName { get; set; }
         [DisplayName("数量")]
         public int ChQuantity { get; set; }
+        [DisplayName("在庫数")]
+        public int StQuantity { get; set; }
     }
 
     class GetChumonDataDTO
@@ -285,6 +287,7 @@ namespace SalesManagement_SysDev
 
     class GetNyukoDataDTO
     {
+        public int WaID { get; set; }
         public int PrID { get; set; }
         public int WaQuantity { get; set; }
     }
@@ -351,6 +354,8 @@ namespace SalesManagement_SysDev
         public string PrName { get; set; }
         [DisplayName("数量")]
         public int StQuantity { get; set; }
+        [DisplayName("安全在庫数")]
+        public int SStock { get; set; }
     }
 
     class DispSaleListDTO

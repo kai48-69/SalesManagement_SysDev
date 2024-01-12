@@ -77,7 +77,7 @@
             this.ButtonLogout.Location = new System.Drawing.Point(799, 45);
             this.ButtonLogout.Name = "ButtonLogout";
             this.ButtonLogout.Size = new System.Drawing.Size(165, 58);
-            this.ButtonLogout.TabIndex = 21;
+            this.ButtonLogout.TabIndex = 6;
             this.ButtonLogout.TabStop = false;
             this.ButtonLogout.Text = "ログアウト";
             this.ButtonLogout.UseVisualStyleBackColor = true;
@@ -160,7 +160,7 @@
             this.ButtonHattyu.Location = new System.Drawing.Point(390, 182);
             this.ButtonHattyu.Name = "ButtonHattyu";
             this.ButtonHattyu.Size = new System.Drawing.Size(249, 115);
-            this.ButtonHattyu.TabIndex = 1;
+            this.ButtonHattyu.TabIndex = 2;
             this.ButtonHattyu.Text = "発注管理";
             this.ButtonHattyu.UseVisualStyleBackColor = true;
             this.ButtonHattyu.Click += new System.EventHandler(this.ButtonHattyu_Click);
@@ -171,7 +171,7 @@
             this.ButtonNyuko.Location = new System.Drawing.Point(390, 353);
             this.ButtonNyuko.Name = "ButtonNyuko";
             this.ButtonNyuko.Size = new System.Drawing.Size(249, 111);
-            this.ButtonNyuko.TabIndex = 2;
+            this.ButtonNyuko.TabIndex = 3;
             this.ButtonNyuko.Text = "入庫管理";
             this.ButtonNyuko.UseVisualStyleBackColor = true;
             this.ButtonNyuko.Click += new System.EventHandler(this.ButtonNyuko_Click);
@@ -182,7 +182,7 @@
             this.ButtonSyukko.Location = new System.Drawing.Point(57, 184);
             this.ButtonSyukko.Name = "ButtonSyukko";
             this.ButtonSyukko.Size = new System.Drawing.Size(243, 282);
-            this.ButtonSyukko.TabIndex = 3;
+            this.ButtonSyukko.TabIndex = 1;
             this.ButtonSyukko.Text = "出庫管理";
             this.ButtonSyukko.UseVisualStyleBackColor = true;
             this.ButtonSyukko.Click += new System.EventHandler(this.ButtonSyukko_Click);
