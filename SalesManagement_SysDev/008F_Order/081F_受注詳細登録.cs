@@ -150,7 +150,7 @@ namespace SalesManagement_SysDev
 
         private void RegistrationOrderDetail(T_OrderDetail regOrD) //データ登録処理
         {
-            DialogResult result = MessageBox.Show("受注詳細データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("受注商品データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
             {
                 return;

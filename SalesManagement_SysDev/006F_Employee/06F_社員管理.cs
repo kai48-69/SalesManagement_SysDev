@@ -601,11 +601,12 @@ namespace SalesManagement_SysDev
         private void RadioTouroku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxSyainID.ReadOnly = false;
+            RadioTouroku.TabStop = false;
+            TextboxSyainID.Enabled =true;
             TextboxSyainName.ReadOnly = false;
-            TextboxTelNo1.ReadOnly = false;
-            TextboxTelNo2.ReadOnly = false;
-            TextboxTelNo3.ReadOnly = false;
+            TextboxTelNo1.Enabled = true;
+            TextboxTelNo2.Enabled = true;
+            TextboxTelNo3.Enabled = true;
             ComboEigyousyoName.SelectedIndex = 0;
             ComboYakusyokuName.SelectedIndex = 0;
             TextboxHihyoji.Enabled = false;
@@ -621,11 +622,12 @@ namespace SalesManagement_SysDev
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxSyainID.ReadOnly = false;
+            RadioKensaku.TabStop = false;
+            TextboxSyainID.Enabled = true;
             TextboxSyainName.ReadOnly = true;
-            TextboxTelNo1.ReadOnly = true;
-            TextboxTelNo2.ReadOnly = true;
-            TextboxTelNo3.ReadOnly = true;
+            TextboxTelNo1.Enabled = false;
+            TextboxTelNo2.ReadOnly = false;
+            TextboxTelNo3.ReadOnly = false;
             ComboEigyousyoName.SelectedIndex = -1;
             ComboYakusyokuName.SelectedIndex = -1;
             TextboxHihyoji.Enabled = false;
@@ -640,11 +642,12 @@ namespace SalesManagement_SysDev
         private void RadioKousin_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxSyainID.ReadOnly = true;
+            RadioKousin.TabStop = false;
+            TextboxSyainID.Enabled = false;
             TextboxSyainName.ReadOnly = false;
-            TextboxTelNo1.ReadOnly = false;
-            TextboxTelNo2.ReadOnly = false;
-            TextboxTelNo3.ReadOnly = false;
+            TextboxTelNo1.Enabled = true;
+            TextboxTelNo2.Enabled = true;
+            TextboxTelNo3.Enabled = true;
             ComboEigyousyoName.SelectedIndex = -1;
             ComboYakusyokuName.SelectedIndex = -1;
             TextboxHihyoji.Enabled = false;
@@ -660,12 +663,12 @@ namespace SalesManagement_SysDev
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-       
-            TextboxSyainID.ReadOnly = true;
+            RadioHihyouji.TabStop = false;
+            TextboxSyainID.Enabled = false;
             TextboxSyainName.ReadOnly = true;
-            TextboxTelNo1.ReadOnly = true;
-            TextboxTelNo2.ReadOnly = true;
-            TextboxTelNo3.ReadOnly = true;
+            TextboxTelNo1.Enabled = false;
+            TextboxTelNo2.Enabled = false;
+            TextboxTelNo3.Enabled = false;
             ComboEigyousyoName.SelectedIndex = -1;
             ComboYakusyokuName.SelectedIndex = -1;
             TextboxHihyoji.Enabled = true;

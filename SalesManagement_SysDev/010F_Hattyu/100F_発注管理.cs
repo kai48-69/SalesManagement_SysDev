@@ -38,7 +38,7 @@ namespace SalesManagement_SysDev
             ButtonKakutei.Enabled = false;
             TextboxHihyouji.Enabled = false;
             TextboxSyainID.Text = LoginData.EmID.ToString();
-            TextboxSyainID.ReadOnly = true;
+            TextboxSyainID.Enabled = false;
             SetFormComboBox();
 
             if (!GetDataGridView())
@@ -471,7 +471,7 @@ namespace SalesManagement_SysDev
         {
             ClearInput();
             TextboxHattyuID.Enabled = false;
-            TextboxSyainID.ReadOnly = true;
+            TextboxSyainID.Enabled = false;
             ComboMakerName.Enabled = true;
             TextboxHihyouji.Enabled = true;
             ButtonKakutei.Enabled = false;
@@ -482,8 +482,9 @@ namespace SalesManagement_SysDev
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
+            RadioKensaku.TabStop = false;
             TextboxHattyuID.Enabled = true;
-            TextboxSyainID.ReadOnly = false;
+            TextboxSyainID.Enabled = true;
             ComboMakerName.Enabled = true;
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
@@ -494,8 +495,9 @@ namespace SalesManagement_SysDev
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
+            RadioHihyouji.TabStop = false;
             TextboxHattyuID.Enabled = false;
-            TextboxSyainID.ReadOnly = true;
+            TextboxSyainID.Enabled = false;
             ComboMakerName.Enabled = false;
             TextboxHihyouji.Enabled = true;
             ButtonKakutei.Enabled = false;
@@ -505,8 +507,9 @@ namespace SalesManagement_SysDev
         private void RadioKakutei_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
+            RadioKakutei.TabStop = false;
             TextboxHattyuID.Enabled = false;
-            TextboxSyainID.ReadOnly = true;
+            TextboxSyainID.Enabled = false;
             ComboMakerName.Enabled = false;
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = true;

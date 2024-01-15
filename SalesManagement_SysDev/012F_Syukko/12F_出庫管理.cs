@@ -419,6 +419,7 @@ namespace SalesManagement_SysDev
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
+            RadioKensaku.TabStop = false;
             TextboxSyukkoID.Enabled = true;
             TextboxOrderID.Enabled = true;
             ComboEigyousyoName.SelectedIndex = -1;
@@ -434,6 +435,7 @@ namespace SalesManagement_SysDev
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
+            RadioHihyouji.TabStop = false;
             TextboxSyukkoID.Enabled = false;
             TextboxOrderID.Enabled = false;
             ComboEigyousyoName.SelectedIndex = -1;
@@ -448,6 +450,7 @@ namespace SalesManagement_SysDev
         private void RadioKakutei_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
+            RadioKakutei .TabStop = false;  
             TextboxSyukkoID.Enabled = false;
             TextboxOrderID.Enabled = false;
             ComboEigyousyoName.SelectedIndex = -1;

@@ -242,7 +242,6 @@ namespace SalesManagement_SysDev
                 PrID = int.Parse(ComboSyohinName.SelectedIndex.ToString()+1);
             }
 
-
             int SoID;
             if (ComboEigyousyoName.SelectedIndex == -1)
             {
@@ -396,9 +395,10 @@ namespace SalesManagement_SysDev
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxUriageID.ReadOnly = false;
+            RadioKensaku.TabStop = false;
+            TextboxUriageID.Enabled = true;
             ComboKokyakuName.SelectedIndex = -1;
-            TextboxTantousyaName.ReadOnly = false;
+            TextboxTantousyaName.Enabled = true;
             ComboEigyousyoName.SelectedIndex = -1;
             TextboxSyainID.Visible = true;
             LblUriageID.Visible = true;
@@ -413,9 +413,10 @@ namespace SalesManagement_SysDev
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxUriageID.ReadOnly = true;
+            RadioHihyouji.TabStop = false;
+            TextboxUriageID.Enabled =false;
             ComboKokyakuName.SelectedIndex = -1;
-            TextboxTantousyaName.ReadOnly = true;
+            TextboxTantousyaName.Enabled = false;
             ComboEigyousyoName.SelectedIndex = -1;
             TextboxSyainID.Visible = false;
             LblUriageID.Visible = false;

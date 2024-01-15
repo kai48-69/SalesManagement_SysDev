@@ -138,7 +138,7 @@ namespace SalesManagement_SysDev
 
         private void RegistrationHattyuDetail(T_HattyuDetail regHaD) //データ登録処理
         {
-            DialogResult result = MessageBox.Show("受注詳細データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("発注商品データを登録します。よろしいですか？", "登録確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.Cancel)
             {
                 return;

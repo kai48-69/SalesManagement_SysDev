@@ -38,11 +38,11 @@ namespace SalesManagement_SysDev
         private void F_受注管理_Load(object sender, EventArgs e)
         {
             TextboxHihyouji.Enabled = false;
-            TextboxJutyuID.ReadOnly = true;
-            TextboxSyainName.ReadOnly = true;
+            TextboxJutyuID.Enabled = false;
+            TextboxSyainName.Enabled = false;
             ButtonKakutei.Enabled = false;
             TextboxSyainID.Text = LoginData.EmID.ToString();
-            TextboxSyainID.ReadOnly = true;
+            TextboxSyainID.Enabled = false;
             ComboEigyousyoName.SelectedValue = LoginData.SoName;
             ComboEigyousyoName.Enabled = false;
             SetFormComboBox();
@@ -538,19 +538,20 @@ namespace SalesManagement_SysDev
         private void RadioTouroku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxJutyuID.ReadOnly = true;
+            RadioTouroku.TabStop = false;
+            TextboxJutyuID.Enabled = false;
             TextboxJutyuID.Text = "※入力不要です";
             ComboKokyakuName.SelectedIndex = 0;
-            TextboxTantousyaName.ReadOnly = false;
+            TextboxTantousyaName.Enabled = true;
             ComboEigyousyoName.SelectedIndex = 0;
-            TextboxSyainName.ReadOnly = true;
+            TextboxSyainName.Enabled = false;
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
             ComboEigyousyoName.Enabled = false;
             ComboKokyakuName.Enabled = true;
             TextboxSyainID.Text = LoginData.EmID.ToString();
-            TextboxSyainID.ReadOnly = true;
+            TextboxSyainID.Enabled = false;
             TextboxTantousyaName.Focus();
             GetDataGridView();
         }
@@ -559,18 +560,19 @@ namespace SalesManagement_SysDev
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxJutyuID.ReadOnly = false;
+            RadioKensaku.TabStop = false;   
+            TextboxJutyuID.Enabled = true;
             TextboxJutyuID.Text = "";
             ComboKokyakuName.SelectedIndex = -1;
-            TextboxTantousyaName.ReadOnly = false;
+            TextboxTantousyaName.Enabled = true;
             ComboEigyousyoName.SelectedIndex = -1;
-            TextboxSyainName.ReadOnly = true;
+            TextboxSyainName.Enabled = false;
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
             ComboEigyousyoName.Enabled = true;
             ComboKokyakuName.Enabled = true;
-            TextboxSyainID.ReadOnly = false;
+            TextboxSyainID.Enabled = true;
             TextboxJutyuID.Focus();
             GetDataGridView();
         }
@@ -579,11 +581,12 @@ namespace SalesManagement_SysDev
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxJutyuID.ReadOnly = true;
+            RadioHihyouji.TabStop = false;
+            TextboxJutyuID.Enabled = false;
             TextboxJutyuID.Text = "";
-            TextboxTantousyaName.ReadOnly = true;
-            TextboxSyainID.ReadOnly = true;
-            TextboxSyainName.ReadOnly = true;
+            TextboxTantousyaName.Enabled = false;
+            TextboxSyainID.Enabled = false;
+            TextboxSyainName.Enabled = false;
             TextboxHihyouji.Enabled = true;
             ButtonKakutei.Enabled = false;
             ButtonExe.Visible = true;
@@ -596,11 +599,12 @@ namespace SalesManagement_SysDev
         private void RadioKakutei_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            TextboxJutyuID.ReadOnly = true;
+            RadioKakutei .TabStop = false;  
+            TextboxJutyuID.Enabled = false;
             TextboxJutyuID.Text = "";
-            TextboxTantousyaName.ReadOnly = true;
-            TextboxSyainID.ReadOnly = true;
-            TextboxSyainName.ReadOnly = true;
+            TextboxTantousyaName.Enabled = false;
+            TextboxSyainID.Enabled = false;
+            TextboxSyainName.Enabled = false;
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = true;
             ButtonExe.Visible = false;

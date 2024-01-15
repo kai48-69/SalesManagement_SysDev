@@ -338,6 +338,7 @@ namespace SalesManagement_SysDev
         private void RadioKensaku_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
+            RadioKensaku.TabStop = false;
             TextboxHattyuID.Enabled = true;
             TextboxNyukoID.Enabled = true;
             TextboxHihyouji.Enabled = false;
@@ -348,6 +349,7 @@ namespace SalesManagement_SysDev
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
+            RadioHihyouji.TabStop = false;
             TextboxHattyuID.Enabled = false;
             TextboxNyukoID.Enabled = false;
             TextboxHihyouji.Enabled = true;
@@ -358,6 +360,7 @@ namespace SalesManagement_SysDev
         private void RadioKakutei_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
+            RadioKakutei.TabStop = false;
             TextboxHattyuID.Enabled = false;
             TextboxNyukoID.Enabled = false;
             TextboxHihyouji.Enabled = false ;
