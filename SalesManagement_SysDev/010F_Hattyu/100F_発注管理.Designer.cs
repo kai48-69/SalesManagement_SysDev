@@ -245,11 +245,11 @@
             // 
             // TextboxSyainName
             // 
+            this.TextboxSyainName.Enabled = false;
             this.TextboxSyainName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxSyainName.Location = new System.Drawing.Point(540, 352);
             this.TextboxSyainName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainName.Name = "TextboxSyainName";
-            this.TextboxSyainName.ReadOnly = true;
             this.TextboxSyainName.Size = new System.Drawing.Size(244, 32);
             this.TextboxSyainName.TabIndex = 40;
             // 
