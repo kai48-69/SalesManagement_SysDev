@@ -95,7 +95,7 @@
             this.ButtonExe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonExe.Name = "ButtonExe";
             this.ButtonExe.Size = new System.Drawing.Size(165, 58);
-            this.ButtonExe.TabIndex = 59;
+            this.ButtonExe.TabIndex = 4;
             this.ButtonExe.Text = "実行";
             this.ButtonExe.UseVisualStyleBackColor = true;
             this.ButtonExe.Click += new System.EventHandler(this.ButtonExe_Click);
@@ -208,11 +208,13 @@
             // TextboxHihyouji
             // 
             this.TextboxHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxHihyouji.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TextboxHihyouji.Location = new System.Drawing.Point(1072, 268);
             this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxHihyouji.MaxLength = 2000;
             this.TextboxHihyouji.Name = "TextboxHihyouji";
             this.TextboxHihyouji.Size = new System.Drawing.Size(279, 125);
-            this.TextboxHihyouji.TabIndex = 68;
+            this.TextboxHihyouji.TabIndex = 3;
             this.TextboxHihyouji.Text = "";
             // 
             // label1
@@ -228,11 +230,13 @@
             // TextboxNyukoID
             // 
             this.TextboxNyukoID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxNyukoID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxNyukoID.Location = new System.Drawing.Point(176, 268);
             this.TextboxNyukoID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxNyukoID.MaxLength = 6;
             this.TextboxNyukoID.Name = "TextboxNyukoID";
             this.TextboxNyukoID.Size = new System.Drawing.Size(255, 32);
-            this.TextboxNyukoID.TabIndex = 54;
+            this.TextboxNyukoID.TabIndex = 1;
             // 
             // dataGridView1
             // 
@@ -259,11 +263,13 @@
             // TextboxHattyuID
             // 
             this.TextboxHattyuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxHattyuID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxHattyuID.Location = new System.Drawing.Point(614, 264);
             this.TextboxHattyuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxHattyuID.MaxLength = 6;
             this.TextboxHattyuID.Name = "TextboxHattyuID";
             this.TextboxHattyuID.Size = new System.Drawing.Size(257, 32);
-            this.TextboxHattyuID.TabIndex = 74;
+            this.TextboxHattyuID.TabIndex = 2;
             // 
             // ButtonKakutei
             // 
@@ -272,7 +278,7 @@
             this.ButtonKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonKakutei.Name = "ButtonKakutei";
             this.ButtonKakutei.Size = new System.Drawing.Size(324, 61);
-            this.ButtonKakutei.TabIndex = 97;
+            this.ButtonKakutei.TabIndex = 5;
             this.ButtonKakutei.Text = "確定";
             this.ButtonKakutei.UseVisualStyleBackColor = true;
             this.ButtonKakutei.Click += new System.EventHandler(this.ButtonKakutei_Click);

@@ -49,6 +49,7 @@
             this.TextboxSuryou.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxSuryou.Location = new System.Drawing.Point(457, 160);
             this.TextboxSuryou.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxSuryou.MaxLength = 4;
             this.TextboxSuryou.Name = "TextboxSuryou";
             this.TextboxSuryou.Size = new System.Drawing.Size(173, 32);
             this.TextboxSuryou.TabIndex = 2;
@@ -137,6 +138,7 @@
             this.TextboxSyohinID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxSyohinID.Location = new System.Drawing.Point(165, 163);
             this.TextboxSyohinID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxSyohinID.MaxLength = 5;
             this.TextboxSyohinID.Name = "TextboxSyohinID";
             this.TextboxSyohinID.Size = new System.Drawing.Size(185, 32);
             this.TextboxSyohinID.TabIndex = 1;

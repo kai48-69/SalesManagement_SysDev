@@ -77,7 +77,7 @@
             this.ButtonExe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonExe.Name = "ButtonExe";
             this.ButtonExe.Size = new System.Drawing.Size(165, 58);
-            this.ButtonExe.TabIndex = 57;
+            this.ButtonExe.TabIndex = 6;
             this.ButtonExe.Text = "実行";
             this.ButtonExe.UseVisualStyleBackColor = true;
             this.ButtonExe.Click += new System.EventHandler(this.ButtonExe_Click);
@@ -194,7 +194,7 @@
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(165, 58);
-            this.ButtonBack.TabIndex = 5;
+            this.ButtonBack.TabIndex = 8;
             this.ButtonBack.Text = "戻る";
             this.ButtonBack.UseVisualStyleBackColor = true;
             this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
@@ -214,9 +214,10 @@
             this.TextboxHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxHihyouji.Location = new System.Drawing.Point(981, 273);
             this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxHihyouji.MaxLength = 2000;
             this.TextboxHihyouji.Name = "TextboxHihyouji";
             this.TextboxHihyouji.Size = new System.Drawing.Size(364, 130);
-            this.TextboxHihyouji.TabIndex = 66;
+            this.TextboxHihyouji.TabIndex = 5;
             this.TextboxHihyouji.Text = "";
             // 
             // label8
@@ -248,7 +249,7 @@
             this.ButtonKakutei.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonKakutei.Name = "ButtonKakutei";
             this.ButtonKakutei.Size = new System.Drawing.Size(324, 61);
-            this.ButtonKakutei.TabIndex = 79;
+            this.ButtonKakutei.TabIndex = 7;
             this.ButtonKakutei.Text = "確定";
             this.ButtonKakutei.UseVisualStyleBackColor = true;
             this.ButtonKakutei.Click += new System.EventHandler(this.ButtonKakutei_Click);
@@ -266,11 +267,13 @@
             // TextboxOrderID
             // 
             this.TextboxOrderID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxOrderID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxOrderID.Location = new System.Drawing.Point(148, 370);
             this.TextboxOrderID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxOrderID.MaxLength = 6;
             this.TextboxOrderID.Name = "TextboxOrderID";
             this.TextboxOrderID.Size = new System.Drawing.Size(244, 32);
-            this.TextboxOrderID.TabIndex = 105;
+            this.TextboxOrderID.TabIndex = 2;
             // 
             // ComboKokyakuName
             // 
@@ -280,7 +283,7 @@
             this.ComboKokyakuName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboKokyakuName.Name = "ComboKokyakuName";
             this.ComboKokyakuName.Size = new System.Drawing.Size(244, 33);
-            this.ComboKokyakuName.TabIndex = 104;
+            this.ComboKokyakuName.TabIndex = 4;
             // 
             // label4
             // 
@@ -300,7 +303,7 @@
             this.ComboEigyousyoName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboEigyousyoName.Name = "ComboEigyousyoName";
             this.ComboEigyousyoName.Size = new System.Drawing.Size(244, 33);
-            this.ComboEigyousyoName.TabIndex = 102;
+            this.ComboEigyousyoName.TabIndex = 3;
             // 
             // label2
             // 
@@ -325,11 +328,13 @@
             // TextboxSyukkaID
             // 
             this.TextboxSyukkaID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxSyukkaID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxSyukkaID.Location = new System.Drawing.Point(148, 272);
             this.TextboxSyukkaID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxSyukkaID.MaxLength = 6;
             this.TextboxSyukkaID.Name = "TextboxSyukkaID";
             this.TextboxSyukkaID.Size = new System.Drawing.Size(244, 32);
-            this.TextboxSyukkaID.TabIndex = 99;
+            this.TextboxSyukkaID.TabIndex = 1;
             // 
             // RadioKakutei
             // 

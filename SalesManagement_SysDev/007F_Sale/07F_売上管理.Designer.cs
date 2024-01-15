@@ -85,11 +85,13 @@
             // TextboxJuchuID
             // 
             this.TextboxJuchuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxJuchuID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxJuchuID.Location = new System.Drawing.Point(176, 347);
             this.TextboxJuchuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxJuchuID.MaxLength = 6;
             this.TextboxJuchuID.Name = "TextboxJuchuID";
             this.TextboxJuchuID.Size = new System.Drawing.Size(219, 32);
-            this.TextboxJuchuID.TabIndex = 91;
+            this.TextboxJuchuID.TabIndex = 2;
             // 
             // label7
             // 
@@ -109,7 +111,7 @@
             this.ComboEigyousyoName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboEigyousyoName.Name = "ComboEigyousyoName";
             this.ComboEigyousyoName.Size = new System.Drawing.Size(239, 33);
-            this.ComboEigyousyoName.TabIndex = 84;
+            this.ComboEigyousyoName.TabIndex = 4;
             // 
             // label2
             // 
@@ -134,11 +136,13 @@
             // TextboxUriageID
             // 
             this.TextboxUriageID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxUriageID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxUriageID.Location = new System.Drawing.Point(176, 292);
             this.TextboxUriageID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxUriageID.MaxLength = 6;
             this.TextboxUriageID.Name = "TextboxUriageID";
             this.TextboxUriageID.Size = new System.Drawing.Size(219, 32);
-            this.TextboxUriageID.TabIndex = 81;
+            this.TextboxUriageID.TabIndex = 1;
             // 
             // label9
             // 
@@ -169,7 +173,7 @@
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(165, 58);
-            this.ButtonBack.TabIndex = 5;
+            this.ButtonBack.TabIndex = 8;
             this.ButtonBack.Text = "戻る";
             this.ButtonBack.UseVisualStyleBackColor = true;
             this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
@@ -294,9 +298,10 @@
             this.TextboxHihyouji.Font = new System.Drawing.Font("MS UI Gothic", 15F);
             this.TextboxHihyouji.Location = new System.Drawing.Point(1035, 266);
             this.TextboxHihyouji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxHihyouji.MaxLength = 2000;
             this.TextboxHihyouji.Name = "TextboxHihyouji";
             this.TextboxHihyouji.Size = new System.Drawing.Size(331, 185);
-            this.TextboxHihyouji.TabIndex = 74;
+            this.TextboxHihyouji.TabIndex = 7;
             this.TextboxHihyouji.Text = "";
             // 
             // label8
@@ -328,7 +333,7 @@
             this.ComboKokyakuName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboKokyakuName.Name = "ComboKokyakuName";
             this.ComboKokyakuName.Size = new System.Drawing.Size(239, 33);
-            this.ComboKokyakuName.TabIndex = 96;
+            this.ComboKokyakuName.TabIndex = 5;
             // 
             // label4
             // 
@@ -343,11 +348,13 @@
             // TextboxSyainID
             // 
             this.TextboxSyainID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxSyainID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxSyainID.Location = new System.Drawing.Point(589, 362);
             this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxSyainID.MaxLength = 6;
             this.TextboxSyainID.Name = "TextboxSyainID";
             this.TextboxSyainID.Size = new System.Drawing.Size(239, 32);
-            this.TextboxSyainID.TabIndex = 99;
+            this.TextboxSyainID.TabIndex = 6;
             // 
             // ComboSyohinName
             // 
@@ -357,7 +364,7 @@
             this.ComboSyohinName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboSyohinName.Name = "ComboSyohinName";
             this.ComboSyohinName.Size = new System.Drawing.Size(221, 33);
-            this.ComboSyohinName.TabIndex = 106;
+            this.ComboSyohinName.TabIndex = 3;
             // 
             // label11
             // 

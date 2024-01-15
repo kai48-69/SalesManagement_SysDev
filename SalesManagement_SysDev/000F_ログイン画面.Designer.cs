@@ -120,6 +120,7 @@
             // 
             // TextboxShainID
             // 
+            this.TextboxShainID.CausesValidation = false;
             this.TextboxShainID.Font = new System.Drawing.Font("MS UI Gothic", 25F);
             this.TextboxShainID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxShainID.Location = new System.Drawing.Point(243, 131);
