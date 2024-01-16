@@ -84,6 +84,7 @@
             this.ButtonReset.Name = "ButtonReset";
             this.ButtonReset.Size = new System.Drawing.Size(165, 58);
             this.ButtonReset.TabIndex = 72;
+            this.ButtonReset.TabStop = false;
             this.ButtonReset.Text = "入力リセット";
             this.ButtonReset.UseVisualStyleBackColor = true;
             this.ButtonReset.Click += new System.EventHandler(this.ButtonReset_Click);
@@ -248,6 +249,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1308, 333);
             this.dataGridView1.TabIndex = 53;
+            this.dataGridView1.TabStop = false;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // label2

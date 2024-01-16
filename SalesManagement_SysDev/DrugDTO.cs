@@ -378,7 +378,8 @@ namespace SalesManagement_SysDev
         public int SaQuantity { get; set; }
         [DisplayName("合計金額")]
         public string SaTotalPrice { get; set; }
-
+        [DisplayName("社員ID")]
+        public int SyainID { get; set; }
     }
 
     class DispSaleDetailListDTO

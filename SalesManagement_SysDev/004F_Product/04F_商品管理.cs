@@ -37,6 +37,7 @@ namespace SalesManagement_SysDev
         {
             TextboxSyouhinID.Enabled=false;
             TextboxHihyouji.Enabled = false;
+            RadioTouroku.TabStop = false;
 
             SetFormComboBox();
 

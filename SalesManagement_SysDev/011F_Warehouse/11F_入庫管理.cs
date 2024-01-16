@@ -35,6 +35,7 @@ namespace SalesManagement_SysDev
         {
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
+            RadioKensaku.TabStop = false;
 
             if (!GetDataGridView())
             {
@@ -367,7 +368,5 @@ namespace SalesManagement_SysDev
             ButtonKakutei.Enabled = true;
             ButtonExe.Visible = false;
         }
-
-      
     }
 }

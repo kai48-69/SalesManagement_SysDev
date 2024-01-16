@@ -39,6 +39,7 @@ namespace SalesManagement_SysDev
             TextboxHihyouji.Enabled = false;
             TextboxSyainID.Text = LoginData.EmID.ToString();
             TextboxSyainID.Enabled = false;
+            RadioTouroku.TabStop = false;
             SetFormComboBox();
 
             if (!GetDataGridView())
@@ -515,7 +516,6 @@ namespace SalesManagement_SysDev
             ButtonKakutei.Enabled = true;
             ButtonExe.Visible = false;
         }
-
     }
 }
 

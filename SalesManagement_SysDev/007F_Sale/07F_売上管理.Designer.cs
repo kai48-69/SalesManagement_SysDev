@@ -57,7 +57,7 @@
             this.TextboxSyainID = new System.Windows.Forms.TextBox();
             this.ComboSyohinName = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.TextboxTantousyaName = new System.Windows.Forms.TextBox();
+            this.TextboxSyainName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -162,6 +162,7 @@
             this.ButtonReset.Name = "ButtonReset";
             this.ButtonReset.Size = new System.Drawing.Size(165, 58);
             this.ButtonReset.TabIndex = 80;
+            this.ButtonReset.TabStop = false;
             this.ButtonReset.Text = "入力リセット";
             this.ButtonReset.UseVisualStyleBackColor = true;
             this.ButtonReset.Click += new System.EventHandler(this.ButtonReset_Click);
@@ -173,7 +174,7 @@
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(165, 58);
-            this.ButtonBack.TabIndex = 8;
+            this.ButtonBack.TabIndex = 9;
             this.ButtonBack.Text = "戻る";
             this.ButtonBack.UseVisualStyleBackColor = true;
             this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
@@ -185,7 +186,7 @@
             this.ButtonExe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonExe.Name = "ButtonExe";
             this.ButtonExe.Size = new System.Drawing.Size(165, 58);
-            this.ButtonExe.TabIndex = 72;
+            this.ButtonExe.TabIndex = 8;
             this.ButtonExe.Text = "実行";
             this.ButtonExe.UseVisualStyleBackColor = true;
             this.ButtonExe.Click += new System.EventHandler(this.ButtonExe_Click);
@@ -201,6 +202,7 @@
             this.RadioHihyouji.TabIndex = 79;
             this.RadioHihyouji.Text = "非表示";
             this.RadioHihyouji.UseVisualStyleBackColor = true;
+            this.RadioHihyouji.CheckedChanged += new System.EventHandler(this.RadioHihyouji_CheckedChanged);
             // 
             // RadioKensaku
             // 
@@ -323,7 +325,9 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1308, 349);
-            this.dataGridView1.TabIndex = 71;
+            this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.TabStop = false;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // ComboKokyakuName
             // 
@@ -355,6 +359,7 @@
             this.TextboxSyainID.Name = "TextboxSyainID";
             this.TextboxSyainID.Size = new System.Drawing.Size(239, 32);
             this.TextboxSyainID.TabIndex = 6;
+            this.TextboxSyainID.TextChanged += new System.EventHandler(this.TextboxSyainID_TextChanged);
             // 
             // ComboSyohinName
             // 
@@ -376,22 +381,23 @@
             this.label11.TabIndex = 105;
             this.label11.Text = "商品名";
             // 
-            // TextboxTantousyaName
+            // TextboxSyainName
             // 
-            this.TextboxTantousyaName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.TextboxTantousyaName.Location = new System.Drawing.Point(589, 419);
-            this.TextboxTantousyaName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextboxTantousyaName.Name = "TextboxTantousyaName";
-            this.TextboxTantousyaName.ReadOnly = true;
-            this.TextboxTantousyaName.Size = new System.Drawing.Size(239, 32);
-            this.TextboxTantousyaName.TabIndex = 110;
+            this.TextboxSyainName.Enabled = false;
+            this.TextboxSyainName.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxSyainName.Location = new System.Drawing.Point(589, 419);
+            this.TextboxSyainName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxSyainName.Name = "TextboxSyainName";
+            this.TextboxSyainName.ReadOnly = true;
+            this.TextboxSyainName.Size = new System.Drawing.Size(239, 32);
+            this.TextboxSyainName.TabIndex = 110;
             // 
             // F_売上管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 884);
-            this.Controls.Add(this.TextboxTantousyaName);
+            this.Controls.Add(this.TextboxSyainName);
             this.Controls.Add(this.ComboSyohinName);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label4);
@@ -452,7 +458,7 @@
         private System.Windows.Forms.TextBox TextboxSyainID;
         private System.Windows.Forms.ComboBox ComboSyohinName;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox TextboxTantousyaName;
+        private System.Windows.Forms.TextBox TextboxSyainName;
         private System.Windows.Forms.Label LblLoginDate;
         private System.Windows.Forms.Label LblSoName;
         private System.Windows.Forms.Label LblEmName;

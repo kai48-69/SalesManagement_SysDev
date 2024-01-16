@@ -37,6 +37,7 @@ namespace SalesManagement_SysDev
         private void F_売上管理_Load(object sender, EventArgs e)
         {
             TextboxHihyouji.Enabled = false;
+            RadioKensaku.TabStop = false;   
             SetFormComboBox();
 
             if (!GetDataGridView())
@@ -141,6 +142,11 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[8].Width = 80;
 
+            dataGridView1.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[9].Width = 80;
+            dataGridView1.Columns[9].Visible = false;
+
             dataGridView1.Refresh();
         }
 
@@ -149,13 +155,15 @@ namespace SalesManagement_SysDev
         {
             try
             {
-                if (RadioKensaku.Checked != true)
+                if (RadioHihyouji.Checked == true)
                 {
                     TextboxUriageID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
-                    ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
-                    TextboxSyainID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
-                    ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[4].Value.ToString();
-                    TextboxTantousyaName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+                    TextboxJuchuID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
+                    ComboSyohinName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[6].Value.ToString();
+                    ComboEigyousyoName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
+                    ComboKokyakuName.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value.ToString();
+                    TextboxSyainID.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[9].Value.ToString();
+                    
                 }
             }
             catch
@@ -375,7 +383,7 @@ namespace SalesManagement_SysDev
                 TextboxUriageID.Text = "";
                 ComboEigyousyoName.SelectedIndex = -1;
                 ComboKokyakuName.SelectedIndex = -1;
-                TextboxTantousyaName.Text = "";
+                TextboxSyainName.Text = "";
                 TextboxSyainID.Text = "";
             }
 
@@ -398,12 +406,11 @@ namespace SalesManagement_SysDev
             RadioKensaku.TabStop = false;
             TextboxUriageID.Enabled = true;
             ComboKokyakuName.SelectedIndex = -1;
-            TextboxTantousyaName.Enabled = true;
+            TextboxSyainName.Enabled = true;
             ComboEigyousyoName.SelectedIndex = -1;
             TextboxSyainID.Visible = true;
             LblUriageID.Visible = true;
             TextboxHihyouji.Enabled = false;
-            ButtonExe.Visible = true;
             ComboEigyousyoName.Enabled = true;
             ComboKokyakuName.Enabled = true;
             GetDataGridView();
@@ -415,18 +422,31 @@ namespace SalesManagement_SysDev
             ClearInput();
             RadioHihyouji.TabStop = false;
             TextboxUriageID.Enabled =false;
+            TextboxJuchuID.Enabled = false;
             ComboKokyakuName.SelectedIndex = -1;
-            TextboxTantousyaName.Enabled = false;
+            TextboxSyainID .Enabled = false;
+            TextboxSyainName.Enabled = false;
+            ComboSyohinName .Enabled = false;
             ComboEigyousyoName.SelectedIndex = -1;
-            TextboxSyainID.Visible = false;
-            LblUriageID.Visible = false;
             TextboxHihyouji.Enabled = true;
-            ButtonExe.Visible = true;
-            ComboEigyousyoName.Enabled = true;
-            ComboKokyakuName.Enabled = true;
+            ComboEigyousyoName.Enabled = false;
+            ComboKokyakuName.Enabled = false;
             GetDataGridView();
         }
 
-
+        private void TextboxSyainID_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(TextboxSyainID.Text.Trim(), out int EmID))
+            {
+                if (DB3.CheckCascadeEmployeesID(EmID) != -1)
+                {
+                    TextboxSyainName.Text = DB3.GetEmName(EmID);
+                }
+            }
+            if (String.IsNullOrEmpty(TextboxSyainID.Text))
+            {
+                TextboxSyainName.Text = "";
+            }
+        }
     }
 }

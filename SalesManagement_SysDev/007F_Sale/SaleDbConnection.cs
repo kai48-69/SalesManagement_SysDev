@@ -53,6 +53,7 @@ namespace SalesManagement_SysDev
                              PrName=Product.PrName,
                              SaQuantity=SaleDetail.SaQuantity,
                              SaTotalPrice=OrDetail.OrTotalPrice.ToString(),
+                             SyainID=Employee.EmID
                          };
                 return tb.ToList();
             }

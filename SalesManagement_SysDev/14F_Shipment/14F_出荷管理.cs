@@ -40,6 +40,7 @@ namespace SalesManagement_SysDev
         {
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
+            RadioKensaku.TabStop = false;
 
             SetFormComboBox();
             if (!GetDataGridView())

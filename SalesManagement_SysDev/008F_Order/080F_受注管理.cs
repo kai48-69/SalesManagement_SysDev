@@ -45,6 +45,7 @@ namespace SalesManagement_SysDev
             TextboxSyainID.Enabled = false;
             ComboEigyousyoName.SelectedValue = LoginData.SoName;
             ComboEigyousyoName.Enabled = false;
+            RadioTouroku.TabStop = false;
             SetFormComboBox();
 
             if (!GetDataGridView())

@@ -66,6 +66,7 @@
             this.ButtonReset.Name = "ButtonReset";
             this.ButtonReset.Size = new System.Drawing.Size(165, 44);
             this.ButtonReset.TabIndex = 70;
+            this.ButtonReset.TabStop = false;
             this.ButtonReset.Text = "入力リセット";
             this.ButtonReset.UseVisualStyleBackColor = true;
             this.ButtonReset.Click += new System.EventHandler(this.ButtonReset_Click);
@@ -194,7 +195,7 @@
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(165, 58);
-            this.ButtonBack.TabIndex = 8;
+            this.ButtonBack.TabIndex = 7;
             this.ButtonBack.Text = "戻る";
             this.ButtonBack.UseVisualStyleBackColor = true;
             this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
@@ -240,6 +241,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1308, 292);
             this.dataGridView1.TabIndex = 51;
+            this.dataGridView1.TabStop = false;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // ButtonKakutei

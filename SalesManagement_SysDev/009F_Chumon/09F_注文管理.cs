@@ -37,6 +37,7 @@ namespace SalesManagement_SysDev
         {
             TextboxHihyouji.Enabled = false;
             ButtonKakutei.Enabled = false;
+            RadioKensaku.TabStop = false;   
 
             SetFormComboBox();
             ComboEigyousyoName.SelectedIndex = -1;
@@ -454,7 +455,7 @@ namespace SalesManagement_SysDev
         private void RadioHihyouji_CheckedChanged(object sender, EventArgs e)
         {
             ClearInput();
-            RadioKensaku.TabStop = false;
+            RadioHihyouji.TabStop = false;
             TextboxChumonID.Enabled = false;
             TextboxOrderID.Enabled = false;
             ComboEigyousyoName.SelectedIndex = -1;

@@ -37,6 +37,7 @@ namespace SalesManagement_SysDev
         private void F_社員管理_Load(object sender, EventArgs e)
         {
             TextboxHihyoji.Enabled = false;
+            RadioTouroku.TabStop = false;
             SetFormComboBox();
 
             if (!GetDataGridView())
@@ -624,10 +625,10 @@ namespace SalesManagement_SysDev
             ClearInput();
             RadioKensaku.TabStop = false;
             TextboxSyainID.Enabled = true;
-            TextboxSyainName.ReadOnly = true;
+            TextboxSyainName.Enabled = false;
             TextboxTelNo1.Enabled = false;
-            TextboxTelNo2.ReadOnly = false;
-            TextboxTelNo3.ReadOnly = false;
+            TextboxTelNo2.Enabled = false;
+            TextboxTelNo3.Enabled = false;
             ComboEigyousyoName.SelectedIndex = -1;
             ComboYakusyokuName.SelectedIndex = -1;
             TextboxHihyoji.Enabled = false;
@@ -644,7 +645,7 @@ namespace SalesManagement_SysDev
             ClearInput();
             RadioKousin.TabStop = false;
             TextboxSyainID.Enabled = false;
-            TextboxSyainName.ReadOnly = false;
+            TextboxSyainName.Enabled = false; ;
             TextboxTelNo1.Enabled = true;
             TextboxTelNo2.Enabled = true;
             TextboxTelNo3.Enabled = true;
@@ -665,7 +666,7 @@ namespace SalesManagement_SysDev
             ClearInput();
             RadioHihyouji.TabStop = false;
             TextboxSyainID.Enabled = false;
-            TextboxSyainName.ReadOnly = true;
+            TextboxSyainName.Enabled = false;
             TextboxTelNo1.Enabled = false;
             TextboxTelNo2.Enabled = false;
             TextboxTelNo3.Enabled = false;
