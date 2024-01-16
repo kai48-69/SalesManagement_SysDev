@@ -297,6 +297,7 @@
             // TextboxSyukkoID
             // 
             this.TextboxSyukkoID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxSyukkoID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxSyukkoID.Location = new System.Drawing.Point(173, 266);
             this.TextboxSyukkoID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyukkoID.MaxLength = 6;
@@ -329,6 +330,7 @@
             // TextboxOrderID
             // 
             this.TextboxOrderID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxOrderID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxOrderID.Location = new System.Drawing.Point(173, 364);
             this.TextboxOrderID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxOrderID.MaxLength = 6;

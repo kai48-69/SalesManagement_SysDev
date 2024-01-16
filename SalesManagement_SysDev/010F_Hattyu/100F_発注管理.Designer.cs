@@ -268,6 +268,7 @@
             // TextboxSyainID
             // 
             this.TextboxSyainID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxSyainID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxSyainID.Location = new System.Drawing.Point(540, 268);
             this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainID.MaxLength = 6;

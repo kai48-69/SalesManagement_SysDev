@@ -252,6 +252,7 @@
             // TextboxOrderID
             // 
             this.TextboxOrderID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxOrderID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxOrderID.Location = new System.Drawing.Point(159, 363);
             this.TextboxOrderID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxOrderID.MaxLength = 6;
@@ -286,6 +287,7 @@
             // TextboxChumonID
             // 
             this.TextboxChumonID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxChumonID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxChumonID.Location = new System.Drawing.Point(159, 274);
             this.TextboxChumonID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxChumonID.MaxLength = 6;

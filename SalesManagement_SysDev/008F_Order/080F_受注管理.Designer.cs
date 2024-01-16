@@ -81,6 +81,7 @@
             // 
             this.TextboxJutyuID.Enabled = false;
             this.TextboxJutyuID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxJutyuID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxJutyuID.Location = new System.Drawing.Point(151, 292);
             this.TextboxJutyuID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxJutyuID.MaxLength = 6;
@@ -321,6 +322,7 @@
             // TextboxSyainID
             // 
             this.TextboxSyainID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxSyainID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxSyainID.Location = new System.Drawing.Point(151, 354);
             this.TextboxSyainID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextboxSyainID.MaxLength = 6;
