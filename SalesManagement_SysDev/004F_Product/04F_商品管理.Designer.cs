@@ -174,8 +174,10 @@
             // TextboxSyouhinID
             // 
             this.TextboxSyouhinID.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.TextboxSyouhinID.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TextboxSyouhinID.Location = new System.Drawing.Point(189, 264);
             this.TextboxSyouhinID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextboxSyouhinID.MaxLength = 5;
             this.TextboxSyouhinID.Name = "TextboxSyouhinID";
             this.TextboxSyouhinID.Size = new System.Drawing.Size(244, 32);
             this.TextboxSyouhinID.TabIndex = 1;

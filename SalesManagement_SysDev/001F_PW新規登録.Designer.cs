@@ -34,14 +34,14 @@
             this.TextboxConPW = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LblLoginID = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.LblSoName = new System.Windows.Forms.Label();
             this.LblEmName = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.ButtonBack = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.LblLoginID = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,6 +118,26 @@
             this.panel1.Size = new System.Drawing.Size(858, 142);
             this.panel1.TabIndex = 45;
             // 
+            // LblLoginID
+            // 
+            this.LblLoginID.AutoSize = true;
+            this.LblLoginID.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.LblLoginID.Location = new System.Drawing.Point(151, 29);
+            this.LblLoginID.Name = "LblLoginID";
+            this.LblLoginID.Size = new System.Drawing.Size(53, 19);
+            this.LblLoginID.TabIndex = 111;
+            this.LblLoginID.Text = "1111";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(56, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 19);
+            this.label1.TabIndex = 110;
+            this.label1.Text = "ログインID";
+            // 
             // LblSoName
             // 
             this.LblSoName.AutoSize = true;
@@ -165,7 +185,7 @@
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(165, 58);
-            this.ButtonBack.TabIndex = 5;
+            this.ButtonBack.TabIndex = 4;
             this.ButtonBack.Text = "戻る";
             this.ButtonBack.UseVisualStyleBackColor = true;
             this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
@@ -179,26 +199,6 @@
             this.label9.Size = new System.Drawing.Size(290, 50);
             this.label9.TabIndex = 4;
             this.label9.Text = "PW新規登録";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(56, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 19);
-            this.label1.TabIndex = 110;
-            this.label1.Text = "ログインID";
-            // 
-            // LblLoginID
-            // 
-            this.LblLoginID.AutoSize = true;
-            this.LblLoginID.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.LblLoginID.Location = new System.Drawing.Point(151, 29);
-            this.LblLoginID.Name = "LblLoginID";
-            this.LblLoginID.Size = new System.Drawing.Size(53, 19);
-            this.LblLoginID.TabIndex = 111;
-            this.LblLoginID.Text = "1111";
             // 
             // F_PW新規登録
             // 
