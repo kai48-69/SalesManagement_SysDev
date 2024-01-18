@@ -101,19 +101,19 @@ namespace SalesManagement_SysDev
             {
                 if (!ichk.IntegerCheck(TextboxSyohinID.Text.Trim()))
                 {
-                    MessageBox.Show("商品IDは半角数字で入力してください");
+                    MessageBox.Show("商品IDは半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("商品IDを入力してください");
+                MessageBox.Show("商品IDを入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (String.IsNullOrEmpty(TextboxSyohinName.Text))
             {
-                MessageBox.Show("正しい商品IDを入力してください");
+                MessageBox.Show("正しい商品IDを入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -132,7 +132,7 @@ namespace SalesManagement_SysDev
             }
             else
             {
-                MessageBox.Show("数量が入力されていません");
+                MessageBox.Show("数量が入力されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
