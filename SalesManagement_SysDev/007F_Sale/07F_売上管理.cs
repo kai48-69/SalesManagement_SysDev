@@ -105,46 +105,44 @@ namespace SalesManagement_SysDev
             //行単位選択     
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //ヘッダー文字位置、セル文字位置、列幅の設定
-            //受注ID
+            //売上ID
             dataGridView1.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[0].Width = 40;
-            ////受注詳細ID
+            dataGridView1.Columns[0].Width = 60;
+            ////売上詳細ID
             dataGridView1.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[1].Width = 50;
-            //営業所名
+            dataGridView1.Columns[1].Width = 80;
+            //受注ID
             dataGridView1.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[2].Width = 80;
-            //社員名
+            dataGridView1.Columns[2].Width = 60;
+            //営業所名
             dataGridView1.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[3].Width = 80;
-            //顧客名
+            dataGridView1.Columns[3].Width = 120;
+            //社員名
             dataGridView1.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[4].Width = 80;
-            //顧客担当者名
+            dataGridView1.Columns[4].Width = 120;
+            //顧客名
             dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[5].Width = 120;
             //商品名
             dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].Width = 70;
+            dataGridView1.Columns[6].Width = 140;
             //数量
             dataGridView1.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[7].Width = 70;
+            dataGridView1.Columns[7].Width = 90;
             //合計金額
             dataGridView1.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[8].Width = 80;
+            dataGridView1.Columns[8].Width = 138;
 
-            dataGridView1.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[9].Width = 80;
+            //社員ID（非表示）
             dataGridView1.Columns[9].Visible = false;
 
             dataGridView1.Refresh();

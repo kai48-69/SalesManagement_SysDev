@@ -105,31 +105,31 @@ namespace SalesManagement_SysDev
             ////メーカー名
             dataGridView1.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridView1.Columns[1].Width = 50;
+            dataGridView1.Columns[1].Width = 80;
             //商品名
             dataGridView1.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridView1.Columns[2].Width = 80;
+            dataGridView1.Columns[2].Width = 260;
             //価格
             dataGridView1.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridView1.Columns[3].Width = 80;
+            dataGridView1.Columns[3].Width = 90;
             ////安全在庫数
             dataGridView1.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridView1.Columns[4].Width = 40;
+            dataGridView1.Columns[4].Width = 90;
             ////小分類
             dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[5].Width = 80;
+            dataGridView1.Columns[5].Width = 100;
             ////型番
             dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[6].Width = 30;
+            dataGridView1.Columns[6].Width = 50;
             ////色
             dataGridView1.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[7].Width = 70;
+            dataGridView1.Columns[7].Width = 120;
             ////発売日
             dataGridView1.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -172,9 +172,7 @@ namespace SalesManagement_SysDev
             {
                 //何も処理を行わない
             }
-           
         }
-
 
         //実行ボタン
         private void ButtonExe_Click(object sender, EventArgs e)

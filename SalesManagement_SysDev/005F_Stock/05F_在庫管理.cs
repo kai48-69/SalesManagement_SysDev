@@ -72,7 +72,7 @@ namespace SalesManagement_SysDev
             //営業所名
             dataGridView1.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns[3].Width = 80;
+            dataGridView1.Columns[3].Width = 110;
 
 
             dataGridView1.Refresh();
