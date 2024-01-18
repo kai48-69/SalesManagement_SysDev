@@ -35,9 +35,6 @@ namespace SalesManagement_SysDev
                          join Product in context.M_Products
                          on SaleDetail.PrID equals Product.PrID
 
-                         join OrDetail in context.T_OrderDetails
-                         on Order.OrID equals OrDetail.OrID
-
 
                          where
                          Sale.SaFlag.Equals(0)
@@ -52,7 +49,7 @@ namespace SalesManagement_SysDev
                              ClName = Client.ClName,
                              PrName=Product.PrName,
                              SaQuantity=SaleDetail.SaQuantity,
-                             SaTotalPrice=OrDetail.OrTotalPrice.ToString(),
+                             SaTotalPrice=SaleDetail.SaTotalPrice,
                              SyainID=Employee.EmID
                          };
                 return tb.ToList();
@@ -120,7 +117,7 @@ namespace SalesManagement_SysDev
                              ClName = Client.ClName,
                              PrName = Product.PrName,
                              SaQuantity = SaleDetail.SaQuantity,
-                             SaTotalPrice = OrDetail.OrTotalPrice.ToString(),
+                             SaTotalPrice = SaleDetail.SaTotalPrice,
                          };
                 return tb.ToList();
             }

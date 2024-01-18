@@ -113,6 +113,11 @@ namespace SalesManagement_SysDev
                     MessageBox.Show("数量は半角数字で入力してください");
                     return false;
                 }
+                if (int.Parse(TextboxSuryou.Text) <= 0)
+                {
+                    MessageBox.Show("数量は０以上の値を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
             else
             {

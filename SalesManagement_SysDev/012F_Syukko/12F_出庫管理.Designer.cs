@@ -377,6 +377,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "F_出庫管理";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_出庫";
             this.Load += new System.EventHandler(this.F_出庫管理_Load);
             this.panel1.ResumeLayout(false);

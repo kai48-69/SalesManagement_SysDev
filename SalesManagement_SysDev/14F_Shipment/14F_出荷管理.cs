@@ -357,11 +357,12 @@ namespace SalesManagement_SysDev
                 SaleDetail.SaID = SaID;
                 SaleDetail.PrID = Data1[i].PrID;
                 SaleDetail.SaQuantity = Data1[i].ShQuantity;
+                SaleDetail.SaTotalPrice = Data1[i].ShQuantity * Data1[i].price;
                 //chumonDetail登録
                 SDA.AddSaleDetailData(SaleDetail);
              
             }
-            MessageBox.Show("データを確定しました", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("データを確定しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private T_Shipment GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)

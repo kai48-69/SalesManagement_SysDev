@@ -28,8 +28,6 @@ namespace SalesManagement_SysDev
                          on ShDetail.PrID equals Product.PrID
                          join Order in context.T_Orders
                          on Ship.OrID equals Order.OrID
-                         join OrderDetail in context.T_OrderDetails
-                         on Order.OrID equals OrderDetail.OrID
                          where Ship.ShFlag.Equals(0) &&
                          Ship.ShStateFlag.Equals(0)
 
@@ -41,7 +39,7 @@ namespace SalesManagement_SysDev
                              SoName = SOffice.SoName.ToString(),
                              OrID = Order.OrID.ToString(),
                              PrName = Product.PrName,
-                             ShQuantity=OrderDetail.OrQuantity,
+                             ShQuantity=ShDetail.ShQuantity,
                          };
                 return tb.ToList();
             }
@@ -136,6 +134,7 @@ namespace SalesManagement_SysDev
                              ClID = Client.ClID,
                              ShDetailID = ShDetail.ShDetailID,
                              PrID = Product.PrID,
+                             price=Product.Price,
                              ShQuantity = ShDetail.ShQuantity,
                              OrID = Ship.OrID,
                          };

@@ -324,6 +324,8 @@ namespace SalesManagement_SysDev
         public int ClID { get; set; }
         [DisplayName("商品ID")]
         public int PrID { get; set; }
+        [DisplayName("価格")]
+        public decimal price { get; set; }
         [DisplayName("数量")]
         public int ShQuantity { get; set; }
     }
@@ -377,7 +379,7 @@ namespace SalesManagement_SysDev
         [DisplayName("数量")]
         public int SaQuantity { get; set; }
         [DisplayName("合計金額")]
-        public string SaTotalPrice { get; set; }
+        public decimal SaTotalPrice { get; set; }
         [DisplayName("社員ID")]
         public int SyainID { get; set; }
     }
