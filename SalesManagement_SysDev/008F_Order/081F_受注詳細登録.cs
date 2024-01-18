@@ -74,6 +74,8 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridView1.Columns[4].Width = 40;
 
+            dataGridView1.Columns[5].Visible = false;
+
 
             dataGridView1.Refresh();
         }
@@ -81,20 +83,31 @@ namespace SalesManagement_SysDev
         //登録ボタン-------------------------------------------------------------------------------
         private void ButtonTouroku_Click(object sender, EventArgs e)
         {
-            if (!GetVaildDataAtRegistration())
+            
+            int opt = GetVaildData();
+            if (opt==-1)
             {
                 return;
             }
 
-            var regOrD = GenerateDataAtRegistration();
+            if (opt == 1)
+            {
+                var regOrD = GenerateDataAtRegistration();
 
-            RegistrationOrderDetail(regOrD);
+                RegistrationOrderDetail(regOrD);
+            }
 
-         
+            if (opt == 2)
+            {
+                var updOrD= GenerateDataAtUpdate();
+
+                UpdateOrderDetail(updOrD);
+            }
+             
         }
 
         //登録処理----------------------------------------------------------------------------------
-        private bool GetVaildDataAtRegistration() //入力データチェック
+        private int GetVaildData() //入力データチェック
         {
 
             if (!String.IsNullOrEmpty(TextboxSyohinID.Text.Trim()))
@@ -102,19 +115,23 @@ namespace SalesManagement_SysDev
                 if (!ichk.IntegerCheck(TextboxSyohinID.Text.Trim()))
                 {
                     MessageBox.Show("商品IDは半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
+                    return -1;
+                }
+                if (ODA.CheckProductID(int.Parse(TextboxSyohinID.Text.Trim())))
+                {
+                    return 2;
                 }
             }
             else
             {
                 MessageBox.Show("商品IDを入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return -1;
             }
 
             if (String.IsNullOrEmpty(TextboxSyohinName.Text))
             {
                 MessageBox.Show("正しい商品IDを入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return -1;
             }
 
             if (!String.IsNullOrEmpty(TextboxSuryou.Text.Trim()))
@@ -122,21 +139,21 @@ namespace SalesManagement_SysDev
                 if (!ichk.IntegerCheck(TextboxSuryou.Text.Trim()))
                 {
                     MessageBox.Show("数量は半角数字で入力してください","エラー",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                    return false;
+                    return -1;
                 }
                 if (int.Parse(TextboxSuryou.Text) <= 0)
                 {
                     MessageBox.Show("数量は０以上の値を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
+                    return -1;
                 }
             }
             else
             {
                 MessageBox.Show("数量が入力されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return -1;
             }
 
-            return true;
+            return 1;
         }
 
         private T_OrderDetail GenerateDataAtRegistration() //登録データ生成
@@ -186,6 +203,43 @@ namespace SalesManagement_SysDev
             }
             //ClearInput();
             //GetDataGridView();
+        }
+
+        //更新処理----------------------------------------------------------------------------------
+        private T_OrderDetail GenerateDataAtUpdate() //更新データ生成
+        {
+            int Quantity = int.Parse(TextboxSuryou.Text) + DB1.GetQuantity(int.Parse(TextboxSyohinID.Text));
+            int PrID = int.Parse(TextboxSyohinID.Text);
+            decimal Price = DB.GetPrice(PrID);
+            return new T_OrderDetail
+            {
+                OrID = DB1.GetOrID(),
+                PrID = PrID,
+                OrQuantity = Quantity,
+                OrTotalPrice = Quantity * Price,
+            };
+        }
+        private void UpdateOrderDetail(T_OrderDetail updOrD)　//データ更新処理
+        {
+            DialogResult result = MessageBox.Show("この商品は既に登録済みです。数量を追加しますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            bool flg = ODA.UpdateOrderDetailData(updOrD);
+            if (flg == true)
+            {
+                MessageBox.Show("数量を更新しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("数量の更新に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TextboxSyohinName.Focus();
+            }
+
+            GetDataGridView();
         }
 
         //戻るボタン--------------------------------------------------------------------------------

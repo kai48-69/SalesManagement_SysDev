@@ -102,9 +102,10 @@ namespace SalesManagement_SysDev
         [DisplayName("商品名")]
         public string PrName { get; set; }
         [DisplayName("数量")]
-        public string PrQuantity { get; set; }
+        public int OrQuantity { get; set; }
         [DisplayName("合計金額")]
         public string OrTotalPrice { get; set; }
+        public int PrID { get; set; }
     }
 
     class GetOrderDataDTO

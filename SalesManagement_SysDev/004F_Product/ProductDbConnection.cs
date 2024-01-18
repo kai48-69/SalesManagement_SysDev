@@ -158,6 +158,8 @@ namespace SalesManagement_SysDev
             return Price;
         }
 
+      
+
         public string GetPrName(int PrID, int HaID)
         {
             var context = new SalesManagement_DevContext();

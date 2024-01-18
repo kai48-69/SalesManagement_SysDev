@@ -10,7 +10,8 @@ namespace SalesManagement_SysDev
 {
     internal class OrderDataAccess
     {
-        
+        OrderDbConnection ODC=new OrderDbConnection();
+
         public bool AddOrderData(T_Order regOr)
         {
             try
@@ -45,6 +46,27 @@ namespace SalesManagement_SysDev
             }
         }
 
+        public bool UpdateOrderDetailData(T_OrderDetail updOrD)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var OrderDetail = context.T_OrderDetails.First(x => x.OrID == updOrD.OrID);
+                OrderDetail.OrQuantity = updOrD.OrQuantity;
+                OrderDetail.OrTotalPrice = updOrD.OrTotalPrice;
+
+                context.SaveChanges();
+                context.Dispose();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "例外エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            
+        }
 
         public bool HideOrderData(T_Order hidOr)
         {
@@ -95,5 +117,19 @@ namespace SalesManagement_SysDev
             return flg;
         }
 
+        public bool CheckProductID(int PrID)
+        {
+            var context = new SalesManagement_DevContext();
+            int OrID= ODC.GetOrID();
+            bool flg1 =context.T_OrderDetails.Any(x=>x.OrID==OrID);
+            if (flg1)
+            {
+                List<DispOrderDetailListDTO> tb=ODC.OrderDetailGetData(OrID);
+                bool flg=tb.Any(x => x.PrID == PrID);
+                return flg;
+            }
+           
+            return flg1;
+        }
     }
 }
