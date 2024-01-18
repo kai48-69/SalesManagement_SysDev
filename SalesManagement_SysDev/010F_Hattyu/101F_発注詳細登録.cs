@@ -1,12 +1,6 @@
 ﻿using SalesManagement_SysDev.Order;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SalesManagement_SysDev
@@ -66,24 +60,35 @@ namespace SalesManagement_SysDev
             dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridView1.Columns[3].Width = 80;
 
+            dataGridView1.Columns[4].Visible = false;
+
 
             dataGridView1.Refresh();
         }
 
         private void ButtonTouroku_Click(object sender, EventArgs e)
         {
-            if (!GetVaildDataAtRegistration())
+            int opt = GetVaildData();
+            if(opt==-1)
             {
                 return;
             }
+            if (opt == 1)
+            {
+                var regHaD = GenerateDataAtRegistration();
 
-            var regHaD = GenerateDataAtRegistration();
+                RegistrationHattyuDetail(regHaD);
+            }
+            if (opt == 2)
+            {
+                var updHaD = GenerateDataAtUpdate();
 
-            RegistrationHattyuDetail(regHaD);
+                UpdateOrderDetail(updHaD);
+            }
         }
 
         //登録処理----------------------------------------------------------------------------------
-        private bool GetVaildDataAtRegistration() //入力データチェック
+        private int GetVaildData() //入力データチェック
         {
 
             if (!String.IsNullOrEmpty(TextboxSyohinID.Text.Trim()))
@@ -91,19 +96,23 @@ namespace SalesManagement_SysDev
                 if (!ichk.IntegerCheck(TextboxSyohinID.Text.Trim()))
                 {
                     MessageBox.Show("商品IDは半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
+                    return -1;
+                }
+                if (HDA.CheckProductID(int.Parse(TextboxSyohinID.Text.Trim())))
+                {
+                    return 2;
                 }
             }
             else
             {
                 MessageBox.Show("商品IDを入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return -1;
             }
 
             if (String.IsNullOrEmpty(TextboxSyohinName.Text))
             {
                 MessageBox.Show("正しい商品IDを入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return -1;
             }
 
             if (!String.IsNullOrEmpty(TextboxSuryou.Text.Trim()))
@@ -111,21 +120,21 @@ namespace SalesManagement_SysDev
                 if (!ichk.IntegerCheck(TextboxSuryou.Text.Trim()))
                 {
                     MessageBox.Show("数量は半角数字で入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
+                    return -1;
                 }
                 if (int.Parse(TextboxSuryou.Text) <= 0)
                 {
                     MessageBox.Show("数量は０以上の値を入力してください", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
+                    return -1;
                 }
             }
             else
             {
                 MessageBox.Show("数量が入力されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return -1;
             }
 
-            return true;
+            return 1;
         }
 
         private T_HattyuDetail GenerateDataAtRegistration() //登録データ生成
@@ -172,6 +181,42 @@ namespace SalesManagement_SysDev
                 return;
             }
 
+        }
+
+        //更新処理----------------------------------------------------------------------------------
+        private T_HattyuDetail GenerateDataAtUpdate() //更新データ生成
+        {
+            int Quantity = int.Parse(TextboxSuryou.Text) + DB1.GetQuantity(int.Parse(TextboxSyohinID.Text));
+            int PrID = int.Parse(TextboxSyohinID.Text);
+            decimal Price = DB.GetPrice(PrID);
+            return new T_HattyuDetail
+            {
+                HaID = DB1.GetHaID(),
+                PrID = PrID,
+                HaQuantity = Quantity,
+            };
+        }
+        private void UpdateOrderDetail(T_HattyuDetail updHaD)　//データ更新処理
+        {
+            DialogResult result = MessageBox.Show("この商品は既に登録済みです。数量を追加しますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            bool flg = HDA.UpdateHattyuDetailData(updHaD);
+            if (flg == true)
+            {
+                MessageBox.Show("数量を更新しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("数量の更新に失敗しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TextboxSyohinName.Focus();
+            }
+
+            GetDataGridView();
         }
 
         private void TextboxSyohinID_TextChanged(object sender, EventArgs e)

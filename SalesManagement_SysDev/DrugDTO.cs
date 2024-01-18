@@ -181,7 +181,8 @@ namespace SalesManagement_SysDev
         [DisplayName("商品名")]
         public string PrName { get; set; }
         [DisplayName("数量")]
-        public string HaQuantity { get; set; }
+        public int HaQuantity { get; set; }
+        public int PrID { get; set; }
     }
 
     class GetHattyuDataDTO

@@ -70,7 +70,8 @@ namespace SalesManagement_SysDev.Order
                              HaDetailID = HattyuDetail.HaDetailID.ToString(),
                              HaID = Hattyu.HaID.ToString(),
                              PrName = Product.PrName,
-                             HaQuantity = HattyuDetail.HaQuantity.ToString(),
+                             HaQuantity = HattyuDetail.HaQuantity,
+                             PrID=HattyuDetail.PrID
 
                          };
                 return tb.ToList();
@@ -167,6 +168,28 @@ namespace SalesManagement_SysDev.Order
             return context.T_Hattyus.Max(x => x.HaID);
 
         }
+
+        public int GetQuantity(int PrID)
+        {
+            var context = new SalesManagement_DevContext();
+            int HaID = GetHaID();
+            int Quantity = 0;
+            bool flg1 = context.T_HattyuDetails.Any(x => x.HaID == HaID);
+            if (flg1)
+            {
+                List<DispHattyuDetailListDTO> tb = HattyuDetailGetData(HaID);
+                bool flg = tb.Any(x => x.PrID == PrID);
+                if (flg)
+                {
+                    var HaD = tb.Single(x => x.PrID == PrID);
+                    Quantity = HaD.HaQuantity;
+                    return Quantity;
+                }
+                return -1;
+            }
+            return -1;
+        }
+
 
     }
 }
