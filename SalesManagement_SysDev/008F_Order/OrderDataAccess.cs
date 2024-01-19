@@ -51,7 +51,8 @@ namespace SalesManagement_SysDev
             try
             {
                 var context = new SalesManagement_DevContext();
-                var OrderDetail = context.T_OrderDetails.First(x => x.OrID == updOrD.OrID);
+                var OrderDetail = context.T_OrderDetails.First(x => x.OrID == updOrD.OrID && x.PrID == updOrD.PrID);
+                
                 OrderDetail.OrQuantity = updOrD.OrQuantity;
                 OrderDetail.OrTotalPrice = updOrD.OrTotalPrice;
 

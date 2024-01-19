@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,7 +52,7 @@ namespace SalesManagement_SysDev
             try
             {
                 var context = new SalesManagement_DevContext();
-                var HattyuDetail = context.T_HattyuDetails.First(x => x.HaID == updHaD.HaID);
+                var HattyuDetail = context.T_HattyuDetails.First(x => x.HaID == updHaD.HaID && x.PrID==updHaD.PrID);
                 HattyuDetail.HaQuantity = updHaD.HaQuantity;
              
                 context.SaveChanges();
