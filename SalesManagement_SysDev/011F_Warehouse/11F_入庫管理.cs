@@ -300,7 +300,7 @@ namespace SalesManagement_SysDev
                
             }
       
-             MessageBox.Show("データを確定しました", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+             MessageBox.Show("データを確定しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private T_Warehousing GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)

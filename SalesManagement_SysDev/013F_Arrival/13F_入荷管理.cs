@@ -367,7 +367,7 @@ namespace SalesManagement_SysDev
                 //chumonDetail登録
                 SDA.AddSyukkoDetailData(SyukkoDetail);
             }
-            MessageBox.Show("データを確定しました", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            MessageBox.Show("データを確定しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private T_Arrival GenereteDataAtUpdateFlg()　//確定データ生成(フラグの更新データ生成)

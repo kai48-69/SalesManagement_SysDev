@@ -369,7 +369,7 @@ namespace SalesManagement_SysDev
                 //chumonDetail登録
                 ADA.AddArrivalDetailData(NyukaDetail);
             }
-            MessageBox.Show("データを確定しました", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            MessageBox.Show("データを確定しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return true;
         }
 
